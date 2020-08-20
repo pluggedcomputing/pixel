@@ -11,7 +11,7 @@ function Main() {
       <Image source={logo} style={styles.logo} />
       <Text style={styles.text}>Colorindo com Números</Text>
       <CustomButton
-        text="inicio"
+        text="iniciar"
         style={styles.buttons}
         onPress={() => console.log('clicou inicio')}
       />
