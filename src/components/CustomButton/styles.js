@@ -2,8 +2,8 @@ import {StyleSheet} from 'react-native';
 
 import {fonts, metrics, colors} from '../../styles';
 
-const HEIGHT_PORCENTAGE = 0.15;
-const WIDTH_PORCENTAGE = 0.25;
+const WIDTH_PORCENTAGE = 0.08;
+const HEIGHT_PORCENTAGE = 0.08;
 
 const styles = StyleSheet.create({
   container: {
@@ -11,20 +11,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: colors.colorPrimary,
-    width: metrics.screenHeight * WIDTH_PORCENTAGE,
-    height: metrics.screenWidth * HEIGHT_PORCENTAGE,
+    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
     elevation: metrics.baseElevation,
+    paddingRight: metrics.smallPadding,
+    paddingLeft: metrics.smallPadding,
   },
   textButton: {
     fontSize: fonts.medium,
+    margin: metrics.doubleBaseMargin,
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: colors.colorTextSecondary,
   },
   image: {
     resizeMode: 'contain',
-    width: metrics.screenWidth * 0.06,
-    height: metrics.screenHeight * 0.06,
+    width: metrics.screenWidth * HEIGHT_PORCENTAGE,
+    height: metrics.screenHeight * WIDTH_PORCENTAGE,
   },
 });
 
