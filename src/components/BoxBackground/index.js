@@ -1,21 +1,23 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, Dimensions} from 'react-native';
 import uuid from 'react-native-uuid';
 
 import PropTypes from 'prop-types';
 
 import styles from './styles';
 
+const {height} = Dimensions.get('window');
+
 const BoxBackground = (props) => {
   const {content, style, isLastPage} = props;
 
-  const height = 300;
+  const contextHeight = height - 50;
 
   const [pagination, setPagination] = useState(0);
 
   const changePaginationIndex = (e) => {
     const offset = e.nativeEvent.contentOffset.x;
-    const index = Math.floor(offset / height);
+    const index = Math.floor(offset / contextHeight);
     if (index !== pagination) setPagination(index);
   };
 
