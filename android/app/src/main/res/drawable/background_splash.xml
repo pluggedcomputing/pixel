@@ -4,7 +4,7 @@
   <item
     android:width="260dp"
     android:height="260dp"
-    android:drawable="@drawable/icon_splash"
+    android:drawable="@drawable/icon"
     android:gravity="center"
   />
 </layer-list>
