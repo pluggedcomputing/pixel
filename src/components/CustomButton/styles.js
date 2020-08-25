@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 import {fonts, metrics, colors} from '../../styles';
 
-const WIDTH_PORCENTAGE = 0.08;
+const WIGTH_PORCENTAGE = 0.07;
 const HEIGHT_PORCENTAGE = 0.08;
 
 const styles = StyleSheet.create({
@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
   },
   image: {
     resizeMode: 'contain',
-    width: metrics.screenWidth * HEIGHT_PORCENTAGE,
-    height: metrics.screenHeight * WIDTH_PORCENTAGE,
+    width: metrics.screenWidth * WIGTH_PORCENTAGE,
+    height: metrics.screenHeight * WIGTH_PORCENTAGE,
   },
 });
 
