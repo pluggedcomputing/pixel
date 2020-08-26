@@ -5,7 +5,7 @@ import logo from '../../assets/images/logo_name.png';
 import CustomButton from '../../components/CustomButton/index';
 import styles from './styles';
 
-function Main() {
+function Main({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <Image source={logo} style={styles.logo} />
@@ -18,7 +18,7 @@ function Main() {
       <CustomButton
         text="sobre"
         style={styles.buttons}
-        onPress={() => console.log('clicou sobre')}
+        onPress={() => navigation.navigate('ScreenAbout')}
       />
     </SafeAreaView>
   );
