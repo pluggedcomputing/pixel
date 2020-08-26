@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, Image, Text} from 'react-native';
 
-import logo from '../../assets/imagens/logo_name.png';
+import logo from '../../assets/images/logo_name.png';
 import CustomButton from '../../components/CustomButton/index';
 import styles from './styles';
 
