@@ -8,6 +8,12 @@ const WIDTH_PORCENTAGE = 0.3;
 
 
 const styles = StyleSheet.create ({
+boxBackGround: {
+  alignSelf:'center',
+},
+bottom: {
+  marginLeft: 20,
+},
 container: {
   flex: 1,
   width: metrics.screenWidth,
@@ -37,6 +43,7 @@ textButton: {
 },
 textContent: {
   textAlign: 'center',
+  margin: 20,
 },
 })
 

@@ -38,7 +38,10 @@ function ScreenAbout({ navigation }) {
      <View style={styles.header}>
        <Image source={logo} style={styles.logo} />
      </View>
-     <BoxBackground content={viewOfContent} />
+     <BoxBackground content={viewOfContent} style={styles.boxBackGround} />
+     <View style={styles.bottom}>
+       <Image source={logo} style={styles.logo} />
+     </View>
      <View>
        <Text style={styles.credits}>
          Desenvolvido e mantido pela equipe do projeto Computação Desplugada da
