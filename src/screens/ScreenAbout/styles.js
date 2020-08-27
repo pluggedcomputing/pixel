@@ -11,11 +11,9 @@ const styles = StyleSheet.create ({
 boxBackGround: {
   alignSelf:'center',
 },
-bottom: {
-  marginLeft: 20,
-},
 container: {
   flex: 1,
+  alignItems: 'center',
   width: metrics.screenWidth,
   justifyContent: 'space-around',
   backgroundColor: colors.colorPrimary,
@@ -23,11 +21,8 @@ container: {
 credits: {
   color: colors.colorSecondary,
   textAlign: 'center',
-  padding: 3
-},
-header: {
-  flexDirection: 'row',
-  justifyContent: 'space-around'
+  fontSize: fonts.small,
+  padding: 3,
 },
 logo: {
   resizeMode: 'contain',
@@ -44,6 +39,11 @@ textButton: {
 textContent: {
   textAlign: 'center',
   margin: 20,
+},
+tankTetris: {
+  resizeMode: 'contain',
+  width: (metrics.screenWidth * WIDTH_PORCENTAGE) - 50,
+  height: metrics.screenHeight * HEIGHT_PORCENTAGE,
 },
 })
 

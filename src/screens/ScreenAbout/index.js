@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StatusBar, Image, TouchableOpacity, Text } from 'react-native';
 
-import logo from '../../assets/images/logo_grey.png'
+import logo from '../../assets/images/logo_grey.png';
+import tank from '../../assets/images/tank_white.png';
 import BoxBackground from '../../components/BoxBackground/index';
 import { colors } from '../../styles';
 import styles from './styles';
@@ -35,13 +36,9 @@ function ScreenAbout({ navigation }) {
        barStyle="light-content"
        backgroundColor={colors.colorPrimary}
      />
-     <View style={styles.header}>
-       <Image source={logo} style={styles.logo} />
-     </View>
+     <Image source={logo} style={styles.logo} />
      <BoxBackground content={viewOfContent} style={styles.boxBackGround} />
-     <View style={styles.bottom}>
-       <Image source={logo} style={styles.logo} />
-     </View>
+     <Image source={tank} style={styles.tankTetris} />
      <View>
        <Text style={styles.credits}>
          Desenvolvido e mantido pela equipe do projeto Computação Desplugada da
