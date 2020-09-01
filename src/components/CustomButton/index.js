@@ -3,8 +3,8 @@ import {Text, TouchableOpacity, Image} from 'react-native';
 
 import {PropTypes} from 'prop-types';
 
-import tetris01 from '../../assets/imagens/tetris01.png';
-import tetris02 from '../../assets/imagens/tetris02.png';
+import tetris01 from '../../assets/images/tetris01.png';
+import tetris02 from '../../assets/images/tetris02.png';
 import styles from './styles';
 
 const CustomButton = (props) => {

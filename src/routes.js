@@ -1,10 +1,11 @@
 import React from 'react';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Main from './screens/Main';
-import {colors, fonts} from './styles';
+import ScreenAbout from './screens/ScreenAbout';
+import { colors, fonts } from './styles';
 
 const Stack = createStackNavigator();
 
@@ -25,9 +26,14 @@ const routes = () => {
           },
         }}>
         <Stack.Screen
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           name="Main"
           component={Main}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="ScreenAbout"
+          component={ScreenAbout}
         />
       </Stack.Navigator>
     </NavigationContainer>
