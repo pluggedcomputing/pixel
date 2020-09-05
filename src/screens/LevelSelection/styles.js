@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flexDirection: 'row',
+    justifyContent: 'center',
   },
   boxContainer: {
     margin: metrics.doubleBaseMargin,
