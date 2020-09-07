@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    color: colors.colorTextSecondary,
+    color: colors.colorTextPrimary,
     textTransform: 'uppercase'
   }
 })

@@ -8,7 +8,7 @@ const colors = {
   colorAccent: '#46d3f2',
   colorTextPrimary: '#212121',
   colorTextSecondary: '#F1F1F1',
-  colorSucess: '#212121',
+  colorSucess: '#00E676',
   colorError: '#EF5350',
 };
 
