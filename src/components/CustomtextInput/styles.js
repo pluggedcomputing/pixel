@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    flex: 8,
-    color: colors.textColorPrimary,
+    flex: 2,
+    color: colors.colorTextPrimary,
     fontSize: fonts.input,
     backgroundColor: colors.colorBackground,
   },
