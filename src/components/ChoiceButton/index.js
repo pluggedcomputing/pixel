@@ -7,9 +7,8 @@ import { colors } from '../../styles';
 import styles from './styles';
 
 const ChoiceButton = props => {
-  // eslint-disable-next-line react/prop-types
   const { correct, onPress, text, step } = props;
-  const [ backgroundColor, setBackgroundColor ] = useState(colors.colorSucess)
+  const [ backgroundColor, setBackgroundColor ] = useState(colors.colorPrimary)
 
   useEffect(() => {
     setBackgroundColor(colors.colorPrimary);
@@ -17,7 +16,7 @@ const ChoiceButton = props => {
 
   function onPressButton() {
     if (correct) {
-      setBackgroundColor(colors.colorTextPrimary)
+      setBackgroundColor(colors.colorSucess)
     } else {
       setBackgroundColor(colors.colorError)
     }
@@ -35,7 +34,7 @@ const ChoiceButton = props => {
   );
 }
 
-ChoiceButton.prototype = {
+ChoiceButton.propTypes = {
   correct: PropTypes.bool,
   onPress: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
