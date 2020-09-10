@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * 0.06,
   },
   pagingText: {
-    color: colors.colorTextSecondary,
+    color: colors.colorSecondaryDark,
     fontSize: fonts.bigger,
     height: metrics.screenHeight * 0.08,
   },
