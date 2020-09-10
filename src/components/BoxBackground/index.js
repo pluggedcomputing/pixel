@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-const {height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const BoxBackground = (props) => {
   const {content, style, isLastPage} = props;
 
-  const contextHeight = height - 50;
+  const contextHeight = width - 50;
 
   const [pagination, setPagination] = useState(0);
 
