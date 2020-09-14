@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import PropTypes from 'prop-types';
 
-import { colors } from '../../styles';
+import { colors, general } from '../../styles';
 import styles from './styles';
 
 const ChoiceButton = props => {
@@ -24,17 +24,14 @@ const ChoiceButton = props => {
     setTimeout(() => onPress(), 350);
   }
 
-  // eslint-disable-next-line no-unused-vars
-  function isLight () {
-    if(light) {
-      setBackgroundColor(colors.colorSecondary);
-      setTextColor(colors.colorPrimary);
-    }
+  if (light) {
+    setBackgroundColor(colors.colorSecondaryLight);
+    setTextColor(colors.colorTextPrimary);
   }
 
   return (
     <View {...props} style={styles.container}>
-      <TouchableOpacity style={[styles.button, { backgroundColor }]} onPress={onPressButton}>
+      <TouchableOpacity style={[styles.button, { backgroundColor }, general.defaultShadow]} onPress={onPressButton}>
         <Text style={[styles.text, {color}]}>
           {text}
         </Text>
