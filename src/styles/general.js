@@ -8,7 +8,7 @@ const general = {
     small: metrics.screenWidth * 0.03,
   },
   defaultShadow: {
-    shadowColor: colors.textColorPrimary,
+    shadowColor: colors.colorTextPrimary,
     shadowOffset: {
       width: 0,
       height: 5,
@@ -21,7 +21,7 @@ const general = {
   defaultContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.colorBackground,
+    backgroundColor: colors.colorPrimary,
   },
 };
 

@@ -12,7 +12,10 @@ const ChoiceButton = props => {
   const [ color, setTextColor] = useState(colors.colorTextSecondary)
 
   useEffect(() => {
-    setBackgroundColor(colors.colorPrimary);
+    if (light) {
+      setBackgroundColor(colors.colorSecondaryLight);
+      setTextColor(colors.colorTextPrimary);
+    }
   }, [step]);
 
   function onPressButton() {
@@ -22,11 +25,6 @@ const ChoiceButton = props => {
       setBackgroundColor(colors.colorError)
     }
     setTimeout(() => onPress(), 350);
-  }
-
-  if (light) {
-    setBackgroundColor(colors.colorSecondaryLight);
-    setTextColor(colors.colorTextPrimary);
   }
 
   return (
