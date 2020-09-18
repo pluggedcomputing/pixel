@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, metrics} from '../../styles';
+import {colors, metrics, general} from '../../styles';
 
 const widhtScreen = 0.9
 
@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: colors.colorPrimary,
-    padding: 10
+    padding: 10,
+    shadowColor: general.defaultShadow
   },
   text: {
     fontWeight: 'bold',

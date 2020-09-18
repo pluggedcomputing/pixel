@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import PropTypes from 'prop-types';
 
-import { colors, general } from '../../styles';
+import { colors } from '../../styles';
 import styles from './styles';
 
 const ChoiceButton = props => {
@@ -29,7 +29,7 @@ const ChoiceButton = props => {
 
   return (
     <View {...props} style={styles.container}>
-      <TouchableOpacity style={[styles.button, { backgroundColor }, general.defaultShadow]} onPress={onPressButton}>
+      <TouchableOpacity style={[styles.button, { backgroundColor }]} onPress={onPressButton}>
         <Text style={[styles.text, {color}]}>
           {text}
         </Text>
