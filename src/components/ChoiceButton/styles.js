@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.colorPrimary,
     padding: 10,
-    shadowColor: general.defaultShadow
+    ...general.defaultShadow
   },
   text: {
     fontWeight: 'bold',
