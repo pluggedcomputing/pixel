@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
+import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
-import { colors, fonts } from './styles';
+import {colors, fonts} from './styles';
 
 const Stack = createStackNavigator();
 
@@ -16,24 +17,29 @@ const routes = () => {
         initalRouteName="Main"
         screenOptions={{
           headerTitleAlign: 'center',
-          headerTintColor: colors.colorPrimary,
+          headerTintColor: colors.colorTextSecondary,
           headerStyle: {
-            backgroundColor: colors.colorTextPrimary,
+            backgroundColor: colors.colorPrimary,
           },
           headerTitleStyle: {
-            color: colors.colorTextPrimary,
+            color: colors.colorTextSecondary,
             fontSize: fonts.regular,
           },
         }}>
         <Stack.Screen
-          options={{ headerShown: false }}
+          options={{headerShown: false}}
           name="Main"
           component={Main}
         />
         <Stack.Screen
-          options={{ headerShown: false }}
           name="ScreenAbout"
           component={ScreenAbout}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="LevelSelection"
+          component={LevelSelection}
+          options={{title: 'Escolha de níveis'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
