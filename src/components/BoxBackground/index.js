@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, Dimensions} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import uuid from 'react-native-uuid';
 
 import PropTypes from 'prop-types';
 
+import {metrics} from '../../styles';
 import styles from './styles';
-
-const {width} = Dimensions.get('window');
 
 const BoxBackground = (props) => {
   const {content, style, isLastPage} = props;
 
-  const contextHeight = width - 50;
+  const contextHeight = metrics.screenWidth - 50;
 
   const [pagination, setPagination] = useState(0);
 
