@@ -4,19 +4,19 @@ import uuid from 'react-native-uuid';
 
 import PropTypes from 'prop-types';
 
-import {metrics} from '../../styles';
 import styles from './styles';
 
 const BoxBackground = (props) => {
   const {content, style, isLastPage} = props;
 
-  const contextHeight = metrics.screenWidth - 50;
-
   const [pagination, setPagination] = useState(0);
 
   const changePaginationIndex = (e) => {
-    const offset = e.nativeEvent.contentOffset.x;
-    const index = Math.floor(offset / contextHeight);
+    const {contentOffset} = e.nativeEvent;
+    const viewSize = e.nativeEvent.layoutMeasurement;
+
+    // Divide the horizontal offset by the width of the view to see which page is visible
+    const index = Math.floor(contentOffset.x / viewSize.width);
     if (index !== pagination) setPagination(index);
   };
 
