@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {View, Animated} from 'react-native';
-import uuid from 'react-native-uuid';
 
 import PropTypes from 'prop-types';
 
@@ -92,7 +91,7 @@ const AnimationPagination = (props) => {
   const mountStateView = () => {
     return pageContent.map((item, indexItem) => (
       <Animated.View
-        key={uuid.v4()}
+        key={item}
         style={[pinterRetangle(indexItem), stylePagination(indexItem)]}
       />
     ));
