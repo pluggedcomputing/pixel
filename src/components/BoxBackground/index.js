@@ -12,13 +12,13 @@ const BoxBackground = (props) => {
   const [pagination, setPagination] = useState(0);
   const [offSet, setOffSet] = useState(0);
   const [direction, setDirection] = useState('right');
-  const changePaginationIndex = (e) => {
-    const {contentOffset} = e.nativeEvent;
+  const changePaginationIndex = (event) => {
+    const {contentOffset} = event.nativeEvent;
 
     setOffSet(contentOffset.x);
     setDirection(contentOffset.x > offSet ? 'right' : 'left');
 
-    const viewSize = e.nativeEvent.layoutMeasurement;
+    const viewSize = event.nativeEvent.layoutMeasurement;
 
     // Divide the horizontal offset by the width of the view to see which page is visible
     const index = Math.floor(contentOffset.x / viewSize.width);
@@ -35,8 +35,8 @@ const BoxBackground = (props) => {
         data={content}
         horizontal
         pagingEnabled
-        onScroll={(e) => {
-          changePaginationIndex(e);
+        onScroll={(event) => {
+          changePaginationIndex(event);
         }}
         renderItem={({item}) => (
           <View key={item.id} style={styles.boxContainer}>
