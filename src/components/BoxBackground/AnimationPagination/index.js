@@ -26,9 +26,15 @@ const AnimationPagination = (props) => {
       statePageCurrent === STATE_INIT &&
       indexCurrent === pageContent.length - 1
     ) {
-      setPageContent(content.slice(0, 6));
-      setIndexFinal(6);
-      setStatusPage(STATE_MIDDLE);
+      let pageState = STATE_MIDDLE;
+      let finalIndex = 6;
+      if (size === 6) {
+        pageState = STATE_FINAL;
+        finalIndex = 5;
+      }
+      setStatusPage(pageState);
+      setPageContent(content.slice(0, finalIndex));
+      setIndexFinal(finalIndex);
     }
 
     if (
@@ -69,10 +75,18 @@ const AnimationPagination = (props) => {
       direction === 'left' &&
       indexCurrent === pageContent[0]
     ) {
-      setPageContent(content.slice(indexInit - 1, indexFinal - 1));
-      setIndexInit(indexInit - 1);
-      setIndexFinal(indexFinal - 1);
-      setStatusPage(STATE_MIDDLE);
+      let pageState = STATE_MIDDLE;
+      let finalIndex = indexFinal;
+      let initIndex = indexInit - 1;
+      if (size === 6) {
+        pageState = STATE_INIT;
+        finalIndex = indexFinal;
+        initIndex = indexInit;
+      }
+      setStatusPage(pageState);
+      setPageContent(content.slice(initIndex, finalIndex));
+      setIndexFinal(finalIndex);
+      setIndexInit(initIndex);
     }
   };
   const mountStateView = () => {
@@ -84,7 +98,14 @@ const AnimationPagination = (props) => {
     ));
   };
 
+  const minViewPagination = () => {
+    return size <= 5;
+  };
+
   const stylePagination = (indexPagination) => {
+    if (minViewPagination()) {
+      return styles.retangle;
+    }
     switch (statusPage) {
       case STATE_INIT:
         return indexPagination === pageContent.length - 1
