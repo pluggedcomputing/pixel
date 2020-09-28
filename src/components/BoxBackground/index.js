@@ -1,18 +1,23 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
-import uuid from 'react-native-uuid';
+import {View, FlatList} from 'react-native';
 
 import PropTypes from 'prop-types';
 
+import AnimationPagination from './AnimationPagination';
 import styles from './styles';
 
 const BoxBackground = (props) => {
   const {content, style, isLastPage} = props;
 
   const [pagination, setPagination] = useState(0);
-
+  const [offSet, setOffSet] = useState(0);
+  const [direction, setDirection] = useState('right');
   const changePaginationIndex = (e) => {
     const {contentOffset} = e.nativeEvent;
+
+    setOffSet(contentOffset.x);
+    setDirection(contentOffset.x > offSet ? 'right' : 'left');
+
     const viewSize = e.nativeEvent.layoutMeasurement;
 
     // Divide the horizontal offset by the width of the view to see which page is visible
@@ -39,17 +44,11 @@ const BoxBackground = (props) => {
           </View>
         )}
       />
-      <View style={styles.pagination}>
-        {content.map((i, k) => (
-          <Text
-            key={uuid.v4()}
-            style={
-              k === pagination ? styles.pagingActiveText : styles.pagingText
-            }>
-            ▪
-          </Text>
-        ))}
-      </View>
+      <AnimationPagination
+        size={content.length}
+        index={pagination}
+        direction={direction}
+      />
     </View>
   );
 };
