@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+import {View, Animated} from 'react-native';
 import uuid from 'react-native-uuid';
 
 import PropTypes from 'prop-types';
@@ -7,123 +7,114 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const AnimationPagination = (props) => {
-  const {content, index, direction} = props;
-  const [pageContent, setPageContent] = useState(
-    content.length <= 5
-      ? content.slice(0, content.length)
-      : content.slice(0, 5),
-  );
+  const {size, index, direction} = props;
   const STATE_INIT = 'init';
   const STATE_MIDDLE = 'middle';
   const STATE_FINAL = 'final';
   const [statusPage, setStatusPage] = useState(STATE_INIT);
   const [indexInit, setIndexInit] = useState(0);
+  const [indexFinal, setIndexFinal] = useState(5);
+  const content = Array.from(Array(size).keys());
+  const [pageContent, setPageContent] = useState(
+    content.length <= 5
+      ? content.slice(indexInit, size)
+      : content.slice(indexInit, indexFinal),
+  );
 
   const checkStatePage = (indexCurrent, statePageCurrent) => {
     if (
       statePageCurrent === STATE_INIT &&
       indexCurrent === pageContent.length - 1
     ) {
-      setPageContent(content.slice(0, pageContent.length + 1));
+      setPageContent(content.slice(0, 6));
+      setIndexFinal(6);
       setStatusPage(STATE_MIDDLE);
     }
 
     if (
       statePageCurrent === STATE_MIDDLE &&
-      indexCurrent % 5 < pageContent.length
+      (indexCurrent === pageContent[pageContent.length - 1] ||
+        indexCurrent === indexInit)
     ) {
-      let valueSum = 0;
+      let valueInit = 0;
+      let valueFinal = 6;
+
+      if (direction === 'right') {
+        if (indexFinal < size) {
+          valueInit = indexInit + 1;
+          valueFinal = indexFinal + 1;
+        } else {
+          valueInit = size - 5;
+          valueFinal = size;
+          setStatusPage(STATE_FINAL);
+        }
+      }
 
       if (direction === 'left') {
         if (indexInit > 0) {
-          valueSum = indexInit - 1;
-        }
-        if (indexInit === 0) {
-          const newPageContent = content.slice(
-            valueSum,
-            pageContent.length - 1,
-          );
+          valueInit = indexInit - 1;
+          valueFinal = indexFinal - 1;
+        } else {
+          valueFinal = 5;
           setStatusPage(STATE_INIT);
-          setPageContent(newPageContent);
         }
       }
-      if (direction === 'right') {
-        valueSum = indexInit + 1;
-        let newPageContent = content.slice(
-          valueSum,
-          pageContent.length + valueSum,
-        );
-        if (content.length === indexCurrent) {
-          valueSum = content.length - 5;
-          newPageContent = content.slice(valueSum, content.length);
-          setStatusPage(STATE_FINAL);
-        }
-        setPageContent(newPageContent);
-      }
-      setIndexInit(valueSum);
+      setPageContent(content.slice(valueInit, valueFinal));
+      setIndexFinal(valueFinal);
+      setIndexInit(valueInit);
     }
 
     if (
       statePageCurrent === STATE_FINAL &&
       direction === 'left' &&
-      content.length - indexCurrent === 6
+      indexCurrent === pageContent[0]
     ) {
-      const valueInit = indexCurrent % 6;
-      setPageContent(content.slice(valueInit, indexCurrent));
-      setIndexInit(valueInit);
+      setPageContent(content.slice(indexInit - 1, indexFinal - 1));
+      setIndexInit(indexInit - 1);
+      setIndexFinal(indexFinal - 1);
       setStatusPage(STATE_MIDDLE);
     }
   };
-
-  const finalPage = (indexPage) => {
-    return indexPage === pageContent.length - 1;
-  };
-
-  const pinterRetangle = (indexCurrent) => {
-    const indexPage = index >= 5 ? index % 5 : index;
-    if (indexPage === indexCurrent) return styles.retanglePainted;
-
-    return styles.retangleDefault;
-  };
-
-  const mountRetanglePage = () => {
+  const mountStateView = () => {
     return pageContent.map((i, k) => (
-      <View
+      <Animated.View
         key={uuid.v4()}
-        style={[
-          pinterRetangle(k),
-          finalPage(k) ? styles.miniRetangle : styles.retangle,
-        ]}
+        style={[pinterRetangle(k), stylePagination(k)]}
       />
     ));
   };
 
-  const reloadindRetanglePage = () => {
-    return pageContent.map((i, k) => (
-      <View key={uuid.v4()} style={[pinterRetangle(k), styles.miniRetangle]} />
-    ));
-  };
-
-  const choiceRetanglePage = () => {
+  const stylePagination = (indexPagination) => {
     switch (statusPage) {
       case STATE_INIT:
-        return mountRetanglePage();
+        return indexPagination === pageContent.length - 1
+          ? styles.miniRetangle
+          : styles.retangle;
       case STATE_MIDDLE:
-        return reloadindRetanglePage();
+        return indexPagination === 0 ||
+          indexPagination === pageContent.length - 1
+          ? styles.miniRetangle
+          : styles.retangle;
       default:
-        return mountRetanglePage();
+        return indexPagination === 0 ? styles.miniRetangle : styles.retangle;
     }
+  };
+
+  const pinterRetangle = (position) => {
+    return pageContent[position] === index
+      ? styles.retanglePainted
+      : styles.retangleDefault;
   };
 
   useEffect(() => {
     checkStatePage(index, statusPage);
   }, [index]);
 
-  return <View style={styles.contianer}>{choiceRetanglePage()}</View>;
+  return <View style={styles.container}>{mountStateView()}</View>;
 };
 
 AnimationPagination.propTypes = {
-  content: PropTypes.arrayOf(PropTypes.element).isRequired,
+  size: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
   direction: PropTypes.string.isRequired,
 };
