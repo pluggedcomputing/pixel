@@ -90,10 +90,10 @@ const AnimationPagination = (props) => {
     }
   };
   const mountStateView = () => {
-    return pageContent.map((i, k) => (
+    return pageContent.map((item, indexItem) => (
       <Animated.View
         key={uuid.v4()}
-        style={[pinterRetangle(k), stylePagination(k)]}
+        style={[pinterRetangle(indexItem), stylePagination(indexItem)]}
       />
     ));
   };
