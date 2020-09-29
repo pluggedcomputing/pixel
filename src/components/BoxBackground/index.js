@@ -1,23 +1,27 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, Dimensions} from 'react-native';
-import uuid from 'react-native-uuid';
+import {View, FlatList} from 'react-native';
 
 import PropTypes from 'prop-types';
 
+import AnimationPagination from './AnimationPagination';
 import styles from './styles';
-
-const {height} = Dimensions.get('window');
 
 const BoxBackground = (props) => {
   const {content, style, isLastPage} = props;
 
-  const contextHeight = height - 50;
-
   const [pagination, setPagination] = useState(0);
+  const [offSet, setOffSet] = useState(0);
+  const [direction, setDirection] = useState('right');
+  const changePaginationIndex = (event) => {
+    const {contentOffset} = event.nativeEvent;
 
-  const changePaginationIndex = (e) => {
-    const offset = e.nativeEvent.contentOffset.x;
-    const index = Math.floor(offset / contextHeight);
+    setOffSet(contentOffset.x);
+    setDirection(contentOffset.x > offSet ? 'right' : 'left');
+
+    const viewSize = event.nativeEvent.layoutMeasurement;
+
+    // Divide the horizontal offset by the width of the view to see which page is visible
+    const index = Math.floor(contentOffset.x / viewSize.width);
     if (index !== pagination) setPagination(index);
   };
 
@@ -31,8 +35,8 @@ const BoxBackground = (props) => {
         data={content}
         horizontal
         pagingEnabled
-        onScroll={(e) => {
-          changePaginationIndex(e);
+        onScroll={(event) => {
+          changePaginationIndex(event);
         }}
         renderItem={({item}) => (
           <View key={item.id} style={styles.boxContainer}>
@@ -40,17 +44,11 @@ const BoxBackground = (props) => {
           </View>
         )}
       />
-      <View style={styles.pagination}>
-        {content.map((i, k) => (
-          <Text
-            key={uuid.v4()}
-            style={
-              k === pagination ? styles.pagingActiveText : styles.pagingText
-            }>
-            ▪
-          </Text>
-        ))}
-      </View>
+      <AnimationPagination
+        size={content.length}
+        index={pagination}
+        direction={direction}
+      />
     </View>
   );
 };
