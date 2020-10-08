@@ -7,6 +7,7 @@ import {
   Text
 } from 'react-native';
 
+import {useRoute} from '@react-navigation/native';
 import Lottie from 'lottie-react-native';
 
 import animation from '../../assets/animations/CheckedDone.json';
@@ -14,6 +15,7 @@ import styles from './styles';
 
 const Congratulations = props => {
   const { navigation } = props;
+  const { level } = useRoute().params
 
   const navigateScreen = () => {
     navigation.navigate('LevelSelection');
@@ -30,7 +32,7 @@ const Congratulations = props => {
         backgroundColor="rgba(0, 0, 0, 0.8)"
       />
       <View style={styles.content}>
-        <Text style={styles.textTop}>Você concluiu o nível X</Text>
+        <Text style={styles.textTop}>Você concluiu o nível {level}</Text>
         <Lottie source={animation} autoPlay loop />
         <Text style={styles.textEnd}>Parabéns</Text>
       </View>
