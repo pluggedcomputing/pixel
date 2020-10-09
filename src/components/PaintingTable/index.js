@@ -6,51 +6,39 @@ import {PropTypes} from 'prop-types';
 import styles from './styles';
 
 const PaintingTable = (props) => {
-  const {content, enable} = props;
+  const {content, enable, size} = props;
   const [colorCurrent, setColorCurrent] = useState('P');
   const [indexChecked, setIndexChecked] = useState('');
 
   const mountMatrixDefault = () => {
     const newList = [];
-    for (let i = 0; i < 64; i += 1) {
+    for (let i = 0; i < size * size; i += 1) {
       newList.push({key: i, color: 'B'});
     }
     return newList;
   };
 
-  const convertStringToObject = () => {
-    const objList = content.map((item) => {
+  const mountMatrixColor = () => {
+    let contKey = 0;
+    const objList = [];
+    content.map((item) => {
       const listItem = item.split(', ');
-      return listItem.map((data) => {
-        const objItem = {qt: 0, color: ''};
-        const itemCurrent = data.split('');
-        [objItem.qt, objItem.color] = !data ? '8,B' : itemCurrent;
-        return objItem;
+      return listItem.map((data, index) => {
+        let cont = 0;
+        const newValue = !data ? size : data;
+
+        while (cont < newValue) {
+          console.log(`index = ${index}, comparação = ${index % 2 === 0}`);
+          const colorItem = index % 2 === 0 ? 'B' : 'P';
+          objList.push({key: contKey, color: colorItem});
+          contKey += 1;
+          cont += 1;
+        }
+        return true;
       });
     });
 
     return objList;
-  };
-
-  const mountMatrixColor = () => {
-    const objList = convertStringToObject();
-
-    const newList = [];
-
-    let contKey = 0;
-
-    objList.forEach((item) => {
-      item.forEach((data) => {
-        let cont = 0;
-        while (cont < data.qt) {
-          newList.push({key: contKey, color: data.color});
-          contKey += 1;
-          cont += 1;
-        }
-      });
-    });
-
-    return newList;
   };
 
   const [data] = useState(enable ? mountMatrixDefault() : mountMatrixColor());
@@ -136,7 +124,7 @@ const PaintingTable = (props) => {
     <View style={[styles.container]}>
       <View style={styles.subContainer}>
         <View>
-          <FlatList data={data} renderItem={renderItem} numColumns={8} />
+          <FlatList data={data} renderItem={renderItem} numColumns={size} />
         </View>
         {mountText()}
       </View>
@@ -148,10 +136,12 @@ const PaintingTable = (props) => {
 PaintingTable.propTypes = {
   content: PropTypes.arrayOf(PropTypes.string).isRequired,
   enable: PropTypes.bool,
+  size: PropTypes.number,
 };
 
 PaintingTable.defaultProps = {
   enable: true,
+  size: 8,
 };
 
 export default PaintingTable;
