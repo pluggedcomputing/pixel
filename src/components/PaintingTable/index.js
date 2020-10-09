@@ -28,7 +28,6 @@ const PaintingTable = (props) => {
         const newValue = !data ? size : data;
 
         while (cont < newValue) {
-          console.log(`index = ${index}, comparação = ${index % 2 === 0}`);
           const colorItem = index % 2 === 0 ? 'B' : 'P';
           objList.push({key: contKey, color: colorItem});
           contKey += 1;
