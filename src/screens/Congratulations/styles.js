@@ -12,19 +12,19 @@ const styles = StyleSheet.create({
     flex: 1,
     width: metrics.screenWidth,
     height: metrics.screenHeight,
-    marginTop: 30,
+    marginTop: metrics.doubleBaseMargin,
   },
   textTop: {
     flex: 4,
     textAlign: 'center',
     color: colors.colorTextSecondary,
-    fontSize: metrics.screenWidth * 0.07
+    fontSize: fonts.bigger
   },
   textEnd: {
     flex:1,
     textAlign: 'center',
     color: colors.colorTextSecondary,
-    fontSize: metrics.screenWidth * 0.140,
+    fontSize: fonts.bigger * 1.6,
   },
   textButton: {
     color: colors.colorPrimary,
@@ -35,6 +35,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: metrics.smallMargin,
     marginBottom: metrics.smallMargin,
+  },
+  information: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  textInformation: {
+    textAlign: 'left',
+    color: colors.colorTextSecondary,
+    fontSize: fonts.regular
   }
 })
 

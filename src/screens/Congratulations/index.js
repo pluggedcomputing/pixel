@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React ,{useEffect} from 'react'
 import {
   SafeAreaView,
   StatusBar,
@@ -6,24 +6,35 @@ import {
   View,
   Text
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import {useRoute} from '@react-navigation/native';
-import Lottie from 'lottie-react-native';
+import {PropTypes} from 'prop-types';
 
-import animation from '../../assets/animations/CheckedDone.json';
+import { colors } from '../../styles'
 import styles from './styles';
 
+
 const Congratulations = props => {
-  const { navigation } = props;
-  const { level } = useRoute().params
+  const { navigation, content } = props;
 
   const navigateScreen = () => {
     navigation.navigate('LevelSelection');
   };
 
-  useEffect(() => {
+   useEffect(() => {
     setTimeout(navigateScreen, 3000);
   },[]);
+
+  const showInformation = () => {
+    content.map((item) => {
+      return(
+        <View style={styles.information}>
+          <Icon name="check-circle-o" size={30} color={colors.colorSucess} />
+          <Text style={styles.textInformation}>{item}</Text>
+        </View>
+      )
+    })
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,8 +43,8 @@ const Congratulations = props => {
         backgroundColor="rgba(0, 0, 0, 0.8)"
       />
       <View style={styles.content}>
-        <Text style={styles.textTop}>Você concluiu o nível {level}</Text>
-        <Lottie source={animation} autoPlay loop />
+        <Text style={styles.textTop}>Você concluiu o nível {1}</Text>
+        {showInformation}
         <Text style={styles.textEnd}>Parabéns</Text>
       </View>
       <TouchableOpacity
@@ -44,6 +55,10 @@ const Congratulations = props => {
       </TouchableOpacity>
     </SafeAreaView>
   )
+}
+
+Congratulations.propTypes = {
+  content: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default Congratulations;
