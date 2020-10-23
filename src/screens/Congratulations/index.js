@@ -50,8 +50,8 @@ const Congratulations = props => {
       <View style={styles.content}>
         <Text style={styles.textTop}>Parabéns</Text>
         <Text style={styles.textEnd}>Você concluiu o nível {level}</Text>
-        <Animation source={animation} style={styles.animation} autoPlay loop />
         <ScrollView>
+          <Animation source={animation} style={styles.animation} autoPlay loop />
           {showInformation()}
         </ScrollView>
       </View>
