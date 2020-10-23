@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import {useRoute} from '@react-navigation/native';
 import {PropTypes} from 'prop-types';
 
 import { colors } from '../../styles'
@@ -15,6 +16,8 @@ import styles from './styles';
 
 
 const Congratulations = props => {
+  const { level } = useRoute().params
+
   const { navigation, content } = props;
 
   const navigateScreen = () => {
@@ -43,7 +46,7 @@ const Congratulations = props => {
         backgroundColor="rgba(0, 0, 0, 0.8)"
       />
       <View style={styles.content}>
-        <Text style={styles.textTop}>Você concluiu o nível {1}</Text>
+        <Text style={styles.textTop}>Você concluiu o nível {level}</Text>
         {showInformation}
         <Text style={styles.textEnd}>Parabéns</Text>
       </View>
