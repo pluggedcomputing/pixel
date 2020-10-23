@@ -9,22 +9,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   content: {
-    flex: 1,
+    flex: 2,
     width: metrics.screenWidth,
     height: metrics.screenHeight,
     marginTop: metrics.doubleBaseMargin,
   },
   textTop: {
-    flex: 4,
-    textAlign: 'center',
-    color: colors.colorTextSecondary,
-    fontSize: fonts.bigger
-  },
-  textEnd: {
-    flex:1,
     textAlign: 'center',
     color: colors.colorTextSecondary,
     fontSize: fonts.bigger * 1.6,
+  },
+  textEnd: {
+    textAlign: 'center',
+    color: colors.colorTextSecondary,
+    fontSize: fonts.bigger
   },
   textButton: {
     color: colors.colorPrimary,
@@ -33,19 +31,23 @@ const styles = StyleSheet.create({
   },
   buttonAlternative: {
     alignItems: 'center',
-    marginTop: metrics.smallMargin,
-    marginBottom: metrics.smallMargin,
+    marginTop: metrics.tripleBaseMargin,
+    marginBottom: metrics.tripleBaseMargin,
   },
   information: {
-    flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
+    margin: metrics.doubleBaseMargin
   },
   textInformation: {
     textAlign: 'left',
     color: colors.colorTextSecondary,
-    fontSize: fonts.regular
+    fontSize: fonts.medium,
+    marginLeft: metrics.baseMargin
+  },
+  animation: {
+    width: 160,
+    height: 160,
+    alignSelf: 'center'
   }
 })
 

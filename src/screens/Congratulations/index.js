@@ -1,7 +1,8 @@
-import React ,{useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {
   SafeAreaView,
   StatusBar,
+  ScrollView,
   TouchableOpacity,
   View,
   Text
@@ -9,29 +10,30 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {useRoute} from '@react-navigation/native';
-import {PropTypes} from 'prop-types';
+import Animation from 'lottie-react-native';
 
+import animation from '../../assets/animations/CheckedDone.json';
 import { colors } from '../../styles'
 import styles from './styles';
 
 
 const Congratulations = props => {
-  const { level } = useRoute().params
+  const { level, content } = useRoute().params
 
-  const { navigation, content } = props;
+  const { navigation } = props;
 
   const navigateScreen = () => {
     navigation.navigate('LevelSelection');
   };
 
-   useEffect(() => {
+  useEffect(() => {
     setTimeout(navigateScreen, 3000);
   },[]);
 
   const showInformation = () => {
-    content.map((item) => {
+    return content.map((item, index) => {
       return(
-        <View style={styles.information}>
+        <View key={[index]} style={styles.information}>
           <Icon name="check-circle-o" size={30} color={colors.colorSucess} />
           <Text style={styles.textInformation}>{item}</Text>
         </View>
@@ -46,9 +48,12 @@ const Congratulations = props => {
         backgroundColor="rgba(0, 0, 0, 0.8)"
       />
       <View style={styles.content}>
-        <Text style={styles.textTop}>Você concluiu o nível {level}</Text>
-        {showInformation}
-        <Text style={styles.textEnd}>Parabéns</Text>
+        <Text style={styles.textTop}>Parabéns</Text>
+        <Text style={styles.textEnd}>Você concluiu o nível {level}</Text>
+        <Animation source={animation} style={styles.animation} autoPlay loop />
+        <ScrollView>
+          {showInformation()}
+        </ScrollView>
       </View>
       <TouchableOpacity
         style={styles.buttonAlternative}
@@ -58,10 +63,6 @@ const Congratulations = props => {
       </TouchableOpacity>
     </SafeAreaView>
   )
-}
-
-Congratulations.propTypes = {
-  content: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default Congratulations;

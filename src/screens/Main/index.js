@@ -13,7 +13,7 @@ function Main({navigation}) {
       <CustomButton
         text="iniciar"
         style={styles.buttons}
-        onPress={() => navigation.navigate('LevelSelection')}
+        onPress={() =>  navigation.navigate('LevelSelection')}
       />
       <CustomButton
         text="sobre"
