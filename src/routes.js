@@ -4,10 +4,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Congratulations from './screens/Congratulations';
+import Level3 from './screens/Exercises/Level3';
 import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
-import {colors, fonts} from './styles';
+import {colors} from './styles';
 
 const Stack = createStackNavigator();
 
@@ -22,10 +23,6 @@ const routes = () => {
           headerStyle: {
             backgroundColor: colors.colorPrimary,
           },
-          headerTitleStyle: {
-            color: colors.colorTextSecondary,
-            fontSize: fonts.regular,
-          },
         }}>
         <Stack.Screen
           options={{headerShown: false}}
@@ -35,12 +32,17 @@ const routes = () => {
         <Stack.Screen
           name="ScreenAbout"
           component={ScreenAbout}
-          options={{headerShown: false}}
+          options={{title: 'Sobre'}}
         />
         <Stack.Screen
           name="LevelSelection"
           component={LevelSelection}
           options={{title: 'Escolha de níveis'}}
+        />
+        <Stack.Screen
+          options={{title: 'Nível 3'}}
+          name="Level3"
+          component={Level3}
         />
         <Stack.Screen
           options={{headerShown: false}}
