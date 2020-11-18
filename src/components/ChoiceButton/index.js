@@ -7,20 +7,14 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const ChoiceButton = (props) => {
-  const {correct, onPress, text, step, light} = props;
-  const [borderColor, setborderColor] = useState(colors.colorSecondaryDark);
-
-  useEffect(() => {
-    if (light) {
-      setborderColor(colors.colorSecondaryLight);
-    }
-  }, [step]);
+  const {correct, onPress, text, step} = props;
+  const [borderColor, setBorderColor] = useState(colors.colorSecondaryDark);
 
   function onPressButton() {
     if (correct) {
-      setborderColor(colors.colorSucess);
+      setBorderColor(colors.colorSucess);
     } else {
-      setborderColor(colors.colorError);
+      setBorderColor(colors.colorError);
     }
     setTimeout(() => onPress(), 350);
   }
