@@ -68,11 +68,12 @@ const LevelSelection = ({navigation}) => {
             source={imagePixel}
             style={[styles.imagePixel, {transform: [{rotate: '90deg'}]}]}
           />
+
           <CardLevel
-            level="2"
-            image={level2}
-            available={levelsAvailable.level2}
-            onPress={() => navigation.navigate('Exercises')}
+            level="3"
+            image={level3}
+            available
+            onPress={() => navigation.navigate('Level3')}
           />
           <Image
             source={imagePixel}
@@ -83,9 +84,9 @@ const LevelSelection = ({navigation}) => {
         <View style={styles.boxContainer}>
           <Image source={imagePixel} style={styles.imagePixel} />
           <CardLevel
-            level="3"
-            image={level3}
-            available={levelsAvailable.level3}
+            level="2"
+            image={level2}
+            available={levelsAvailable.level2}
             onPress={() => navigation.navigate('Exercises')}
           />
           <Image
