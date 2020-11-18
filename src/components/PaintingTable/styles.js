@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    backgroundColor: colors.colorPrimary,
   },
   subContainer: {
     flexDirection: 'row',
@@ -20,6 +19,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   square: {
+    borderWidth: metrics.smallBorder,
+    borderColor: colors.colorPrimary,
     height: metrics.screenHeight * HEIGTH_PERCENTE,
     width: metrics.screenWidth * WIDTH_PERCENTE,
     alignItems: 'center',

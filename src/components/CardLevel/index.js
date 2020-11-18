@@ -11,7 +11,7 @@ const CardLevel = (props) => {
 
   function onPressCardLevel() {
     if (onPress && available) {
-      return onPress;
+      return onPress();
     }
 
     return Alert.alert(
