@@ -1,42 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 import PropTypes from 'prop-types';
 
-import { colors } from '../../styles';
+import {colors} from '../../styles';
 import styles from './styles';
 
-const ChoiceButton = props => {
-  const { correct, onPress, text, step, light } = props;
-  const [ backgroundColor, setBackgroundColor] = useState(colors.colorPrimary);
-  const [ color, setTextColor] = useState(colors.colorTextSecondary)
+const ChoiceButton = (props) => {
+  const {correct, onPress, text, step, light} = props;
+  const [borderColor, setborderColor] = useState(colors.colorSecondaryDark);
 
   useEffect(() => {
     if (light) {
-      setBackgroundColor(colors.colorSecondaryLight);
-      setTextColor(colors.colorTextPrimary);
+      setborderColor(colors.colorSecondaryLight);
     }
   }, [step]);
 
   function onPressButton() {
     if (correct) {
-      setBackgroundColor(colors.colorSucess)
+      setborderColor(colors.colorSucess);
     } else {
-      setBackgroundColor(colors.colorError)
+      setborderColor(colors.colorError);
     }
     setTimeout(() => onPress(), 350);
   }
 
   return (
     <View {...props} style={styles.container}>
-      <TouchableOpacity style={[styles.button, { backgroundColor }]} onPress={onPressButton}>
-        <Text style={[styles.text, {color}]}>
-          {text}
-        </Text>
+      <TouchableOpacity
+        style={[styles.button, {borderColor}]}
+        onPress={onPressButton}>
+        <Text style={styles.text}>{text}</Text>
       </TouchableOpacity>
     </View>
   );
-}
+};
 
 ChoiceButton.propTypes = {
   correct: PropTypes.bool,
@@ -46,10 +44,9 @@ ChoiceButton.propTypes = {
   step: PropTypes.number.isRequired,
 };
 
-
 ChoiceButton.defaultProps = {
   correct: false,
-  light: false
-}
+  light: false,
+};
 
 export default ChoiceButton;
