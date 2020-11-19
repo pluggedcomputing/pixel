@@ -61,7 +61,7 @@ const LevelSelection = ({navigation}) => {
             level="1"
             image={level1}
             available
-            onPress={() => navigation.navigate('Exercises')}
+            onPress={() => navigation.navigate('Level1')}
           />
 
           <Image
