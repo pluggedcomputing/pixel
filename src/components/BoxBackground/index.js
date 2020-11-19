@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, FlatList} from 'react-native';
 import {ProgressBar} from 'react-native-paper';
 
@@ -9,9 +9,21 @@ import styles from './styles';
 
 const BoxBackground = (props) => {
   const {content, style, isLastPage} = props;
+  const [pagination, setPagination] = useState(0);
 
-  const changePaginationIndex = (index) =>
+  const changePaginationIndex = (event) => {
+    const {contentOffset} = event.nativeEvent;
+
+    const viewSize = event.nativeEvent.layoutMeasurement;
+
+    // Divide the horizontal offset by the width of the view to see which page is visible
+    const index = Math.floor(contentOffset.x / viewSize.width);
+    if (index !== pagination) setPagination(index);
+  };
+
+  const convertIndexInProgress = (index) =>
     ((index + 1) * 100) / content.length / 100;
+
   return (
     <View style={[styles.container, style]}>
       <FlatList
@@ -22,18 +34,21 @@ const BoxBackground = (props) => {
         data={content}
         horizontal
         pagingEnabled
-        renderItem={({item, index}) => (
+        onScroll={(event) => {
+          changePaginationIndex(event);
+        }}
+        renderItem={({item}) => (
           <View key={item.id} style={styles.boxContainer}>
             {item}
-            <View style={styles.progressBar}>
-              <ProgressBar
-                progress={changePaginationIndex(index)}
-                color={colors.colorAccent}
-              />
-            </View>
           </View>
         )}
       />
+      <View style={styles.progressBar}>
+        <ProgressBar
+          progress={convertIndexInProgress(pagination)}
+          color={colors.colorAccent}
+        />
+      </View>
     </View>
   );
 };
