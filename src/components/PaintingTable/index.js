@@ -44,6 +44,7 @@ const PaintingTable = (props) => {
 
   const handleOnPress = (keyCurrent) => {
     if (enable) setAnswer(data);
+    setIndexChecked(keyCurrent);
     const objIndex = data.findIndex((obj) => obj.key === keyCurrent);
     data[objIndex].color = colorCurrent;
     setAnswer(data);
