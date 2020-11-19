@@ -6,7 +6,7 @@ import {PropTypes} from 'prop-types';
 import styles from './styles';
 
 const PaintingTable = (props) => {
-  const {content, enable, size} = props;
+  const {content, enable, size, setAnswer} = props;
   const [colorCurrent, setColorCurrent] = useState('P');
   const [indexChecked, setIndexChecked] = useState('');
 
@@ -43,9 +43,10 @@ const PaintingTable = (props) => {
   const [data] = useState(enable ? mountMatrixDefault() : mountMatrixColor());
 
   const handleOnPress = (keyCurrent) => {
-    setIndexChecked(keyCurrent);
+    if (enable) setAnswer(data);
     const objIndex = data.findIndex((obj) => obj.key === keyCurrent);
     data[objIndex].color = colorCurrent;
+    setAnswer(data);
   };
 
   const choiceColor = (colorSquire) => {
@@ -136,11 +137,13 @@ PaintingTable.propTypes = {
   content: PropTypes.arrayOf(PropTypes.string).isRequired,
   enable: PropTypes.bool,
   size: PropTypes.number,
+  setAnswer: PropTypes.func,
 };
 
 PaintingTable.defaultProps = {
   enable: true,
   size: 8,
+  setAnswer: () => {},
 };
 
 export default PaintingTable;
