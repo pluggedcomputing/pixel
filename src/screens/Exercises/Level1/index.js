@@ -160,6 +160,7 @@ const DATA = [
   },
 ]
 
+
 const Level1 = ({ navigation }) => {
 
   const [step, setSteps] = useState(0);
