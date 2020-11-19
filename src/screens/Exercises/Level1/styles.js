@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   viewBoxContent: {
     flex: 1,
     justifyContent: 'center',
-    margin: 20,
+    margin: metrics.baseMargin,
     alignItems: 'center',
   },
   statementImage: {
@@ -40,10 +40,9 @@ const styles = StyleSheet.create({
     height: metrics.screenHeight * 0.12,
   },
   textBoxContent: {
-    fontSize: 18,
+    fontSize: fonts.small,
     fontWeight: 'bold',
     textAlign: 'center',
-    justifyContent: 'center',
     color: colors.colorTextPrimary,
   },
   textAnswer: {

@@ -8,7 +8,10 @@ import styles from './styles';
 
 const ChoiceButton = (props) => {
   const {correct, onPress, text, step} = props;
-  const [borderColor, setBorderColor] = useState(colors.colorSecondaryDark);
+  const [borderColor, setBorderColor] = useState('');
+  useEffect(() => {
+    setBorderColor(colors.colorSecondaryDark);
+  }, [step]);
 
   function onPressButton() {
     if (correct) {
