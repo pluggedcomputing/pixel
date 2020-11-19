@@ -15,10 +15,11 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * 0.9,
   },
   progressBar: {
+    width: metrics.screenWidth * 0.85,
     borderWidth: 1,
     borderRadius: metrics.baseRadius,
     borderColor: colors.colorAccent,
-    justifyContent: 'flex-end',
+    marginBottom: metrics.smallMargin,
   },
 });
 
