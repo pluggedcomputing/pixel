@@ -37,11 +37,7 @@ const BoxBackground = (props) => {
         onScroll={(event) => {
           changePaginationIndex(event);
         }}
-        renderItem={({item}) => (
-          <View key={item.id} style={styles.boxContainer}>
-            {item}
-          </View>
-        )}
+        renderItem={({item}) => <View style={styles.boxContainer}>{item}</View>}
       />
       <View style={styles.progressBar}>
         <ProgressBar
