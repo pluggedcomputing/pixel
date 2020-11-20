@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
   },
   boxContainer: {
     width: metrics.screenWidth * 0.9,
+    padding: metrics.smallPadding,
+    alignItems: 'center',
   },
   progressBar: {
     width: metrics.screenWidth * 0.85,
