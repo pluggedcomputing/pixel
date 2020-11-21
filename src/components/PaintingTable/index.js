@@ -6,7 +6,7 @@ import {PropTypes} from 'prop-types';
 import styles from './styles';
 
 const PaintingTable = (props) => {
-  const {content, enable, row, column} = props;
+  const {content, enable, row, column, invisibleRow} = props;
   const [colorCurrent, setColorCurrent] = useState('P');
   const [columnCheck, setColumnChecked] = useState('');
   const [rowCheck, setRowChecked] = useState('');
@@ -86,7 +86,7 @@ const PaintingTable = (props) => {
       <View style={styles.containerText}>
         {content.map((item, key) => (
           <Text key={key.toString()} style={styles.text}>
-            {organizeText(item)}
+            {invisibleRow && key === invisibleRow ? '' : organizeText(item)}
           </Text>
         ))}
       </View>
@@ -158,10 +158,12 @@ PaintingTable.propTypes = {
   enable: PropTypes.bool,
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
+  invisibleRow: PropTypes.number,
 };
 
 PaintingTable.defaultProps = {
   enable: true,
+  invisibleRow: -1,
 };
 
 export default PaintingTable;
