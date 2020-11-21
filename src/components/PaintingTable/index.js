@@ -1,55 +1,70 @@
-import React, {useState} from 'react';
-import {View, Text, FlatList, TouchableOpacity} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 import {PropTypes} from 'prop-types';
 
 import styles from './styles';
 
 const PaintingTable = (props) => {
-  const {content, enable, size} = props;
+  const {content, enable, row, column} = props;
   const [colorCurrent, setColorCurrent] = useState('P');
-  const [indexChecked, setIndexChecked] = useState('');
+  const [columnCheck, setColumnChecked] = useState('');
+  const [rowCheck, setRowChecked] = useState('');
+  const [data, setData] = useState([]);
+
+  const updateData = () => {
+    setData(mountMatrixColorOrDefault());
+  };
+
+  useEffect(() => {
+    updateData();
+  }, [enable, content]);
 
   const mountMatrixDefault = () => {
-    const newList = [];
-    for (let i = 0; i < size * size; i += 1) {
-      newList.push({key: i, color: 'B'});
+    const columns = [];
+    for (let i = 0; i < row; i += 1) {
+      const rows = [];
+      for (let j = 0; j < column; j += 1) {
+        rows.push({key: j, color: 'B'});
+      }
+      columns.push(rows);
     }
-    return newList;
+    return columns;
   };
 
-  const mountMatrixColor = () => {
-    let contKey = 0;
-    const objList = [];
-    content.map((item) => {
-      const listItem = item.split(', ');
-      return listItem.map((data, index) => {
-        let cont = 0;
-        const newValue = !data ? size : data;
+  const checkValueOfContent = (value) => {
+    const replaceSpaceToEmpty = value.replace(/ /g, '');
+    const replacecommaToEmpty = replaceSpaceToEmpty.replace(/,/g, '');
+    return replacecommaToEmpty;
+  };
 
-        while (cont < newValue) {
-          const colorItem = index % 2 === 0 ? 'B' : 'P';
-          objList.push({key: contKey, color: colorItem});
-          contKey += 1;
-          cont += 1;
+  const organizeText = (text) => {
+    const replaceSpaceToEmpty = text.replace(/ /g, '');
+    return replaceSpaceToEmpty.replace(/,/g, ', ');
+  };
+
+  const mountMatrixColorOrDefault = () => {
+    const dataDefault = mountMatrixDefault();
+    if (!enable) {
+      for (let i = 0; i < row; i += 1) {
+        const replaceRows = checkValueOfContent(content[i]);
+        for (let j = 0; j < column; j += 1) {
+          dataDefault[i][j].color = replaceRows[j] === '0' ? 'P' : 'B';
         }
-        return true;
-      });
-    });
-
-    return objList;
+      }
+    }
+    return dataDefault;
   };
 
-  const [data] = useState(enable ? mountMatrixDefault() : mountMatrixColor());
-
-  const handleOnPress = (keyCurrent) => {
-    setIndexChecked(keyCurrent);
-    const objIndex = data.findIndex((obj) => obj.key === keyCurrent);
-    data[objIndex].color = colorCurrent;
+  const handleOnPress = (rowCurrent, keyCurrent) => {
+    setRowChecked(rowCurrent);
+    setColumnChecked(keyCurrent);
+    data[rowCurrent][keyCurrent].color = colorCurrent;
   };
 
   const choiceColor = (colorSquire) => {
-    setIndexChecked('');
+    setRowChecked('');
+    setColumnChecked('');
     setColorCurrent(colorSquire);
   };
 
@@ -59,7 +74,7 @@ const PaintingTable = (props) => {
 
   const paint = (color) => {
     switch (color) {
-      case 'P':
+      case 'P' || 1:
         return styles.squareColoring;
       default:
         return styles.discolorSquare;
@@ -71,7 +86,7 @@ const PaintingTable = (props) => {
       <View style={styles.containerText}>
         {content.map((item, key) => (
           <Text key={key.toString()} style={styles.text}>
-            {item}
+            {organizeText(item)}
           </Text>
         ))}
       </View>
@@ -99,31 +114,37 @@ const PaintingTable = (props) => {
     return null;
   };
 
-  const renderItem = ({item}) => {
-    return (
-      <TouchableOpacity
-        onPress={() => {
-          if (enable) handleOnPress(item.key);
-        }}>
-        <View
-          style={[
-            styles.square,
-            paint(
-              indexChecked !== '' && indexChecked === item.key
-                ? colorCurrent
-                : item.color,
-            ),
-          ]}
-        />
-      </TouchableOpacity>
-    );
-  };
-
   return (
     <View style={[styles.container]}>
       <View style={styles.subContainer}>
         <View>
-          <FlatList data={data} renderItem={renderItem} numColumns={size} />
+          <View>
+            {data.map((rows, index) => (
+              <View key={String(index)} style={{flexDirection: 'row'}}>
+                {rows.map((columnOfRow, indexKey) => (
+                  <TouchableOpacity
+                    key={String(indexKey)}
+                    onPress={() => {
+                      if (enable) handleOnPress(index, columnOfRow.key);
+                    }}>
+                    <View
+                      style={[
+                        styles.square,
+                        paint(
+                          rowCheck !== '' &&
+                            rowCheck === index &&
+                            columnCheck !== '' &&
+                            columnCheck === columnOfRow.key
+                            ? colorCurrent
+                            : columnOfRow.color,
+                        ),
+                      ]}
+                    />
+                  </TouchableOpacity>
+                ))}
+              </View>
+            ))}
+          </View>
         </View>
         {mountText()}
       </View>
@@ -135,12 +156,12 @@ const PaintingTable = (props) => {
 PaintingTable.propTypes = {
   content: PropTypes.arrayOf(PropTypes.string).isRequired,
   enable: PropTypes.bool,
-  size: PropTypes.number,
+  row: PropTypes.number.isRequired,
+  column: PropTypes.number.isRequired,
 };
 
 PaintingTable.defaultProps = {
   enable: true,
-  size: 8,
 };
 
 export default PaintingTable;
