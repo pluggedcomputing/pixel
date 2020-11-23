@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
+    elevation: metrics.baseElevation,
+    borderRadius: metrics.baseBorder,
+    backgroundColor: colors.colorSecondaryLight,
   },
   subContainer: {
     flexDirection: 'row',
@@ -19,13 +22,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   square: {
-    borderWidth: metrics.smallBorder,
-    borderColor: colors.colorPrimary,
     height: metrics.screenHeight * HEIGTH_PERCENTE,
     width: metrics.screenWidth * WIDTH_PERCENTE,
     alignItems: 'center',
     justifyContent: 'center',
     margin: 1,
+    elevation: metrics.baseElevation,
+    borderWidth: 1,
+    borderColor: colors.colorPrimary,
   },
   squareChoice: {
     borderWidth: metrics.smallBorder,
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   text: {
-    color: colors.colorTextSecondary,
+    color: colors.colorTextPrimary,
     fontSize: fonts.tiny,
   },
 });
