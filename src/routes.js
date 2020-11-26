@@ -41,12 +41,24 @@ const routes = () => {
           options={{title: 'Escolha de níveis'}}
         />
         <Stack.Screen
-          options={{title: 'Nível 1'}}
+          options={{
+            title: 'Nível 1',
+            headerStyle: {
+              elevation: 0,
+              backgroundColor: colors.colorPrimary,
+            },
+          }}
           name="Level1"
           component={Level1}
         />
         <Stack.Screen
-          options={{title: 'Nível 3'}}
+          options={{
+            title: 'Nível 3',
+            headerStyle: {
+              elevation: 0,
+              backgroundColor: colors.colorPrimary,
+            },
+          }}
           name="Level3"
           component={Level3}
         />
