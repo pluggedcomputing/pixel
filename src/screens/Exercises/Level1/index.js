@@ -44,23 +44,8 @@ const DATA1 = [
     alternatives: [
       {
         id: '1',
-        title: 'Código morse',
-        correct: false,
-      },
-      {
-        id: '2',
-        title: 'Regex',
-        correct: false,
-      },
-      {
-        id: '3',
-        title: 'Digitos bínarios',
+        title: 'Próximo',
         correct: true,
-      },
-      {
-        id: '4',
-        title: 'ábaco',
-        correct: false,
       },
     ],
   },
@@ -200,7 +185,6 @@ const DATA5 = [
 const Level1 = ({ navigation }) => {
   const [step, setSteps] = useState(0);
   const [data, setData] = useState(DATA1);
-  const [showAnswerOptions, setShowAnswerOptions] = useState(false);
 
   const renderItem = ({ item }) => (
     <View style={styles.contentContainerStyle}>
@@ -220,7 +204,6 @@ const Level1 = ({ navigation }) => {
     <>
       <View style={styles.halfTopView}>
         <BoxBackground
-          isLastPage={(value) => setShowAnswerOptions(value)}
           content={data[0].title.map((item) => (
             <View style={styles.viewBoxContent}>
               <Text style={styles.textBoxContent}>{item.text}</Text>
@@ -230,23 +213,15 @@ const Level1 = ({ navigation }) => {
         />
       </View>
       <View style={styles.halfBottomView}>
-        {showAnswerOptions ? (
-          <View>
-            <Text style={styles.textAnswer}> Selecione a opção correta</Text>
-            <FlatList
-              style={styles.buttonsContainer}
-              data={data[0].alternatives}
-              renderItem={renderItem}
-              keyExtractor={(item) => item.id}
-            />
-          </View>
-        ) : (
-          <Text style={styles.textAnswer}>
-            Leia atentamente cada questão para que possa responder o que é
-            solicitado em cada exercício. Arraste o card para o lado e verá as
-            próximas instruções.
-          </Text>
-          )}
+        <View>
+          <Text style={styles.textAnswer}> Selecione a opção correta</Text>
+          <FlatList
+            style={styles.buttonsContainer}
+            data={data[0].alternatives}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+          />
+        </View>
       </View>
     </>
   );
@@ -257,8 +232,6 @@ const Level1 = ({ navigation }) => {
   const getData = (type) => dataContent[type];
 
   useEffect(() => {
-    setData(getData(step));
-    setShowAnswerOptions(false);
     if (finishLevel) {
       navigation.navigate('Congratulations', {
         level: 1,
@@ -266,6 +239,8 @@ const Level1 = ({ navigation }) => {
           'Entende como uma imagem criada por você pode ser representada com números binários.',
         ],
       });
+    } else {
+      setData(getData(step));
     }
   }, [step]);
 
