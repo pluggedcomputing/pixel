@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Congratulations from './screens/Congratulations';
 import Level3 from './screens/Exercises/Level3';
+import Level4 from './screens/Exercises/Level4';
 import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
@@ -43,6 +44,11 @@ const routes = () => {
           options={{title: 'Nível 3'}}
           name="Level3"
           component={Level3}
+        />
+        <Stack.Screen
+          options={{title: 'Nível 4'}}
+          name="Level4"
+          component={Level4}
         />
         <Stack.Screen
           options={{headerShown: false}}
