@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Congratulations from './screens/Congratulations';
+import Level2 from './screens/Exercises/Level2';
 import Level3 from './screens/Exercises/Level3';
 import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
@@ -43,6 +44,11 @@ const routes = () => {
           options={{title: 'Nível 3'}}
           name="Level3"
           component={Level3}
+        />
+        <Stack.Screen
+          options={{title: 'Nível 2'}}
+          name="Level2"
+          component={Level2}
         />
         <Stack.Screen
           options={{headerShown: false}}
