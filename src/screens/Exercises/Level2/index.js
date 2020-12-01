@@ -8,6 +8,7 @@ import styles from './styles';
 
 const Level2 = ({navigation}) => {
   const [step, setSteps] = useState(0);
+  const [isLastPage, setIsLastPage] = useState(false);
   const imagens = {
     l2q1: require('../../../assets/images/level2/representationPixel.png'),
     l2q2: require('../../../assets/images/level2/examplePixel.png'),
@@ -114,7 +115,7 @@ const Level2 = ({navigation}) => {
   const viewOfContent = () => {
     const content = exercise.introductions.map((item) => (
       <View style={styles.containerOfContent}>
-        <Text>{item.text}</Text>
+        <Text style={styles.contentText}>{item.text}</Text>
         {item.img ? (
           <Image style={styles.img} source={imagens[item.img]} />
         ) : null}
@@ -123,7 +124,7 @@ const Level2 = ({navigation}) => {
 
     content.push(
       <View style={styles.containerOfContent}>
-        <Text>{question.description}</Text>
+        <Text style={styles.contentText}>{question.description}</Text>
         <PaintingTable content={question.paintContent} enable size={5} />
       </View>,
     );
@@ -133,17 +134,31 @@ const Level2 = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerHeader}>
-        <BoxBackground content={viewOfContent()} style={styles.boxContainer} />
+        <BoxBackground
+          content={viewOfContent()}
+          style={styles.boxContainer}
+          isLastPage={setIsLastPage}
+        />
       </View>
       <View style={styles.containerBody}>
-        <Text style={styles.textAnswer}> Selecione a opção correta</Text>
-        <View style={styles.contentContainerStyle}>
-          <MultipleChoice
-            step={step}
-            setSteps={setSteps}
-            alternatives={question.alternatives}
-          />
-        </View>
+        {!isLastPage ? (
+          <Text style={styles.defaultText}>
+            Leia atentamente cada questão para que possa responder o que é
+            solicitado em cada exercício. Arraste o card para o lado e verá as
+            próximas instruções.
+          </Text>
+        ) : (
+          <>
+            <Text style={styles.textAnswer}> Selecione a opção correta</Text>
+            <View style={styles.contentContainerStyle}>
+              <MultipleChoice
+                step={step}
+                setSteps={setSteps}
+                alternatives={question.alternatives}
+              />
+            </View>
+          </>
+        )}
       </View>
     </View>
   );
