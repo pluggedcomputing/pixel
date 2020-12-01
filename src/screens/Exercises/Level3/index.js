@@ -10,7 +10,7 @@ import styles from './styles';
 const DATA = [
   {
     id: '1',
-    title: 'Planelta',
+    title: 'Planeta',
     correct: false,
   },
   {
