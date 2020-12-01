@@ -43,6 +43,13 @@ const styles = StyleSheet.create({
     color: colors.colorSecondaryDark,
     fontWeight: 'bold',
   },
+  defaultText: {
+    marginLeft: metrics.baseMargin,
+    marginRight: metrics.baseMargin,
+    textAlign: 'center',
+    color: colors.colorTextPrimary,
+  },
+  contentText: {textAlign: 'center'},
   img: {
     width: metrics.screenWidth * 0.4,
     height: metrics.screenHeight * 0.17,
