@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Congratulations from './screens/Congratulations';
+import Level1 from './screens/Exercises/Level1';
 import Level2 from './screens/Exercises/Level2';
 import Level3 from './screens/Exercises/Level3';
 import Level4 from './screens/Exercises/Level4';
