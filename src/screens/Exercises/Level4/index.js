@@ -59,12 +59,8 @@ const Level4 = ({ navigation }) => {
 
   const dataContent = [DATA1, DATA2];
   const maxStep = dataContent.length;
-  console.log(maxStep)
-  console.log(data)
   const finishLevel = step === maxStep;
-  console.log(finishLevel)
   const getData = (type) => dataContent[type];
-  console.log(getData)
 
   const renderItem = ({ item }) => (
     <View style={styles.contentContainerStyle}>
