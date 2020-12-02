@@ -1,13 +1,14 @@
 {
   "name": "plugged-computing-pixel",
-  "version": "0.0.1",
+  "version": "0.0.2-0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "standard-version"
   },
   "husky": {
     "hooks": {
@@ -60,7 +61,8 @@
     "lint-staged": "^10.2.11",
     "metro-react-native-babel-preset": "^0.59.0",
     "prettier": "^2.0.5",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "standard-version": "^9.0.0"
   },
   "jest": {
     "preset": "react-native"
