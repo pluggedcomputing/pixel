@@ -106,7 +106,7 @@ const Level4 = ({ navigation }) => {
   useEffect(() => {
     if (finishLevel) {
       navigation.navigate('Congratulations', {
-        level: 1,
+        level: 4,
         content: [
           'Entende como uma imagem criada por você pode ser representada com números binários.',
         ],
