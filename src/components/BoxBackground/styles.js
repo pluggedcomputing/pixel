@@ -13,12 +13,15 @@ const styles = StyleSheet.create({
   },
   boxContainer: {
     width: metrics.screenWidth * 0.9,
+    padding: metrics.smallPadding,
+    alignItems: 'center',
   },
   progressBar: {
+    width: metrics.screenWidth * 0.85,
     borderWidth: 1,
     borderRadius: metrics.baseRadius,
     borderColor: colors.colorAccent,
-    justifyContent: 'flex-end',
+    marginBottom: metrics.smallMargin,
   },
 });
 

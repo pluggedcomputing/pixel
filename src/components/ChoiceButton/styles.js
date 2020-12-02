@@ -10,12 +10,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: metrics.basePadding,
     width: metrics.screenWidth * widhtScreen,
-    height: metrics.screenHeight * 0.06,
     elevation: metrics.baseElevation,
   },
 
   button: {
-    flex: 1,
     alignItems: 'center',
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,

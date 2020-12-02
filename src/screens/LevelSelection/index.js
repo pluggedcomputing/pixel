@@ -61,7 +61,7 @@ const LevelSelection = ({navigation}) => {
             level="1"
             image={level1}
             available
-            onPress={() => navigation.navigate('Exercises')}
+            onPress={() => navigation.navigate('Level1')}
           />
 
           <Image
@@ -86,8 +86,8 @@ const LevelSelection = ({navigation}) => {
           <CardLevel
             level="2"
             image={level2}
-            available={levelsAvailable.level2}
-            onPress={() => navigation.navigate('Exercises')}
+            available
+            onPress={() => navigation.navigate('Level2')}
           />
           <Image
             source={imagePixel}
