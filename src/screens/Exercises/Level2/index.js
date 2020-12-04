@@ -39,57 +39,113 @@ const Level2 = ({navigation}) => {
     questions: [
       {
         type: '',
+        enable: true,
+        invisibleRow: -1,
         description:
           'Agora vamos praticar, pinte a imagem que os números formam',
-        paintContent: ['1, 3, 1', '2, 1, 2', '1, 3, 1', '2, 1, 2', '1, 3, 1'],
+        paintContent: [
+          '1, 0, 0, 0, 1',
+          '0, 1, 1, 1, 0',
+          '0, 1, 1, 1, 1',
+          '0, 1, 1, 1, 1',
+          '0, 1, 1, 1, 0',
+          '1, 0, 0, 0, 1',
+        ],
         alternatives: [
           {
             id: '1',
-            text: 'l',
+            text: 'L',
             correct: false,
           },
           {
             id: '2',
-            text: 't',
+            text: 'T',
             correct: false,
           },
           {
             id: '3',
-            text: 'c',
+            text: 'C',
             correct: true,
           },
           {
             id: '4',
-            text: 'p',
+            text: 'P',
             correct: false,
           },
         ],
       },
       {
         type: '',
+        enable: true,
+        invisibleRow: -1,
         description:
           'Vamos ver se você consegui entender como funcionas os pixels, qual letra do alfabeto os números formam?',
-        paintContent: ['1, 3, 1', '2, 1, 2', '1, 3, 1', '2, 1, 2', '1, 3, 1'],
+        paintContent: [
+          '0, 0, 0, 0, 1',
+          '0, 1, 1, 1, 1',
+          '0, 1, 1, 1, 1',
+          '0, 1, 0, 0, 1',
+          '0, 1, 1, 0, 1',
+          '0, 0, 0, 0, 1',
+        ],
         alternatives: [
           {
             id: '1',
-            text: 'm',
+            text: 'M',
             correct: false,
           },
           {
             id: '2',
-            text: 'g',
+            text: 'G',
+            correct: true,
+          },
+          {
+            id: '3',
+            text: 'W',
+            correct: false,
+          },
+          {
+            id: '4',
+            text: 'Q',
+            correct: false,
+          },
+        ],
+      },
+      {
+        type: '',
+        enable: false,
+        invisibleRow: 4,
+        description:
+          'Agora tente descobrir qual é a linha que esta faltando para completar o desenho?',
+        paintContent: [
+          '1, 1, 1, 1, 1',
+          '0, 1, 1, 1, 0',
+          '0, 1, 1, 1, 0',
+          '0, 1, 0, 1, 0',
+          '0, 0, 1, 0, 0',
+          '0, 1, 1, 1, 0',
+        ],
+
+        alternatives: [
+          {
+            id: '1',
+            text: '0, 0, 0, 1, 0',
+            correct: false,
+          },
+          {
+            id: '2',
+            text: '0, 0, 1, 1, 0',
             correct: false,
           },
           {
             id: '3',
-            text: 'w',
-            correct: true,
+            text: '0, 0, 1, 0, 1',
+            correct: false,
           },
           {
             id: '4',
-            text: 'q',
-            correct: false,
+            text: '0, 0, 1, 0, 0',
+            correct: true,
           },
         ],
       },
@@ -105,7 +161,11 @@ const Level2 = ({navigation}) => {
     if (finishLevel) {
       navigation.navigate('Congratulations', {
         level: exercise.level,
-        content: ['Parabéns por completar o nível'],
+        content: [
+          'Parabéns por completar o nível',
+          'Entendeu com funciona as imagens em um computador',
+          'E como podemos representalas atraves de 0 e 1',
+        ],
       });
     } else {
       setQuestion(exercise.questions[step]);
@@ -121,11 +181,16 @@ const Level2 = ({navigation}) => {
         ) : null}
       </View>
     ));
-
     content.push(
       <View style={styles.containerOfContent}>
         <Text style={styles.contentText}>{question.description}</Text>
-        <PaintingTable content={question.paintContent} enable size={5} />
+        <PaintingTable
+          content={question.paintContent}
+          enable={question.enable}
+          row={6}
+          column={5}
+          invisibleRow={question.invisibleRow}
+        />
       </View>,
     );
     return content;

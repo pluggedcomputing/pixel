@@ -29,6 +29,8 @@ const PaintingTable = (props) => {
       }
       columns.push(rows);
     }
+    setRowChecked('');
+    setColumnChecked('');
     return columns;
   };
 
