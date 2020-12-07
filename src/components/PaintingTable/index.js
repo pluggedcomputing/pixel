@@ -6,7 +6,7 @@ import {PropTypes} from 'prop-types';
 import styles from './styles';
 
 const PaintingTable = (props) => {
-  const {content, enable, row, column, invisibleRow} = props;
+  const {content, enable, row, column, invisibleRow, isContentReduced} = props;
   const [colorCurrent, setColorCurrent] = useState('P');
   const [columnCheck, setColumnChecked] = useState('');
   const [rowCheck, setRowChecked] = useState('');
@@ -48,10 +48,33 @@ const PaintingTable = (props) => {
   const mountMatrixColorOrDefault = () => {
     const dataDefault = mountMatrixDefault();
     if (!enable) {
-      for (let i = 0; i < row; i += 1) {
-        const replaceRows = checkValueOfContent(content[i]);
-        for (let j = 0; j < column; j += 1) {
-          dataDefault[i][j].color = replaceRows[j] === '0' ? 'P' : 'B';
+      if (isContentReduced) {
+        for (let i = 0; i < row; i += 1) {
+          let columnIndex = 0;
+          if (i < content.length) {
+            const replaceRows = checkValueOfContent(content[i]).split('');
+            const invertColor = i === 0 && replaceRows[i] === 0;
+
+            replaceRows.map((item, index) => {
+              let cont = 0;
+              while (cont < item) {
+                if (columnIndex <= column - 1) {
+                  const colorItem = index % 2 === 0 && !invertColor ? 'B' : 'P';
+                  dataDefault[i][columnIndex].color = colorItem;
+                  columnIndex += 1;
+                }
+                cont += 1;
+              }
+              return true;
+            });
+          }
+        }
+      } else {
+        for (let i = 0; i < row; i += 1) {
+          const replaceRows = checkValueOfContent(content[i]);
+          for (let j = 0; j < column; j += 1) {
+            dataDefault[i][j].color = replaceRows[j] === '0' ? 'P' : 'B';
+          }
         }
       }
     }
@@ -161,11 +184,13 @@ PaintingTable.propTypes = {
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
   invisibleRow: PropTypes.number,
+  isContentReduced: PropTypes.bool,
 };
 
 PaintingTable.defaultProps = {
   enable: true,
   invisibleRow: -1,
+  isContentReduced: true,
 };
 
 export default PaintingTable;
