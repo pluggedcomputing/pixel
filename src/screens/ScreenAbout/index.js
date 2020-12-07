@@ -47,7 +47,7 @@ function ScreenAbout() {
       <Image source={tank} style={styles.tankTetris} />
       <View>
         <Text style={styles.credits}>
-          Desenvolvido e mantido pela equipe do projeto Computação Desplugada da
+          Desenvolvido e mantido pela equipe do projeto Computação Plugada da
           UFPB campus IV.
         </Text>
         <Text style={styles.credits}>Todos os Direitos Reservados © 2020.</Text>
