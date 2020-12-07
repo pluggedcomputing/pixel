@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { View, Image, StatusBar, Text, FlatList } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Image, StatusBar, Text, FlatList} from 'react-native';
 
 import BoxBackground from '../../../components/BoxBackground';
 import ChoiceButton from '../../../components/ChoiceButton';
-import { colors } from '../../../styles';
+import {colors} from '../../../styles';
 import styles from './styles';
 
 const DATA1 = [
@@ -58,7 +58,7 @@ const DATA2 = [
       {
         id: '1',
         text:
-          'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena- a em, aproximadamente, 1000 × 2000pixels. E são transmitidos através de um modem para outra máquina de fax.',
+          'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena- a em, aproximadamente, 1000 × 2000 pixels. Depois são transmitidos através de um modem para outra máquina de fax.',
         img: null,
       },
       {
@@ -182,11 +182,11 @@ const DATA5 = [
   },
 ];
 
-const Level1 = ({ navigation }) => {
+const Level1 = ({navigation}) => {
   const [step, setSteps] = useState(0);
   const [data, setData] = useState(DATA1);
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({item}) => (
     <View style={styles.contentContainerStyle}>
       <ChoiceButton
         style={styles.buttons}
