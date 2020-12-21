@@ -13,6 +13,45 @@ const DATA1 = [
       {
         id: '1',
         text:
+          'Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? Nos desafios propostos a seguir entenderemos melhor como isso acontece.',
+        img: null,
+      },
+      {
+        id: '2',
+        text:
+          'Você sabia que as telas dos computadores são divididas em uma grade de pequenos pontos chamados pixels? Em uma foto preto e branco, cada pixel ou é preto ou é branco.',
+        img: require('../../../assets/images/img_pixel.png'),
+      },
+      {
+        id: '3',
+        text:
+          ' Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco. Como você acha que eram enviadas estas mensagens?',
+        img: require('../../../assets/images/fax.png'),
+      },
+    ],
+    alternatives: [
+      {
+        id: '1',
+        title: ' Representando pontos pretos com 1 e brancos com 0',
+        correct: true,
+      },
+      {
+        id: '2',
+        title:
+          'Utilizando uma representação que economize a quantidade de dados enviados',
+        correct: false,
+      },
+    ],
+  },
+];
+
+const DATA2 = [
+  {
+    id: '2',
+    title: [
+      {
+        id: '1',
+        text:
           'As telas dos computadores são divididas em uma grade de pequenos quadrados, cada um dos quais pode exibir uma cor. Chamamos esses quadrados de elementos de imagem ou pixels.',
         img: null,
       },
@@ -51,9 +90,9 @@ const DATA1 = [
   },
 ];
 
-const DATA2 = [
+const DATA3 = [
   {
-    id: '2',
+    id: '3',
     title: [
       {
         id: '1',
@@ -66,6 +105,12 @@ const DATA2 = [
         text: 'Esta última, por sua vez, imprime os pixels em uma página.',
         img: require('../../../assets/images/Level1/fax.png'),
       },
+      {
+        id: '3',
+        text:
+          'Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.',
+        img: null,
+      },
     ],
     alternatives: [
       {
@@ -77,9 +122,9 @@ const DATA2 = [
   },
 ];
 
-const DATA3 = [
+const DATA4 = [
   {
-    id: '3',
+    id: '4',
     title: [
       {
         id: '1',
@@ -111,9 +156,9 @@ const DATA3 = [
     ],
   },
 ];
-const DATA4 = [
+const DATA5 = [
   {
-    id: '4',
+    id: '5',
     title: [
       {
         id: '1',
@@ -146,9 +191,9 @@ const DATA4 = [
   },
 ];
 
-const DATA5 = [
+const DATA6 = [
   {
-    id: '5',
+    id: '6',
     title: [
       {
         id: '1',
@@ -226,7 +271,7 @@ const Level1 = ({navigation}) => {
     </>
   );
 
-  const dataContent = [DATA1, DATA2, DATA3, DATA4, DATA5];
+  const dataContent = [DATA1, DATA2, DATA3, DATA4, DATA5, DATA6];
   const maxStep = 4;
   const finishLevel = step === maxStep;
   const getData = (type) => dataContent[type];
@@ -236,7 +281,9 @@ const Level1 = ({navigation}) => {
       navigation.navigate('Congratulations', {
         level: 1,
         content: [
+          'Entende o funcionamento do fax',
           'Entende como uma imagem criada por você pode ser representada com números binários.',
+          'Entende a necessidade de utilizar menos dados para representar imagens e documentos',
         ],
       });
     } else {
