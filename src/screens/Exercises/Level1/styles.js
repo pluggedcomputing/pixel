@@ -40,8 +40,6 @@ const styles = StyleSheet.create({
     height: metrics.screenHeight * 0.12,
   },
   textBoxContent: {
-    fontSize: fonts.small,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: colors.colorTextPrimary,
   },
