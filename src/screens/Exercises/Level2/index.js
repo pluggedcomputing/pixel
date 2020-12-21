@@ -32,7 +32,7 @@ const Level2 = ({navigation}) => {
       {
         id: 3,
         text:
-          'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado branco e um 0 indica um quadrado preto, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
+          'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado preto e um 0 indica um quadrado branco, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
         img: 'l2q2',
       },
     ],
@@ -44,12 +44,12 @@ const Level2 = ({navigation}) => {
         description:
           'Agora vamos praticar, pinte a imagem que os números formam',
         paintContent: [
-          '1, 0, 0, 0, 1',
-          '0, 1, 1, 1, 0',
-          '0, 1, 1, 1, 1',
-          '0, 1, 1, 1, 1',
           '0, 1, 1, 1, 0',
           '1, 0, 0, 0, 1',
+          '1, 0, 0, 0, 0',
+          '1, 0, 0, 0, 0',
+          '1, 0, 0, 0, 1',
+          '0, 1, 1, 1, 0',
         ],
         alternatives: [
           {
@@ -81,12 +81,12 @@ const Level2 = ({navigation}) => {
         description:
           'Vamos ver se você consegui entender como funcionas os pixels, qual letra do alfabeto os números formam?',
         paintContent: [
-          '0, 0, 0, 0, 1',
-          '0, 1, 1, 1, 1',
-          '0, 1, 1, 1, 1',
-          '0, 1, 0, 0, 1',
-          '0, 1, 1, 0, 1',
-          '0, 0, 0, 0, 1',
+          '0, 1, 1, 1, 0',
+          '1, 0, 0, 0, 0',
+          '1, 0, 0, 0, 0',
+          '1, 0, 1, 1, 0',
+          '1, 0, 0, 1, 0',
+          '0, 1, 1, 1, 0',
         ],
         alternatives: [
           {
@@ -116,14 +116,14 @@ const Level2 = ({navigation}) => {
         enable: false,
         invisibleRow: 4,
         description:
-          'Agora tente descobrir qual é a linha que esta faltando para completar o desenho?',
+          'Agora tente descobrir qual é a linha que esta faltando para completar o desenho da letra W?',
         paintContent: [
-          '1, 1, 1, 1, 1',
-          '0, 1, 1, 1, 0',
-          '0, 1, 1, 1, 0',
-          '0, 1, 0, 1, 0',
-          '0, 0, 1, 0, 0',
-          '0, 1, 1, 1, 0',
+          '0, 0, 0, 0, 0',
+          '1, 0, 0, 0, 1',
+          '1, 0, 0, 0, 1',
+          '1, 0, 1, 0, 1',
+          '1, 1, 0, 1, 1',
+          '1, 0, 0, 0, 1',
         ],
 
         alternatives: [
@@ -186,6 +186,7 @@ const Level2 = ({navigation}) => {
         <Text style={styles.contentText}>{question.description}</Text>
         <PaintingTable
           content={question.paintContent}
+          isContentReduced={false}
           enable={question.enable}
           row={6}
           column={5}
