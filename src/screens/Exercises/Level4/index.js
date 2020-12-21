@@ -1,88 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import { View, StatusBar, Text, FlatList } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, StatusBar, Text} from 'react-native';
 
 import BoxBackground from '../../../components/BoxBackground';
 import ChoiceButton from '../../../components/ChoiceButton';
-import { colors } from '../../../styles';
+import {colors} from '../../../styles';
 import styles from './styles';
 
-const DATA1 = [
+const DATAINFOR = [
   {
     id: '1',
     title: [
       {
         id: '1',
         text:
-          'Estes exercicios cobriram apenas imagens em preto e branco. Podemos fazer mais de duas cores com esta atividade?',
+          'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena-a em, aproximadamente, 1000 × 2000 pixels, que são transmitidos através de um modem para outra máquina de fax. Esta última, por sua vez, imprime os pixels em uma página. Imagens impressas por fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal). ',
       },
       {
         id: '2',
-        text: 'Com um dígito binário, podemos representar apenas dois valores diferentes. Isso significa que se usarmos um dígito para representar a cor de um pixel, cada pixel pode ser apenas uma de duas cores diferentes.',
+        text:
+          'Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão. O método utilizado nesta atividade é chamado de ‘run-length coding’, uma maneira eficaz de compressão de imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet. ',
+      },
+      {
+        id: '3',
+        text:
+          'Por exemplo, imagens de fax eram geralmente comprimidas para aproximadamente um sétimo do seu tamanho original. Sem a compressão, estas demorariam sete vezes mais para serem transmitidas! Lembre-se de que as velocidades de transmissão não eram tão boas antigamente como as que temos hoje.',
+      },
+      {
+        id: '4',
+        text:
+          'Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê- las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.',
       },
     ],
     alternatives: [
       {
         id: '1',
-        title: 'Próximo',
+        title: 'Enviar',
         correct: true,
       },
     ],
   },
 ];
 
-const DATA2 = [
-  {
-    id: '2',
-    title: [
-      {
-        id: '1',
-        text: 'O que poderíamos fazer para representar mais cores?',
-      },
-      {
-        id: '2',
-        text: 'Se quisermos que cada pixel seja capaz de mostrar mais cores além do preto e branco, precisamos usar mais números (ou seja, mais dígitos binários) para representar a cor de cada pixel.',
-      },
-    ],
-    alternatives: [
-      {
-        id: '1',
-        title: 'Próximo',
-        correct: true,
-      },
-    ],
-  },
-];
+const Level4 = ({navigation}) => {
+  const [isLastPage, setIsLastPage] = useState(false);
 
-const Level4 = ({ navigation }) => {
   const [step, setSteps] = useState(0);
-  const [data, setData] = useState(DATA1);
 
-  const dataContent = [DATA1, DATA2];
-  const maxStep = dataContent.length;
+  const maxStep = DATAINFOR.length;
   const finishLevel = step === maxStep;
-  const getData = (type) => dataContent[type];
 
-  const renderItem = ({ item }) => (
-    <View style={styles.contentContainerStyle}>
-      <ChoiceButton
-        style={styles.buttons}
-        step={step}
-        text={item.title}
-        correct={item.correct}
-        onPress={() => {
-          if (item.correct) {
-            setSteps(step + 1)
-          }
-        }}
-      />
-    </View>
-  );
+  useEffect(() => {
+    if (finishLevel) {
+      navigation.navigate('Congratulations', {
+        level: 4,
+        content: ['Entende a necessidade de comprimir dados'],
+      });
+    }
+  }, [step]);
 
   const BoxContent = () => (
     <>
       <View style={styles.halfTopView}>
         <BoxBackground
-          content={data[0].title.map((item) => (
+          isLastPage={setIsLastPage}
+          content={DATAINFOR[0].title.map((item) => (
             <View style={styles.viewBoxContent}>
               <Text style={styles.textBoxContent}>{item.text}</Text>
             </View>
@@ -90,31 +71,28 @@ const Level4 = ({ navigation }) => {
         />
       </View>
       <View style={styles.halfBottomView}>
-        <View>
-          <Text style={styles.textAnswer}> Selecione a opção correta</Text>
-          <FlatList
-            style={styles.buttonsContainer}
-            data={data[0].alternatives}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
+        {!isLastPage ? (
+          <Text style={styles.defaultText}>
+            Leia atentamente cada questão para que possa responder o que é
+            solicitado em cada exercício. Arraste o card para o lado e verá as
+            próximas instruções.
+          </Text>
+        ) : (
+          <ChoiceButton
+            style={styles.buttons}
+            step={step}
+            text={DATAINFOR[0].alternatives[0].title}
+            correct={DATAINFOR[0].alternatives[0].correct}
+            onPress={() => {
+              if (DATAINFOR[0].alternatives[0].correct) {
+                setSteps(step + 1);
+              }
+            }}
           />
-        </View>
+        )}
       </View>
     </>
   );
-
-  useEffect(() => {
-    if (finishLevel) {
-      navigation.navigate('Congratulations', {
-        level: 4,
-        content: [
-          'Entende como uma imagem criada por você pode ser representada com números binários.',
-        ],
-      });
-    } else {
-      setData(getData(step))
-    }
-  }, [step]);
 
   return (
     <View style={styles.container}>
