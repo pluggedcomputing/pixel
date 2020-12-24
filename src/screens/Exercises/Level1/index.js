@@ -6,9 +6,10 @@ import ChoiceButton from '../../../components/ChoiceButton';
 import {colors} from '../../../styles';
 import styles from './styles';
 
-const DATA1 = [
+const DATA = [
   {
-    id: '1',
+    id: '001',
+    key: 'a',
     title: [
       {
         id: '1',
@@ -25,7 +26,7 @@ const DATA1 = [
       {
         id: '3',
         text:
-          ' Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco. Como você acha que eram enviadas estas mensagens?',
+          'Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco. Como você acha que eram enviadas estas mensagens?',
         img: require('../../../assets/images/fax.png'),
       },
     ],
@@ -43,11 +44,9 @@ const DATA1 = [
       },
     ],
   },
-];
-
-const DATA2 = [
   {
-    id: '2',
+    id: '002',
+    key: 'b',
     title: [
       {
         id: '1',
@@ -88,11 +87,9 @@ const DATA2 = [
       },
     ],
   },
-];
-
-const DATA3 = [
   {
-    id: '3',
+    id: '003',
+    key: 'c',
     title: [
       {
         id: '1',
@@ -120,11 +117,9 @@ const DATA3 = [
       },
     ],
   },
-];
-
-const DATA4 = [
   {
-    id: '4',
+    id: '004',
+    key: 'd',
     title: [
       {
         id: '1',
@@ -155,10 +150,9 @@ const DATA4 = [
       },
     ],
   },
-];
-const DATA5 = [
   {
-    id: '5',
+    id: '005',
+    key: 'e',
     title: [
       {
         id: '1',
@@ -189,11 +183,9 @@ const DATA5 = [
       },
     ],
   },
-];
-
-const DATA6 = [
   {
-    id: '6',
+    id: '006',
+    key: 'f',
     title: [
       {
         id: '1',
@@ -229,7 +221,26 @@ const DATA6 = [
 
 const Level1 = ({navigation}) => {
   const [step, setSteps] = useState(0);
-  const [data, setData] = useState(DATA1);
+  const [data, setData] = useState(DATA[0]);
+  const [isLastPage, setIsLastPage] = useState(false);
+  const maxStep = 4;
+  const finishLevel = step === maxStep;
+
+  useEffect(() => {
+    if (finishLevel) {
+      navigation.navigate('Congratulations', {
+        level: 1,
+        content: [
+          'Entende o funcionamento do fax',
+          'Entende como uma imagem criada por você pode ser representada com números binários.',
+          'Entende a necessidade de utilizar menos dados para representar imagens e documentos',
+        ],
+      });
+    } else {
+      setData(DATA[step]);
+      setIsLastPage(false);
+    }
+  }, [step]);
 
   const renderItem = ({item}) => (
     <View style={styles.contentContainerStyle}>
@@ -245,56 +256,50 @@ const Level1 = ({navigation}) => {
     </View>
   );
 
+  const viewContent = () => {
+    return data.title.map((item) => (
+      <View style={styles.viewBoxContent}>
+        <Text style={styles.textBoxContent}>{item.text}</Text>
+        <Image style={styles.statementImage} source={item.img} />
+      </View>
+    ));
+  };
+
   const BoxContent = () => (
     <>
       <View style={styles.halfTopView}>
         <BoxBackground
-          content={data[0].title.map((item) => (
-            <View style={styles.viewBoxContent}>
-              <Text style={styles.textBoxContent}>{item.text}</Text>
-              <Image style={styles.statementImage} source={item.img} />
-            </View>
-          ))}
+          isLastPage={setIsLastPage}
+          content={viewContent()}
+          updatePage={step}
         />
       </View>
       <View style={styles.halfBottomView}>
-        <View>
-          <Text style={styles.textAnswer}> Selecione a opção correta</Text>
-          <FlatList
-            style={styles.buttonsContainer}
-            data={data[0].alternatives}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-          />
-        </View>
+        {!isLastPage ? (
+          <Text style={styles.defaultText}>
+            Leia atentamente cada questão para que possa responder o que é
+            solicitado em cada exercício. Arraste o card para o lado e verá as
+            próximas instruções.
+          </Text>
+        ) : (
+          <View>
+            <Text style={styles.textAnswer}> Selecione a opção correta</Text>
+            <FlatList
+              style={styles.buttonsContainer}
+              data={data.alternatives}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id}
+            />
+          </View>
+        )}
       </View>
     </>
   );
 
-  const dataContent = [DATA1, DATA2, DATA3, DATA4, DATA5, DATA6];
-  const maxStep = 4;
-  const finishLevel = step === maxStep;
-  const getData = (type) => dataContent[type];
-
-  useEffect(() => {
-    if (finishLevel) {
-      navigation.navigate('Congratulations', {
-        level: 1,
-        content: [
-          'Entende o funcionamento do fax',
-          'Entende como uma imagem criada por você pode ser representada com números binários.',
-          'Entende a necessidade de utilizar menos dados para representar imagens e documentos',
-        ],
-      });
-    } else {
-      setData(getData(step));
-    }
-  }, [step]);
-
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.colorPrimary} />
-      <BoxContent />
+      {BoxContent()}
     </View>
   );
 };
