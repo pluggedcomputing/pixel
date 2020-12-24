@@ -62,12 +62,12 @@ const Level4 = ({navigation}) => {
     <>
       <View style={styles.halfTopView}>
         <BoxBackground
-          isLastPage={setIsLastPage}
           content={DATAINFOR[0].title.map((item) => (
             <View style={styles.viewBoxContent}>
               <Text style={styles.textBoxContent}>{item.text}</Text>
             </View>
           ))}
+          isLastPage={setIsLastPage}
         />
       </View>
       <View style={styles.halfBottomView}>
@@ -97,7 +97,7 @@ const Level4 = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.colorPrimary} />
-      <BoxContent />
+      {BoxContent()}
     </View>
   );
 };
