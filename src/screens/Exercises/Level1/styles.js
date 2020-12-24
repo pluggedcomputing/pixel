@@ -63,6 +63,12 @@ const styles = StyleSheet.create({
   buttons: {
     flex: 1,
   },
+  defaultText: {
+    marginLeft: metrics.baseMargin,
+    marginRight: metrics.baseMargin,
+    textAlign: 'center',
+    color: colors.colorTextPrimary,
+  },
 });
 
 export default styles;
