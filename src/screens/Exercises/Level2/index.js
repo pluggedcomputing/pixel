@@ -144,7 +144,7 @@ const Level2 = ({navigation}) => {
           },
           {
             id: '4',
-            text: '0, 0, 1, 0, 0',
+            text: '1, 1, 0, 1, 1',
             correct: true,
           },
         ],
