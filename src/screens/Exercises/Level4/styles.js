@@ -29,35 +29,23 @@ const styles = StyleSheet.create({
   },
   viewBoxContent: {
     flex: 1,
-    justifyContent: 'center',
-    margin: metrics.baseMargin,
+    justifyContent: 'space-evenly',
     alignItems: 'center',
   },
   textBoxContent: {
-    fontSize: fonts.small,
-    fontWeight: 'bold',
     textAlign: 'center',
-    color: colors.colorTextPrimary,
   },
   textAnswer: {
     fontSize: fonts.small,
     marginTop: metrics.smallMargin,
-    textAlign: 'center',
     color: colors.colorSecondaryDark,
     fontWeight: 'bold',
   },
-  buttonsContainer: {
-    flex: 1,
-    width: metrics.screenWidth,
-    marginTop: metrics.baseMargin,
-  },
-  contentContainerStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: metrics.baseMargin,
-  },
-  buttons: {
-    flex: 1,
+  defaultText: {
+    marginLeft: metrics.baseMargin,
+    marginRight: metrics.baseMargin,
+    textAlign: 'center',
+    color: colors.colorTextPrimary,
   },
 });
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, FlatList} from 'react-native';
 import {ProgressBar} from 'react-native-paper';
 
@@ -8,8 +8,16 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const BoxBackground = (props) => {
-  const {content, style, isLastPage} = props;
+  const {content, style, isLastPage, updatePage} = props;
   const [pagination, setPagination] = useState(0);
+
+  let flatListRef = null;
+
+  useEffect(() => {
+    if (flatListRef !== null && updatePage !== null) {
+      flatListRef.scrollToIndex({index: 0});
+    }
+  }, [updatePage]);
 
   const changePaginationIndex = (event) => {
     const {contentOffset} = event.nativeEvent;
@@ -24,20 +32,29 @@ const BoxBackground = (props) => {
   const convertIndexInProgress = (index) =>
     ((index + 1) * 100) / content.length / 100;
 
+  const renderItem = ({item}) => {
+    return <View style={styles.boxContainer}>{item}</View>;
+  };
+
   return (
     <View style={[styles.container, style]}>
       <FlatList
+        ref={(ref) => {
+          flatListRef = ref;
+        }}
+        data={content}
         keyExtractor={(item, index) => String(index)}
         showsHorizontalScrollIndicator={false}
         onEndReachedThreshold={0.1}
-        onEndReached={() => isLastPage(true)}
-        data={content}
+        onEndReached={() => {
+          isLastPage(true);
+        }}
         horizontal
         pagingEnabled
         onScroll={(event) => {
           changePaginationIndex(event);
         }}
-        renderItem={({item}) => <View style={styles.boxContainer}>{item}</View>}
+        renderItem={renderItem}
       />
       <View style={styles.progressBar}>
         <ProgressBar
@@ -50,12 +67,14 @@ const BoxBackground = (props) => {
 };
 
 BoxBackground.propTypes = {
+  updatePage: PropTypes.number,
   content: PropTypes.arrayOf(PropTypes.element).isRequired,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf]),
   isLastPage: PropTypes.func,
 };
 
 BoxBackground.defaultProps = {
+  updatePage: null,
   style: null,
   isLastPage: () => {},
 };
