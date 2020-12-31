@@ -94,8 +94,8 @@ const DATA = [
     alternatives: [
       {
         id: '1',
-        title: 'Programa de desenhar',
-        correct: true,
+        title: 'Programa de texto',
+        correct: false,
       },
       {
         id: '2',
