@@ -12,7 +12,7 @@ const Level3 = ({navigation}) => {
   const [isLastPage, setIsLastPage] = useState(false);
 
   const response = {
-    level: 2,
+    level: 3,
     introductions: [
       {
         id: 1,

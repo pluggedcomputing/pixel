@@ -33,7 +33,7 @@ const DATA = [
     alternatives: [
       {
         id: '1',
-        title: ' Representando pontos pretos com 1 e brancos com 0',
+        title: ' Representando pontos pretos com 0 e brancos com 1',
         correct: true,
       },
       {

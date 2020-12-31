@@ -32,7 +32,7 @@ const Level2 = ({navigation}) => {
       {
         id: 3,
         text:
-          'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado preto e um 0 indica um quadrado branco, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
+          'Podemos representar essa imagem usando dígitos binários (bits). Se 0 indica um quadrado preto e um 1 indica um quadrado branco, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
         img: 'l2q2',
       },
     ],
@@ -44,12 +44,12 @@ const Level2 = ({navigation}) => {
         description:
           'Agora vamos praticar, pinte a imagem que os números formam',
         paintContent: [
-          '0, 1, 1, 1, 0',
-          '1, 0, 0, 0, 1',
-          '1, 0, 0, 0, 0',
-          '1, 0, 0, 0, 0',
           '1, 0, 0, 0, 1',
           '0, 1, 1, 1, 0',
+          '0, 1, 1, 1, 1',
+          '0, 1, 1, 1, 1',
+          '0, 1, 1, 1, 0',
+          '1, 0, 0, 0, 1',
         ],
         alternatives: [
           {
@@ -81,12 +81,12 @@ const Level2 = ({navigation}) => {
         description:
           'Vamos ver se você consegui entender como funcionas os pixels, qual letra do alfabeto os números formam?',
         paintContent: [
-          '0, 1, 1, 1, 0',
-          '1, 0, 0, 0, 0',
-          '1, 0, 0, 0, 0',
-          '1, 0, 1, 1, 0',
-          '1, 0, 0, 1, 0',
-          '0, 1, 1, 1, 0',
+          '1, 0, 0, 0, 1',
+          '0, 1, 1, 1, 1',
+          '0, 1, 1, 1, 1',
+          '0, 1, 0, 0, 1',
+          '0, 1, 1, 0, 1',
+          '1, 0, 0, 0, 1',
         ],
         alternatives: [
           {
@@ -118,33 +118,33 @@ const Level2 = ({navigation}) => {
         description:
           'Agora tente descobrir qual é a linha que esta faltando para completar o desenho da letra W?',
         paintContent: [
-          '0, 0, 0, 0, 0',
-          '1, 0, 0, 0, 1',
-          '1, 0, 0, 0, 1',
-          '1, 0, 1, 0, 1',
-          '1, 1, 0, 1, 1',
-          '1, 0, 0, 0, 1',
+          '1, 1, 1, 1, 1',
+          '0, 1, 1, 1, 0',
+          '0, 1, 1, 1, 0',
+          '0, 1, 0, 1, 0',
+          '0, 0, 1, 0, 0',
+          '0, 1, 1, 1, 0',
         ],
 
         alternatives: [
           {
             id: '1',
-            text: '0, 0, 0, 1, 0',
+            text: '1, 1, 1, 0, 1',
             correct: false,
           },
           {
             id: '2',
-            text: '0, 0, 1, 1, 0',
+            text: '1, 1, 0, 0, 1',
             correct: false,
           },
           {
             id: '3',
-            text: '0, 0, 1, 0, 1',
+            text: '1, 1, 0, 1, 0',
             correct: false,
           },
           {
             id: '4',
-            text: '1, 1, 0, 1, 1',
+            text: '0, 0, 1, 0, 0',
             correct: true,
           },
         ],
