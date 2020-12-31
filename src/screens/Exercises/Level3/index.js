@@ -96,11 +96,11 @@ const Level3 = ({navigation}) => {
           'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
         paintContent: [
           '5',
-          '0, 1, 2, 1',
+          '0, 1, 2, 1, 1',
           '0, 1, 1, 1, 2',
           '0, 2, 3',
           '0, 1, 1, 1, 2',
-          '0, 1, 2, 1',
+          '0, 1, 2, 1, 1',
         ],
 
         alternatives: [
@@ -128,10 +128,10 @@ const Level3 = ({navigation}) => {
       },
       {
         type: '',
-        enable: true,
+        enable: false,
         invisibleRow: 4,
         description:
-          'Como você representaria a penutima linha da imagem abaixo?',
+          'Como você representaria a penúltima linha da imagem abaixo?',
         paintContent: [
           '1, 3, 1',
           '2, 1, 2',
@@ -144,12 +144,12 @@ const Level3 = ({navigation}) => {
         alternatives: [
           {
             id: '1',
-            text: '1, 1, 2',
+            text: '1, 1, 1, 2',
             correct: false,
           },
           {
             id: '2',
-            text: '0, 1, 1, 2',
+            text: '0, 1, 1, 1, 2',
             correct: true,
           },
           {
@@ -159,7 +159,7 @@ const Level3 = ({navigation}) => {
           },
           {
             id: '4',
-            text: '0, 1, 2, 1',
+            text: '0, 1, 2, 1, 1',
             correct: false,
           },
         ],
