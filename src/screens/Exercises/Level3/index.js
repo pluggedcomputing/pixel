@@ -17,7 +17,7 @@ const Level3 = ({navigation}) => {
       {
         id: 1,
         text:
-          'Você aprendeu que podemos representar uma imagem através de pontos pretos que possuem os valores 0 e 1, mas podemos ainda representar de outra forma. Os valores que são a representação da imagem pode ser reduzidos, assim tendo memos valores para representalas.',
+          'Você aprendeu que podemos representar uma imagem através de  pontos pretos e brancos, representados por 0 e 1, respectivamente. Podemos, porém, utilizar também uma representação mais reduzida e que gaste menos memória e menos tempo de transmissão.',
         img: null,
       },
       {
