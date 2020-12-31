@@ -82,36 +82,6 @@ const DATA = [
     ],
   },
   {
-    id: '003',
-    key: 'c',
-    title: [
-      {
-        id: '1',
-        text:
-          'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena- a em, aproximadamente, 1000 × 2000 pixels. Depois são transmitidos através de um modem para outra máquina de fax.',
-        img: null,
-      },
-      {
-        id: '2',
-        text: 'Esta última, por sua vez, imprime os pixels em uma página.',
-        img: require('../../../assets/images/Level1/fax.png'),
-      },
-      {
-        id: '3',
-        text:
-          'Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.',
-        img: null,
-      },
-    ],
-    alternatives: [
-      {
-        id: '1',
-        title: 'Próximo',
-        correct: true,
-      },
-    ],
-  },
-  {
     id: '004',
     key: 'd',
     title: [
@@ -141,6 +111,36 @@ const DATA = [
         id: '4',
         title: 'No bloco de notas',
         correct: false,
+      },
+    ],
+  },
+  {
+    id: '003',
+    key: 'c',
+    title: [
+      {
+        id: '1',
+        text:
+          'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena- a em, aproximadamente, 1000 × 2000 pixels. Depois são transmitidos através de um modem para outra máquina de fax.',
+        img: null,
+      },
+      {
+        id: '2',
+        text: 'Esta última, por sua vez, imprime os pixels em uma página.',
+        img: require('../../../assets/images/Level1/fax.png'),
+      },
+      {
+        id: '3',
+        text:
+          'Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.',
+        img: null,
+      },
+    ],
+    alternatives: [
+      {
+        id: '1',
+        title: 'Próximo',
+        correct: true,
       },
     ],
   },
