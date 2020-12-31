@@ -73,7 +73,7 @@ const PaintingTable = (props) => {
         for (let i = 0; i < row; i += 1) {
           const replaceRows = checkValueOfContent(content[i]);
           for (let j = 0; j < column; j += 1) {
-            dataDefault[i][j].color = replaceRows[j] === '0' ? 'B' : 'P';
+            dataDefault[i][j].color = replaceRows[j] !== '0' ? 'B' : 'P';
           }
         }
       }
