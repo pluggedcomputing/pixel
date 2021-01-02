@@ -121,17 +121,28 @@ const PaintingTable = (props) => {
   const mountSqureColor = () => {
     if (enable) {
       return (
-        <View style={styles.containerChoiceColor}>
-          <TouchableOpacity onPress={() => choiceColor('P')}>
-            <View
-              style={[styles.square, chosenSquare('P'), styles.squareColoring]}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => choiceColor('B')}>
-            <View
-              style={[styles.square, chosenSquare('B'), styles.discolorSquare]}
-            />
-          </TouchableOpacity>
+        <View style={styles.containerFooter}>
+          <Text style={styles.textFooter}>Selecione uma cor </Text>
+          <View style={styles.containerChoiceColor}>
+            <TouchableOpacity onPress={() => choiceColor('P')}>
+              <View
+                style={[
+                  styles.square,
+                  chosenSquare('P'),
+                  styles.squareColoring,
+                ]}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => choiceColor('B')}>
+              <View
+                style={[
+                  styles.square,
+                  chosenSquare('B'),
+                  styles.discolorSquare,
+                ]}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       );
     }
