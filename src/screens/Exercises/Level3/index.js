@@ -36,7 +36,7 @@ const Level3 = ({navigation}) => {
           'Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de dois pixels brancos, 1 preto e 2 brancos.',
 
         paintContent: [
-          '0, 5',
+          '5',
           '2, 1, 2',
           '2, 1, 2',
           '2, 1, 2',
