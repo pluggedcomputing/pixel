@@ -33,7 +33,7 @@ const DATA = [
     alternatives: [
       {
         id: '1',
-        title: ' Representando pontos pretos com 1 e brancos com 0',
+        title: ' Representando pontos pretos com 0 e brancos com 1',
         correct: true,
       },
       {
@@ -61,12 +61,6 @@ const DATA = [
         img: null,
       },
       {
-        id: '3',
-        text:
-          'Por exemplo, se quisermos exibir a letra C, primeiro precisamos dividir a letra em quadrados. Se ampliarmos mais e mais na letra, podemos ver uma grade de pixels semelhante a estes:',
-        img: require('../../../assets/images/Level1/Cgrade.png'),
-      },
-      {
         id: '4',
         text:
           'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado branco e um 0 indica um quadrado preto, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
@@ -84,6 +78,39 @@ const DATA = [
         id: '1',
         title: 'Próximo',
         correct: true,
+      },
+    ],
+  },
+  {
+    id: '004',
+    key: 'd',
+    title: [
+      {
+        id: '1',
+        text: 'Em quais situações os computadores precisam armazenar imagens?',
+        img: null,
+      },
+    ],
+    alternatives: [
+      {
+        id: '1',
+        title: 'Programa de texto',
+        correct: false,
+      },
+      {
+        id: '2',
+        title: 'Jogo com gráficos',
+        correct: true,
+      },
+      {
+        id: '3',
+        title: 'Cálculo de números',
+        correct: false,
+      },
+      {
+        id: '4',
+        title: 'No bloco de notas',
+        correct: false,
       },
     ],
   },
@@ -114,39 +141,6 @@ const DATA = [
         id: '1',
         title: 'Próximo',
         correct: true,
-      },
-    ],
-  },
-  {
-    id: '004',
-    key: 'd',
-    title: [
-      {
-        id: '1',
-        text: 'Em quais situações os computadores precisam armazenar imagens?',
-        img: null,
-      },
-    ],
-    alternatives: [
-      {
-        id: '1',
-        title: 'Programa de desenhar',
-        correct: true,
-      },
-      {
-        id: '2',
-        title: 'Jogo com gráficos',
-        correct: true,
-      },
-      {
-        id: '3',
-        title: 'Cálculo de números',
-        correct: false,
-      },
-      {
-        id: '4',
-        title: 'No bloco de notas',
-        correct: false,
       },
     ],
   },
@@ -223,7 +217,7 @@ const Level1 = ({navigation}) => {
   const [step, setSteps] = useState(0);
   const [data, setData] = useState(DATA[0]);
   const [isLastPage, setIsLastPage] = useState(false);
-  const maxStep = 4;
+  const maxStep = DATA.length;
   const finishLevel = step === maxStep;
 
   useEffect(() => {
@@ -250,7 +244,9 @@ const Level1 = ({navigation}) => {
         text={item.title}
         correct={item.correct}
         onPress={() => {
-          if (item.correct) setSteps(step + 1);
+          if (item.correct) {
+            setSteps(step + 1);
+          }
         }}
       />
     </View>
@@ -275,7 +271,7 @@ const Level1 = ({navigation}) => {
         />
       </View>
       <View style={styles.halfBottomView}>
-        {!isLastPage ? (
+        {!isLastPage && data.title.length > 1 ? (
           <Text style={styles.defaultText}>
             Leia atentamente cada questão para que possa responder o que é
             solicitado em cada exercício. Arraste o card para o lado e verá as
@@ -283,7 +279,9 @@ const Level1 = ({navigation}) => {
           </Text>
         ) : (
           <View>
-            <Text style={styles.textAnswer}> Selecione a opção correta</Text>
+            {data.alternatives.length > 1 ? (
+              <Text style={styles.textAnswer}> Selecione a opção correta</Text>
+            ) : null}
             <FlatList
               style={styles.buttonsContainer}
               data={data.alternatives}

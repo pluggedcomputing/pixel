@@ -12,12 +12,12 @@ const Level3 = ({navigation}) => {
   const [isLastPage, setIsLastPage] = useState(false);
 
   const response = {
-    level: 2,
+    level: 3,
     introductions: [
       {
         id: 1,
         text:
-          'Você aprendeu que podemos representar uma imagem através de pontos pretos que possuem os valores 0 e 1, mas podemos ainda representar de outra forma. Os valores que são a representação da imagem pode ser reduzidos, assim tendo memos valores para representalas.',
+          'Você aprendeu que podemos representar uma imagem através de  pontos pretos e brancos, representados por 0 e 1, respectivamente. Podemos, porém, utilizar também uma representação mais reduzida e que gaste menos memória e menos tempo de transmissão.',
         img: null,
       },
       {
@@ -36,7 +36,7 @@ const Level3 = ({navigation}) => {
           'Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de dois pixels brancos, 1 preto e 2 brancos.',
 
         paintContent: [
-          '0, 5',
+          '5',
           '2, 1, 2',
           '2, 1, 2',
           '2, 1, 2',
@@ -96,11 +96,11 @@ const Level3 = ({navigation}) => {
           'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
         paintContent: [
           '5',
-          '0, 1, 2, 1',
+          '0, 1, 2, 1, 1',
           '0, 1, 1, 1, 2',
           '0, 2, 3',
           '0, 1, 1, 1, 2',
-          '0, 1, 2, 1',
+          '0, 1, 2, 1, 1',
         ],
 
         alternatives: [
@@ -128,10 +128,10 @@ const Level3 = ({navigation}) => {
       },
       {
         type: '',
-        enable: true,
+        enable: false,
         invisibleRow: 4,
         description:
-          'Como você representaria a penutima linha da imagem abaixo?',
+          'Como você representaria a penúltima linha da imagem abaixo?',
         paintContent: [
           '1, 3, 1',
           '2, 1, 2',
@@ -144,12 +144,12 @@ const Level3 = ({navigation}) => {
         alternatives: [
           {
             id: '1',
-            text: '1, 1, 2',
+            text: '1, 1, 1, 2',
             correct: false,
           },
           {
             id: '2',
-            text: '0, 1, 1, 2',
+            text: '0, 1, 1, 1, 2',
             correct: true,
           },
           {
@@ -159,7 +159,7 @@ const Level3 = ({navigation}) => {
           },
           {
             id: '4',
-            text: '0, 1, 2, 1',
+            text: '0, 1, 2, 1, 1',
             correct: false,
           },
         ],
