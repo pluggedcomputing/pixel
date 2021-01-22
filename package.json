@@ -1,6 +1,6 @@
 {
   "name": "plugged-computing-pixel",
-  "version": "1.0.0-1",
+  "version": "1.0.0-2",
   "private": false,
   "scripts": {
     "android": "react-native run-android",

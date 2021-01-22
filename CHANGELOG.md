@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-2](https://github.com/pluggedcomputing/pixel/compare/v1.0.0-1...v1.0.0-2) (2021-01-22)
+
+
+### Bug Fixes
+
+* **#15:** adicionar componente text ([6086352](https://github.com/pluggedcomputing/pixel/commit/6086352e0cf4b93fc771b62b0d1c0c0d49075909)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** adicionar estilo para o component text ([8b7ffe7](https://github.com/pluggedcomputing/pixel/commit/8b7ffe7eeb6851e022fcfc8fe3b7b9e946778a81)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** corrigir content correspondente a letra ([f082f62](https://github.com/pluggedcomputing/pixel/commit/f082f62724d120491bf85bd57e0f6b7dddd10a3d)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** corrigir pergunta com duas respostas ([a537e73](https://github.com/pluggedcomputing/pixel/commit/a537e739bebef35f315769a8bdccb820cd555880)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** corrigir sintax do texto e redenrização da tela no componente ([fe4e4ef](https://github.com/pluggedcomputing/pixel/commit/fe4e4ef20bbfe9c3bbfdca552779affc47289ece)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** corrigir texto da introdução ([a34f780](https://github.com/pluggedcomputing/pixel/commit/a34f7805449293b975653b4923f26eb6d74c2b04)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** corrigir texto de introdução ([628004a](https://github.com/pluggedcomputing/pixel/commit/628004a2fccd5fc1a107723b6e1785033e00ce33)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** corrigir valor para pintar os quadrados de branco ou de preto ([43533ae](https://github.com/pluggedcomputing/pixel/commit/43533ae585c2538b55fc864bac9922a85e40bdac)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** modificar ordem de perguntas ([1037d17](https://github.com/pluggedcomputing/pixel/commit/1037d17129c2b4fe728cb5d7f8100257c97c344f)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+* **#15:** modificar valor de 1 e 0 para branco e preto ([ed0ec6e](https://github.com/pluggedcomputing/pixel/commit/ed0ec6ed06d15a09999a6d36f8a1fb83ab5957a6)), closes [#15](https://github.com/pluggedcomputing/pixel/issues/15)
+
 ## [1.0.0-1](https://github.com/pluggedcomputing/pixel/compare/v0.0.1-0...v1.0.0-1) (2020-12-29)
 
 
