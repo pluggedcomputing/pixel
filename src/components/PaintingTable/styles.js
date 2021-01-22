@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderColor: colors.colorPrimary,
   },
   squareChoice: {
-    borderWidth: metrics.baseBorder + 0.5
+    borderWidth: metrics.baseBorder + 0.5,
     borderColor: colors.colorAccent,
   },
   squareColoring: {backgroundColor: colors.colorTextPrimary},
