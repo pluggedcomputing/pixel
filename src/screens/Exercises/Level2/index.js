@@ -79,7 +79,7 @@ const Level2 = ({navigation}) => {
         enable: true,
         invisibleRow: -1,
         description:
-          'Vamos ver se você consegui entender como funcionas os pixels, qual letra do alfabeto os números formam?',
+          'Vamos ver se você consegue entender sobre a representação de imagens com pixels. Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida dentre as opções apresentadas',
         paintContent: [
           '1, 0, 0, 0, 1',
           '0, 1, 1, 1, 1',
