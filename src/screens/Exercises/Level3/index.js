@@ -23,7 +23,7 @@ const Level3 = ({navigation}) => {
       {
         id: 2,
         text:
-          'Para armazenar uma imagem no computador economizando espaço, basta armazenar quais pontos são pretos e quais pontos são brancos. Vamos aprender como isso funciona!',
+          'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!',
         img: null,
       },
     ],
