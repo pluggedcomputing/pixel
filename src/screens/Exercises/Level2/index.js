@@ -26,7 +26,7 @@ const Level2 = ({navigation}) => {
       {
         id: 2,
         text:
-          ' Se ampliarmos mais e mais na letra, podemos ver uma grade de pixels semelhante a estes:',
+          'Ao observarmos uma tela exibindo a letra C e ampliarmos mais e mais, podemos ver uma grade de pixels semelhantes a estes:',
         img: 'l2q1',
       },
       {
