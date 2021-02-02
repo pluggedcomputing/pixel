@@ -162,9 +162,8 @@ const Level2 = ({navigation}) => {
       navigation.navigate('Congratulations', {
         level: exercise.level,
         content: [
-          'Parabéns por completar o nível',
-          'Entendeu com funciona as imagens em um computador',
-          'E como podemos representalas atraves de 0 e 1',
+          'Você agora entende o funcionamento básico da representação de imagens no computador',
+          'Você sabe codificar uma imagem a ser exibida em uma tela utilizando apenas 0 e 1'
         ],
       });
     } else {
