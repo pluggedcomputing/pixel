@@ -116,7 +116,7 @@ const Level2 = ({navigation}) => {
         enable: false,
         invisibleRow: 4,
         description:
-          'Agora tente descobrir qual é a linha que esta faltando para completar o desenho da letra W?',
+          'Agora tente descobrir qual é a linha que está faltando para completar o desenho da letra W?',
         paintContent: [
           '1, 1, 1, 1, 1',
           '0, 1, 1, 1, 0',
