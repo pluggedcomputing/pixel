@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {
   SafeAreaView,
   StatusBar,
@@ -16,7 +16,6 @@ import animation from '../../assets/animations/CheckedDone.json';
 import { colors } from '../../styles'
 import styles from './styles';
 
-
 const Congratulations = props => {
   const { level, content } = useRoute().params
 
@@ -25,10 +24,6 @@ const Congratulations = props => {
   const navigateScreen = () => {
     navigation.navigate('LevelSelection');
   };
-
-  useEffect(() => {
-    setTimeout(navigateScreen, 3000);
-  },[]);
 
   const showInformation = () => {
     return content.map((item, index) => {

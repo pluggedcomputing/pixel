@@ -6,12 +6,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    justifyContent: 'space-around',
+    alignItems: "center"
   },
   content: {
-    flex: 2,
+    flex: 1,
     width: metrics.screenWidth,
-    height: metrics.screenHeight,
     marginTop: metrics.doubleBaseMargin,
   },
   textTop: {
@@ -26,19 +25,24 @@ const styles = StyleSheet.create({
   },
   textButton: {
     color: colors.colorPrimary,
-    textDecorationLine: 'underline',
-    fontSize: fonts.regular
+    fontSize: fonts.medium
   },
   buttonAlternative: {
+    backgroundColor: colors.colorTextSecondary,
     alignItems: 'center',
-    marginTop: metrics.tripleBaseMargin,
-    marginBottom: metrics.tripleBaseMargin,
+    justifyContent: "center",
+    height: metrics.screenHeight * 0.07,
+    width: metrics.screenWidth * 0.4,
+    borderRadius: metrics.baseRadius,
+    marginBottom: metrics.doubleBaseMargin,
   },
   information: {
     flexDirection: 'row',
-    margin: metrics.doubleBaseMargin
+    margin: metrics.doubleBaseMargin,
+    width: metrics.screenWidth * 0.9,
   },
   textInformation: {
+    flex: 1,
     textAlign: 'left',
     color: colors.colorTextSecondary,
     fontSize: fonts.medium,
