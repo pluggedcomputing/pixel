@@ -177,8 +177,7 @@ const Level3 = ({navigation}) => {
       navigation.navigate('Congratulations', {
         level: exercise.level,
         content: [
-          'Parabéns por completar o nível',
-          'Entende como uma imagem criada por você pode ser representada com números',
+          'Você entende como uma imagem pode ser representada com números de forma compactada',
         ],
       });
     } else {
