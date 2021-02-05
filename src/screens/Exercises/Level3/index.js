@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {StatusBar, View, Text} from 'react-native';
 
+import BoxAlternative from "../../../components/BoxAlternative";
 import BoxBackground from '../../../components/BoxBackground';
 import PaintingTable from '../../../components/PaintingTable';
 import {MultipleChoice} from '../../../components/Questions';
@@ -217,14 +218,8 @@ const Level3 = ({navigation}) => {
           isLastPage={setIsLastPage}
         />
       </View>
-      <View style={styles.halfBottomView}>
-        {!isLastPage ? (
-          <Text style={styles.defaultText}>
-            Leia atentamente cada questão para que possa responder o que é
-            solicitado em cada exercício. Arraste o card para o lado e verá as
-            próximas instruções.
-          </Text>
-        ) : (
+      <BoxAlternative
+        alternativesContent={(
           <>
             <Text style={styles.textAnswer}> Selecione a opção correta</Text>
             <View style={styles.contentContainerStyle}>
@@ -235,8 +230,9 @@ const Level3 = ({navigation}) => {
               />
             </View>
           </>
-        )}
-      </View>
+)}
+        isLastPage={!isLastPage}
+        textInfor="Arraste o card acima para o lado para continuar." />
     </View>
   );
 };

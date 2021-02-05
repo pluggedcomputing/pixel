@@ -18,18 +18,9 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin,
     marginBottom: metrics.baseMargin,
   },
-  halfBottomView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: metrics.screenWidth,
-    backgroundColor: colors.colorSecondaryLight,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-  },
   viewBoxContent: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "space-around",
     margin: metrics.baseMargin,
     alignItems: 'center',
   },
@@ -40,8 +31,7 @@ const styles = StyleSheet.create({
     height: metrics.screenHeight * 0.12,
   },
   textBoxContent: {
-    textAlign: 'center',
-    color: colors.colorTextPrimary,
+    textAlign: 'center', fontSize: fonts.small, paddingHorizontal: metrics.basePadding, color: colors.colorTextPrimary
   },
   textAnswer: {
     fontSize: fonts.small,
@@ -62,13 +52,7 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flex: 1,
-  },
-  defaultText: {
-    marginLeft: metrics.baseMargin,
-    marginRight: metrics.baseMargin,
-    textAlign: 'center',
-    color: colors.colorTextPrimary,
-  },
+  }
 });
 
 export default styles;
