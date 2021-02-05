@@ -10,8 +10,8 @@ const BoxAlternative = (props) => {
 
   return  (
     <View style={styles.container}>
-      <View style={[styles.containerBody, !isLastPage ? styles.hide : styles.expandle]}>
-        {!isLastPage ? (
+      <View style={[styles.containerBody, isLastPage ? styles.hide : styles.expandle]}>
+        {isLastPage ? (
           <Text style={styles.defaultText}>
             {textInfor}
           </Text>
