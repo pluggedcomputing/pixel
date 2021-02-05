@@ -9,7 +9,7 @@ function Main({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <Image source={logo} style={styles.logo} />
-      <Text style={styles.text}>Colorindo com Números</Text>
+      <Text style={styles.text}>Colorindo com Números - Representação de Imagens</Text>
       <CustomButton
         text="iniciar"
         style={styles.buttons}
