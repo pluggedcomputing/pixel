@@ -61,15 +61,9 @@ const DATA = [
         img: null,
       },
       {
-        id: '4',
+        id: '3',
         text:
           'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado branco e um 0 indica um quadrado preto, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
-        img: require('../../../assets/images/Level1/binar.png'),
-      },
-      {
-        id: '5',
-        text:
-          'Se pegarmos esses números e desenharmos a imagem que eles representam, obteremos a letra C:',
         img: require('../../../assets/images/Level1/Cpixelbin.png'),
       },
     ],
