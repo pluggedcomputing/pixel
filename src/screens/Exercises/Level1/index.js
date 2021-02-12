@@ -82,39 +82,6 @@ const DATA = [
     ],
   },
   {
-    id: '004',
-    key: 'd',
-    title: [
-      {
-        id: '1',
-        text: 'Em quais situações os computadores precisam armazenar imagens?',
-        img: null,
-      },
-    ],
-    alternatives: [
-      {
-        id: '1',
-        title: 'Programa de texto',
-        correct: false,
-      },
-      {
-        id: '2',
-        title: 'Jogo com gráficos',
-        correct: true,
-      },
-      {
-        id: '3',
-        title: 'Cálculo de números',
-        correct: false,
-      },
-      {
-        id: '4',
-        title: 'No bloco de notas',
-        correct: false,
-      },
-    ],
-  },
-  {
     id: '003',
     key: 'c',
     title: [
@@ -145,7 +112,7 @@ const DATA = [
     ],
   },
   {
-    id: '005',
+    id: '004',
     key: 'e',
     title: [
       {
@@ -157,17 +124,17 @@ const DATA = [
     alternatives: [
       {
         id: '1',
-        title: 'Envia vídeos',
+        title: 'Realiza operações matemáticas',
         correct: false,
       },
       {
         id: '2',
-        title: 'Realiza contagens',
+        title: 'Gera cópias de imagens ',
         correct: false,
       },
       {
         id: '3',
-        title: 'Sortea um número',
+        title: 'É usada para redimensionar pixels',
         correct: false,
       },
       {
@@ -178,35 +145,35 @@ const DATA = [
     ],
   },
   {
-    id: '006',
+    id: '005',
     key: 'f',
     title: [
       {
         id: '1',
         text:
-          'Como os computadores armazenam imagens se armazenam todas as informações como dígitos?',
+          'Como funciona o armazenamento das imagens no computador? Sabendo que a linguagem que o computador interpreta são números.',
         img: null,
       },
     ],
     alternatives: [
       {
         id: '1',
-        title: 'Código morse',
+        title: 'É armazenada por números decimais',
         correct: false,
       },
       {
         id: '2',
-        title: 'Regex',
+        title: 'Os números tem que possuir uma sequência exata',
         correct: false,
       },
       {
         id: '3',
-        title: 'Digitos bínarios',
+        title: 'Por meio de números binários',
         correct: true,
       },
       {
         id: '4',
-        title: 'ábaco',
+        title: 'Por meio de números hexadecimais',
         correct: false,
       },
     ],
