@@ -44,12 +44,12 @@ const Level2 = ({navigation}) => {
         description:
           'Agora vamos praticar, pinte a imagem que os números formam',
         paintContent: [
-          '1, 0, 0, 0, 1',
-          '0, 1, 1, 1, 0',
-          '0, 1, 1, 1, 1',
-          '0, 1, 1, 1, 1',
-          '0, 1, 1, 1, 0',
-          '1, 0, 0, 0, 1',
+          '1, 0, 0, 0, 0',
+          '1, 0, 1, 1, 0',
+          '1, 0, 0, 0, 0',
+          '1, 0, 1, 1, 1',
+          '1, 0, 1, 1, 1',
+          '1, 0, 1, 1, 1',
         ],
         alternatives: [
           {
@@ -65,12 +65,12 @@ const Level2 = ({navigation}) => {
           {
             id: '3',
             text: 'C',
-            correct: true,
+            correct: false,
           },
           {
             id: '4',
             text: 'P',
-            correct: false,
+            correct: true,
           },
         ],
       },
