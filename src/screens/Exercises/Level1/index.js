@@ -59,7 +59,13 @@ const DATA = [
         text:
           ' Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.',
         img: null,
-      }
+      },
+      {
+        id: '3',
+        text:
+          'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado branco e um 0 indica um quadrado preto, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
+        img: require('../../../assets/images/Level1/Cpixelbin.png'),
+      },
     ],
     alternatives: [
       {
