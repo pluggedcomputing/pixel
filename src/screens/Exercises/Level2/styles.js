@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textAnswer: {
-    fontSize: fonts.small,
-    marginTop: metrics.smallMargin,
-    color: colors.colorSecondaryDark,
+    fontSize: fonts.medium,
+    marginTop: metrics.baseMargin,
+    color: colors.colorPrimaryDark,
     fontWeight: 'bold',
   },
   contentText: {textAlign: 'center', fontSize: fonts.small, paddingHorizontal: metrics.basePadding, color: colors.colorTextPrimary},

@@ -27,7 +27,7 @@ const Level2 = ({navigation}) => {
       {
         id: 2,
         text:
-          ' Se ampliarmos mais e mais na letra, podemos ver uma grade de pixels semelhante a estes:',
+          'Ao observarmos uma tela exibindo a letra C e ampliarmos mais e mais, podemos ver uma grade de pixels semelhantes a estas:',
         img: 'l2q1',
       },
       {
@@ -45,12 +45,12 @@ const Level2 = ({navigation}) => {
         description:
           'Agora vamos praticar, pinte a imagem que os números formam.',
         paintContent: [
-          '1, 0, 0, 0, 1',
-          '0, 1, 1, 1, 0',
-          '0, 1, 1, 1, 1',
-          '0, 1, 1, 1, 1',
-          '0, 1, 1, 1, 0',
-          '1, 0, 0, 0, 1',
+          '1, 0, 0, 0, 0',
+          '1, 0, 1, 1, 0',
+          '1, 0, 0, 0, 0',
+          '1, 0, 1, 1, 1',
+          '1, 0, 1, 1, 1',
+          '1, 0, 1, 1, 1',
         ],
         alternatives: [
           {
@@ -66,12 +66,12 @@ const Level2 = ({navigation}) => {
           {
             id: '3',
             text: 'C',
-            correct: true,
+            correct: false,
           },
           {
             id: '4',
             text: 'P',
-            correct: false,
+            correct: true,
           },
         ],
       },

@@ -18,15 +18,15 @@ const styles = StyleSheet.create({
     marginBottom: metrics.baseMargin,
   },
   textAnswer: {
-    fontSize: fonts.small,
-    marginTop: metrics.smallMargin,
-    color: colors.colorSecondaryDark,
+    fontSize: fonts.medium,
+    marginTop: metrics.baseMargin,
+    color: colors.colorPrimaryDark,
     fontWeight: 'bold',
   },
   contentContainerStyle: {
     justifyContent: 'center',
     alignItems: 'center',
-    margin: metrics.baseMargin,
+    marginBottom: metrics.doubleBaseMargin
   },
   boxContainer: {
     flex: 1,

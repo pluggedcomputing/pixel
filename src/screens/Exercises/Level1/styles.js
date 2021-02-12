@@ -34,16 +34,16 @@ const styles = StyleSheet.create({
     textAlign: 'center', fontSize: fonts.small, paddingHorizontal: metrics.basePadding, color: colors.colorTextPrimary
   },
   textAnswer: {
-    fontSize: fonts.small,
-    marginTop: metrics.smallMargin,
+    fontSize: fonts.medium,
     textAlign: 'center',
-    color: colors.colorSecondaryDark,
+    marginTop: metrics.baseMargin,
+    color: colors.colorPrimaryDark,
     fontWeight: 'bold',
   },
   buttonsContainer: {
     flex: 1,
     width: metrics.screenWidth,
-    marginTop: metrics.baseMargin,
+    marginBottom: metrics.baseMargin,
   },
   contentContainerStyle: {
     justifyContent: 'center',
