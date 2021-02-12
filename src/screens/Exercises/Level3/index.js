@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { StatusBar, View, Text } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {StatusBar, View, Text} from 'react-native';
 
-import BoxAlternative from "../../../components/BoxAlternative";
+import BoxAlternative from '../../../components/BoxAlternative';
 import BoxBackground from '../../../components/BoxBackground';
 import PaintingTable from '../../../components/PaintingTable';
-import { MultipleChoice } from '../../../components/Questions';
-import { colors } from '../../../styles';
+import {MultipleChoice} from '../../../components/Questions';
+import {colors} from '../../../styles';
 import styles from './styles';
 
-const Level3 = ({ navigation }) => {
+const Level3 = ({navigation}) => {
   const [step, setSteps] = useState(0);
   const [isLastPage, setIsLastPage] = useState(false);
 
@@ -230,9 +230,10 @@ const Level3 = ({ navigation }) => {
               />
             </View>
           </>
+        )}
         isLastPage={!isLastPage}
-        textInfor="Arraste o card acima para o lado para continuar." />
-      </View>
+        textInfor="Arraste o card acima para o lado para continuar."
+      />
     </View>
   );
 };
