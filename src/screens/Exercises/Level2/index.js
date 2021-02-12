@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, Image} from 'react-native';
 
+import BoxAlternative from "../../../components/BoxAlternative";
 import BoxBackground from '../../../components/BoxBackground';
 import PaintingTable from '../../../components/PaintingTable';
 import {MultipleChoice} from '../../../components/Questions';
@@ -20,7 +21,7 @@ const Level2 = ({navigation}) => {
       {
         id: 1,
         text:
-          'Voce aprendeu que uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos. Por exemplo, se quisermos exibir a letra C, primeiro precisamos dividir a letra em quadrados.',
+          'Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos. Por exemplo, se quisermos exibir uma imagem correspondente à letra "C", precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos.',
         img: null,
       },
       {
@@ -42,7 +43,7 @@ const Level2 = ({navigation}) => {
         enable: true,
         invisibleRow: -1,
         description:
-          'Agora vamos praticar, pinte a imagem que os números formam',
+          'Agora vamos praticar, pinte a imagem que os números formam.',
         paintContent: [
           '1, 0, 0, 0, 0',
           '1, 0, 1, 1, 0',
@@ -205,14 +206,8 @@ const Level2 = ({navigation}) => {
           isLastPage={setIsLastPage}
         />
       </View>
-      <View style={styles.containerBody}>
-        {!isLastPage ? (
-          <Text style={styles.defaultText}>
-            Leia atentamente cada questão para que possa responder o que é
-            solicitado em cada exercício. Arraste o card para o lado e verá as
-            próximas instruções.
-          </Text>
-        ) : (
+      <BoxAlternative
+        alternativesContent={(
           <>
             <Text style={styles.textAnswer}> Selecione a opção correta</Text>
             <View style={styles.contentContainerStyle}>
@@ -223,8 +218,9 @@ const Level2 = ({navigation}) => {
               />
             </View>
           </>
-        )}
-      </View>
+)}
+        isLastPage={!isLastPage}
+        textInfor="Arraste o card acima para o lado para continuar." />
     </View>
   );
 };

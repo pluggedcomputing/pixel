@@ -17,14 +17,6 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin,
     marginBottom: metrics.baseMargin,
   },
-  halfBottomView: {
-    flex: 1,
-    alignItems: 'center',
-    width: metrics.screenWidth,
-    backgroundColor: colors.colorSecondaryLight,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-  },
   textAnswer: {
     fontSize: fonts.medium,
     marginTop: metrics.baseMargin,
@@ -36,12 +28,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: metrics.doubleBaseMargin
   },
-  defaultText: {
-    marginLeft: metrics.baseMargin,
-    marginRight: metrics.baseMargin,
-    textAlign: 'center',
-    color: colors.colorTextPrimary,
-  },
   boxContainer: {
     flex: 1,
   },
@@ -50,7 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
-  contentText: {textAlign: 'center'},
+  contentText: {textAlign: 'center', fontSize: fonts.small, paddingHorizontal: metrics.basePadding, color: colors.colorTextPrimary},
 });
 
 export default styles;

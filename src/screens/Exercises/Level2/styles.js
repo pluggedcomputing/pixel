@@ -17,20 +17,11 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin,
     marginBottom: metrics.baseMargin,
   },
-  containerBody: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: metrics.screenWidth,
-    backgroundColor: colors.colorSecondaryLight,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-  },
   contentContainerStyle: {
     justifyContent: 'center',
   },
   boxContainer: {
-    flex: 1,
+    flex: 1.5,
   },
   containerOfContent: {
     flex: 1,
@@ -43,13 +34,7 @@ const styles = StyleSheet.create({
     color: colors.colorPrimaryDark,
     fontWeight: 'bold',
   },
-  defaultText: {
-    marginLeft: metrics.baseMargin,
-    marginRight: metrics.baseMargin,
-    textAlign: 'center',
-    color: colors.colorTextPrimary,
-  },
-  contentText: {textAlign: 'center'},
+  contentText: {textAlign: 'center', fontSize: fonts.small, paddingHorizontal: metrics.basePadding, color: colors.colorTextPrimary},
   img: {
     width: metrics.screenWidth * 0.4,
     height: metrics.screenHeight * 0.17,
