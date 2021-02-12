@@ -34,13 +34,13 @@ const DATA = [
       {
         id: '1',
         title: ' Representando pontos pretos com 0 e brancos com 1',
-        correct: true,
+        correct: false,
       },
       {
         id: '2',
         title:
           'Utilizando uma representação que economize a quantidade de dados enviados',
-        correct: false,
+        correct: true,
       },
     ],
   },
