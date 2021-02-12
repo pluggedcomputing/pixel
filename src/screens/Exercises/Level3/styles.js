@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
   },
   halfBottomView: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     width: metrics.screenWidth,
     backgroundColor: colors.colorSecondaryLight,
@@ -27,15 +26,15 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 30,
   },
   textAnswer: {
-    fontSize: fonts.small,
-    marginTop: metrics.smallMargin,
-    color: colors.colorSecondaryDark,
+    fontSize: fonts.medium,
+    marginTop: metrics.baseMargin,
+    color: colors.colorPrimaryDark,
     fontWeight: 'bold',
   },
   contentContainerStyle: {
     justifyContent: 'center',
     alignItems: 'center',
-    margin: metrics.baseMargin,
+    marginBottom: metrics.doubleBaseMargin
   },
   defaultText: {
     marginLeft: metrics.baseMargin,
