@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StatusBar, Image, Text} from 'react-native';
+import {
+  View,
+  StatusBar,
+  Image,
+  Text,
+  TouchableOpacity,
+  Linking,
+} from 'react-native';
 
 import logo from '../../assets/images/logo_grey.png';
 import tank from '../../assets/images/tank_white.png';
@@ -48,9 +55,20 @@ function ScreenAbout() {
       <View>
         <Text style={styles.credits}>
           Desenvolvido e mantido pela equipe do projeto Computação Plugada da
-          UFPB campus IV.
+          UFPB campus IV e colaboradores de forma open source.
         </Text>
-        <Text style={styles.credits}>Todos os Direitos Reservados © 2020.</Text>
+        <TouchableOpacity
+          onPress={
+            () =>
+              Linking.openURL(
+                'https://github.com/pluggedcomputing/pixel/blob/develop/LICENSE',
+              )
+            // eslint-disable-next-line react/jsx-curly-newline
+          }>
+          <Text style={[styles.credits, {textDecorationLine: 'underline'}]}>
+            License MIT {new Date().getFullYear()}
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
