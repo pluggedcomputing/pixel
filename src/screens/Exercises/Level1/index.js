@@ -184,7 +184,7 @@ const DATA = [
       {
         id: '1',
         text:
-          'Como os computadores armazenam imagens se armazenam todas as informações como dígitos?',
+          'Como os computadores representam as imagens que eles armazenam?"',
         img: null,
       },
     ],
