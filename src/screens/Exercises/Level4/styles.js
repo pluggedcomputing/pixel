@@ -18,34 +18,19 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin,
     marginBottom: metrics.baseMargin,
   },
-  halfBottomView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: metrics.screenWidth,
-    backgroundColor: colors.colorSecondaryLight,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-  },
   viewBoxContent: {
     flex: 1,
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
   textBoxContent: {
-    textAlign: 'center',
+    textAlign: 'center', fontSize: fonts.small, paddingHorizontal: metrics.basePadding, color: colors.colorTextPrimary
   },
   textAnswer: {
     fontSize: fonts.small,
     marginTop: metrics.smallMargin,
     color: colors.colorSecondaryDark,
     fontWeight: 'bold',
-  },
-  defaultText: {
-    marginLeft: metrics.baseMargin,
-    marginRight: metrics.baseMargin,
-    textAlign: 'center',
-    color: colors.colorTextPrimary,
   },
 });
 

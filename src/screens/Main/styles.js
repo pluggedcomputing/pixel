@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 import {colors, metrics, fonts} from '../../styles';
 
-const HEIGHT_PORCENTAGE = 0.6;
+const HEIGHT_PORCENTAGE = 0.5;
 const WIDTH_PORCENTAGE = 0.9;
 
 const styles = StyleSheet.create({
@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     fontSize: fonts.medium,
     textAlign: 'center',
     color: colors.colorTextPrimary,
-    marginBottom: metrics.baseMargin,
+    marginVertical: metrics.doubleBaseMargin,
+    marginHorizontal: metrics.doubleBaseMargin,
   },
   buttons: {
     margin: metrics.smallMargin,
