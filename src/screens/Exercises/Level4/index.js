@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, StatusBar, Text} from 'react-native';
 
+import BoxAlternative from "../../../components/BoxAlternative";
 import BoxBackground from '../../../components/BoxBackground';
 import ChoiceButton from '../../../components/ChoiceButton';
 import {colors} from '../../../styles';
@@ -70,14 +71,8 @@ const Level4 = ({navigation}) => {
           isLastPage={setIsLastPage}
         />
       </View>
-      <View style={styles.halfBottomView}>
-        {!isLastPage ? (
-          <Text style={styles.defaultText}>
-            Leia atentamente cada questão para que possa responder o que é
-            solicitado em cada exercício. Arraste o card para o lado e verá as
-            próximas instruções.
-          </Text>
-        ) : (
+      <BoxAlternative
+        alternativesContent={(
           <ChoiceButton
             style={styles.buttons}
             step={step}
@@ -89,8 +84,9 @@ const Level4 = ({navigation}) => {
               }
             }}
           />
-        )}
-      </View>
+)}
+        isLastPage={!isLastPage}
+        textInfor="Arraste o card acima para o lado para continuar." />
     </>
   );
 

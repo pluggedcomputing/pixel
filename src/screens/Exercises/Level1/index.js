@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Image, StatusBar, Text, FlatList} from 'react-native';
 
+import BoxAlternative from "../../../components/BoxAlternative";
 import BoxBackground from '../../../components/BoxBackground';
 import ChoiceButton from '../../../components/ChoiceButton';
 import {colors} from '../../../styles';
@@ -34,13 +35,13 @@ const DATA = [
       {
         id: '1',
         title: ' Representando pontos pretos com 0 e brancos com 1',
-        correct: true,
+        correct: false,
       },
       {
         id: '2',
         title:
           'Utilizando uma representação que economize a quantidade de dados enviados',
-        correct: false,
+        correct: true,
       },
     ],
   },
@@ -59,46 +60,19 @@ const DATA = [
         text:
           ' Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.',
         img: null,
-      }
+      },
+      {
+        id: '3',
+        text:
+          'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado branco e um 0 indica um quadrado preto, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
+        img: require('../../../assets/images/Level1/Cpixelbin.png'),
+      },
     ],
     alternatives: [
       {
         id: '1',
         title: 'Próximo',
         correct: true,
-      },
-    ],
-  },
-  {
-    id: '004',
-    key: 'd',
-    title: [
-      {
-        id: '1',
-        text: 'Em quais situações os computadores precisam armazenar imagens?',
-        img: null,
-      },
-    ],
-    alternatives: [
-      {
-        id: '1',
-        title: 'Programa de texto',
-        correct: false,
-      },
-      {
-        id: '2',
-        title: 'Jogo com gráficos',
-        correct: true,
-      },
-      {
-        id: '3',
-        title: 'Cálculo de números',
-        correct: false,
-      },
-      {
-        id: '4',
-        title: 'No bloco de notas',
-        correct: false,
       },
     ],
   },
@@ -133,7 +107,7 @@ const DATA = [
     ],
   },
   {
-    id: '005',
+    id: '004',
     key: 'e',
     title: [
       {
@@ -145,17 +119,17 @@ const DATA = [
     alternatives: [
       {
         id: '1',
-        title: 'Envia vídeos',
+        title: 'Realiza operações matemáticas',
         correct: false,
       },
       {
         id: '2',
-        title: 'Realiza contagens',
+        title: 'Gera cópias de imagens ',
         correct: false,
       },
       {
         id: '3',
-        title: 'Sortea um número',
+        title: 'É usada para redimensionar pixels',
         correct: false,
       },
       {
@@ -166,35 +140,35 @@ const DATA = [
     ],
   },
   {
-    id: '006',
+    id: '005',
     key: 'f',
     title: [
       {
         id: '1',
         text:
-          'Como os computadores armazenam imagens se armazenam todas as informações como dígitos?',
+          'Como funciona o armazenamento das imagens no computador? Sabendo que a linguagem que o computador interpreta são números.',
         img: null,
       },
     ],
     alternatives: [
       {
         id: '1',
-        title: 'Código morse',
+        title: 'É armazenada por números decimais',
         correct: false,
       },
       {
         id: '2',
-        title: 'Regex',
+        title: 'Os números tem que possuir uma sequência exata',
         correct: false,
       },
       {
         id: '3',
-        title: 'Digitos bínarios',
+        title: 'Por meio de números binários',
         correct: true,
       },
       {
         id: '4',
-        title: 'ábaco',
+        title: 'Por meio de números hexadecimais',
         correct: false,
       },
     ],
@@ -258,14 +232,8 @@ const Level1 = ({navigation}) => {
           updatePage={step}
         />
       </View>
-      <View style={styles.halfBottomView}>
-        {!isLastPage && data.title.length > 1 ? (
-          <Text style={styles.defaultText}>
-            Leia atentamente cada questão para que possa responder o que é
-            solicitado em cada exercício. Arraste o card para o lado e verá as
-            próximas instruções.
-          </Text>
-        ) : (
+      <BoxAlternative
+        alternativesContent={(
           <View>
             {data.alternatives.length > 1 ? (
               <Text style={styles.textAnswer}> Selecione a opção correta</Text>
@@ -277,8 +245,9 @@ const Level1 = ({navigation}) => {
               keyExtractor={(item) => item.id}
             />
           </View>
-        )}
-      </View>
+)}
+        isLastPage={!isLastPage && data.title.length > 1}
+        textInfor="Arraste o card acima para o lado para continuar." />
     </>
   );
 
