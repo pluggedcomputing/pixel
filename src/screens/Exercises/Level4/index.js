@@ -50,22 +50,22 @@ const Level4 = ({navigation}) => {
         alternatives: [
           {
             id: '1',
-            text: RandomRowValue(5, answerPaint[1]),
+            text: RandomRowValue(5, answerPaint[0]),
             correct: false,
           },
           {
             id: '2',
-            text: RandomRowValue(5, answerPaint[1]),
+            text: RandomRowValue(5, answerPaint[0]),
             correct: false,
           },
           {
             id: '3',
-            text: answerPaint[2],
+            text: answerPaint[0],
             correct: true,
           },
           {
             id: '4',
-            text: RandomRowValue(5, answerPaint[1]),
+            text: RandomRowValue(5, answerPaint[0]),
             correct: false,
           },
         ],
@@ -87,6 +87,22 @@ const Level4 = ({navigation}) => {
       setQuestion(response.questions[step]);
     }
   }, [step]);
+
+  const checkAlternativeEqual = () => {
+    const indexEquals = [];
+    question.alternatives.forEach((item, index) => {
+      if(question.alternatives.filter(itemComparable => itemComparable.text === item.text).length > 1){
+        indexEquals.push(index);
+      }
+    })
+
+    if(indexEquals.length > 0){
+      indexEquals.forEach(item =>
+        {question.alternatives[item].text = RandomRowValue(5, answerPaint[0])}
+        );
+        checkAlternativeEqual();
+    }
+  }
 
   const viewOfContent = () => {
     const content = response.introductions.map((item) => (
@@ -116,6 +132,7 @@ const Level4 = ({navigation}) => {
   };
 
   const choicAlternative = () => {
+    if(question.alternatives.length > 1) checkAlternativeEqual();
     return question.alternatives.length > 1 ? (
       <MultipleChoice
         step={step}
