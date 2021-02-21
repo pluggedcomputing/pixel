@@ -52,6 +52,9 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flex: 1,
+  },
+  boxContainer:{
+    flex: 1,
   }
 });
 
