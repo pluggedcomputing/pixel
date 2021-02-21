@@ -9,116 +9,117 @@ import styles from './styles';
 
 const Level2 = ({navigation}) => {
   const [step, setSteps] = useState(0);
-  const [isLastPage, setIsLastPage] = useState(false);
   const imagens = {
     l2q1: require('../../../assets/images/level2/representationPixel.png'),
     l2q2: require('../../../assets/images/level2/examplePixel.png'),
   };
 
-  const response = {
-    level: 2,
-    introductions: [
-      {
-        id: 1,
-        text:
+const responseAll = {
+  level: 1,
+  questions: [
+    {
+      type: 'INTRO',
+      id: 1,
+      text:
           'Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos. Por exemplo, se quisermos exibir uma imagem correspondente à letra "C", precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos.',
         img: null,
-      },
-      {
-        id: 2,
-        text:
+      enableScroll: true,
+    },
+    {
+      type: 'INTRO',
+      id: 2,
+      text:
           'Ao observarmos uma tela exibindo a letra C e ampliarmos mais e mais, podemos ver uma grade de pixels semelhantes a estas:',
         img: 'l2q1',
+      enableScroll: true,
+    },
+    {
+      id: 3,
+      type: 'QUEST',
+      invisibleRow: -1,
+      enable: true,
+      description:
+        'Agora vamos praticar, pinte a imagem que os números formam.',
+      enableScroll: false,
+      paintContent: [
+        '1, 0, 0, 0, 0',
+        '1, 0, 1, 1, 0',
+        '1, 0, 0, 0, 0',
+        '1, 0, 1, 1, 1',
+        '1, 0, 1, 1, 1',
+        '1, 0, 1, 1, 1',
+      ],
+      alternatives: [
+        {
+          id: '1',
+          text: 'L',
+          correct: false,
+        },
+        {
+          id: '2',
+          text: 'T',
+          correct: false,
+        },
+        {
+          id: '3',
+          text: 'C',
+          correct: false,
+        },
+        {
+          id: '4',
+          text: 'P',
+          correct: true,
+        },
+      ],
+    },
+    {
+      id: 4,
+      type: 'QUEST',
+      enable: true,
+      invisibleRow: -1,
+      description:
+      'Vamos ver se você consegue entender sobre a representação de imagens com pixels. Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida dentre as opções apresentadas',
+      enableScroll: false,
+      paintContent: [
+      '1, 0, 0, 0, 1',
+      '0, 1, 1, 1, 1',
+      '0, 1, 1, 1, 1',
+      '0, 1, 0, 0, 1',
+      '0, 1, 1, 0, 1',
+      '1, 0, 0, 0, 1',
+    ],
+    alternatives: [
+      {
+        id: '1',
+        text: 'M',
+        correct: false,
       },
       {
-        id: 3,
-        text:
-          'Podemos representar essa imagem usando dígitos binários (bits). Se 0 indica um quadrado preto e um 1 indica um quadrado branco, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
-        img: 'l2q2',
+        id: '2',
+        text: 'G',
+        correct: true,
+      },
+      {
+        id: '3',
+        text: 'W',
+        correct: false,
+      },
+      {
+        id: '4',
+        text: 'Q',
+        correct: false,
       },
     ],
-    questions: [
-      {
-        type: '',
-        enable: true,
-        invisibleRow: -1,
-        description:
-          'Agora vamos praticar, pinte a imagem que os números formam.',
-        paintContent: [
-          '1, 0, 0, 0, 0',
-          '1, 0, 1, 1, 0',
-          '1, 0, 0, 0, 0',
-          '1, 0, 1, 1, 1',
-          '1, 0, 1, 1, 1',
-          '1, 0, 1, 1, 1',
-        ],
-        alternatives: [
-          {
-            id: '1',
-            text: 'L',
-            correct: false,
-          },
-          {
-            id: '2',
-            text: 'T',
-            correct: false,
-          },
-          {
-            id: '3',
-            text: 'C',
-            correct: false,
-          },
-          {
-            id: '4',
-            text: 'P',
-            correct: true,
-          },
-        ],
-      },
-      {
-        type: '',
-        enable: true,
-        invisibleRow: -1,
-        description:
-          'Vamos ver se você consegue entender sobre a representação de imagens com pixels. Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida dentre as opções apresentadas',
-        paintContent: [
-          '1, 0, 0, 0, 1',
-          '0, 1, 1, 1, 1',
-          '0, 1, 1, 1, 1',
-          '0, 1, 0, 0, 1',
-          '0, 1, 1, 0, 1',
-          '1, 0, 0, 0, 1',
-        ],
-        alternatives: [
-          {
-            id: '1',
-            text: 'M',
-            correct: false,
-          },
-          {
-            id: '2',
-            text: 'G',
-            correct: true,
-          },
-          {
-            id: '3',
-            text: 'W',
-            correct: false,
-          },
-          {
-            id: '4',
-            text: 'Q',
-            correct: false,
-          },
-        ],
-      },
-      {
-        type: '',
-        enable: false,
-        invisibleRow: 4,
-        description:
+    },
+    {
+      id: 5,
+      type: 'QUEST',
+      enable: false,
+      invisibleRow: 4,
+      description:
           'Agora tente descobrir qual é a linha que está faltando para completar o desenho da letra W?',
-        paintContent: [
+          enableScroll: false,
+          paintContent: [
           '1, 1, 1, 1, 1',
           '0, 1, 1, 1, 0',
           '0, 1, 1, 1, 0',
@@ -149,14 +150,15 @@ const Level2 = ({navigation}) => {
             correct: true,
           },
         ],
-      },
-    ],
-  };
+    },
+  ]
+};
 
-  const [exercise] = useState(response);
+  const [exercise] = useState(responseAll);
   const [question, setQuestion] = useState(exercise.questions[step]);
   const maxStep = exercise.questions.length;
   const finishLevel = step === maxStep;
+  const [nextCard, setNextCard] = useState(false);
 
   useEffect(() => {
     if (finishLevel) {
@@ -173,29 +175,37 @@ const Level2 = ({navigation}) => {
   }, [step]);
 
   const viewOfContent = () => {
-    const content = exercise.introductions.map((item) => (
-      <View style={styles.containerOfContent}>
-        <Text style={styles.contentText}>{item.text}</Text>
-        {item.img ? (
-          <Image style={styles.img} source={imagens[item.img]} />
+    const content = exercise.questions.map((item) => (
+      item.type === "INTRO" ? (
+        <View style={styles.containerOfContent}>
+          <Text style={styles.contentText}>{item.text}</Text>
+          {item.img ? (
+            <Image style={styles.img} source={imagens[item.img]} />
         ) : null}
-      </View>
-    ));
-    content.push(
+        </View>
+    ) : (
       <View style={styles.containerOfContent}>
-        <Text style={styles.contentText}>{question.description}</Text>
+        <Text style={styles.contentText}>{item.description}</Text>
         <PaintingTable
-          content={question.paintContent}
+          content={item.paintContent}
+          enable={item.enable}
           isContentReduced={false}
-          enable={question.enable}
           row={6}
           column={5}
-          invisibleRow={question.invisibleRow}
-        />
-      </View>,
-    );
+          invisibleRow={item.invisibleRow}
+      />
+      </View>
+    )
+    ));
     return content;
   };
+
+  const setAnswerCorrectInQuestion = (isCorrect) => {
+    if(isCorrect){
+      exercise.questions[step].enableScroll = isCorrect;
+      setNextCard(true);
+      }
+  }
 
   return (
     <View style={styles.container}>
@@ -203,23 +213,28 @@ const Level2 = ({navigation}) => {
         <BoxBackground
           content={viewOfContent()}
           style={styles.boxContainer}
-          isLastPage={setIsLastPage}
+          setSteps={setSteps}
+          scrollEnabled={question.enableScroll}
+          nextQuestion={nextCard}
+          setNextQuestion={setNextCard}
         />
       </View>
       <BoxAlternative
         alternativesContent={(
-          <>
-            <Text style={styles.textAnswer}> Selecione a opção correta</Text>
-            <View style={styles.contentContainerStyle}>
-              <MultipleChoice
-                step={step}
-                setSteps={setSteps}
-                alternatives={question.alternatives}
-              />
-            </View>
-          </>
-)}
-        isLastPage={!isLastPage}
+          question.type === 'QUEST' ?  (
+            <>
+              <Text style={styles.textAnswer}> Selecione a opção correta</Text>
+              <View style={styles.contentContainerStyle}>
+                <MultipleChoice
+                  step={step}
+                  setSteps={setSteps}
+                  alternatives={question.alternatives}
+                  setCorrectAnswer={setAnswerCorrectInQuestion}
+            />
+              </View>
+            </>
+          ) : null)}
+        isLastPage={(question.type !== 'QUEST')}
         textInfor="Arraste o card acima para o lado para continuar." />
     </View>
   );
