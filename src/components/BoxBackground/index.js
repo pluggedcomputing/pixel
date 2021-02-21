@@ -8,9 +8,10 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const BoxBackground = (props) => {
-  const {content, style, isLastPage, updatePage} = props;
+  const {content, style, isLastPage, updatePage, setSteps, nextQuestion, setNextQuestion, scrollEnabled} = props;
   const [pagination, setPagination] = useState(0);
-
+  const [offset, setOffset] = useState(0);
+  const [isEndPage, setIsEndPage] = useState(false);
   let flatListRef = null;
 
   useEffect(() => {
@@ -19,14 +20,35 @@ const BoxBackground = (props) => {
     }
   }, [updatePage]);
 
+  useEffect(() => {
+    const indexNext = pagination + 1;
+    if (flatListRef !== null && nextQuestion && !isEndPage) {
+      flatListRef.scrollToIndex({index: indexNext});
+    }
+  }, [nextQuestion])
+
+  const checkDireciton = (event) => {
+    const currentOffset = event.nativeEvent.contentOffset.x;
+    if(!isEndPage){
+      if(currentOffset > offset && !scrollEnabled && flatListRef !== null && !nextQuestion){
+        flatListRef.scrollToIndex({index: pagination});
+      }else{
+        setOffset(currentOffset);
+        changePaginationIndex(event);
+        if(nextQuestion) setNextQuestion(false);
+      }
+    }
+  }
+
   const changePaginationIndex = (event) => {
     const {contentOffset} = event.nativeEvent;
 
     const viewSize = event.nativeEvent.layoutMeasurement;
 
-    // Divide the horizontal offset by the width of the view to see which page is visible
     const index = Math.floor(contentOffset.x / viewSize.width);
-    if (index !== pagination) setPagination(index);
+    if (index !== pagination) {
+      setSteps(index);
+      setPagination(index)};
   };
 
   const convertIndexInProgress = (index) =>
@@ -48,11 +70,12 @@ const BoxBackground = (props) => {
         onEndReachedThreshold={0.1}
         onEndReached={() => {
           isLastPage(true);
+          setIsEndPage(true);
         }}
         horizontal
         pagingEnabled
         onScroll={(event) => {
-          changePaginationIndex(event);
+          checkDireciton(event);
         }}
         renderItem={renderItem}
       />
@@ -71,11 +94,19 @@ BoxBackground.propTypes = {
   content: PropTypes.arrayOf(PropTypes.element).isRequired,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf]),
   isLastPage: PropTypes.func,
+  setSteps: PropTypes.func,
+  nextQuestion: PropTypes.bool,
+  setNextQuestion: PropTypes.func,
+  scrollEnabled: PropTypes.bool,
 };
 
 BoxBackground.defaultProps = {
   updatePage: null,
   style: null,
   isLastPage: () => {},
+  setSteps: () => {},
+  nextQuestion: false,
+  setNextQuestion: () => {},
+  scrollEnabled: false,
 };
 export default BoxBackground;
