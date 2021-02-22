@@ -228,6 +228,7 @@ const responseAll = {
                 <MultipleChoice
                   step={step}
                   setSteps={setSteps}
+                  isAnswer={question.enableScroll}
                   alternatives={question.alternatives}
                   setCorrectAnswer={setAnswerCorrectInQuestion}
             />

@@ -225,10 +225,11 @@ const Level1 = ({navigation}) => {
         alternativesContent={(
           question.type === 'QUEST' ?  (
             <>
-              <Text style={styles.textAnswer}> Selecione a opção correta</Text>
+              <Text style={styles.textAnswer}>Selecione a opção correta</Text>
               <View style={styles.contentContainerStyle}>
                 <MultipleChoice
                   step={step}
+                  isAnswer={question.enableScroll}
                   setSteps={setSteps}
                   alternatives={question.alternatives}
                   setCorrectAnswer={setAnswerCorrectInQuestion}

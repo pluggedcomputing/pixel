@@ -15,7 +15,7 @@ const Level3 = ({navigation}) => {
       {
         type: 'INTRO',
         id: 1,
-        text:
+        description:
           'Você aprendeu que podemos representar uma imagem através de  pontos pretos e brancos, representados por 0 e 1, respectivamente. Podemos, porém, utilizar também uma representação mais reduzida e que gaste menos memória e menos tempo de transmissão.',
         img: null,
         enableScroll: true,
@@ -23,7 +23,7 @@ const Level3 = ({navigation}) => {
       {
         type: 'INTRO',
         id: 2,
-        text:
+        description:
           'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!',
         img: null,
         enableScroll: true,
@@ -32,7 +32,7 @@ const Level3 = ({navigation}) => {
         type: 'INTRO',
         id: 3,
         enable: false,
-        text:
+        description:
           'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!',
         img: null,
         enableScroll: true,
@@ -186,7 +186,7 @@ const Level3 = ({navigation}) => {
   const viewOfContent = () => {
     const content = exercise.questions.map((item) => (
       <View style={styles.containerOfContent}>
-        <Text style={styles.contentText}>{item.text}</Text>
+        <Text style={styles.contentText}>{item.description}</Text>
         {item.paintContent ? (
           <PaintingTable
             content={item.paintContent}
@@ -231,6 +231,7 @@ const Level3 = ({navigation}) => {
                <MultipleChoice
                  step={step}
                  setSteps={setSteps}
+                 isAnswer={question.enableScroll}
                  alternatives={question.alternatives}
                  setCorrectAnswer={setAnswerCorrectInQuestion}
            />
