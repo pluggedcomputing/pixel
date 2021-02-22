@@ -6,7 +6,7 @@ import {PropTypes} from 'prop-types';
 import styles from './styles';
 
 const PaintingTable = (props) => {
-  const {content, enable, row, column, invisibleRow, isContentReduced} = props;
+  const {content, enable, row, column, invisibleRow, isContentReduced, paintingFreely, setAnswerPaint} = props;
   const [colorCurrent, setColorCurrent] = useState('P');
   const [columnCheck, setColumnChecked] = useState('');
   const [rowCheck, setRowChecked] = useState('');
@@ -45,8 +45,28 @@ const PaintingTable = (props) => {
     return replaceSpaceToEmpty.replace(/,/g, ', ');
   };
 
+  const mountMatrixAnswerPaint = (contentData) => {
+    const answerDefault = [];
+    contentData.forEach(item =>{
+      let rows = "";
+      item.forEach((dataValue, index) => {
+        rows += dataValue.color === "B" ? "1" : "0";
+        if(index < item.length - 1){
+          rows += ",";
+        }
+      })
+      if(item[0].color === "P" && isContentReduced){
+        rows = `0,${rows}`;
+      }
+      answerDefault.push(rows);
+    });
+
+    return answerDefault;
+  };
+
   const mountMatrixColorOrDefault = () => {
     const dataDefault = mountMatrixDefault();
+    if(paintingFreely) setAnswerPaint(mountMatrixAnswerPaint(dataDefault));
     if (!enable) {
       if (isContentReduced) {
         for (let i = 0; i < row; i += 1) {
@@ -85,6 +105,7 @@ const PaintingTable = (props) => {
     setRowChecked(rowCurrent);
     setColumnChecked(keyCurrent);
     data[rowCurrent][keyCurrent].color = colorCurrent;
+    if(paintingFreely) setAnswerPaint(mountMatrixAnswerPaint(data));
   };
 
   const choiceColor = (colorSquire) => {
@@ -107,15 +128,15 @@ const PaintingTable = (props) => {
   };
 
   const mountText = () => {
-    return (
+    return !paintingFreely ? (
       <View style={styles.containerText}>
         {content.map((item, key) => (
           <Text key={key.toString()} style={styles.text}>
-            {invisibleRow && key === invisibleRow ? '' : organizeText(item)}
+            {invisibleRow !== -1 && key === invisibleRow ? '' : organizeText(item)}
           </Text>
         ))}
       </View>
-    );
+    ) : null;
   };
 
   const mountSqureColor = () => {
@@ -190,18 +211,23 @@ const PaintingTable = (props) => {
 };
 
 PaintingTable.propTypes = {
-  content: PropTypes.arrayOf(PropTypes.string).isRequired,
+  content: PropTypes.arrayOf(PropTypes.string),
   enable: PropTypes.bool,
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
   invisibleRow: PropTypes.number,
   isContentReduced: PropTypes.bool,
+  paintingFreely: PropTypes.bool,
+  setAnswerPaint: PropTypes.func,
 };
 
 PaintingTable.defaultProps = {
+  content: [],
   enable: true,
   invisibleRow: -1,
   isContentReduced: true,
+  paintingFreely: false,
+  setAnswerPaint: () => {},
 };
 
 export default PaintingTable;

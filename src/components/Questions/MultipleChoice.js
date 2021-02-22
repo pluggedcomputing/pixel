@@ -7,10 +7,27 @@ import ChoiceButton from '../ChoiceButton';
 import styles from './styles';
 
 const MultipleChoice = (props) => {
-  const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
+
+const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
+
+  const shufflerArray = (array) => {
+    const shuffleArray = array;
+    let indice = array.length
+
+      while(indice) {
+          const indiceAleatorio = Math.floor(Math.random() * indice);
+          indice -= 1;
+          [shuffleArray[indice], shuffleArray[indiceAleatorio]] =
+              [shuffleArray[indiceAleatorio], shuffleArray[indice]];
+      }
+
+      return shuffleArray;
+  }
+
+  const shuffleAlternatives = shufflerArray(alternatives);
   return (
     <View style={styles.container}>
-      {alternatives.map((item) => (
+      {shuffleAlternatives.map((item) => (
         <ChoiceButton
           key={item.text}
           step={step}
