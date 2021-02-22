@@ -4,76 +4,51 @@ import {View, StatusBar, Text} from 'react-native';
 import BoxAlternative from "../../../components/BoxAlternative";
 import BoxBackground from '../../../components/BoxBackground';
 import ChoiceButton from '../../../components/ChoiceButton';
-import PaintingTable from "../../../components/PaintingTable";
-import {MultipleChoice} from '../../../components/Questions';
 import {colors} from '../../../styles';
-import RandomRowValue from "../../../utils/randomRowValue";
 import styles from './styles';
 
+const DATAINFOR = [
+  {
+    id: '1',
+    enableScroll: true,
+    title: [
+      {
+        id: '1',
+        text:
+          'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena-a em, aproximadamente, 1000 × 2000 pixels, que são transmitidos através de um modem para outra máquina de fax. Esta última, por sua vez, imprime os pixels em uma página. Imagens impressas por fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal). ',
+      },
+      {
+        id: '2',
+        text:
+          'Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão. O método utilizado nesta atividade é chamado de ‘run-length coding’, uma maneira eficaz de compressão de imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet. ',
+      },
+      {
+        id: '3',
+        text:
+          'Por exemplo, imagens de fax eram geralmente comprimidas para aproximadamente um sétimo do seu tamanho original. Sem a compressão, estas demorariam sete vezes mais para serem transmitidas! Lembre-se de que as velocidades de transmissão não eram tão boas antigamente como as que temos hoje.',
+      },
+      {
+        id: '4',
+        text:
+          'Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê- las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.',
+      },
+    ],
+    alternatives: [
+      {
+        id: '1',
+        title: 'Enviar',
+        correct: true,
+      },
+    ],
+  },
+];
 
 const Level4 = ({navigation}) => {
   const [isLastPage, setIsLastPage] = useState(false);
-  const [answerPaint, setAnswerPain] = useState([]);
+
   const [step, setSteps] = useState(0);
-  const response = {
-    level: 4,
-    introductions: [
-      {
-        id: 1,
-        text:
-        'Que tal desenhar você mesmo e tentar descobir o código que representa essa imagem. ',
-      },
-    ],
-    questions: [
-      {
-        type: '',
-        enable: true,
-        invisibleRow: -1,
-        paintingFreely: true,
-        description:
-          'Pinte no quadro abaixo sua imagem e clique em concluir. ',
-        alternatives: [
-          {
-            id: '1',
-            text: 'Concluir',
-            correct: true,
-          },
-        ],
-      },
-      {
-        type: '',
-        enable: false,
-        invisibleRow: 0,
-        paintingFreely: false,
-        description:
-          'Selecione a sequência que representa a primeira linha de sua foto',
-        alternatives: [
-          {
-            id: '1',
-            text: RandomRowValue(5, answerPaint[0]),
-            correct: false,
-          },
-          {
-            id: '2',
-            text: RandomRowValue(5, answerPaint[0]),
-            correct: false,
-          },
-          {
-            id: '3',
-            text: answerPaint[0],
-            correct: true,
-          },
-          {
-            id: '4',
-            text: RandomRowValue(5, answerPaint[0]),
-            correct: false,
-          },
-        ],
-      },
-    ],
-  };
-  const [question, setQuestion] = useState(response.questions[step]);
-  const maxStep = response.questions.length;
+
+  const maxStep = DATAINFOR.length;
   const finishLevel = step === maxStep;
 
   useEffect(() => {
@@ -83,86 +58,35 @@ const Level4 = ({navigation}) => {
         content: ['Entende a necessidade de comprimir dados'],
       });
     }
-    else {
-      setQuestion(response.questions[step]);
-    }
   }, [step]);
-
-  const checkAlternativeEqual = () => {
-    const indexEquals = [];
-    question.alternatives.forEach((item, index) => {
-      if(question.alternatives.filter(itemComparable => itemComparable.text === item.text).length > 1){
-        indexEquals.push(index);
-      }
-    })
-
-    if(indexEquals.length > 0){
-      indexEquals.forEach(item =>
-        {question.alternatives[item].text = RandomRowValue(5, answerPaint[0])}
-        );
-        checkAlternativeEqual();
-    }
-  }
-
-  const viewOfContent = () => {
-    const content = response.introductions.map((item) => (
-      <View style={styles.viewBoxContent}>
-        <Text style={styles.textBoxContent}>{item.text}</Text>
-      </View>
-    ));
-    if(!question.paintingFreely){
-      question.paintContent = answerPaint;
-    };
-    content.push(
-      <View style={styles.viewBoxContent}>
-        <Text style={styles.textBoxContent}>{question.description}</Text>
-        <PaintingTable
-          paintingFreely={question.paintingFreely}
-          setAnswerPaint={setAnswerPain}
-          content={question.paintContent}
-          isContentReduced={false}
-          enable={question.enable}
-          row={6}
-          column={5}
-          invisibleRow={question.invisibleRow}
-        />
-      </View>,
-    );
-    return content;
-  };
-
-  const choicAlternative = () => {
-    if(question.alternatives.length > 1) checkAlternativeEqual();
-    return question.alternatives.length > 1 ? (
-      <MultipleChoice
-        step={step}
-        setSteps={setSteps}
-        alternatives={question.alternatives}
-  />
-  ) : (
-    <ChoiceButton
-      style={styles.buttons}
-      step={step}
-      text={question.alternatives[0].text}
-      correct={question.alternatives[0].correct}
-      onPress={() => {
-    if (question.alternatives[0].correct) {
-      setSteps(step + 1);
-    }
-  }}
-/>
-)}
 
   const BoxContent = () => (
     <>
       <View style={styles.halfTopView}>
         <BoxBackground
-          content={viewOfContent()}
+          scrollEnabled={DATAINFOR[0].enableScroll}
+          content={DATAINFOR[0].title.map((item) => (
+            <View style={styles.viewBoxContent}>
+              <Text style={styles.textBoxContent}>{item.text}</Text>
+            </View>
+          ))}
           isLastPage={setIsLastPage}
         />
       </View>
       <BoxAlternative
-        alternativesContent={choicAlternative()}
+        alternativesContent={(
+          <ChoiceButton
+            style={styles.buttons}
+            step={step}
+            text={DATAINFOR[0].alternatives[0].title}
+            correct={DATAINFOR[0].alternatives[0].correct}
+            onPress={() => {
+              if (DATAINFOR[0].alternatives[0].correct) {
+                setSteps(step + 1);
+              }
+            }}
+          />
+)}
         isLastPage={!isLastPage}
         textInfor="Arraste o card acima para o lado para continuar." />
     </>

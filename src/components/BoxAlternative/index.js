@@ -24,9 +24,13 @@ const BoxAlternative = (props) => {
 }
 
 BoxAlternative.propTypes = {
-  alternativesContent: PropTypes.element.isRequired,
+  alternativesContent: PropTypes.element,
   isLastPage: PropTypes.bool.isRequired,
   textInfor: PropTypes.string.isRequired,
+}
+
+BoxAlternative.defaultProps = {
+  alternativesContent: null,
 }
 
 export default BoxAlternative;
