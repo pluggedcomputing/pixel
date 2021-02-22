@@ -10,6 +10,7 @@ import styles from './styles';
 const DATAINFOR = [
   {
     id: '1',
+    enableScroll: true,
     title: [
       {
         id: '1',
@@ -63,6 +64,7 @@ const Level4 = ({navigation}) => {
     <>
       <View style={styles.halfTopView}>
         <BoxBackground
+          scrollEnabled={DATAINFOR[0].enableScroll}
           content={DATAINFOR[0].title.map((item) => (
             <View style={styles.viewBoxContent}>
               <Text style={styles.textBoxContent}>{item.text}</Text>

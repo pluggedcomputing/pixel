@@ -7,10 +7,11 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const ChoiceButton = (props) => {
-  const {correct, onPress, text, step} = props;
+  const {correct, onPress, text, step, enable} = props;
   const [borderColor, setBorderColor] = useState('');
   useEffect(() => {
     setBorderColor(colors.colorSecondaryDark);
+    if(enable && correct) setBorderColor(colors.colorSucess);
   }, [step]);
 
   function onPressButton() {
@@ -26,6 +27,7 @@ const ChoiceButton = (props) => {
     <View {...props} style={styles.container}>
       <TouchableOpacity
         style={[styles.button, {borderColor}]}
+        disabled={enable}
         onPress={onPressButton}>
         <Text style={styles.text}>{text}</Text>
       </TouchableOpacity>
@@ -39,11 +41,13 @@ ChoiceButton.propTypes = {
   onPress: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   step: PropTypes.number.isRequired,
+  enable: PropTypes.bool,
 };
 
 ChoiceButton.defaultProps = {
   correct: false,
   light: false,
+  enable: false,
 };
 
 export default ChoiceButton;

@@ -9,33 +9,33 @@ import {colors} from '../../../styles';
 import styles from './styles';
 
 const Level3 = ({navigation}) => {
-  const [step, setSteps] = useState(0);
-  const [isLastPage, setIsLastPage] = useState(false);
-
-  const response = {
+  const responseAll = {
     level: 3,
-    introductions: [
-      {
-        id: 1,
-        text:
-          'Você aprendeu que podemos representar uma imagem através de  pontos pretos e brancos, representados por 0 e 1, respectivamente. Podemos, porém, utilizar também uma representação mais reduzida e que gaste menos memória e menos tempo de transmissão.',
-        img: null,
-      },
-      {
-        id: 2,
-        text:
-          'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!',
-        img: null,
-      },
-    ],
     questions: [
       {
-        type: '',
-        enable: false,
-        invisibleRow: -1,
+        type: 'INTRO',
+        id: 1,
         description:
-          'Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de dois pixels brancos, 1 preto e 2 brancos.',
-
+          'Você aprendeu que podemos representar uma imagem através de  pontos pretos e brancos, representados por 0 e 1, respectivamente. Podemos, porém, utilizar também uma representação mais reduzida e que gaste menos memória e menos tempo de transmissão.',
+        img: null,
+        enableScroll: true,
+      },
+      {
+        type: 'INTRO',
+        id: 2,
+        description:
+          'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!',
+        img: null,
+        enableScroll: true,
+      },
+      {
+        type: 'INTRO',
+        id: 3,
+        enable: false,
+        description:
+          'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!',
+        img: null,
+        enableScroll: true,
         paintContent: [
           '0,5',
           '2, 1, 2',
@@ -44,20 +44,14 @@ const Level3 = ({navigation}) => {
           '2, 1, 2',
           '2, 1, 2',
         ],
-        alternatives: [
-          {
-            id: '1',
-            text: 'Próximo',
-            correct: true,
-          },
-        ],
       },
       {
-        type: '',
+        id: 4,
+        type: 'QUEST',
         enable: true,
         invisibleRow: -1,
-        description:
-          'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
+        description: 'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
+        enableScroll: false,
         paintContent: [
           '1, 1, 3',
           '1, 1, 3',
@@ -90,49 +84,12 @@ const Level3 = ({navigation}) => {
         ],
       },
       {
-        type: '',
+        id: 5,
+        type: 'QUEST',
         enable: true,
-        invisibleRow: -1,
-        description:
-          'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
-        paintContent: [
-          '5',
-          '0, 1, 2, 1, 1',
-          '0, 1, 1, 1, 2',
-          '0, 2, 3',
-          '0, 1, 1, 1, 2',
-          '0, 1, 2, 1, 1',
-        ],
-
-        alternatives: [
-          {
-            id: '1',
-            text: 'K',
-            correct: true,
-          },
-          {
-            id: '2',
-            text: 'L',
-            correct: false,
-          },
-          {
-            id: '3',
-            text: 'J',
-            correct: false,
-          },
-          {
-            id: '4',
-            text: 'I',
-            correct: false,
-          },
-        ],
-      },
-      {
-        type: '',
-        enable: false,
         invisibleRow: 4,
-        description:
-          'Como você representaria a penúltima linha da imagem abaixo?',
+        description: 'Como você representaria a penúltima linha da imagem abaixo?',
+        enableScroll: false,
         paintContent: [
           '1, 3, 1',
           '2, 1, 2',
@@ -165,13 +122,53 @@ const Level3 = ({navigation}) => {
           },
         ],
       },
-    ],
-  };
+      {
+        id: 6,
+        type: 'QUEST',
+        enable: true,
+        invisibleRow: -1,
+        description: 'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
+        enableScroll: false,
+        paintContent: [
+          '5',
+          '0, 1, 2, 1, 1',
+          '0, 1, 1, 1, 2',
+          '0, 2, 3',
+          '0, 1, 1, 1, 2',
+          '0, 1, 2, 1, 1',
+        ],
 
-  const [exercise] = useState(response);
+        alternatives: [
+          {
+            id: '1',
+            text: 'K',
+            correct: true,
+          },
+          {
+            id: '2',
+            text: 'L',
+            correct: false,
+          },
+          {
+            id: '3',
+            text: 'J',
+            correct: false,
+          },
+          {
+            id: '4',
+            text: 'I',
+            correct: false,
+          },
+        ],
+      }
+    ]
+  }
+  const [step, setSteps] = useState(0);
+  const [exercise] = useState(responseAll);
   const [question, setQuestion] = useState(exercise.questions[step]);
   const maxStep = exercise.questions.length;
   const finishLevel = step === maxStep;
+  const [nextCard, setNextCard] = useState(false);
 
   useEffect(() => {
     if (finishLevel) {
@@ -187,26 +184,30 @@ const Level3 = ({navigation}) => {
   }, [step]);
 
   const viewOfContent = () => {
-    const content = exercise.introductions.map((item) => (
+    const content = exercise.questions.map((item) => (
       <View style={styles.containerOfContent}>
-        <Text style={styles.contentText}>{item.text}</Text>
+        <Text style={styles.contentText}>{item.description}</Text>
+        {item.paintContent ? (
+          <PaintingTable
+            content={item.paintContent}
+            isContentReduced
+            enable={item.enable}
+            row={6}
+            column={5}
+            invisibleRow={item.invisibleRow}
+      />
+) : null}
       </View>
     ));
-    content.push(
-      <View style={styles.containerOfContent}>
-        <Text style={styles.contentText}>{question.description}</Text>
-        <PaintingTable
-          content={question.paintContent}
-          isContentReduced
-          enable={question.enable}
-          row={6}
-          column={5}
-          invisibleRow={question.invisibleRow}
-        />
-      </View>,
-    );
     return content;
   };
+
+  const setAnswerCorrectInQuestion = (isCorrect) => {
+    if(isCorrect){
+      exercise.questions[step].enableScroll = isCorrect;
+      setNextCard(true);
+      }
+  }
 
   return (
     <View style={styles.container}>
@@ -214,24 +215,31 @@ const Level3 = ({navigation}) => {
       <View style={styles.halfTopView}>
         <BoxBackground
           content={viewOfContent()}
+          setSteps={setSteps}
           style={styles.boxContainer}
-          isLastPage={setIsLastPage}
+          scrollEnabled={question.enableScroll}
+          nextQuestion={nextCard}
+          setNextQuestion={setNextCard}
         />
       </View>
       <BoxAlternative
         alternativesContent={(
-          <>
-            <Text style={styles.textAnswer}> Selecione a opção correta</Text>
-            <View style={styles.contentContainerStyle}>
-              <MultipleChoice
-                step={step}
-                setSteps={setSteps}
-                alternatives={question.alternatives}
-              />
-            </View>
-          </>
+         question.type === 'QUEST' ?  (
+           <>
+             <Text style={styles.textAnswer}> Selecione a opção correta</Text>
+             <View style={styles.contentContainerStyle}>
+               <MultipleChoice
+                 step={step}
+                 setSteps={setSteps}
+                 isAnswer={question.enableScroll}
+                 alternatives={question.alternatives}
+                 setCorrectAnswer={setAnswerCorrectInQuestion}
+           />
+             </View>
+           </>
+) : null
         )}
-        isLastPage={!isLastPage}
+        isLastPage={(question.type !== 'QUEST')}
         textInfor="Arraste o card acima para o lado para continuar."
       />
     </View>

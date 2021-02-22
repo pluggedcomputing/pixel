@@ -7,7 +7,7 @@ import ChoiceButton from '../ChoiceButton';
 import styles from './styles';
 
 const MultipleChoice = (props) => {
-  const {step, setSteps, alternatives} = props;
+  const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
   return (
     <View style={styles.container}>
       {alternatives.map((item) => (
@@ -15,9 +15,12 @@ const MultipleChoice = (props) => {
           key={item.text}
           step={step}
           text={item.text}
+          enable={isAnswer}
           correct={item.correct}
           onPress={() => {
-            if (item.correct) setSteps(step + 1);
+            if (item.correct){
+              setCorrectAnswer(true);
+              setSteps(step + 1)};
           }}
           light
         />
@@ -30,6 +33,12 @@ MultipleChoice.propTypes = {
   alternatives: PropTypes.arrayOf(PropTypes.object).isRequired,
   step: PropTypes.number.isRequired,
   setSteps: PropTypes.func.isRequired,
+  setCorrectAnswer: PropTypes.func.isRequired,
+  isAnswer: PropTypes.bool,
 };
+
+MultipleChoice.defaultProps = {
+  isAnswer: false,
+}
 
 export default MultipleChoice;
