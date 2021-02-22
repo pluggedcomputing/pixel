@@ -29,7 +29,6 @@ const BoxBackground = (props) => {
 
   const checkDireciton = (event) => {
     const currentOffset = event.nativeEvent.contentOffset.x;
-    if(!isEndPage){
       if(currentOffset > offset && !scrollEnabled && flatListRef !== null && !nextQuestion){
         flatListRef.scrollToIndex({index: pagination});
       }else{
@@ -37,7 +36,6 @@ const BoxBackground = (props) => {
         changePaginationIndex(event);
         if(nextQuestion) setNextQuestion(false);
       }
-    }
   }
 
   const changePaginationIndex = (event) => {
