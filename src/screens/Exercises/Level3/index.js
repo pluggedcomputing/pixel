@@ -36,6 +36,8 @@ const Level3 = ({navigation}) => {
           'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!',
         img: null,
         enableScroll: true,
+        row: 6,
+        column: 5,
         paintContent: [
           '0,5',
           '2, 1, 2',
@@ -52,6 +54,8 @@ const Level3 = ({navigation}) => {
         invisibleRow: -1,
         description: 'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
         enableScroll: false,
+        row: 6,
+        column: 5,
         paintContent: [
           '1, 1, 3',
           '1, 1, 3',
@@ -90,6 +94,8 @@ const Level3 = ({navigation}) => {
         invisibleRow: 4,
         description: 'Como você representaria a penúltima linha da imagem abaixo?',
         enableScroll: false,
+        row: 6,
+        column: 5,
         paintContent: [
           '1, 3, 1',
           '2, 1, 2',
@@ -129,8 +135,9 @@ const Level3 = ({navigation}) => {
         invisibleRow: -1,
         description: 'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
         enableScroll: false,
+        row: 5,
+        column: 5,
         paintContent: [
-          '5',
           '0, 1, 2, 1, 1',
           '0, 1, 1, 1, 2',
           '0, 2, 3',
@@ -192,8 +199,8 @@ const Level3 = ({navigation}) => {
             content={item.paintContent}
             isContentReduced
             enable={item.enable}
-            row={6}
-            column={5}
+            row={item.row}
+            column={item.column}
             invisibleRow={item.invisibleRow}
       />
 ) : null}
