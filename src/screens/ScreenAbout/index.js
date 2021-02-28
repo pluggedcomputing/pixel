@@ -18,8 +18,9 @@ function ScreenAbout() {
   const viewOfContent = [
     <View style={styles.viewBoxContent}>
       <Text style={styles.textContent}>
-        O aplicativo Computação Plugada foi inspirado no livro de Bell, T.;
-        Witten, I. e Fellows, M. (2011). “Computer Science Unplugged – Ensinando
+        O aplicativo “Computação Plugada – Pixel se baseia na atividade
+        “Representação de Imagens” do livro de Bell, T.
+        Witten, I. e Fellows, M. (2011), “Computer Science Unplugged – Ensinando
         Ciência da Computação sem o uso do Computador”. Tradução de Luciano
         Porto Barreto, 2011.
       </Text>
