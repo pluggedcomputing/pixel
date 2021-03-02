@@ -29,7 +29,7 @@ const responseAll = {
       type: 'INTRO',
       id: 2,
       text:
-          'Ao observarmos uma tela exibindo a letra C e ampliarmos mais e mais, podemos ver uma grade de pixels semelhantes a estas:',
+          'Ao observarmos uma tela exibindo a letra C e ampliarmos mais e mais, podemos ver uma grade de pixels semelhantes a estes:',
         img: 'l2q1',
       enableScroll: true,
     },
