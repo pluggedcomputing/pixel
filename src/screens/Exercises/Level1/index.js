@@ -107,22 +107,22 @@ const Level1 = ({navigation}) => {
         alternatives: [
           {
             id: '1',
-            text: 'Realiza operações matemáticas',
+            text: 'Realizam operações matemáticas',
             correct: false,
           },
           {
             id: '2',
-            text: 'Gera cópias de imagens ',
+            text: 'Editam imagens',
             correct: false,
           },
           {
             id: '3',
-            text: 'É usada para redimensionar pixels',
+            text: 'São usadas para redimensiona pixels',
             correct: false,
           },
           {
             id: '4',
-            text: 'Imprime pixels',
+            text: 'Imprimem pixels',
             correct: true,
           },
         ],
