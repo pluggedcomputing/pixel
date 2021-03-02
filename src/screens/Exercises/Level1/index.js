@@ -100,7 +100,7 @@ const Level1 = ({navigation}) => {
         enable: false,
         invisibleRow: -1,
         description:
-        'O que as máquinas de fac-símile (fax) fazem ?',
+        "Considerando o que foi apresentado, responda: O que as máquinas de fax fazem?",
         img: null,
         enableScroll: false,
         paintContent: [],
