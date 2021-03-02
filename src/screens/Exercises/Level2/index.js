@@ -15,7 +15,7 @@ const Level2 = ({navigation}) => {
   };
 
 const responseAll = {
-  level: 1,
+  level: 2,
   questions: [
     {
       type: 'INTRO',
