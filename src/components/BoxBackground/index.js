@@ -21,8 +21,8 @@ const BoxBackground = (props) => {
   }, [updatePage]);
 
   useEffect(() => {
-    const indexNext = pagination + 1;
-    if (flatListRef !== null && nextQuestion && !isEndPage) {
+    const indexNext = nextQuestion && !isEndPage ? pagination + 1 : pagination;
+    if (flatListRef !== null && nextQuestion ) {
       flatListRef.scrollToIndex({index: indexNext});
     }
   }, [nextQuestion])
@@ -43,7 +43,7 @@ const BoxBackground = (props) => {
 
     const viewSize = event.nativeEvent.layoutMeasurement;
 
-    const index = Math.floor(contentOffset.x / viewSize.width);
+    const index = Math.round(contentOffset.x / viewSize.width);
     if (index !== pagination) {
       setSteps(index);
       setPagination(index)};
