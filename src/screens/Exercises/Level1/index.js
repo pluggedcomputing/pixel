@@ -133,7 +133,7 @@ const Level1 = ({navigation}) => {
         enable: false,
         invisibleRow: -1,
         description:
-        'Como funciona o armazenamento das imagens no computador? Sabendo que a linguagem que o computador interpreta são números.',
+        'Como funciona o armazenamento das imagens no computador?',
         img: null,
         enableScroll: false,
         paintContent: [],
