@@ -140,12 +140,12 @@ const Level1 = ({navigation}) => {
         alternatives: [
           {
             id: '1',
-            text: 'É armazenada por números decimais',
+            text: 'Por meio de números decimais',
             correct: false,
           },
           {
             id: '2',
-            text: 'Os números tem que possuir uma sequência exata',
+            text: 'Por meio de números octais',
             correct: false,
           },
           {
