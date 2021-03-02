@@ -143,7 +143,6 @@ const PaintingTable = (props) => {
     if (enable) {
       return (
         <View style={styles.containerFooter}>
-          <Text style={styles.textFooter}>Selecione uma cor </Text>
           <View style={styles.containerChoiceColor}>
             <TouchableOpacity onPress={() => choiceColor('P')}>
               <View
