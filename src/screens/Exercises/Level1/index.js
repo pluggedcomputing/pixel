@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {View, Image, StatusBar, Text} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Image, StatusBar, Text } from 'react-native';
 
 import BoxAlternative from "../../../components/BoxAlternative";
 import BoxBackground from '../../../components/BoxBackground';
-import {MultipleChoice} from '../../../components/Questions';
-import {colors} from '../../../styles';
+import { MultipleChoice } from '../../../components/Questions';
+import { colors } from '../../../styles';
 import styles from './styles';
 
-const Level1 = ({navigation}) => {
+const Level1 = ({ navigation }) => {
   const responseAll = {
     level: 1,
     questions: [
@@ -33,7 +33,7 @@ const Level1 = ({navigation}) => {
         enable: false,
         invisibleRow: -1,
         description:
-        'Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco. Como você acha que eram enviadas estas mensagens?',
+          'Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco. Como você acha que eram enviadas estas mensagens?',
         img: require('../../../assets/images/fax.png'),
         enableScroll: false,
         paintContent: [],
@@ -62,45 +62,38 @@ const Level1 = ({navigation}) => {
       {
         type: 'INTRO',
         id: 5,
-        text: 'Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.',
-        img: null,
-        enableScroll: true,
-      },
-      {
-        type: 'INTRO',
-        id: 6,
         text: 'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado branco e um 0 indica um quadrado preto, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
         img: require('../../../assets/images/Level1/Cpixelbin.png'),
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 7,
+        id: 6,
         text: 'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena- a em, aproximadamente, 1000 × 2000 pixels. Depois são transmitidos através de um modem para outra máquina de fax.',
         img: null,
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 8,
+        id: 7,
         text: 'Esta última, por sua vez, imprime os pixels em uma página.',
         img: require('../../../assets/images/Level1/fax.png'),
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 9,
+        id: 8,
         text: 'Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.',
         img: null,
         enableScroll: true,
       },
       {
-        id: 10,
+        id: 9,
         type: 'QUEST',
         enable: false,
         invisibleRow: -1,
         description:
-        "Considerando o que foi apresentado, responda: O que as máquinas de fax fazem?",
+          "Considerando o que foi apresentado, responda: O que as máquinas de fax fazem?",
         img: null,
         enableScroll: false,
         paintContent: [],
@@ -128,15 +121,13 @@ const Level1 = ({navigation}) => {
         ],
       },
       {
-        id: 11,
+        id: 10,
         type: 'QUEST',
         enable: false,
-        invisibleRow: -1,
         description:
-        'Como funciona o armazenamento das imagens no computador? Sabendo que a linguagem que o computador interpreta são números.',
+          'Como funciona o armazenamento das imagens no computador? Sabendo que a linguagem que o computador interpreta são números.',
         img: null,
         enableScroll: false,
-        paintContent: [],
         alternatives: [
           {
             id: '1',
@@ -160,8 +151,23 @@ const Level1 = ({navigation}) => {
           },
         ],
       },
-      ]
-    };
+      {
+        type: 'QUEST',
+        id: 11,
+        finish: true,
+        description: 'Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.',
+        img: null,
+        enableScroll: false,
+        alternatives: [
+          {
+            id: '1',
+            text: 'Finalizar',
+            correct: true,
+          },
+        ]
+      },
+    ]
+  };
 
   const [step, setSteps] = useState(0);
   const [exercise] = useState(responseAll);
@@ -192,21 +198,21 @@ const Level1 = ({navigation}) => {
           <Text style={styles.contentText}>{item.text}</Text>
           <Image style={styles.statementImage} source={item.img} />
         </View>
-    ) : (
-      <View style={styles.viewBoxContent}>
-        <Text style={styles.contentText}>{item.description}</Text>
-        <Image style={styles.statementImage} source={item.img} />
-      </View>
-    )
+      ) : (
+        <View style={styles.viewBoxContent}>
+          <Text style={styles.contentText}>{item.description}</Text>
+          <Image style={styles.statementImage} source={item.img} />
+        </View>
+        )
     ));
     return content;
   };
 
   const setAnswerCorrectInQuestion = (isCorrect) => {
-    if(isCorrect){
+    if (isCorrect) {
       exercise.questions[step].enableScroll = isCorrect;
       setNextCard(true);
-      }
+    }
   }
 
   const BoxContent = () => (
@@ -223,9 +229,9 @@ const Level1 = ({navigation}) => {
       </View>
       <BoxAlternative
         alternativesContent={(
-          question.type === 'QUEST' ?  (
+          question.type === 'QUEST' ? (
             <>
-              <Text style={styles.textAnswer}>Selecione a opção correta</Text>
+              <Text style={styles.textAnswer}>{question.finish === true ? null : "Selecione a opção correta"}</Text>
               <View style={styles.contentContainerStyle}>
                 <MultipleChoice
                   step={step}
@@ -233,11 +239,12 @@ const Level1 = ({navigation}) => {
                   setSteps={setSteps}
                   alternatives={question.alternatives}
                   setCorrectAnswer={setAnswerCorrectInQuestion}
-            />
+                />
               </View>
             </>
- ) : null
-)}
+          ) :
+            null
+        )}
         isLastPage={(question.type !== 'QUEST')}
         textInfor="Arraste o card acima para o lado para continuar." />
     </>
