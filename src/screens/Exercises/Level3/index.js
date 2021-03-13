@@ -86,7 +86,7 @@ const Level3 = ({navigation}) => {
       {
         id: 5,
         type: 'QUEST',
-        enable: true,
+        enable: false,
         invisibleRow: 4,
         description: 'Como você representaria a penúltima linha da imagem abaixo?',
         enableScroll: false,
