@@ -28,7 +28,14 @@ const Level1 = ({ navigation }) => {
         enableScroll: true,
       },
       {
+        type: 'INTRO',
         id: 3,
+        text: 'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena- a em, aproximadamente, 1000 × 2000 pixels. Depois são transmitidos através de um modem para outra máquina de fax.',
+        img: null,
+        enableScroll: true,
+      },
+      {
+        id: 4,
         type: 'QUEST',
         enable: false,
         invisibleRow: -1,
@@ -53,7 +60,7 @@ const Level1 = ({ navigation }) => {
       },
       {
         type: 'INTRO',
-        id: 4,
+        id: 5,
         text:
           'As telas dos computadores são divididas em uma grade de pequenos quadrados, cada um dos quais pode exibir uma cor. Chamamos esses quadrados de elementos de imagem ou pixels.',
         img: null,
@@ -61,23 +68,16 @@ const Level1 = ({ navigation }) => {
       },
       {
         type: 'INTRO',
-        id: 5,
+        id: 6,
         text: 'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado branco e um 0 indica um quadrado preto, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
         img: require('../../../assets/images/Level1/Cpixelbin.png'),
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 6,
+        id: 7,
         text: 'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena- a em, aproximadamente, 1000 × 2000 pixels. Depois são transmitidos através de um modem para outra máquina de fax.',
         img: null,
-        enableScroll: true,
-      },
-      {
-        type: 'INTRO',
-        id: 7,
-        text: 'Esta última, por sua vez, imprime os pixels em uma página.',
-        img: require('../../../assets/images/Level1/fax.png'),
         enableScroll: true,
       },
       {
@@ -152,8 +152,15 @@ const Level1 = ({ navigation }) => {
         ],
       },
       {
-        type: 'QUEST',
+        type: 'INTRO',
         id: 11,
+        text: 'Esta última, por sua vez, imprime os pixels em uma página.',
+        img: require('../../../assets/images/Level1/fax.png'),
+        enableScroll: true,
+      },
+      {
+        type: 'QUEST',
+        id: 12,
         finish: true,
         description: 'Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.',
         img: null,
