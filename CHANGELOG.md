@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-4](https://github.com/pluggedcomputing/pixel/compare/v1.0.0-3...v1.0.0-4) (2021-03-22)
+
+
+### Features
+
+* **#63:** adicionar exercicio para pintar livremente ([e9408c3](https://github.com/pluggedcomputing/pixel/commit/e9408c36d0b2dd8e75feb8740cca0f567d3684d7)), closes [#63](https://github.com/pluggedcomputing/pixel/issues/63)
+
+
+### Bug Fixes
+
+* **#64:** atualizar metodo usado para arredondar valor da paginacao ([86799b4](https://github.com/pluggedcomputing/pixel/commit/86799b4b7e950db839bda348364b4df25468f6e8)), closes [#64](https://github.com/pluggedcomputing/pixel/issues/64)
+* **#65:** alterar posicao de perguntas no nivel 1 ([35cd5cb](https://github.com/pluggedcomputing/pixel/commit/35cd5cb81643473fc125a843c968d25b8b9ddfd1)), closes [#65](https://github.com/pluggedcomputing/pixel/issues/65)
+* **#65:** alterar texto das alterantivas da ultima pergunta ([b76a268](https://github.com/pluggedcomputing/pixel/commit/b76a268875e8fc3771a6176624e0d2adacfcd819)), closes [#65](https://github.com/pluggedcomputing/pixel/issues/65)
+* **#65:** alterar texto das alternativas ([14291bc](https://github.com/pluggedcomputing/pixel/commit/14291bcb00ca3cb6442ae73e346baf8601887670)), closes [#65](https://github.com/pluggedcomputing/pixel/issues/65)
+* **#65:** alterar texto de introducao de pergunta ([2aa75bc](https://github.com/pluggedcomputing/pixel/commit/2aa75bc4c7afc849cb1bf36e40cc89b31275d3d8)), closes [#65](https://github.com/pluggedcomputing/pixel/issues/65)
+* **#65:** alterar texto de introducao no nivel3 ([0168499](https://github.com/pluggedcomputing/pixel/commit/01684997088f4acd5a41672735c8d359cc2afbc9)), closes [#65](https://github.com/pluggedcomputing/pixel/issues/65)
+* **#65:** remover trecho do texto da pergunta ([1881616](https://github.com/pluggedcomputing/pixel/commit/18816163ce1ef40e8db9536031986b3bb26be1f5)), closes [#65](https://github.com/pluggedcomputing/pixel/issues/65)
+* **#66:** adjusting level 1 question 11 ([1e5f572](https://github.com/pluggedcomputing/pixel/commit/1e5f57254fde9c93d1969be5673aa17d3f783ffe)), closes [#66](https://github.com/pluggedcomputing/pixel/issues/66)
+* **#68:** add fax update image ([8457340](https://github.com/pluggedcomputing/pixel/commit/8457340afded5137b208354160877f4ba0dfb3dd)), closes [#68](https://github.com/pluggedcomputing/pixel/issues/68)
+* **#69:** adjusting text in level 1, screen 10 ([88b89b5](https://github.com/pluggedcomputing/pixel/commit/88b89b5eb10bd2a95e1f090531617c1ca1c522c3)), closes [#69](https://github.com/pluggedcomputing/pixel/issues/69)
+* **#74:** adjusting text in level 2 screen 3 ([98d09f6](https://github.com/pluggedcomputing/pixel/commit/98d09f61bcf9f67cf9fecea5a4f3d927860f79fa)), closes [#74](https://github.com/pluggedcomputing/pixel/issues/74)
+* **#79:** alterar valor do campo level ([1d08537](https://github.com/pluggedcomputing/pixel/commit/1d08537223a70a79061470481166abdd7d0a123d)), closes [#79](https://github.com/pluggedcomputing/pixel/issues/79)
+* **#80:** adjusting text in Level 3 screen 3 ([e752247](https://github.com/pluggedcomputing/pixel/commit/e7522470167eed2d98d09ef5f75c41c6a37deef7)), closes [#80](https://github.com/pluggedcomputing/pixel/issues/80)
+* **#82:** adjusting question 5 in level 3 ([48d22d9](https://github.com/pluggedcomputing/pixel/commit/48d22d9ada3da43f0ed327a777d3a0ab921c58e1)), closes [#82](https://github.com/pluggedcomputing/pixel/issues/82)
+* **#83:** delete text in PaintingTable ([e89f2f1](https://github.com/pluggedcomputing/pixel/commit/e89f2f13365facac0fd92cedb80fc6172681dea3)), closes [#83](https://github.com/pluggedcomputing/pixel/issues/83)
+* **#85:** change in json on the level 3 screen ([3a7b75a](https://github.com/pluggedcomputing/pixel/commit/3a7b75ac32c77fea367f5bc0556ef91828c39e28)), closes [#85](https://github.com/pluggedcomputing/pixel/issues/85)
+* **#86:** ajuste no texto da tela Sobre ([b20a4cf](https://github.com/pluggedcomputing/pixel/commit/b20a4cf79d3cb8efaa640d8f72108d811a21e5ac)), closes [#86](https://github.com/pluggedcomputing/pixel/issues/86)
+
 ## [1.0.0-3](https://github.com/pluggedcomputing/pixel/compare/v1.0.0-2...v1.0.0-3) (2021-02-22)
 
 
