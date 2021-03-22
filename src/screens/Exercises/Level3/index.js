@@ -33,7 +33,7 @@ const Level3 = ({navigation}) => {
         id: 3,
         enable: false,
         description:
-          'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são brancos e quantos pontos são pretos. Vamos aprender como isso funciona!',
+          'Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de dois pixels brancos, 1 preto e 2 brancos.',
         img: null,
         enableScroll: true,
         row: 6,
