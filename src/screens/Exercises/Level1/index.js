@@ -77,7 +77,7 @@ const Level1 = ({ navigation }) => {
         type: 'INTRO',
         id: 7,
         text: 'Esta última, por sua vez, imprime os pixels em uma página.',
-        img: require('../../../assets/images/Level1/fax.png'),
+        img: require('../../../assets/images/Level1/fax.jpg'),
         enableScroll: true,
       },
       {
