@@ -20,7 +20,7 @@ const Level4 = ({navigation}) => {
         type: 'INTRO',
         id: 1,
         description:
-          'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena-a em, aproximadamente, 1000 × 2000 pixels, que são transmitidos através de um modem para outra máquina de fax. Esta última, por sua vez, imprime os pixels em uma página. Imagens impressas por fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal). ',
+          'Como vimos antes, uma máquina de fax é capaz de transmitir imagens para uma outra máquina. Imagens impressas por máquinas de fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal).',
         img: null,
         enableScroll: true,
       },
@@ -28,7 +28,7 @@ const Level4 = ({navigation}) => {
         type: 'INTRO',
         id: 2,
         description:
-          'Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão. O método utilizado nesta atividade é chamado de ‘run-length coding’, uma maneira eficaz de compressão de imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet.',
+          `Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão.  O método utilizado nas atividades do Nível 3 para representar quantidades de pixels brancos e pretos é chamado de 'run-length coding'. Esse método permite comprimir imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet.`,
         img: null,
         enableScroll: true,
       },
@@ -120,7 +120,7 @@ const Level4 = ({navigation}) => {
     if (finishLevel) {
       navigation.navigate('Congratulations', {
         level: 4,
-        content: ['Entende a necessidade de comprimir dados'],
+        content: ['Você entende a necessidade de comprimir dados', 'Você aprendeu como comprimir dados referentes a pixels utilizando run-length coding', 'Você concluiu todos os níveis'],
       });
     }else{
       const answer = answerPaint[0];

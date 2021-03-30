@@ -23,61 +23,53 @@ const Level1 = ({navigation}) => {
         type: 'INTRO',
         id: 2,
         text:
-          'Você sabia que as telas dos computadores são divididas em uma grade de pequenos pontos chamados pixels? Em uma foto preto e branco, cada pixel ou é preto ou é branco.',
-        img: require('../../../assets/images/img_pixel.png'),
-        enableScroll: true,
-      },
-      {
-        type: 'INTRO',
-        id: 3,
-        text:
           'As telas dos computadores são divididas em uma grade de pequenos quadrados, cada um dos quais pode exibir uma cor. Chamamos esses quadrados de elementos de imagem ou pixels.',
         img: null,
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 4,
+        id: 3,
         text: 'Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.',
         img: null,
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 5,
-        text: 'Podemos representar essa imagem usando dígitos binários (bits). Se 1 indica um quadrado branco e um 0 indica um quadrado preto, então podemos representar nossa letra C, em uma grade de 5x6 pixels, assim:',
+        id: 4,
+        text: 'Uma imagem correspondente à letra C, por exemplo, poderia ser representada com números binários (bits). Se o 1 indica um quadrado branco e o 0 indica um quadrado preto, então poderíamos ter uma grade de 5x6 pixels como a ilustrada abaixo:',
         img: require('../../../assets/images/Level1/Cpixelbin.png'),
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 6,
+        id: 5,
         text:
           'Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco.',
-        img: require('../../../assets/images/img_pixel.png'),
+          img: require('../../../assets/images/Level1/fax.jpg'),
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 7,
-        text: 'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena- a em, aproximadamente, 1000 × 2000 pixels. Depois são transmitidos através de um modem para outra máquina de fax.',
+        id: 6,
+        text: 'Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena-a em, aproximadamente, 1000 × 2000 pixels, que são transmitidos através de um modem para outra máquina de fax.',
         img: null,
         enableScroll: true,
       },
       {
         type: 'INTRO',
-        id: 8,
-        text: 'Esta última, por sua vez, imprime os pixels em uma página.',
+        id: 7,
+        text: 'Quando a outra máquina de fax recebe a mensagem, ela imprime os pixels em uma página.',
         img: require('../../../assets/images/Level1/fax.jpg'),
         enableScroll: true,
       },
       {
-        id: 9,
+        id: 8,
         type: 'QUEST',
         enable: false,
         invisibleRow: -1,
         description:
-        'Como você acha que eram enviadas estas mensagens?',
+        'Como você acha que eram codificadas as mensagens enviadas através de uma máquina de fax?',
         img: require('../../../assets/images/fax.png'),
         enableScroll: false,
         paintContent: [],
@@ -97,13 +89,13 @@ const Level1 = ({navigation}) => {
       },
       {
         type: 'INTRO',
-        id: 10,
+        id: 9,
         text: 'Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.',
         img: null,
         enableScroll: true,
       },
       {
-        id: 11,
+        id: 10,
         type: 'QUEST',
         enable: false,
         invisibleRow: -1,
@@ -125,46 +117,13 @@ const Level1 = ({navigation}) => {
           },
           {
             id: '3',
-            text: 'São usadas para redimensiona pixels',
+            text: 'Transmitem mensagens de áudio',
             correct: false,
           },
           {
             id: '4',
             text: 'Imprimem pixels',
             correct: true,
-          },
-        ],
-      },
-      {
-        id: 12,
-        type: 'QUEST',
-        enable: false,
-        invisibleRow: -1,
-        description:
-        'Como funciona o armazenamento das imagens no computador?',
-        img: null,
-        enableScroll: false,
-        paintContent: [],
-        alternatives: [
-          {
-            id: '1',
-            text: 'Por meio de números decimais',
-            correct: false,
-          },
-          {
-            id: '2',
-            text: 'Por meio de números octais',
-            correct: false,
-          },
-          {
-            id: '3',
-            text: 'Por meio de números binários',
-            correct: true,
-          },
-          {
-            id: '4',
-            text: 'Por meio de números hexadecimais',
-            correct: false,
           },
         ],
       },
@@ -184,8 +143,7 @@ const Level1 = ({navigation}) => {
         level: 1,
         content: [
           'Entende o funcionamento do fax',
-          'Entende como uma imagem criada por você pode ser representada com números binários.',
-          'Entende a necessidade de utilizar menos dados para representar imagens e documentos',
+          'Entende que as telas dos computadores são divididas em uma grade de pequenos pontos (pixels)',
         ],
       });
     } else {

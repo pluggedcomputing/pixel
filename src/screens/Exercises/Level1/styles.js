@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     justifyContent: 'flex-end',
     width: Math.round((metrics.screenWidth * 14) / 16),
-    height: metrics.screenHeight * 0.12,
+    height: metrics.screenHeight * 0.2,
   },
   textBoxContent: {
     textAlign: 'center', fontSize: fonts.small, paddingHorizontal: metrics.basePadding, color: colors.colorTextPrimary
