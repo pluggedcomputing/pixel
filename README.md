@@ -15,7 +15,6 @@
 
 </div>
 
-
 ## Tecnologias
 
 - ### React Native
@@ -29,17 +28,23 @@ Obs: Usamos as integrações Eslint, Prettier, editorconfig e Airbnb Style Guide
 
 > Certifique-se de formatos mais bonitos ao salvar. Insira `" editor.formatOnSave ": true` em suas Configurações do usuário se você usar VSCode.
 
-## Contributing
+## Contribuindo
 
 Obrigado por estar interessado em tornar este projeto melhor. Encorajamos todos a ajudar a melhorar este projeto com alguns novos recursos, correções de bugs e problemas de desempenho. Dedique um pouco do seu tempo para ler nossos guias, para que este processo seja mais rápido e fácil.
 
-### Contribution Guidelines
+### Guia de contribuição
 
 Reserve um momento para ler sobre nossas [Diretrizes de contribuição](/.github/CONTRIBUTING.md) para que você possa entender como enviar um problema, confirmar e criar solicitações pull.
 
-## Code of Conduct
+## Codigo de condulta
 
 Esperamos que você siga nosso [Código de Conduta](/.github/CODE_OF_CONDUCT.md). Você pode lê-lo para entender que tipo de comportamento será ou não tolerado.
+
+## Começando
+
+- Faça clone desse projeto;
+- Na pasta raiz do projeto, instale as dependencia: `yarn ou npm install`
+- Execute o projeto no emulador android: `yarn android`
 
 ## Gerando versões
 
