@@ -39,7 +39,7 @@ const responseAll = {
       invisibleRow: -1,
       enable: true,
       description:
-        'Agora vamos praticar, pinte a imagem representada pelos códigos abaixo, lembrando que 1 é branco e 0 é preto.',
+        'Agora vamos praticar? Pinte a imagem representada pelos códigos abaixo. Lembre-se de que o 1 é branco e o 0 é preto.',
       enableScroll: false,
       paintContent: [
         '1, 0, 0, 0, 0',
