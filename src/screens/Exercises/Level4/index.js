@@ -7,7 +7,8 @@ import ChoiceButton from '../../../components/ChoiceButton';
 import PaintingTable from '../../../components/PaintingTable';
 import MultipleChoice from '../../../components/Questions/MultipleChoice';
 import {colors} from '../../../styles';
-import RandomRowValue from "../../../utils/randomRowValue";
+import generateAlternatives from "../../../utils/generateAlternatives";
+import TranslateRunLenghtCode from '../../../utils/translateRunLenghtCode';
 import styles from './styles';
 
 const Level4 = ({navigation}) => {
@@ -48,8 +49,7 @@ const Level4 = ({navigation}) => {
         paintingFreely: true,
         description: 'Que tal desenhar você mesmo e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.',
         enableScroll: false,
-        paintContent: [
-        ],
+        paintContent: [],
         alternatives: [
           {
             id: '1',
@@ -67,28 +67,7 @@ const Level4 = ({navigation}) => {
         description: 'Selecione a sequência que represente a primeira linha de sua foto',
         enableScroll: false,
         paintingFreely: false,
-        alternatives: [
-          {
-            id: '1',
-            text: RandomRowValue(5, answerPaint[1]),
-            correct: false,
-          },
-          {
-            id: '2',
-            text: RandomRowValue(5, answerPaint[1]),
-            correct: false,
-          },
-          {
-            id: '3',
-            text: '',
-            correct: true,
-          },
-          {
-            id: '4',
-            text: RandomRowValue(5, answerPaint[1]),
-            correct: false,
-          },
-        ],
+        alternatives: generateAlternatives(answerPaint[1])
       },
       {
         type: 'INTRO',
@@ -117,6 +96,7 @@ const Level4 = ({navigation}) => {
   const [nextCard, setNextCard] = useState(false);
 
   useEffect(() => {
+    TranslateRunLenghtCode(answerPaint)
     if (finishLevel) {
       navigation.navigate('Congratulations', {
         level: 4,
@@ -144,7 +124,7 @@ const Level4 = ({navigation}) => {
               paintingFreely={item.paintingFreely}
               setAnswerPaint={setAnswerPaint}
               content={item.paintContent}
-              isContentReduced={false}
+              isContentReduced
               enable={item.enable}
               row={6}
               column={5}
