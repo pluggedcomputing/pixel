@@ -8,12 +8,12 @@ import PaintingTable from '../../../components/PaintingTable';
 import MultipleChoice from '../../../components/Questions/MultipleChoice';
 import {colors} from '../../../styles';
 import generateAlternatives from "../../../utils/generateAlternatives";
-import TranslateRunLenghtCode from '../../../utils/translateRunLenghtCode';
 import styles from './styles';
 
 const Level4 = ({navigation}) => {
   const [answerPaint, setAnswerPaint] = useState([]);
   const [step, setSteps] = useState(0);
+
   const responseAll = {
     level: 4,
     questions: [
@@ -62,12 +62,12 @@ const Level4 = ({navigation}) => {
       {
         id: 5,
         type: 'QUEST',
-        enable: false,
+        enable: true,
         invisibleRow: 0,
         description: 'Selecione a sequência que represente a primeira linha de sua foto',
         enableScroll: false,
-        paintingFreely: false,
-        alternatives: generateAlternatives(answerPaint[1])
+        paintingFreely: true,
+        alternatives: generateAlternatives(answerPaint)
       },
       {
         type: 'INTRO',
@@ -96,7 +96,6 @@ const Level4 = ({navigation}) => {
   const [nextCard, setNextCard] = useState(false);
 
   useEffect(() => {
-    TranslateRunLenghtCode(answerPaint)
     if (finishLevel) {
       navigation.navigate('Congratulations', {
         level: 4,

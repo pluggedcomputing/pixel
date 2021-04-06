@@ -3,7 +3,7 @@ import generateAlternatives from '../src/utils/generateAlternatives'
 test("gerar alternativas", () =>{
   const lineBinaryCode = [1,0,1,0,0]
   const result = generateAlternatives(lineBinaryCode)
-
+  console.log(result)
   expect(result[0].text).toBe("1,1,1,2")
   expect(alternativesAreDifferent(result)).toBeTruthy()
 })
@@ -11,6 +11,7 @@ test("gerar alternativas", () =>{
 test("deve traduzir [0,0,1,0,0] para run lenght code", () =>{
   const lineBinaryCode = [0,0,1,0,0]
   const result = generateAlternatives(lineBinaryCode)
+  console.log(result)
   expect(result[0].text).toBe("0,2,1,2")
   expect(alternativesAreDifferent(result)).toBeTruthy()
 })
@@ -18,7 +19,7 @@ test("deve traduzir [0,0,1,0,0] para run lenght code", () =>{
 test("deve traduzir [0,0,0,0,0] para run lenght code", () =>{
   const lineBinaryCode = [0,0,0,0,0]
   const result = generateAlternatives(lineBinaryCode)
-
+  console.log(result)
   expect(result[0].text).toBe("0,5")
   expect(alternativesAreDifferent(result)).toBeTruthy()
 })
@@ -26,7 +27,7 @@ test("deve traduzir [0,0,0,0,0] para run lenght code", () =>{
 test("deve traduzir [1,1,1,1,1] para run lenght code", () =>{
   const lineBinaryCode = [1,1,1,1,1]
   const result = generateAlternatives(lineBinaryCode)
-
+  console.log(result)
   expect(result[0].text).toBe("5")
   expect(alternativesAreDifferent(result)).toBeTruthy()
 })

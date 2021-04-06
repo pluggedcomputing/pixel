@@ -1,6 +1,25 @@
-const translateRunLenghtCode = (lineBinaryCode) => {
+/* eslint-disable no-console */
+/* eslint-disable spaced-comment */
+/* eslint-disable prefer-const */
+const translateRunLenghtCode = (lineBinaryCodeOrigin) => {
+  let lineBinaryCodeList = []
+
+  lineBinaryCodeList.push(lineBinaryCodeOrigin)
+
+  if(lineBinaryCodeList.length === 0 || lineBinaryCodeList[0].length === 0){
+    return []
+  }
+
+  console.log("lineBinaryCode list---", lineBinaryCodeList)
+
+  let lineBinaryCode = lineBinaryCodeList[0]
 
   const translate = []
+
+  //const lineBinaryCode = [...lineBinaryCodeList[0]]
+
+  console.log("lineBinaryCode 0---", lineBinaryCode)
+  // console.log("lineBinaryCode 1---", lineBinaryCode[1])
   let count = 1
   let lastColor = lineBinaryCode.shift()
 
