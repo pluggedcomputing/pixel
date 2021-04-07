@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import generateAlternatives from '../src/utils/generateAlternatives'
 
 test("gerar alternativas", () =>{
