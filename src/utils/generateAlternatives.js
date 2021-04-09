@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable no-plusplus */
 import randomRowValue from './randomRowValue';
 import translateRunLenghtCode from './translateRunLenghtCode';
@@ -6,55 +5,19 @@ import translateRunLenghtCode from './translateRunLenghtCode';
 
 const alternativesContains = (alternatives, alternative) => {
   const alternativeMapResult = alternatives.map(item => {
-    const isSame = item.toString() === alternative.toString() // '[1, 1, 0, 1]' === '[1, 0, 1, 1]'
+    const isSame = item.toString() === alternative.toString()
     return isSame
   })
   return alternativeMapResult.includes(true)
 }
 
-// const alternativesContains = (alternatives, alternative) =>{
-
-//   let contains = false
-//   for(let i = 0; i < alternatives.length; i ++) {
-//     const currentAlternative = alternatives[i]
-
-//     console.log(` current alternative: ++${currentAlternative}`)
-//     console.log(` lenght current alternative: ++${currentAlternative.length}`)
-
-//     console.log(` next alternative: --${alternative}`)
-//     console.log(` lenght next alternative: --${alternative.length}`)
-
-//     if(currentAlternative.length === alternative.length){
-
-//       let areEqual = true
-
-//       for(let j = 0; j < alternative.length; j ++) {
-//         if(currentAlternative[j] !== alternative[j]) {
-//           console.log(` next alternative diferente: --${alternative}`)
-//           areEqual = false
-//           break
-//         }
-//       }
-//       if(areEqual){
-//         console.log(` Foram iguais: --${alternative}`)
-//         contains = true
-//         break
-//       }
-//     }
-//   }
-//   return contains
-// }
-
 const generateAlternatives = (lineBinaryCode) => {
-  console.log(lineBinaryCode)
-
+  if(!lineBinaryCode || lineBinaryCode.length === 0) return [];
   const alternatives = []
   const alternativesObj = []
   const maxAlternatives = 4
   const numColumns = 5
-
-  alternatives.push(translateRunLenghtCode(lineBinaryCode))
-
+  alternatives.push(translateRunLenghtCode(lineBinaryCode[0]))
   alternativesObj.push({
     id: 1,
     text: alternatives[0].join(),
@@ -77,7 +40,6 @@ const generateAlternatives = (lineBinaryCode) => {
       },
     )
   }
-
   return alternativesObj
 }
 
