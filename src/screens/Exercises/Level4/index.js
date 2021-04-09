@@ -8,6 +8,7 @@ import PaintingTable from '../../../components/PaintingTable';
 import MultipleChoice from '../../../components/Questions/MultipleChoice';
 import {colors} from '../../../styles';
 import generateAlternatives from "../../../utils/generateAlternatives";
+import translateRunLenghtCode from '../../../utils/translateRunLenghtCode';
 import styles from './styles';
 
 const Level4 = ({navigation}) => {
@@ -62,12 +63,13 @@ const Level4 = ({navigation}) => {
       {
         id: 5,
         type: 'QUEST',
-        enable: true,
+        enable: false,
         invisibleRow: 0,
         description: 'Selecione a sequência que represente a primeira linha de sua foto',
         enableScroll: false,
-        paintingFreely: true,
-        alternatives: generateAlternatives(answerPaint)
+        paintingFreely: false,
+        paintContent: [],
+        alternatives: []
       },
       {
         type: 'INTRO',
@@ -91,9 +93,15 @@ const Level4 = ({navigation}) => {
 
   const [exercise] = useState(responseAll);
   const [question, setQuestion] = useState(exercise.questions[step]);
+  const positionQuestion = exercise.questions.length - 2;
   const maxStep = exercise.questions.length;
   const finishLevel = step === maxStep;
   const [nextCard, setNextCard] = useState(false);
+
+  const converterArrayBinaryAndRunLengthCode = () => {
+    return answerPaint.map(item => {
+      return translateRunLenghtCode(item)})
+  }
 
   useEffect(() => {
     if (finishLevel) {
@@ -102,19 +110,20 @@ const Level4 = ({navigation}) => {
         content: ['Você entende a necessidade de comprimir dados', 'Você aprendeu como comprimir dados referentes a pixels utilizando run-length coding', 'Você concluiu todos os níveis'],
       });
     }else{
-      const answer = answerPaint[0];
-      exercise.questions[exercise.questions.length - 2].alternatives[2].text = answer;
+      if(positionQuestion === step && answerPaint && answerPaint[0].length > 0){
+        const copyArray = JSON.parse(JSON.stringify(answerPaint));
+        exercise.questions[positionQuestion].paintContent = converterArrayBinaryAndRunLengthCode()
+        exercise.questions[positionQuestion].alternatives = generateAlternatives(copyArray);
+      }
+
       setQuestion(exercise.questions[step]);
     }
   }, [step]);
 
+
   const viewOfContent = () => {
     const content = exercise.questions.map((item) =>
     {
-      if(!question.paintingFreely && question.type === 'QUEST'){
-        question.paintContent = answerPaint;
-      };
-
       return (
         <View style={styles.viewBoxContent}>
           <Text style={styles.textBoxContent}>{item.description}</Text>
@@ -138,7 +147,7 @@ const Level4 = ({navigation}) => {
   };
 
   const choicAlternative = () => {
-    if(!question.alternatives) return null;
+    if(!question.alternatives || question.alternatives.length === 0) return null;
     return question.alternatives.length > 1 ? (
       <MultipleChoice
         step={step}
