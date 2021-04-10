@@ -34,22 +34,12 @@ const PaintingTable = (props) => {
     return columns;
   };
 
-  const checkValueOfContent = (value) => {
-    const replaceSpaceToEmpty = value.replace(/ /g, '');
-    const replacecommaToEmpty = replaceSpaceToEmpty.replace(/,/g, '');
-    return replacecommaToEmpty;
-  };
-
   const mountMatrixAnswerPaint = (contentData) => {
     const answerDefault = [];
     contentData.forEach(item =>{
       const rows = item.map((dataValue) => {
         return dataValue.color === "B" ? 1 : 0;
       })
-
-      if(item[0].color === "P" && isContentReduced){
-        rows.unshift(0)
-      }
       answerDefault.push(rows);
     });
 
@@ -70,13 +60,11 @@ const PaintingTable = (props) => {
         content.forEach((itemRunLength, i) => {
           let columnIndex = 0;
           if (i < content.length) {
-            const invertColor = i === 0 && itemRunLength[i] === 0;
-
             itemRunLength.forEach((item, index) => {
               let cont = 0;
               while (cont < item) {
                 if (columnIndex < column ) {
-                  const colorItem = index % 2 === 0 && !invertColor ? 'B' : 'P';
+                  const colorItem = index % 2 === 0? 'B' : 'P';
                   dataDefault[i][columnIndex].color = colorItem;
                   columnIndex += 1;
                 }
@@ -86,12 +74,11 @@ const PaintingTable = (props) => {
           }
         })
       } else {
-        for (let i = 0; i < row; i += 1) {
-          const replaceRows = checkValueOfContent(content[i]);
-          for (let j = 0; j < column; j += 1) {
-            dataDefault[i][j].color = replaceRows[j] !== '0' ? 'B' : 'P';
-          }
-        }
+        content.forEach((item, index) => {
+          item.forEach((element, indexElemente) => {
+            dataDefault[index][indexElemente].color = element === 1 ? 'B' : 'P';
+          })
+        })
       }
     }
     return dataDefault;

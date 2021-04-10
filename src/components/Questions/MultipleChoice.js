@@ -31,7 +31,7 @@ const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
         <ChoiceButton
           key={item.text}
           step={step}
-          text={item.text}
+          text={item.text.toString()}
           enable={isAnswer}
           correct={item.correct}
           onPress={() => {

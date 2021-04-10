@@ -39,12 +39,12 @@ const Level3 = ({navigation}) => {
         row: 6,
         column: 5,
         paintContent: [
-          '0,5',
-          '2, 1, 2',
-          '2, 1, 2',
-          '2, 1, 2',
-          '2, 1, 2',
-          '2, 1, 2',
+          [0,5],
+          [2, 1, 2],
+          [2, 1, 2],
+          [2, 1, 2],
+          [2, 1, 2],
+          [2, 1, 2],
         ],
       },
       {
@@ -57,12 +57,12 @@ const Level3 = ({navigation}) => {
         row: 6,
         column: 5,
         paintContent: [
-          '1, 1, 3',
-          '1, 1, 3',
-          '1, 1, 3',
-          '1, 1, 3',
-          '1, 1, 3',
-          '1, 3, 1',
+          [1, 1, 3],
+          [1, 1, 3],
+          [1, 1, 3],
+          [1, 1, 3],
+          [1, 1, 3],
+          [1, 3, 1],
         ],
         alternatives: [
           {
@@ -97,12 +97,12 @@ const Level3 = ({navigation}) => {
         row: 6,
         column: 5,
         paintContent: [
-          '1, 3, 1',
-          '2, 1, 2',
-          '2, 1, 2',
-          '2, 1, 2',
-          '0, 1, 1, 1, 2',
-          '0, 3, 2',
+          [1, 3, 1],
+          [2, 1, 2],
+          [2, 1, 2],
+          [2, 1, 2],
+          [0, 1, 1, 1, 2],
+          [0, 3, 2],
         ],
 
         alternatives: [
@@ -138,11 +138,11 @@ const Level3 = ({navigation}) => {
         row: 5,
         column: 5,
         paintContent: [
-          '0, 1, 2, 1, 1',
-          '0, 1, 1, 1, 2',
-          '0, 2, 3',
-          '0, 1, 1, 1, 2',
-          '0, 1, 2, 1, 1',
+          [0, 1, 2, 1, 1],
+          [0, 1, 1, 1, 2],
+          [0, 2, 3],
+          [0, 1, 1, 1, 2],
+          [0, 1, 2, 1, 1],
         ],
 
         alternatives: [
@@ -191,21 +191,22 @@ const Level3 = ({navigation}) => {
   }, [step]);
 
   const viewOfContent = () => {
-    const content = exercise.questions.map((item) => (
-      <View style={styles.containerOfContent}>
-        <Text style={styles.contentText}>{item.description}</Text>
-        {item.paintContent ? (
-          <PaintingTable
-            content={item.paintContent}
-            isContentReduced
-            enable={item.enable}
-            row={item.row}
-            column={item.column}
-            invisibleRow={item.invisibleRow}
+    const content = exercise.questions.map((item) =>
+      (
+        <View style={styles.containerOfContent}>
+          <Text style={styles.contentText}>{item.description}</Text>
+          {(item.paintContent !== undefined) ? (
+            <PaintingTable
+              content={item.paintContent}
+              isContentReduced
+              enable={item.enable}
+              row={item.row}
+              column={item.column}
+              invisibleRow={item.invisibleRow}
       />
 ) : null}
-      </View>
-    ));
+        </View>
+));
     return content;
   };
 
