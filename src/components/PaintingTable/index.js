@@ -75,8 +75,8 @@ const PaintingTable = (props) => {
         })
       } else {
         content.forEach((item, index) => {
-          item.forEach((element, indexElemente) => {
-            dataDefault[index][indexElemente].color = element === 1 ? 'B' : 'P';
+          item.forEach((element, indexElement) => {
+            dataDefault[index][indexElement].color = element === 1 ? 'B' : 'P';
           })
         })
       }
