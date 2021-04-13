@@ -41,13 +41,15 @@ const responseAll = {
       description:
         'Agora vamos praticar? Pinte a imagem representada pelos códigos abaixo. Lembre-se de que o 1 é branco e o 0 é preto.',
       enableScroll: false,
+      row: 6,
+      column: 5,
       paintContent: [
-        '1, 0, 0, 0, 0',
-        '1, 0, 1, 1, 0',
-        '1, 0, 0, 0, 0',
-        '1, 0, 1, 1, 1',
-        '1, 0, 1, 1, 1',
-        '1, 0, 1, 1, 1',
+        [1, 0, 0, 0, 0],
+        [1, 0, 1, 1, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 1, 1, 1],
+        [1, 0, 1, 1, 1],
+        [1, 0, 1, 1, 1],
       ],
       alternatives: [
         {
@@ -80,13 +82,15 @@ const responseAll = {
       description:
       'Vamos ver se você consegue entender sobre a representação de imagens com pixels. Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida dentre as opções apresentadas',
       enableScroll: false,
+      row: 6,
+      column: 5,
       paintContent: [
-      '1, 0, 0, 0, 1',
-      '0, 1, 1, 1, 1',
-      '0, 1, 1, 1, 1',
-      '0, 1, 0, 0, 1',
-      '0, 1, 1, 0, 1',
-      '1, 0, 0, 0, 1',
+      [1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 1],
+      [0, 1, 1, 1, 1],
+      [0, 1, 0, 0, 1],
+      [0, 1, 1, 0, 1],
+      [1, 0, 0, 0, 1],
     ],
     alternatives: [
       {
@@ -119,34 +123,35 @@ const responseAll = {
       description:
           'Agora tente descobrir qual é a linha que está faltando para completar o desenho da letra W?',
           enableScroll: false,
+          row: 5,
+      column: 5,
           paintContent: [
-          '1, 1, 1, 1, 1',
-          '0, 1, 1, 1, 0',
-          '0, 1, 1, 1, 0',
-          '0, 1, 0, 1, 0',
-          '0, 0, 1, 0, 0',
-          '0, 1, 1, 1, 0',
+          [0, 1, 1, 1, 0],
+          [0, 1, 1, 1, 0],
+          [0, 1, 0, 1, 0],
+          [0, 0, 1, 0, 0],
+          [0, 1, 1, 1, 0],
         ],
 
         alternatives: [
           {
             id: '1',
-            text: '1, 1, 1, 0, 1',
+            text: [1, 1, 1, 0, 1],
             correct: false,
           },
           {
             id: '2',
-            text: '1, 1, 0, 0, 1',
+            text: [1, 1, 0, 0, 1],
             correct: false,
           },
           {
             id: '3',
-            text: '1, 1, 0, 1, 0',
+            text: [1, 1, 0, 1, 0],
             correct: false,
           },
           {
             id: '4',
-            text: '0, 0, 1, 0, 0',
+            text: [0, 1, 1, 1, 0],
             correct: true,
           },
         ],
@@ -190,8 +195,8 @@ const responseAll = {
           content={item.paintContent}
           enable={item.enable}
           isContentReduced={false}
-          row={6}
-          column={5}
+          row={item.row}
+          column={item.column}
           invisibleRow={item.invisibleRow}
       />
       </View>

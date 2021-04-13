@@ -34,30 +34,12 @@ const PaintingTable = (props) => {
     return columns;
   };
 
-  const checkValueOfContent = (value) => {
-    const replaceSpaceToEmpty = value.replace(/ /g, '');
-    const replacecommaToEmpty = replaceSpaceToEmpty.replace(/,/g, '');
-    return replacecommaToEmpty;
-  };
-
-  const organizeText = (text) => {
-    const replaceSpaceToEmpty = text.replace(/ /g, '');
-    return replaceSpaceToEmpty.replace(/,/g, ', ');
-  };
-
   const mountMatrixAnswerPaint = (contentData) => {
     const answerDefault = [];
     contentData.forEach(item =>{
-      let rows = "";
-      item.forEach((dataValue, index) => {
-        rows += dataValue.color === "B" ? "1" : "0";
-        if(index < item.length - 1){
-          rows += ",";
-        }
+      const rows = item.map((dataValue) => {
+        return dataValue.color === "B" ? 1 : 0;
       })
-      if(item[0].color === "P" && isContentReduced){
-        rows = `0,${rows}`;
-      }
       answerDefault.push(rows);
     });
 
@@ -66,36 +48,37 @@ const PaintingTable = (props) => {
 
   const mountMatrixColorOrDefault = () => {
     const dataDefault = mountMatrixDefault();
-    if(paintingFreely) setAnswerPaint(mountMatrixAnswerPaint(dataDefault));
+    if(paintingFreely) {
+      const result = mountMatrixAnswerPaint(dataDefault);
+      if(result.length > 0){
+        setAnswerPaint(result);
+      }
+    }
+
     if (!enable) {
       if (isContentReduced) {
-        for (let i = 0; i < row; i += 1) {
+        content.forEach((itemRunLength, i) => {
           let columnIndex = 0;
           if (i < content.length) {
-            const replaceRows = checkValueOfContent(content[i]).split('');
-            const invertColor = i === 0 && replaceRows[i] === 0;
-
-            replaceRows.map((item, index) => {
+            itemRunLength.forEach((item, index) => {
               let cont = 0;
               while (cont < item) {
-                if (columnIndex <= column - 1) {
-                  const colorItem = index % 2 === 0 && !invertColor ? 'B' : 'P';
+                if (columnIndex < column ) {
+                  const colorItem = index % 2 === 0? 'B' : 'P';
                   dataDefault[i][columnIndex].color = colorItem;
                   columnIndex += 1;
                 }
                 cont += 1;
               }
-              return true;
             });
           }
-        }
+        })
       } else {
-        for (let i = 0; i < row; i += 1) {
-          const replaceRows = checkValueOfContent(content[i]);
-          for (let j = 0; j < column; j += 1) {
-            dataDefault[i][j].color = replaceRows[j] !== '0' ? 'B' : 'P';
-          }
-        }
+        content.forEach((item, index) => {
+          item.forEach((element, indexElement) => {
+            dataDefault[index][indexElement].color = element === 1 ? 'B' : 'P';
+          })
+        })
       }
     }
     return dataDefault;
@@ -105,7 +88,12 @@ const PaintingTable = (props) => {
     setRowChecked(rowCurrent);
     setColumnChecked(keyCurrent);
     data[rowCurrent][keyCurrent].color = colorCurrent;
-    if(paintingFreely) setAnswerPaint(mountMatrixAnswerPaint(data));
+    if(paintingFreely){
+      const resultClick = mountMatrixAnswerPaint(data);
+      if(resultClick.length > 0){
+        setAnswerPaint(resultClick);
+      }
+    }
   };
 
   const choiceColor = (colorSquire) => {
@@ -132,7 +120,7 @@ const PaintingTable = (props) => {
       <View style={styles.containerText}>
         {content.map((item, key) => (
           <Text key={key.toString()} style={styles.text}>
-            {invisibleRow !== -1 && key === invisibleRow ? '' : organizeText(item)}
+            {invisibleRow !== -1 && key === invisibleRow ? '' : item.toString()}
           </Text>
         ))}
       </View>
@@ -210,7 +198,7 @@ const PaintingTable = (props) => {
 };
 
 PaintingTable.propTypes = {
-  content: PropTypes.arrayOf(PropTypes.string),
+  content: PropTypes.oneOfType([PropTypes.array]),
   enable: PropTypes.bool,
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,

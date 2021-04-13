@@ -7,12 +7,14 @@ import ChoiceButton from '../../../components/ChoiceButton';
 import PaintingTable from '../../../components/PaintingTable';
 import MultipleChoice from '../../../components/Questions/MultipleChoice';
 import {colors} from '../../../styles';
-import RandomRowValue from "../../../utils/randomRowValue";
+import generateAlternatives from "../../../utils/generateAlternatives";
+import translateRunLenghtCode from '../../../utils/translateRunLenghtCode';
 import styles from './styles';
 
 const Level4 = ({navigation}) => {
   const [answerPaint, setAnswerPaint] = useState([]);
   const [step, setSteps] = useState(0);
+
   const responseAll = {
     level: 4,
     questions: [
@@ -48,8 +50,7 @@ const Level4 = ({navigation}) => {
         paintingFreely: true,
         description: 'Que tal desenhar você mesmo e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.',
         enableScroll: false,
-        paintContent: [
-        ],
+        paintContent: [],
         alternatives: [
           {
             id: '1',
@@ -67,28 +68,8 @@ const Level4 = ({navigation}) => {
         description: 'Selecione a sequência que represente a primeira linha de sua foto',
         enableScroll: false,
         paintingFreely: false,
-        alternatives: [
-          {
-            id: '1',
-            text: RandomRowValue(5, answerPaint[1]),
-            correct: false,
-          },
-          {
-            id: '2',
-            text: RandomRowValue(5, answerPaint[1]),
-            correct: false,
-          },
-          {
-            id: '3',
-            text: '',
-            correct: true,
-          },
-          {
-            id: '4',
-            text: RandomRowValue(5, answerPaint[1]),
-            correct: false,
-          },
-        ],
+        paintContent: [],
+        alternatives: []
       },
       {
         type: 'INTRO',
@@ -112,9 +93,15 @@ const Level4 = ({navigation}) => {
 
   const [exercise] = useState(responseAll);
   const [question, setQuestion] = useState(exercise.questions[step]);
+  const positionQuestion = exercise.questions.length - 2;
   const maxStep = exercise.questions.length;
   const finishLevel = step === maxStep;
   const [nextCard, setNextCard] = useState(false);
+
+  const converterArrayBinaryAndRunLengthCode = () => {
+    return answerPaint.map(item => {
+      return translateRunLenghtCode(item)})
+  }
 
   useEffect(() => {
     if (finishLevel) {
@@ -123,19 +110,20 @@ const Level4 = ({navigation}) => {
         content: ['Você entende a necessidade de comprimir dados', 'Você aprendeu como comprimir dados referentes a pixels utilizando run-length coding', 'Você concluiu todos os níveis'],
       });
     }else{
-      const answer = answerPaint[0];
-      exercise.questions[exercise.questions.length - 2].alternatives[2].text = answer;
+      if(positionQuestion === step && answerPaint && answerPaint[0].length > 0){
+        const copyArray = JSON.parse(JSON.stringify(answerPaint));
+        exercise.questions[positionQuestion].paintContent = converterArrayBinaryAndRunLengthCode()
+        exercise.questions[positionQuestion].alternatives = generateAlternatives(copyArray);
+      }
+
       setQuestion(exercise.questions[step]);
     }
   }, [step]);
 
+
   const viewOfContent = () => {
     const content = exercise.questions.map((item) =>
     {
-      if(!question.paintingFreely && question.type === 'QUEST'){
-        question.paintContent = answerPaint;
-      };
-
       return (
         <View style={styles.viewBoxContent}>
           <Text style={styles.textBoxContent}>{item.description}</Text>
@@ -144,7 +132,7 @@ const Level4 = ({navigation}) => {
               paintingFreely={item.paintingFreely}
               setAnswerPaint={setAnswerPaint}
               content={item.paintContent}
-              isContentReduced={false}
+              isContentReduced
               enable={item.enable}
               row={6}
               column={5}
@@ -159,7 +147,7 @@ const Level4 = ({navigation}) => {
   };
 
   const choicAlternative = () => {
-    if(!question.alternatives) return null;
+    if(!question.alternatives || question.alternatives.length === 0) return null;
     return question.alternatives.length > 1 ? (
       <MultipleChoice
         step={step}

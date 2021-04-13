@@ -13,6 +13,7 @@
   ],
   "extends": ["airbnb", "prettier"],
   "rules": {
+    "allowForLoopAfterthoughts": "off",
     "import-helpers/order-imports": [
       "warn",
       {
