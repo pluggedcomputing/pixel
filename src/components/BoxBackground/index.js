@@ -30,6 +30,7 @@ const BoxBackground = (props) => {
   const checkDireciton = (event) => {
     const currentOffset = event.nativeEvent.contentOffset.x;
     setOffset(currentOffset);
+
     if(currentOffset > offset && !scrollEnabled && flatListRef !== null && !nextQuestion){
       flatListRef.scrollToIndex({index: pagination});
     }else{
@@ -68,8 +69,10 @@ const BoxBackground = (props) => {
         showsHorizontalScrollIndicator={false}
         onEndReachedThreshold={0.1}
         onEndReached={() => {
-          isLastPage(true);
-          setIsEndPage(true);
+          if(scrollEnabled){
+            isLastPage(true);
+            setIsEndPage(true);
+          }
         }}
         horizontal
         pagingEnabled
