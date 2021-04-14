@@ -22,6 +22,7 @@ const BoxBackground = (props) => {
 
   useEffect(() => {
     const indexNext = pagination + 1;
+    console.log(`isEndPage ${isEndPage}`)
     if (flatListRef !== null && nextQuestion && !isEndPage) {
       flatListRef.scrollToIndex({index: indexNext});
     }
@@ -49,6 +50,7 @@ const BoxBackground = (props) => {
     if (index !== pagination) {
       setSteps(index);
       setPagination(index)};
+      setIsEndPage(false);
   };
 
   const convertIndexInProgress = (index) =>
@@ -69,10 +71,8 @@ const BoxBackground = (props) => {
         showsHorizontalScrollIndicator={false}
         onEndReachedThreshold={0.1}
         onEndReached={() => {
-          if(scrollEnabled){
             isLastPage(true);
             setIsEndPage(true);
-          }
         }}
         horizontal
         pagingEnabled
