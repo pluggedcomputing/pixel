@@ -22,7 +22,7 @@ const BoxBackground = (props) => {
 
   useEffect(() => {
     const indexNext = pagination + 1;
-    console.log(`isEndPage ${isEndPage}`)
+
     if (flatListRef !== null && nextQuestion && !isEndPage) {
       flatListRef.scrollToIndex({index: indexNext});
     }
