@@ -47,10 +47,12 @@ const BoxBackground = (props) => {
 
     const index = Math.round(contentOffset.x / viewSize.width);
 
+    setIsEndPage(false);
+
     if (index !== pagination) {
       setSteps(index);
       setPagination(index)};
-      setIsEndPage(false);
+
   };
 
   const convertIndexInProgress = (index) =>
