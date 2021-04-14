@@ -24,7 +24,6 @@ const Level4 = ({navigation}) => {
         description:
           'Como vimos antes, uma máquina de fax é capaz de transmitir imagens para uma outra máquina. Imagens impressas por máquinas de fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal).',
         img: null,
-        enableScroll: true,
       },
       {
         type: 'INTRO',
@@ -32,7 +31,6 @@ const Level4 = ({navigation}) => {
         description:
           `Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão.  O método utilizado nas atividades do Nível 3 para representar quantidades de pixels brancos e pretos é chamado de 'run-length coding'. Esse método permite comprimir imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet.`,
         img: null,
-        enableScroll: true,
       },
       {
         type: 'INTRO',
@@ -40,7 +38,6 @@ const Level4 = ({navigation}) => {
         description:
           'Por exemplo, imagens de fax eram geralmente comprimidas para aproximadamente um sétimo do seu tamanho original. Sem a compressão, estas demorariam sete vezes mais para serem transmitidas! Lembre-se de que as velocidades de transmissão não eram tão boas antigamente como as que temos hoje.',
         img: null,
-        enableScroll: true,
       },
       {
         id: 4,
@@ -49,7 +46,6 @@ const Level4 = ({navigation}) => {
         invisibleRow: -1,
         paintingFreely: true,
         description: 'Que tal desenhar você mesmo e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.',
-        enableScroll: false,
         paintContent: [],
         alternatives: [
           {
@@ -66,7 +62,6 @@ const Level4 = ({navigation}) => {
         enable: false,
         invisibleRow: 0,
         description: 'Selecione a sequência que represente a primeira linha de sua foto',
-        enableScroll: false,
         paintingFreely: false,
         paintContent: [],
         alternatives: []
@@ -78,7 +73,6 @@ const Level4 = ({navigation}) => {
         description:
           'Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê- las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.',
         img: null,
-        enableScroll: true,
         alternatives: [
           {
             id: '1',
@@ -97,10 +91,21 @@ const Level4 = ({navigation}) => {
   const maxStep = exercise.questions.length;
   const finishLevel = step === maxStep;
   const [nextCard, setNextCard] = useState(false);
+  const [questionEnabled] = useState([]);
 
   const converterArrayBinaryAndRunLengthCode = () => {
     return answerPaint.map(item => {
       return translateRunLenghtCode(item)})
+  }
+
+  const isAnswered = () => {
+    return  step < maxStep && questionEnabled.includes(exercise.questions[step].id);
+  }
+
+  const insertAnswer = () => {
+    if(!isAnswered() ){
+      questionEnabled.push(exercise.questions[step].id);
+    }
   }
 
   useEffect(() => {
@@ -114,6 +119,10 @@ const Level4 = ({navigation}) => {
         const copyArray = JSON.parse(JSON.stringify(answerPaint));
         exercise.questions[positionQuestion].paintContent = converterArrayBinaryAndRunLengthCode()
         exercise.questions[positionQuestion].alternatives = generateAlternatives(copyArray);
+      }
+
+      if(exercise.questions[step].type === 'INTRO'){
+        insertAnswer();
       }
 
       setQuestion(exercise.questions[step]);
@@ -152,7 +161,7 @@ const Level4 = ({navigation}) => {
       <MultipleChoice
         step={step}
         setSteps={setSteps}
-        isAnswer={question.enableScroll}
+        isAnswer={isAnswered()}
         alternatives={question.alternatives}
         setCorrectAnswer={setAnswerCorrectInQuestion}
   />
@@ -162,6 +171,7 @@ const Level4 = ({navigation}) => {
       step={step}
       text={question.alternatives[0].text}
       correct={question.alternatives[0].correct}
+      enable={isAnswered()}
       onPress={() => {
     if (question.alternatives[0].correct) {
       setAnswerCorrectInQuestion(true);
@@ -173,7 +183,7 @@ const Level4 = ({navigation}) => {
 
   const setAnswerCorrectInQuestion = (isCorrect) => {
     if(isCorrect){
-      exercise.questions[step].enableScroll = isCorrect;
+      insertAnswer();
       setNextCard(true);
       }
   }
@@ -182,7 +192,7 @@ const Level4 = ({navigation}) => {
     <>
       <View style={styles.halfTopView}>
         <BoxBackground
-          scrollEnabled={question.enableScroll}
+          scrollEnabled={isAnswered()}
           content={viewOfContent()}
           setSteps={setSteps}
           style={styles.boxContainer}

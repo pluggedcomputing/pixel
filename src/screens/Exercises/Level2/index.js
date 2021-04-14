@@ -23,7 +23,6 @@ const responseAll = {
       text:
           'Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos. Por exemplo, se quisermos exibir uma imagem correspondente à letra "C", precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos.',
         img: null,
-      enableScroll: true,
     },
     {
       type: 'INTRO',
@@ -31,7 +30,6 @@ const responseAll = {
       text:
           'Ao observarmos uma tela exibindo a letra C e ampliarmos mais e mais, podemos ver uma grade de pixels semelhantes a estes:',
         img: 'l2q1',
-      enableScroll: true,
     },
     {
       id: 3,
@@ -40,7 +38,6 @@ const responseAll = {
       enable: true,
       description:
         'Agora vamos praticar? Pinte a imagem representada pelos códigos abaixo. Lembre-se de que o 1 é branco e o 0 é preto.',
-      enableScroll: false,
       row: 6,
       column: 5,
       paintContent: [
@@ -81,7 +78,6 @@ const responseAll = {
       invisibleRow: -1,
       description:
       'Vamos ver se você consegue entender sobre a representação de imagens com pixels. Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida dentre as opções apresentadas',
-      enableScroll: false,
       row: 6,
       column: 5,
       paintContent: [
@@ -122,7 +118,6 @@ const responseAll = {
       invisibleRow: 4,
       description:
           'Agora tente descobrir qual é a linha que está faltando para completar o desenho da letra W?',
-          enableScroll: false,
           row: 5,
       column: 5,
           paintContent: [
@@ -164,6 +159,21 @@ const responseAll = {
   const maxStep = exercise.questions.length;
   const finishLevel = step === maxStep;
   const [nextCard, setNextCard] = useState(false);
+  const idQuestionFist = 1;
+  const [questionEnabled] = useState([idQuestionFist]);
+
+
+  const isAnswered = () => {
+    return  step < maxStep && questionEnabled.includes(exercise.questions[step].id);
+  }
+
+  const insertAnswer = () => {
+    if(!isAnswered()){
+
+      questionEnabled.push(exercise.questions[step].id);
+
+    }
+  }
 
   useEffect(() => {
     if (finishLevel) {
@@ -175,6 +185,11 @@ const responseAll = {
         ],
       });
     } else {
+
+      if(exercise.questions[step].type === 'INTRO'){
+        insertAnswer();
+      }
+
       setQuestion(exercise.questions[step]);
     }
   }, [step]);
@@ -207,7 +222,7 @@ const responseAll = {
 
   const setAnswerCorrectInQuestion = (isCorrect) => {
     if(isCorrect){
-      exercise.questions[step].enableScroll = isCorrect;
+      insertAnswer();
       setNextCard(true);
       }
   }
@@ -219,7 +234,7 @@ const responseAll = {
           content={viewOfContent()}
           style={styles.boxContainer}
           setSteps={setSteps}
-          scrollEnabled={question.enableScroll}
+          scrollEnabled={isAnswered()}
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
         />
@@ -233,7 +248,7 @@ const responseAll = {
                 <MultipleChoice
                   step={step}
                   setSteps={setSteps}
-                  isAnswer={question.enableScroll}
+                  isAnswer={isAnswered()}
                   alternatives={question.alternatives}
                   setCorrectAnswer={setAnswerCorrectInQuestion}
             />
