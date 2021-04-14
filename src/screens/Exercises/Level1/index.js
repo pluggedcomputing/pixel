@@ -136,6 +136,21 @@ const Level1 = ({navigation}) => {
   const maxStep = exercise.questions.length;
   const finishLevel = step === maxStep;
   const [nextCard, setNextCard] = useState(false);
+  const idQuestionFist = 1;
+  const [questionEnabled] = useState([idQuestionFist]);
+
+
+  const isAnswered = () => {
+    return  step < maxStep && questionEnabled.includes(exercise.questions[step].id);
+  }
+
+  const insertAnswer = () => {
+    if(!isAnswered()){
+
+      questionEnabled.push(exercise.questions[step].id);
+
+    }
+  }
 
   useEffect(() => {
     if (finishLevel) {
@@ -147,6 +162,11 @@ const Level1 = ({navigation}) => {
         ],
       });
     } else {
+
+      if(exercise.questions[step].type === 'INTRO'){
+        insertAnswer();
+      }
+
       setQuestion(exercise.questions[step]);
     }
   }, [step]);
@@ -170,7 +190,7 @@ const Level1 = ({navigation}) => {
 
   const setAnswerCorrectInQuestion = (isCorrect) => {
     if(isCorrect){
-      exercise.questions[step].enableScroll = isCorrect;
+      insertAnswer();
       setNextCard(true);
       }
   }
@@ -182,7 +202,7 @@ const Level1 = ({navigation}) => {
           content={viewContent()}
           setSteps={setSteps}
           style={styles.boxContainer}
-          scrollEnabled={question.enableScroll}
+          scrollEnabled={isAnswered()}
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
         />
@@ -195,7 +215,7 @@ const Level1 = ({navigation}) => {
               <View style={styles.contentContainerStyle}>
                 <MultipleChoice
                   step={step}
-                  isAnswer={question.enableScroll}
+                  isAnswer={isAnswered()}
                   setSteps={setSteps}
                   alternatives={question.alternatives}
                   setCorrectAnswer={setAnswerCorrectInQuestion}

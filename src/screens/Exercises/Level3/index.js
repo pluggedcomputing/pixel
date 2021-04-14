@@ -18,7 +18,6 @@ const Level3 = ({navigation}) => {
         description:
           'Você aprendeu que podemos representar uma imagem através de  pontos pretos e brancos, representados por 0 e 1, respectivamente. Podemos, porém, utilizar também uma representação mais reduzida e que gaste menos memória e menos tempo de transmissão.',
         img: null,
-        enableScroll: true,
       },
       {
         type: 'INTRO',
@@ -26,7 +25,6 @@ const Level3 = ({navigation}) => {
         description:
           'Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!',
         img: null,
-        enableScroll: true,
       },
       {
         type: 'INTRO',
@@ -35,7 +33,6 @@ const Level3 = ({navigation}) => {
         description:
           'Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de dois pixels brancos, 1 preto e 2 brancos.',
         img: null,
-        enableScroll: true,
         row: 6,
         column: 5,
         paintContent: [
@@ -53,7 +50,6 @@ const Level3 = ({navigation}) => {
         enable: true,
         invisibleRow: -1,
         description: 'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
-        enableScroll: false,
         row: 6,
         column: 5,
         paintContent: [
@@ -93,7 +89,6 @@ const Level3 = ({navigation}) => {
         enable: false,
         invisibleRow: 4,
         description: 'Como você representaria a penúltima linha da imagem abaixo?',
-        enableScroll: false,
         row: 6,
         column: 5,
         paintContent: [
@@ -134,7 +129,6 @@ const Level3 = ({navigation}) => {
         enable: true,
         invisibleRow: -1,
         description: 'Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.',
-        enableScroll: false,
         row: 5,
         column: 5,
         paintContent: [
@@ -176,6 +170,21 @@ const Level3 = ({navigation}) => {
   const maxStep = exercise.questions.length;
   const finishLevel = step === maxStep;
   const [nextCard, setNextCard] = useState(false);
+  const idQuestionFist = 1;
+  const [questionEnabled] = useState([idQuestionFist]);
+
+
+  const isAnswered = () => {
+    return  step < maxStep && questionEnabled.includes(exercise.questions[step].id);
+  }
+
+  const insertAnswer = () => {
+    if(!isAnswered()){
+
+      questionEnabled.push(exercise.questions[step].id);
+
+    }
+  }
 
   useEffect(() => {
     if (finishLevel) {
@@ -186,6 +195,10 @@ const Level3 = ({navigation}) => {
         ],
       });
     } else {
+      if(exercise.questions[step].type === 'INTRO'){
+        insertAnswer();
+      }
+
       setQuestion(exercise.questions[step]);
     }
   }, [step]);
@@ -212,7 +225,7 @@ const Level3 = ({navigation}) => {
 
   const setAnswerCorrectInQuestion = (isCorrect) => {
     if(isCorrect){
-      exercise.questions[step].enableScroll = isCorrect;
+      insertAnswer()
       setNextCard(true);
       }
   }
@@ -222,12 +235,13 @@ const Level3 = ({navigation}) => {
       <StatusBar backgroundColor={colors.colorPrimary} />
       <View style={styles.halfTopView}>
         <BoxBackground
+          scrollEnabled={isAnswered()}
           content={viewOfContent()}
           setSteps={setSteps}
           style={styles.boxContainer}
-          scrollEnabled={question.enableScroll}
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
+
         />
       </View>
       <BoxAlternative
@@ -239,7 +253,7 @@ const Level3 = ({navigation}) => {
                <MultipleChoice
                  step={step}
                  setSteps={setSteps}
-                 isAnswer={question.enableScroll}
+                 isAnswer={isAnswered()}
                  alternatives={question.alternatives}
                  setCorrectAnswer={setAnswerCorrectInQuestion}
            />
