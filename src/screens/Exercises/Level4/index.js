@@ -156,6 +156,7 @@ const Level4 = ({navigation}) => {
   };
 
   const choicAlternative = () => {
+    const lastNotCard = step < (maxStep - 1);
     if(!question.alternatives || question.alternatives.length === 0) return null;
     return question.alternatives.length > 1 ? (
       <MultipleChoice
@@ -171,7 +172,7 @@ const Level4 = ({navigation}) => {
       step={step}
       text={question.alternatives[0].text}
       correct={question.alternatives[0].correct}
-      enable={isAnswered()}
+      enable={isAnswered() && lastNotCard}
       onPress={() => {
     if (question.alternatives[0].correct) {
       setAnswerCorrectInQuestion(true);

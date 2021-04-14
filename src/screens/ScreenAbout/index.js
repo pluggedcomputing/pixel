@@ -51,7 +51,7 @@ function ScreenAbout() {
         backgroundColor={colors.colorPrimary}
       />
       <Image source={logo} style={styles.logo} />
-      <BoxBackground content={viewOfContent} />
+      <BoxBackground content={viewOfContent} scrollEnabled />
       <Image source={tank} style={styles.tankTetris} />
       <View>
         <Text style={styles.credits}>
