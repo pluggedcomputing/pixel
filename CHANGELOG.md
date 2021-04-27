@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-5](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-4...v0.1.0-5) (2021-04-27)
+
+
+### Features
+
+* **#104:** ajustes nos textos/figuras das telas e exclusao de duas telas no nivel 1 ([c84ab89](https://github.com/pluggedcomputing/pixel/commit/c84ab8954113cc698656205e706f1a5149737bd8)), closes [#104](https://github.com/pluggedcomputing/pixel/issues/104)
+* **#block:** adicionado verificacao para passa para o proximo card ([3490d14](https://github.com/pluggedcomputing/pixel/commit/3490d14f6e03887c418039e16e0b62cc73564145))
+* **#refactored:** corrigir coloracao ao pintar matriz ([9ea62f7](https://github.com/pluggedcomputing/pixel/commit/9ea62f7da30ad781d3d2fb5808f9d4d4073cd36c))
+* **refactor:** alterar nome da variavel ([443a59d](https://github.com/pluggedcomputing/pixel/commit/443a59df52632ab85a339e07a24a3a31d76805cf))
+
+
+### Bug Fixes
+
+* **#105:** adicionado metodo de traduçao para run lenght code ([6e1e2ae](https://github.com/pluggedcomputing/pixel/commit/6e1e2ae743f7becfb6a2b306bd6a3d385d397cec)), closes [#105](https://github.com/pluggedcomputing/pixel/issues/105)
+* **#105_2:** alteraçoes no nivel 4 ([4535040](https://github.com/pluggedcomputing/pixel/commit/453504091bd4956cc88fd14c3293a7a0977c4d9f)), closes [#105_2](https://github.com/pluggedcomputing/pixel/issues/105_2)
+* **#106:** atualizar array por matriz ([c287e01](https://github.com/pluggedcomputing/pixel/commit/c287e011d61161432d20e981ed18c90be2b7f4fc)), closes [#106](https://github.com/pluggedcomputing/pixel/issues/106)
+* **#106:** corrigir visualizacao e refatorar metodo que mostra os textos ([22eaf4f](https://github.com/pluggedcomputing/pixel/commit/22eaf4f524a513c0e2a2c288483b0b7a9d3e7c23)), closes [#106](https://github.com/pluggedcomputing/pixel/issues/106)
+* **#106:** refatorar condicao para setar conteudo de alternativa e lista de binarios ([c74edd0](https://github.com/pluggedcomputing/pixel/commit/c74edd0a5e0f5a86fda30395de3e394add63a5c0)), closes [#106](https://github.com/pluggedcomputing/pixel/issues/106)
+* **#106:** remover comentarios do codigo ([1403106](https://github.com/pluggedcomputing/pixel/commit/140310604bed1e35afc15446211dccf50ee27560)), closes [#106](https://github.com/pluggedcomputing/pixel/issues/106)
+* **#106:** remover comentarios do codigo ([2999744](https://github.com/pluggedcomputing/pixel/commit/299974404f14220aa1b10cc6cd06658ec6b5dc95)), closes [#106](https://github.com/pluggedcomputing/pixel/issues/106)
+* **#87:** adjusting level 1 ([8bd34b7](https://github.com/pluggedcomputing/pixel/commit/8bd34b7b41c686660be2e91f4544f02b00d441e4)), closes [#87](https://github.com/pluggedcomputing/pixel/issues/87)
+* **develop:** corrigindo conflito ([4e11022](https://github.com/pluggedcomputing/pixel/commit/4e110229c16206da7ff429c421f5ba74554b4801))
+
 ## [1.0.0-4](https://github.com/pluggedcomputing/pixel/compare/v1.0.0-3...v1.0.0-4) (2021-03-22)
 
 
