@@ -34,7 +34,7 @@ const BoxBackground = (props) => {
 
     if(currentOffset > offset && !scrollEnabled && flatListRef !== null && !nextQuestion){
       flatListRef.scrollToIndex({index: pagination});
-    }else{
+    }else if(!isEndPage){
       changePaginationIndex(event);
       if(nextQuestion) setNextQuestion(false);
     }
