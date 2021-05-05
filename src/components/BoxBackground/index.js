@@ -21,21 +21,23 @@ const BoxBackground = (props) => {
   }, [updatePage]);
 
   useEffect(() => {
-    const indexNext = nextQuestion && !isEndPage ? pagination + 1 : pagination;
-    if (flatListRef !== null && nextQuestion ) {
+    const indexNext = pagination + 1;
+
+    if (flatListRef !== null && nextQuestion && !isEndPage) {
       flatListRef.scrollToIndex({index: indexNext});
     }
   }, [nextQuestion])
 
   const checkDireciton = (event) => {
     const currentOffset = event.nativeEvent.contentOffset.x;
-      if(currentOffset > offset && !scrollEnabled && flatListRef !== null && !nextQuestion){
-        flatListRef.scrollToIndex({index: pagination});
-      }else{
-        setOffset(currentOffset);
-        changePaginationIndex(event);
-        if(nextQuestion) setNextQuestion(false);
-      }
+    setOffset(currentOffset);
+
+    if(currentOffset > offset && !scrollEnabled && flatListRef !== null && !nextQuestion){
+      flatListRef.scrollToIndex({index: pagination});
+    }else if(!isEndPage){
+      changePaginationIndex(event);
+      if(nextQuestion) setNextQuestion(false);
+    }
   }
 
   const changePaginationIndex = (event) => {
@@ -44,9 +46,13 @@ const BoxBackground = (props) => {
     const viewSize = event.nativeEvent.layoutMeasurement;
 
     const index = Math.round(contentOffset.x / viewSize.width);
+
+    setIsEndPage(false);
+
     if (index !== pagination) {
       setSteps(index);
       setPagination(index)};
+
   };
 
   const convertIndexInProgress = (index) =>
@@ -67,8 +73,8 @@ const BoxBackground = (props) => {
         showsHorizontalScrollIndicator={false}
         onEndReachedThreshold={0.1}
         onEndReached={() => {
-          isLastPage(true);
-          setIsEndPage(true);
+            isLastPage(true);
+            setIsEndPage(true);
         }}
         horizontal
         pagingEnabled
