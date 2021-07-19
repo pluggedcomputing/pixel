@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   viewBoxContent: {
     flex: 1,
-    justifyContent: "space-around",
+    justifyContent: 'space-around',
     margin: metrics.baseMargin,
     alignItems: 'center',
   },
@@ -31,7 +31,13 @@ const styles = StyleSheet.create({
     height: metrics.screenHeight * 0.2,
   },
   textBoxContent: {
-    textAlign: 'center', fontSize: fonts.small, paddingHorizontal: metrics.basePadding, color: colors.colorTextPrimary
+    textAlign: 'center',
+    fontSize: fonts.small,
+    paddingHorizontal: metrics.basePadding,
+    color: colors.colorTextPrimary,
+  },
+  contentText: {
+    fontSize: fonts.small,
   },
   textAnswer: {
     fontSize: fonts.medium,
@@ -53,9 +59,9 @@ const styles = StyleSheet.create({
   buttons: {
     flex: 1,
   },
-  boxContainer:{
+  boxContainer: {
     flex: 1,
-  }
+  },
 });
 
 export default styles;

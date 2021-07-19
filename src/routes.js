@@ -11,7 +11,7 @@ import Level4 from './screens/Exercises/Level4';
 import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
-import {colors} from './styles';
+import {colors, fonts} from './styles';
 
 const Stack = createStackNavigator();
 
@@ -35,12 +35,22 @@ const routes = () => {
         <Stack.Screen
           name="ScreenAbout"
           component={ScreenAbout}
-          options={{title: 'Sobre'}}
+          options={{
+            title: 'Sobre',
+            headerTitleStyle: {
+              fontSize: fonts.medium,
+            },
+          }}
         />
         <Stack.Screen
           name="LevelSelection"
           component={LevelSelection}
-          options={{title: 'Escolha de níveis'}}
+          options={{
+            title: 'Escolha de níveis',
+            headerTitleStyle: {
+              fontSize: fonts.medium,
+            },
+          }}
         />
         <Stack.Screen
           options={{
@@ -48,6 +58,9 @@ const routes = () => {
             headerStyle: {
               elevation: 0,
               backgroundColor: colors.colorPrimary,
+            },
+            headerTitleStyle: {
+              fontSize: fonts.medium,
             },
           }}
           name="Level1"
@@ -60,6 +73,9 @@ const routes = () => {
               elevation: 0,
               backgroundColor: colors.colorPrimary,
             },
+            headerTitleStyle: {
+              fontSize: fonts.medium,
+            },
           }}
           name="Level2"
           component={Level2}
@@ -71,6 +87,9 @@ const routes = () => {
               elevation: 0,
               backgroundColor: colors.colorPrimary,
             },
+            headerTitleStyle: {
+              fontSize: fonts.medium,
+            },
           }}
           name="Level3"
           component={Level3}
@@ -81,6 +100,9 @@ const routes = () => {
             headerStyle: {
               elevation: 0,
               backgroundColor: colors.colorPrimary,
+            },
+            headerTitleStyle: {
+              fontSize: fonts.medium,
             },
           }}
           name="Level4"

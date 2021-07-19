@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 
   textLevel: {
     flex: 1,
-    fontSize: fonts.title,
+    fontSize: fonts.small,
     color: colors.colorTextSecondary,
   },
 });
