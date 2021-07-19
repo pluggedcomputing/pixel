@@ -183,12 +183,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation ("com.squareup.okhttp3:okhttp:3.12.12"){
       force = true //API 19 support
     }
+
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.12'
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
@@ -201,7 +203,6 @@ dependencies {
 
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'
-        exclude group:'com.squareup.okhttp3', module:'okhttp'
     }
 
     debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
