@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {metrics, colors, fonts} from '../../../styles';
+import {metrics, colors, fonts} from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -57,9 +57,6 @@ const styles = StyleSheet.create({
     margin: metrics.baseMargin,
   },
   buttons: {
-    flex: 1,
-  },
-  boxContainer: {
     flex: 1,
   },
 });
