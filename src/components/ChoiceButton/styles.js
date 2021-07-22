@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, metrics} from '../../styles';
+import {colors, metrics, fonts} from '../../styles';
 
 const widhtScreen = 0.9;
 
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
     color: colors.colorTextPrimary,
+    fontSize: fonts.small,
   },
 });
 

@@ -8,7 +8,16 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const BoxBackground = (props) => {
-  const {content, style, isLastPage, updatePage, setSteps, nextQuestion, setNextQuestion, scrollEnabled} = props;
+  const {
+    content,
+    style,
+    isLastPage,
+    updatePage,
+    setSteps,
+    nextQuestion,
+    setNextQuestion,
+    scrollEnabled,
+  } = props;
   const [pagination, setPagination] = useState(0);
   const [offset, setOffset] = useState(0);
   const [isEndPage, setIsEndPage] = useState(false);
@@ -22,25 +31,31 @@ const BoxBackground = (props) => {
 
   useEffect(() => {
     const indexNext = pagination + 1;
-
-    if (flatListRef !== null && nextQuestion && !isEndPage) {
+    if (flatListRef !== null && nextQuestion && !isEndPage && !scrollEnabled) {
+      setPagination(indexNext);
       flatListRef.scrollToIndex({index: indexNext});
+      setNextQuestion(false);
     }
-  }, [nextQuestion])
+  }, [nextQuestion]);
 
   const checkDireciton = (event) => {
     const currentOffset = event.nativeEvent.contentOffset.x;
     setOffset(currentOffset);
-
-    if(currentOffset > offset && !scrollEnabled && flatListRef !== null && !nextQuestion){
+    if (scrollEnabled) {
+      if (!isEndPage) {
+        changePaginationIndex(event, currentOffset > offset);
+      } else if (isEndPage) {
+        setPagination(pagination - 1);
+        setIsEndPage(false);
+      }
+    } else if (currentOffset > offset && !scrollEnabled) {
       flatListRef.scrollToIndex({index: pagination});
-    }else if(!isEndPage){
-      changePaginationIndex(event);
-      if(nextQuestion) setNextQuestion(false);
+    } else if (!scrollEnabled && currentOffset < offset) {
+      changePaginationIndex(event, currentOffset > offset);
     }
-  }
+  };
 
-  const changePaginationIndex = (event) => {
+  const changePaginationIndex = (event, direction) => {
     const {contentOffset} = event.nativeEvent;
 
     const viewSize = event.nativeEvent.layoutMeasurement;
@@ -49,10 +64,13 @@ const BoxBackground = (props) => {
 
     setIsEndPage(false);
 
-    if (index !== pagination) {
+    if (
+      (direction && index > pagination) ||
+      (!direction && index < pagination)
+    ) {
       setSteps(index);
-      setPagination(index)};
-
+      setPagination(index);
+    }
   };
 
   const convertIndexInProgress = (index) =>
@@ -73,8 +91,8 @@ const BoxBackground = (props) => {
         showsHorizontalScrollIndicator={false}
         onEndReachedThreshold={0.1}
         onEndReached={() => {
-            isLastPage(true);
-            setIsEndPage(true);
+          isLastPage(true);
+          setIsEndPage(true);
         }}
         horizontal
         pagingEnabled

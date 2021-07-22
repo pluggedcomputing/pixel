@@ -1,16 +1,7 @@
-import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  Image,
-  ScrollView,
-  Alert,
-  StatusBar,
-} from 'react-native';
+import React from 'react';
+import {View, SafeAreaView, Image, ScrollView, StatusBar} from 'react-native';
 
-import AsyncStorage from '@react-native-community/async-storage';
-import {useFocusEffect} from '@react-navigation/native';
-
+import data from '../../assets/data.json';
 import level1 from '../../assets/images/levelSelection/level1.png';
 import level2 from '../../assets/images/levelSelection/level2.png';
 import level3 from '../../assets/images/levelSelection/level3.png';
@@ -21,34 +12,6 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const LevelSelection = ({navigation}) => {
-  const [levelsAvailable, setLevelsAvailable] = useState({});
-
-  const getData = async () => {
-    try {
-      const levels = {
-        level2: JSON.parse(await AsyncStorage.getItem('level2')),
-        level3: JSON.parse(await AsyncStorage.getItem('level3')),
-        level4: JSON.parse(await AsyncStorage.getItem('level4')),
-      };
-      if (!levels) {
-        await Promise.all([
-          AsyncStorage.setItem('level2', 'false'),
-          AsyncStorage.setItem('level3', 'false'),
-          AsyncStorage.setItem('level4', 'false'),
-        ]);
-      }
-      setLevelsAvailable(levels);
-    } catch (e) {
-      Alert.alert('Erro', 'Não foi possivel carregar o seu nível atual');
-    }
-  };
-
-  useFocusEffect(
-    React.useCallback(() => {
-      getData();
-    }, []),
-  );
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -61,7 +24,8 @@ const LevelSelection = ({navigation}) => {
             level="1"
             image={level1}
             available
-            onPress={() => navigation.navigate('Level1')}
+            onPress={() =>
+              navigation.navigate('Exercises', {data: data.exercises[0]})}
           />
 
           <Image
@@ -73,7 +37,8 @@ const LevelSelection = ({navigation}) => {
             level="3"
             image={level3}
             available
-            onPress={() => navigation.navigate('Level3')}
+            onPress={() =>
+              navigation.navigate('Exercises', {data: data.exercises[2]})}
           />
           <Image
             source={imagePixel}
@@ -87,7 +52,8 @@ const LevelSelection = ({navigation}) => {
             level="2"
             image={level2}
             available
-            onPress={() => navigation.navigate('Level2')}
+            onPress={() =>
+              navigation.navigate('Exercises', {data: data.exercises[1]})}
           />
           <Image
             source={imagePixel}
@@ -97,7 +63,8 @@ const LevelSelection = ({navigation}) => {
             level="4"
             image={level4}
             available
-            onPress={() =>  navigation.navigate('Level4')}
+            onPress={() =>
+              navigation.navigate('Exercises', {data: data.exercises[3]})}
           />
           <Image
             source={imagePixel}
