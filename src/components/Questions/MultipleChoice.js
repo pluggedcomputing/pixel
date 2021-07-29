@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -7,27 +7,33 @@ import ChoiceButton from '../ChoiceButton';
 import styles from './styles';
 
 const MultipleChoice = (props) => {
+  const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
 
-const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
+  const [alternativesShuffle, setAlternativesShuffle] = useState([]);
 
   const shufflerArray = (array) => {
     const shuffleArray = array;
-    let indice = array.length
+    let indice = array.length;
 
-      while(indice) {
-          const indiceAleatorio = Math.floor(Math.random() * indice);
-          indice -= 1;
-          [shuffleArray[indice], shuffleArray[indiceAleatorio]] =
-              [shuffleArray[indiceAleatorio], shuffleArray[indice]];
-      }
+    while (indice) {
+      const indiceAleatorio = Math.floor(Math.random() * indice);
+      indice -= 1;
+      [shuffleArray[indice], shuffleArray[indiceAleatorio]] = [
+        shuffleArray[indiceAleatorio],
+        shuffleArray[indice],
+      ];
+    }
 
-      return shuffleArray;
-  }
+    return shuffleArray;
+  };
 
-  const shuffleAlternatives = shufflerArray(alternatives);
+  useEffect(() => {
+    setAlternativesShuffle(shufflerArray(alternatives));
+  }, [alternatives]);
+
   return (
     <View style={styles.container}>
-      {shuffleAlternatives.map((item) => (
+      {alternativesShuffle.map((item) => (
         <ChoiceButton
           key={item.text}
           step={step}
@@ -35,9 +41,10 @@ const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
           enable={isAnswer}
           correct={item.correct}
           onPress={() => {
-            if (item.correct){
+            if (item.correct) {
               setCorrectAnswer(true);
-              setSteps(step + 1)};
+              setSteps(step + 1);
+            }
           }}
           light
         />
@@ -56,6 +63,6 @@ MultipleChoice.propTypes = {
 
 MultipleChoice.defaultProps = {
   isAnswer: false,
-}
+};
 
 export default MultipleChoice;

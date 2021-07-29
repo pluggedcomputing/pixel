@@ -26,19 +26,24 @@ const Exercises = ({navigation}) => {
   const [nextCard, setNextCard] = useState(false);
   const [listQuestionReleased, setListQuestionReleased] = useState([]);
   const {level, congratulations} = response;
+  const [contentCurrent, setContentCurrent] = useState([]);
 
   const mountListPermissions = () => {
     const auxList = [];
 
     exercise.questions.forEach((item) => {
-      auxList.push({id: item.id, permission: !item.alternatives});
+      auxList.push({
+        id: item.id,
+        permission: !item.alternatives,
+        answerDrawPaint: [],
+      });
     });
 
     setListQuestionReleased(auxList);
   };
 
-  const converterArrayBinaryAndRunLengthCode = () => {
-    return answerPaint.map((item) => {
+  const converterArrayBinaryAndRunLengthCode = (list) => {
+    return list.map((item) => {
       return translateRunLenghtCode(item);
     });
   };
@@ -60,6 +65,42 @@ const Exercises = ({navigation}) => {
     const index = listQuestionReleased.indexOf(objectRealeased);
     objectRealeased.permission = true;
     listQuestionReleased[index] = objectRealeased;
+
+    if (!exercise.questions[step].isCreateAlternatives) {
+      if (answerPaint.length > 0 && answerPaint[0].length > 0) {
+        listQuestionReleased[index].answerDrawPaint = answerPaint;
+      }
+
+      const nextStep = step + 1;
+
+      if (
+        step < maxStep &&
+        nextStep < maxStep &&
+        exercise.questions[nextStep].isCreateAlternatives
+      ) {
+        const objectNextAnswer = findById(exercise.questions[nextStep].id);
+        const indexNextAnswer = listQuestionReleased.indexOf(objectNextAnswer);
+
+        listQuestionReleased[indexNextAnswer].answerDrawPaint = answerPaint;
+
+        listQuestionReleased[index].answerDrawPaint = answerPaint;
+      }
+
+      setAnswerPaint([]);
+    }
+  };
+
+  const getAnswerPaint = () => {
+    const objectRealeased = findById(exercise.questions[step].id);
+
+    const hasDrawPaint =
+      objectRealeased.answerDrawPaint.length > 0 &&
+      (objectRealeased.permission ||
+        exercise.questions[step].isCreateAlternatives);
+
+    return hasDrawPaint
+      ? objectRealeased.answerDrawPaint
+      : exercise.questions[step].paintContent;
   };
 
   useEffect(() => {
@@ -79,24 +120,35 @@ const Exercises = ({navigation}) => {
         content: congratulations,
       });
     } else {
-      if (
-        positionQuestion === step &&
-        answerPaint &&
-        answerPaint[0] &&
-        answerPaint[0].length > 0
-      ) {
-        const copyArray = JSON.parse(JSON.stringify(answerPaint));
-        exercise.questions[
-          positionQuestion
-        ].paintContent = converterArrayBinaryAndRunLengthCode();
-        exercise.questions[
-          positionQuestion
-        ].alternatives = generateAlternatives(copyArray);
+      if (exercise.questions[step].isCreateAlternatives) {
+        const objectRealeased = findById(exercise.questions[step].id);
+        const copyArray = JSON.parse(
+          JSON.stringify(objectRealeased.answerDrawPaint),
+        );
+
+        exercise.questions[positionQuestion].alternatives =
+          generateAlternatives(
+            copyArray,
+            exercise.questions[positionQuestion].isContentReduced,
+          );
       }
 
       setQuestion(exercise.questions[step]);
+      if (exercise.questions[step].type === TypeQuestions.PAINTINGTABLE) {
+        const generateAlternativesShuffler = question.isContentReduced
+          ? converterArrayBinaryAndRunLengthCode(getAnswerPaint())
+          : getAnswerPaint();
+
+        if (generateAlternativesShuffler) {
+          setContentCurrent(generateAlternativesShuffler);
+        }
+      }
     }
-  }, [step]);
+  }, [step, nextCard]);
+
+  const checkEnablePaint = () => {
+    return question.enable && !isAnswered();
+  };
 
   const choiceComponentBox = () => {
     switch (question.type) {
@@ -104,8 +156,8 @@ const Exercises = ({navigation}) => {
         return (
           <PaintingTable
             setAnswerPaint={setAnswerPaint}
-            content={question.paintContent}
-            enable={question.enable}
+            content={contentCurrent}
+            enable={checkEnablePaint()}
             isContentReduced={question.isContentReduced}
             row={question.row}
             column={question.column}
