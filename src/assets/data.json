@@ -139,6 +139,7 @@
           "type": "paintingtable",
           "invisibleRow": -1,
           "enable": true,
+          "paintingFreely": false,
           "text": "Agora vamos praticar? Pinte a imagem representada pelos códigos abaixo. Lembre-se de que o 1 é branco e o 0 é preto.",
           "row": 6,
           "column": 5,
@@ -439,6 +440,7 @@
           "text": "Que tal desenhar você mesmo e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.",
           "paintContent": [],
           "row": 6,
+          "isContentReduced": true,
           "column": 5,
           "alternatives": [
             {
@@ -459,7 +461,8 @@
           "row": 6,
           "column": 5,
           "paintContent": [],
-          "alternatives": []
+          "alternatives": [],
+          "isCreateAlternatives": true
         },
         {
           "type": "none",
