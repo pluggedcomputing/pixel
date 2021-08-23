@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, fonts, metrics } from '../../styles';
+import {colors, fonts, metrics} from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    alignItems: "center"
+    alignItems: 'center',
   },
   content: {
     flex: 1,
@@ -21,16 +21,16 @@ const styles = StyleSheet.create({
   textEnd: {
     textAlign: 'center',
     color: colors.colorTextSecondary,
-    fontSize: fonts.bigger
+    fontSize: fonts.bigger,
   },
   textButton: {
     color: colors.colorPrimary,
-    fontSize: fonts.medium
+    fontSize: fonts.medium,
   },
   buttonAlternative: {
     backgroundColor: colors.colorTextSecondary,
     alignItems: 'center',
-    justifyContent: "center",
+    justifyContent: 'center',
     height: metrics.screenHeight * 0.07,
     width: metrics.screenWidth * 0.4,
     borderRadius: metrics.baseRadius,
@@ -38,21 +38,25 @@ const styles = StyleSheet.create({
   },
   information: {
     flexDirection: 'row',
-    margin: metrics.doubleBaseMargin,
+    margin: metrics.baseMargin,
+    padding: metrics.basePadding,
     width: metrics.screenWidth * 0.9,
+    backgroundColor: colors.colorTextPrimary,
+    borderColor: colors.colorSecondary,
+    borderRadius: metrics.baseRadius,
   },
   textInformation: {
     flex: 1,
     textAlign: 'left',
     color: colors.colorTextSecondary,
     fontSize: fonts.medium,
-    marginLeft: metrics.baseMargin
+    marginLeft: metrics.baseMargin,
   },
   animation: {
     width: 160,
     height: 160,
-    alignSelf: 'center'
-  }
-})
+    alignSelf: 'center',
+  },
+});
 
 export default styles;
