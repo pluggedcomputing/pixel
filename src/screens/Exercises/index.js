@@ -194,6 +194,40 @@ const Exercises = ({navigation}) => {
     }
   };
 
+  const getAlternativesContent = (listAlternatives) => {
+    let value = null;
+
+    if (!listAlternatives) return null;
+
+    if (listAlternatives.length > 1) {
+      value = (
+        <View style={styles.contentContainerStyle}>
+          <MultipleChoice
+            step={step}
+            isAnswer={isAnswered()}
+            setSteps={setSteps}
+            alternatives={question.alternatives}
+            setCorrectAnswer={setAnswerCorrectInQuestion}
+          />
+        </View>
+      );
+    } else {
+      value = (
+        <View style={styles.contentContainerStyle}>
+          <MultipleChoice
+            step={step}
+            isAnswer={isAnswered()}
+            setSteps={setSteps}
+            alternatives={question.alternatives}
+            setCorrectAnswer={setAnswerCorrectInQuestion}
+          />
+        </View>
+      );
+    }
+
+    return value;
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.colorPrimary} />
@@ -207,22 +241,7 @@ const Exercises = ({navigation}) => {
         />
       </View>
       <BoxAlternative
-        alternativesContent={
-          question.alternatives && question.alternatives.length > 0 ? (
-            <>
-              <Text style={styles.textAnswer}>Selecione a opção correta</Text>
-              <View style={styles.contentContainerStyle}>
-                <MultipleChoice
-                  step={step}
-                  isAnswer={isAnswered()}
-                  setSteps={setSteps}
-                  alternatives={question.alternatives}
-                  setCorrectAnswer={setAnswerCorrectInQuestion}
-                />
-              </View>
-            </>
-          ) : null
-        }
+        alternativesContent={getAlternativesContent(question.alternatives)}
         isNotQuestion={
           !question.alternatives ||
           (question.alternatives && question.alternatives.length === 0)

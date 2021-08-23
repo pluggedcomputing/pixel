@@ -276,7 +276,7 @@
           "type": "paintingtable",
           "id": 3,
           "enable": false,
-          "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de dois pixels brancos, 1 preto e 2 brancos.",
+          "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos.",
           "img": null,
           "row": 6,
           "column": 5,
