@@ -10,14 +10,21 @@ const alternativesContains = (alternatives, alternative) => {
   return alternativeMapResult.includes(true);
 };
 
-const generateAlternatives = (lineBinaryCode, isTranslate) => {
+const generateAlternatives = (
+  lineBinaryCode,
+  isTranslate,
+  isTranslateCorrect,
+) => {
   if (!lineBinaryCode || lineBinaryCode.length === 0) return [];
   const alternatives = [];
   const alternativesObj = [];
   const maxAlternatives = 4;
   const numColumns = 5;
+
   alternatives.push(
-    isTranslate ? translateRunLenghtCode(lineBinaryCode[0]) : lineBinaryCode[0],
+    !isTranslateCorrect && isTranslate
+      ? translateRunLenghtCode(lineBinaryCode[0])
+      : lineBinaryCode[0],
   );
   alternativesObj.push({
     id: 1,
