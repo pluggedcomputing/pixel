@@ -60,15 +60,23 @@ const Exercises = ({navigation}) => {
     );
   };
 
+  const translateToCode = (auxAnswerPaint) => {
+    return auxAnswerPaint.map((item) => translateRunLenghtCode(item));
+  };
+
   const updateAnswer = () => {
+    const auxAnswerPaint = exercise.questions[step].isContentReduced
+      ? translateToCode(answerPaint)
+      : answerPaint;
+
     const objectRealeased = findById(exercise.questions[step].id);
     const index = listQuestionReleased.indexOf(objectRealeased);
     objectRealeased.permission = true;
     listQuestionReleased[index] = objectRealeased;
 
     if (!exercise.questions[step].isCreateAlternatives) {
-      if (answerPaint.length > 0 && answerPaint[0].length > 0) {
-        listQuestionReleased[index].answerDrawPaint = answerPaint;
+      if (auxAnswerPaint.length > 0 && auxAnswerPaint[0].length > 0) {
+        listQuestionReleased[index].answerDrawPaint = auxAnswerPaint;
       }
 
       const nextStep = step + 1;
@@ -81,9 +89,9 @@ const Exercises = ({navigation}) => {
         const objectNextAnswer = findById(exercise.questions[nextStep].id);
         const indexNextAnswer = listQuestionReleased.indexOf(objectNextAnswer);
 
-        listQuestionReleased[indexNextAnswer].answerDrawPaint = answerPaint;
+        listQuestionReleased[indexNextAnswer].answerDrawPaint = auxAnswerPaint;
 
-        listQuestionReleased[index].answerDrawPaint = answerPaint;
+        listQuestionReleased[index].answerDrawPaint = auxAnswerPaint;
       }
 
       setAnswerPaint([]);
@@ -130,17 +138,27 @@ const Exercises = ({navigation}) => {
           generateAlternatives(
             copyArray,
             exercise.questions[positionQuestion].isContentReduced,
+            true,
           );
       }
 
       setQuestion(exercise.questions[step]);
       if (exercise.questions[step].type === TypeQuestions.PAINTINGTABLE) {
-        const generateAlternativesShuffler = question.isContentReduced
-          ? converterArrayBinaryAndRunLengthCode(getAnswerPaint())
-          : getAnswerPaint();
+        if (
+          exercise.questions[step].alternatives &&
+          exercise.questions[step].alternatives.length > 0
+        ) {
+          const generateAlternativesShuffler =
+            exercise.questions[step].isContentReduced &&
+            !exercise.questions[step].hasConverted
+              ? converterArrayBinaryAndRunLengthCode(getAnswerPaint())
+              : getAnswerPaint();
 
-        if (generateAlternativesShuffler) {
-          setContentCurrent(generateAlternativesShuffler);
+          if (generateAlternativesShuffler) {
+            setContentCurrent(generateAlternativesShuffler);
+          }
+        } else {
+          setContentCurrent(getAnswerPaint());
         }
       }
     }
