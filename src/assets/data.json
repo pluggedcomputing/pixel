@@ -7,50 +7,57 @@
         {
           "type": "none",
           "id": 1,
-          "text": "Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? Nos desafios propostos a seguir entenderemos melhor como isso acontece.",
-          "img": null,
+          "text": "Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? A seguir, entenderemos melhor.",
+          "img": "l1q1",
+          "imgFormat": "gif",
           "enableScroll": true
         },
         {
           "type": "none",
           "id": 2,
-          "text": "As telas dos computadores são dividas em uma grade de pequenos quadrados, cada um dos quais pode exibir uma cor. Chamamos esses quadrados de elementos de imagem ou pixels.",
-          "img": null,
+          "text": "As telas dos computadores são dividas em uma grade de pequenos quadrados, podendo ser cada um de uma cor específica. Chamamos esses quadrados de elementos de imagem ou pixels",
+          "img": "l1q2",
+          "imgFormat": "img",
           "enableScroll": true
         },
         {
           "type": "none",
           "id": 3,
           "text": "Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.",
-          "img": null,
+          "img": "l1q3",
+          "imgFormat": "img",
           "enableScroll": true
         },
         {
           "type": "none",
           "id": 4,
           "text": "Uma imagem correspondente à letra C, por exemplo, poderia ser representada com números binários (bits). Se o 1 indica um quadrado branco e o 0 indica um quadrado preto, então poderíamos ter uma grade de 5x6 pixels como a ilustrada abaixo:",
-          "img": "l1q1",
+          "img": "l1q4",
+          "imgFormat": "img",
           "enableScroll": true
         },
         {
           "type": "none",
           "id": 5,
           "text": "Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco.",
-          "img": "l1q2",
+          "img": "l1q5",
+          "imgFormat": "img",
           "enableScroll": true
         },
         {
           "id": 6,
           "type": "none",
-          "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma página em preto e branco, armazena-a em, aproximadamente, 1000 × 2000 pixels, que são transmitidos através de um modem para outra máquina de fax.",
-          "img": null,
+          "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha, identificando os pontos pretos e brancos e os armazenando em aproximadamente 1000 × 2000 pixels,",
+          "img": "l1q6",
+          "imgFormat": "img",
           "enableScroll": true
         },
         {
-          "type": "none",
           "id": 7,
-          "text": "Quando a outra máquina de fax recebe a mensagem, ela imprime os pixels em uma página.",
-          "img": "l1q2",
+          "type": "none",
+          "text": "que são transmitidos através da rede de telefonia (não pela internet) para outra máquina de fax. Quando a outra máquina de fax recebe a mensagem, ela imprime os pixels em uma página.",
+          "img": "l1q7",
+          "imgFormat": "img",
           "enableScroll": true
         },
         {
@@ -60,6 +67,7 @@
           "invisibleRow": -1,
           "text": "Como você acha que eram codificadas as mensagens enviadas através de uma máquina de fax?",
           "img": "l1q3",
+          "imgFormat": "img",
           "enableScroll": true,
           "paintContent": [],
           "alternatives": [
@@ -80,6 +88,7 @@
           "id": 9,
           "text": "Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.",
           "img": null,
+          "imgFormat": "",
           "enableScroll": true
         },
         {
@@ -89,6 +98,7 @@
           "invisibleRow": -1,
           "text": "Considerando o que foi apresentado, responda: O que as máquinas de fax fazem?",
           "img": null,
+          "imgFormat": "",
           "enableScroll": false,
           "paintContent": [],
           "alternatives": [
@@ -124,15 +134,17 @@
           "type": "none",
           "id": 1,
           "text":
-              "Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos. Por exemplo, se quisermos exibir uma imagem correspondente à letra C, precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos.",
-            "img": null
+              "Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos.",
+            "img": "l2q1",
+            "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 2,
           "text":
-              "Ao observarmos uma tela exibindo a letra C e ampliarmos mais e mais, podemos ver uma grade de pixels semelhantes a estes:",
-            "img": "l2q1"
+              "Por exemplo, se quisermos exibir uma imagem correspondente à letra C, precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos. Ao ampliarmos uma imagem mais e mais, podemos ver uma grade de pixels semelhantes a estes:",
+            "img": "l2q2",
+            "imgFormat": "img"
         },
         {
           "id": 3,
@@ -263,21 +275,38 @@
         {
           "type": "none",
           "id": 1,
-          "text": "Você aprendeu que podemos representar uma imagem através de  pontos pretos e brancos, representados por 0 e 1, respectivamente. Podemos, porém, utilizar também uma representação mais reduzida e que gaste menos memória e menos tempo de transmissão.",
-          "img": null
+          "text": "Você aprendeu que podemos representar uma imagem através de pontos pretos e brancos, representados por 0 e 1 respectivamente.",
+          "img": "l3q1",
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 2,
-          "text": "Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Vamos aprender como isso funciona!",
-          "img": null
+          "text": "Podemos, porém, utilizar uma representação mais reduzida,  chamada de ‘run-length coding’, gastando menos memória e menos tempo de transmissão.",
+          "img": "l3q2",
+          "imgFormat": "img"
+        },
+        {
+          "type": "none",
+          "id": 3,
+          "text": "Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. A seguir, entenderemos melhor.",
+          "img": "l3q3",
+          "imgFormat": "img"
+        },
+        {
+          "type": "none",
+          "id": 4,
+          "text": "No run-length-coding o primeiro quadrado se refere a cor branca e o segundo a cor preta, assim sucessivamente, mas se quisermos que o primeiro quadrado tenha a  cor preta basta iniciarmos a sequência de números com 0, representando a inversão da ordem das cores.",
+          "img": "l3q4",
+          "imgFormat": "img"
         },
         {
           "type": "paintingtable",
-          "id": 3,
+          "id": 4,
           "enable": false,
-          "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos.",
+          "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos. Onde o primeiro quadrado se refere ao pixel branco e o segundo do preto, assim sucessivamnte.",
           "img": null,
+          "imgFormat": "",
           "row": 6,
           "column": 5,
           "isContentReduced": true,
@@ -292,7 +321,7 @@
           ]
         },
         {
-          "id": 4,
+          "id": 5,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": -1,
@@ -333,7 +362,7 @@
           ]
         },
         {
-          "id": 5,
+          "id": 6,
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": 4,
@@ -375,7 +404,7 @@
           ]
         },
         {
-          "id": 6,
+          "id": 7,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": -1,
@@ -425,19 +454,22 @@
           "type": "none",
           "id": 1,
           "text": "Como vimos antes, uma máquina de fax é capaz de transmitir imagens para uma outra máquina. Imagens impressas por máquinas de fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal).",
-          "img": null
+          "img": null,
+          "imgFormat": "svg"
         },
         {
           "type": "none",
           "id": 2,
           "text": "Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão.  O método utilizado nas atividades do Nível 3 para representar quantidades de pixels brancos e pretos é chamado de 'run-length coding'. Esse método permite comprimir imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet.",
-          "img": null
+          "img": null,
+          "imgFormat": "svg"
         },
         {
           "type": "none",
           "id": 3,
           "text": "Por exemplo, imagens de fax eram geralmente comprimidas para aproximadamente um sétimo do seu tamanho original. Sem a compressão, estas demorariam sete vezes mais para serem transmitidas! Lembre-se de que as velocidades de transmissão não eram tão boas antigamente como as que temos hoje.",
-          "img": null
+          "img": null,
+          "imgFormat": "svg"
         },
         {
           "id": 4,
@@ -480,6 +512,7 @@
           "enable": false,
           "text": "Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê- las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.",
           "img": null,
+          "imgFormat": "",
           "alternatives": [
             {
               "id": 1,

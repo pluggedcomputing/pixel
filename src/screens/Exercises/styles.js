@@ -30,6 +30,11 @@ const styles = StyleSheet.create({
     width: Math.round((metrics.screenWidth * 14) / 16),
     height: metrics.screenHeight * 0.2,
   },
+  animation: {
+    width: 160,
+    height: 160,
+    alignSelf: 'center',
+  },
   textBoxContent: {
     textAlign: 'center',
     fontSize: fonts.small,
