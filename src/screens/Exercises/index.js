@@ -184,12 +184,18 @@ const Exercises = ({navigation}) => {
           />
         );
       default:
-        return question.img ? (
-          <Image
-            style={styles.statementImage}
-            source={getImage(question.img)}
-          />
-        ) : null;
+        switch (question.imgFormat) {
+          case 'img':
+          case 'gif':
+            return (
+              <Image
+                style={styles.statementImage}
+                source={getImage(question.img)}
+              />
+            );
+          default:
+            return null;
+        }
     }
   };
 
