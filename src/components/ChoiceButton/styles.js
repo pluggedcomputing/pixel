@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
-    borderWidth: metrics.baseBorder,
+    elevation: metrics.baseElevation,
   },
   text: {
     fontWeight: 'bold',
-    color: colors.colorTextPrimary,
+    color: colors.colorTextSecondary,
     fontSize: fonts.small,
   },
 });
