@@ -47,7 +47,7 @@
         {
           "id": 6,
           "type": "none",
-          "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha, identificando os pontos pretos e brancos e os armazenando em aproximadamente 1000 × 2000 pixels,",
+          "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha, identificando os pontos pretos e brancos e os armazenando em aproximadamente 1000 × 2000 pixels, que são transmitidos através da rede de telefonia (não pela internet) para outra máquina de fax.",
           "img": "l1q6",
           "imgFormat": "img",
           "enableScroll": true
@@ -55,7 +55,7 @@
         {
           "id": 7,
           "type": "none",
-          "text": "que são transmitidos através da rede de telefonia (não pela internet) para outra máquina de fax. Quando a outra máquina de fax recebe a mensagem, ela imprime os pixels em uma página.",
+          "text": "Quando a outra máquina de fax recebe a mensagem, ela imprime os pixels em uma página.",
           "img": "l1q7",
           "imgFormat": "img",
           "enableScroll": true
@@ -66,8 +66,8 @@
           "enable": false,
           "invisibleRow": -1,
           "text": "Como você acha que eram codificadas as mensagens enviadas através de uma máquina de fax?",
-          "img": "l1q3",
-          "imgFormat": "img",
+          "img": null,
+          "imgFormat": "",
           "enableScroll": true,
           "paintContent": [],
           "alternatives": [
@@ -135,8 +135,8 @@
           "id": 1,
           "text":
               "Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos.",
-            "img": "l2q1",
-            "imgFormat": "img"
+            "img": null,
+            "imgFormat": ""
         },
         {
           "type": "none",
@@ -276,8 +276,8 @@
           "type": "none",
           "id": 1,
           "text": "Você aprendeu que podemos representar uma imagem através de pontos pretos e brancos, representados por 0 e 1 respectivamente.",
-          "img": "l3q1",
-          "imgFormat": "img"
+          "img": null,
+          "imgFormat": ""
         },
         {
           "type": "none",
@@ -289,14 +289,14 @@
         {
           "type": "none",
           "id": 3,
-          "text": "Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. A seguir, entenderemos melhor.",
+          "text": "Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Por exemplo, a primeira linha da imagem abaixo pode ser representada por 1,1,3,1,1 indicando a sequência de 1 pixel branco, 1 preto, 3 brancos, 1 preto e 1 branco",
           "img": "l3q3",
           "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 4,
-          "text": "No run-length-coding o primeiro quadrado se refere a cor branca e o segundo a cor preta, assim sucessivamente, mas se quisermos que o primeiro quadrado tenha a  cor preta basta iniciarmos a sequência de números com 0, representando a inversão da ordem das cores.",
+          "text": "Note que o primeiro código representa a quantidade de pixels brancos e o segundo a quantidade de pixels pretos, e assim sucessivamente. Se a linha começa com pixels pretos, o primeiro código será 0.",
           "img": "l3q4",
           "imgFormat": "img"
         },
