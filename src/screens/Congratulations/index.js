@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   View,
   Text,
+  Modal,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -13,16 +15,17 @@ import {useRoute} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 
 import animation from '../../assets/animations/CheckedDone.json';
+import win from '../../assets/images/level4/win.gif';
 import {colors} from '../../styles';
 import styles from './styles';
 
 const Congratulations = (props) => {
-  const {level, content} = useRoute().params;
-
+  const {level, content, isFinish} = useRoute().params;
+  const [modal, setModal] = useState(false);
   const {navigation} = props;
 
-  const navigateScreen = () => {
-    navigation.navigate('LevelSelection');
+  const navigateScreen = (screen) => {
+    navigation.navigate(screen);
   };
 
   const showInformation = () => {
@@ -57,9 +60,48 @@ const Congratulations = (props) => {
       </View>
       <TouchableOpacity
         style={styles.buttonAlternative}
-        onPress={navigateScreen}>
+        onPress={() => {
+          if (isFinish) {
+            setModal(isFinish);
+          } else {
+            navigateScreen('LevelSelection');
+          }
+        }}>
         <Text style={styles.textButton}>Finalizar</Text>
       </TouchableOpacity>
+      <Modal
+        animationType="slide"
+        transparent
+        visible={modal}
+        onRequestClose={() => {
+          setModal(!modal);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalTitle}>Parabéns</Text>
+            <Text style={styles.modalSubTitle}>
+              {`Você completou todos os níveis!\nConheça nossos outros aplicativos.\nAcesse a seção 'Sobre' para ter mais informações.`}
+            </Text>
+            <Image style={styles.imgGif} source={win} />
+            <View style={styles.containerButtons}>
+              <TouchableOpacity
+                style={styles.buttonConcluded}
+                onPress={() => navigateScreen('LevelSelection')}>
+                <Text style={styles.textBtnConcluded}>Concluir</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.buttonAbout}
+                onPress={() => {
+                  setModal(!modal);
+                  navigation.popToTop();
+                  navigateScreen('ScreenAbout');
+                }}>
+                <Text style={styles.textBtnAbout}>Sobre</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };
