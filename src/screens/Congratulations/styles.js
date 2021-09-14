@@ -57,6 +57,62 @@ const styles = StyleSheet.create({
     height: 160,
     alignSelf: 'center',
   },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+  },
+  modalView: {
+    width: metrics.screenWidth * 0.9,
+    height: metrics.screenHeight * 0.5,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: colors.colorSecondaryLight,
+    borderRadius: metrics.tripleBaseRadius,
+  },
+  imgGif: {
+    resizeMode: 'contain',
+    justifyContent: 'flex-end',
+    height: metrics.screenHeight * 0.12,
+  },
+  modalTitle: {
+    color: colors.colorPrimaryDark,
+    fontWeight: 'bold',
+    fontSize: fonts.regular,
+  },
+  modalSubTitle: {
+    fontSize: fonts.small,
+    width: metrics.screenWidth * 0.7,
+  },
+  buttonConcluded: {
+    backgroundColor: colors.colorSucess,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: metrics.screenHeight * 0.07,
+    width: metrics.screenWidth * 0.4,
+    borderRadius: metrics.baseRadius,
+    elevation: metrics.baseElevation,
+  },
+  textBtnConcluded: {
+    color: colors.colorTextSecondary,
+    fontSize: fonts.medium,
+  },
+  buttonAbout: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: metrics.screenHeight * 0.05,
+    width: metrics.screenWidth * 0.4,
+    borderRadius: metrics.baseRadius,
+  },
+  textBtnAbout: {
+    color: colors.colorPrimary,
+    fontSize: fonts.small,
+  },
+  containerButtons: {
+    justifyContent: 'space-between',
+    flex: 0.55,
+  },
 });
 
 export default styles;

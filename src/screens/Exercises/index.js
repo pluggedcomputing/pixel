@@ -27,6 +27,7 @@ const Exercises = ({navigation}) => {
   const [listQuestionReleased, setListQuestionReleased] = useState([]);
   const {level, congratulations} = response;
   const [contentCurrent, setContentCurrent] = useState([]);
+  const levelFinal = 4;
 
   const mountListPermissions = () => {
     const auxList = [];
@@ -126,6 +127,7 @@ const Exercises = ({navigation}) => {
       navigation.navigate('Congratulations', {
         level,
         content: congratulations,
+        isFinish: level === levelFinal,
       });
     } else {
       if (exercise.questions[step].isCreateAlternatives) {
