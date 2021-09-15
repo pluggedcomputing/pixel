@@ -19,10 +19,9 @@ function ScreenAbout() {
     <View style={styles.viewBoxContent}>
       <Text style={styles.textContent}>
         O aplicativo “Computação Plugada – Pixel se baseia na atividade
-        “Representação de Imagens” do livro de Bell, T.
-        Witten, I. e Fellows, M. (2011), “Computer Science Unplugged – Ensinando
-        Ciência da Computação sem o uso do Computador”. Tradução de Luciano
-        Porto Barreto, 2011.
+        “Representação de Imagens” do livro de Bell, T. Witten, I. e Fellows, M.
+        (2011), “Computer Science Unplugged – Ensinando Ciência da Computação
+        sem o uso do Computador”. Tradução de Luciano Porto Barreto, 2011.
       </Text>
     </View>,
     <View style={styles.viewBoxContent}>
@@ -41,6 +40,22 @@ function ScreenAbout() {
         adicionais. O aplicativo é uma grande inovação para as técnicas de
         aprendizagem, apresentando temas complexos de uma forma elementar para o
         conhecimento.
+      </Text>
+    </View>,
+    <View style={styles.viewBoxContent}>
+      <Text style={styles.textContent}>
+        O aplicativo Pixel faz parte de uma família com varios outros
+        aplicativos. Conheça mais sobre os demias acessando o{'  '}
+        <TouchableOpacity
+          style={{backgroundColor: '#fff', width: 30, height: 20}}
+          onPress={() => {
+            Linking.openURL(
+              'https://sites.google.com/view/computacaoplugada/aplicativos',
+            );
+          }}>
+          <Text style={styles.link}>link</Text>
+        </TouchableOpacity>
+        .
       </Text>
     </View>,
   ];

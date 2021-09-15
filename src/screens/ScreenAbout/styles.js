@@ -48,6 +48,11 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * WIDTH_PORCENTAGE - 50,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
   },
+  link: {
+    fontSize: fonts.small,
+    textDecorationLine: 'underline',
+    color: colors.colorPrimary,
+  },
 });
 
 export default styles;
