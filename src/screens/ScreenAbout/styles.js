@@ -48,10 +48,11 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * WIDTH_PORCENTAGE - 50,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
   },
-  link: {
-    fontSize: fonts.small,
-    textDecorationLine: 'underline',
-    color: colors.colorPrimary,
+  imgSite: {
+    resizeMode: 'center',
+    marginTop: metrics.doubleBaseMargin,
+    width: metrics.screenWidth * WIDTH_PORCENTAGE,
+    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
   },
 });
 

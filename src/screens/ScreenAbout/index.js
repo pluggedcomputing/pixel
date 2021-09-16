@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import logo from '../../assets/images/logo_grey.png';
+import site from '../../assets/images/site.png';
 import tank from '../../assets/images/tank_white.png';
 import BoxBackground from '../../components/BoxBackground/index';
 import {colors} from '../../styles';
@@ -45,18 +46,16 @@ function ScreenAbout() {
     <View style={styles.viewBoxContent}>
       <Text style={styles.textContent}>
         O aplicativo Pixel faz parte de uma família com varios outros
-        aplicativos. Conheça mais sobre os demias acessando o{'  '}
-        <TouchableOpacity
-          style={{backgroundColor: '#fff', width: 30, height: 20}}
-          onPress={() => {
-            Linking.openURL(
-              'https://sites.google.com/view/computacaoplugada/aplicativos',
-            );
-          }}>
-          <Text style={styles.link}>link</Text>
-        </TouchableOpacity>
-        .
+        aplicativos. Conheça mais sobre os demais clicando na imagem abaixo.
       </Text>
+      <TouchableOpacity
+        onPress={() => {
+          Linking.openURL(
+            'https://sites.google.com/view/computacaoplugada/aplicativos',
+          );
+        }}>
+        <Image source={site} style={styles.imgSite} />
+      </TouchableOpacity>
     </View>,
   ];
   return (
