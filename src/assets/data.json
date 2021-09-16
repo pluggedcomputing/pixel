@@ -47,7 +47,7 @@
         {
           "id": 6,
           "type": "none",
-          "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha, identificando os pontos pretos e brancos e os armazenando em aproximadamente 1000 × 2000 pixels, que são transmitidos através da rede de telefonia (não pela internet) para outra máquina de fax.",
+          "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha e identifica os pontos brancos ou não e armazena essa informação em aproximadamente 1000 × 2000 pixels, que são transmitidos para outra máquina de fax utilizando a rede de telefonia.",
           "img": "l1q6",
           "imgFormat": "img",
           "enableScroll": true
@@ -192,7 +192,7 @@
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": -1,
-          "text": "Vamos ver se você consegue entender sobre a representação de imagens com pixels. Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida dentre as opções apresentadas",
+          "text": "Vamos praticar? Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida",
           "row": 6,
           "column": 5,
           "isContentReduced": false,
