@@ -48,8 +48,8 @@
           "id": 6,
           "type": "none",
           "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha e identifica os pontos brancos ou não e armazena essa informação em aproximadamente 1000 × 2000 pixels, que são transmitidos para outra máquina de fax utilizando a rede de telefonia.",
-          "img": "l1q6",
-          "imgFormat": "anim",
+          "img": null,
+          "imgFormat": "",
           "enableScroll": true
         },
         {

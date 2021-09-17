@@ -6,7 +6,6 @@ const imagens = {
   l1q3: require('../assets/images/level1/hand.png'),
   l1q4: require('../assets/images/level1/grid.png'),
   l1q5: require('../assets/images/level1/fax.png'),
-  l1q6: require('../assets/images/level1/document.json'),
   l1q7: require('../assets/images/level1/faxOut.png'),
   // nivel2
   l2q1: require('../assets/images/level2/dog.png'),
