@@ -1,12 +1,12 @@
 /* eslint-disable import/no-unresolved */
 const imagens = {
   // nivel1
-  l1q1: require('../assets/images/level1/gitComputer.gif'),
+  l1q1: require('../assets/images/level1/gitComputer.json'),
   l1q2: require('../assets/images/level1/photoPixel.png'),
   l1q3: require('../assets/images/level1/hand.png'),
   l1q4: require('../assets/images/level1/grid.png'),
   l1q5: require('../assets/images/level1/fax.png'),
-  l1q6: require('../assets/images/level1/document.gif'),
+  l1q6: require('../assets/images/level1/document.json'),
   l1q7: require('../assets/images/level1/faxOut.png'),
   // nivel2
   l2q1: require('../assets/images/level2/dog.png'),

@@ -2,6 +2,8 @@ import {StyleSheet} from 'react-native';
 
 import {colors, fonts, metrics} from '../../styles';
 
+const HEIGHT_PORCENTAGE = 0.16;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -71,11 +73,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.colorSecondaryLight,
     borderRadius: metrics.tripleBaseRadius,
   },
-  imgGif: {
-    resizeMode: 'contain',
-    justifyContent: 'flex-end',
-    height: metrics.screenHeight * 0.12,
-  },
   modalTitle: {
     color: colors.colorPrimaryDark,
     fontWeight: 'bold',
@@ -112,6 +109,11 @@ const styles = StyleSheet.create({
   containerButtons: {
     justifyContent: 'space-between',
     flex: 0.55,
+  },
+  imgWin: {
+    width: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    alignSelf: 'center',
   },
 });
 

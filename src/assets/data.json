@@ -9,7 +9,7 @@
           "id": 1,
           "text": "Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? A seguir, entenderemos melhor.",
           "img": "l1q1",
-          "imgFormat": "gif",
+          "imgFormat": "anim",
           "enableScroll": true
         },
         {
@@ -49,7 +49,7 @@
           "type": "none",
           "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha e identifica os pontos brancos ou não e armazena essa informação em aproximadamente 1000 × 2000 pixels, que são transmitidos para outra máquina de fax utilizando a rede de telefonia.",
           "img": "l1q6",
-          "imgFormat": "img",
+          "imgFormat": "anim",
           "enableScroll": true
         },
         {
@@ -455,21 +455,21 @@
           "id": 1,
           "text": "Como vimos antes, uma máquina de fax é capaz de transmitir imagens para uma outra máquina. Imagens impressas por máquinas de fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal).",
           "img": null,
-          "imgFormat": "svg"
+          "imgFormat": ""
         },
         {
           "type": "none",
           "id": 2,
           "text": "Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão.  O método utilizado nas atividades do Nível 3 para representar quantidades de pixels brancos e pretos é chamado de 'run-length coding'. Esse método permite comprimir imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet.",
           "img": null,
-          "imgFormat": "svg"
+          "imgFormat": ""
         },
         {
           "type": "none",
           "id": 3,
           "text": "Por exemplo, imagens de fax eram geralmente comprimidas para aproximadamente um sétimo do seu tamanho original. Sem a compressão, estas demorariam sete vezes mais para serem transmitidas! Lembre-se de que as velocidades de transmissão não eram tão boas antigamente como as que temos hoje.",
           "img": null,
-          "imgFormat": "svg"
+          "imgFormat": ""
         },
         {
           "id": 4,
