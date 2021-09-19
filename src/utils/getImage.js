@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 const imagens = {
   // nivel1
-  l1q1: require('../assets/images/level1/gitComputer.json'),
+  l1q1: require('../assets/images/level1/computer.png'),
   l1q2: require('../assets/images/level1/photoPixel.png'),
   l1q3: require('../assets/images/level1/hand.png'),
   l1q4: require('../assets/images/level1/grid.png'),

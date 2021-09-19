@@ -9,7 +9,7 @@
           "id": 1,
           "text": "Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? A seguir, entenderemos melhor.",
           "img": "l1q1",
-          "imgFormat": "anim",
+          "imgFormat": "img",
           "enableScroll": true
         },
         {
@@ -304,7 +304,7 @@
           "type": "paintingtable",
           "id": 4,
           "enable": false,
-          "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos. Onde o primeiro quadrado se refere ao pixel branco e o segundo do preto, assim sucessivamnte.",
+          "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos.",
           "img": null,
           "imgFormat": "",
           "row": 6,
