@@ -6,7 +6,16 @@ import {PropTypes} from 'prop-types';
 import styles from './styles';
 
 const PaintingTable = (props) => {
-  const {content, enable, row, column, invisibleRow, isContentReduced, paintingFreely, setAnswerPaint} = props;
+  const {
+    content,
+    enable,
+    row,
+    column,
+    invisibleRow,
+    isContentReduced,
+    paintingFreely,
+    setAnswerPaint,
+  } = props;
   const [colorCurrent, setColorCurrent] = useState('P');
   const [columnCheck, setColumnChecked] = useState('');
   const [rowCheck, setRowChecked] = useState('');
@@ -36,10 +45,10 @@ const PaintingTable = (props) => {
 
   const mountMatrixAnswerPaint = (contentData) => {
     const answerDefault = [];
-    contentData.forEach(item =>{
+    contentData.forEach((item) => {
       const rows = item.map((dataValue) => {
-        return dataValue.color === "B" ? 1 : 0;
-      })
+        return dataValue.color === 'B' ? 1 : 0;
+      });
       answerDefault.push(rows);
     });
 
@@ -48,9 +57,9 @@ const PaintingTable = (props) => {
 
   const mountMatrixColorOrDefault = () => {
     const dataDefault = mountMatrixDefault();
-    if(paintingFreely) {
+    if (paintingFreely) {
       const result = mountMatrixAnswerPaint(dataDefault);
-      if(result.length > 0){
+      if (result.length > 0) {
         setAnswerPaint(result);
       }
     }
@@ -63,8 +72,8 @@ const PaintingTable = (props) => {
             itemRunLength.forEach((item, index) => {
               let cont = 0;
               while (cont < item) {
-                if (columnIndex < column ) {
-                  const colorItem = index % 2 === 0? 'B' : 'P';
+                if (columnIndex < column) {
+                  const colorItem = index % 2 === 0 ? 'B' : 'P';
                   dataDefault[i][columnIndex].color = colorItem;
                   columnIndex += 1;
                 }
@@ -72,13 +81,13 @@ const PaintingTable = (props) => {
               }
             });
           }
-        })
+        });
       } else {
         content.forEach((item, index) => {
           item.forEach((element, indexElement) => {
             dataDefault[index][indexElement].color = element === 1 ? 'B' : 'P';
-          })
-        })
+          });
+        });
       }
     }
     return dataDefault;
@@ -88,12 +97,8 @@ const PaintingTable = (props) => {
     setRowChecked(rowCurrent);
     setColumnChecked(keyCurrent);
     data[rowCurrent][keyCurrent].color = colorCurrent;
-    if(paintingFreely){
-      const resultClick = mountMatrixAnswerPaint(data);
-      if(resultClick.length > 0){
-        setAnswerPaint(resultClick);
-      }
-    }
+    const resultClick = mountMatrixAnswerPaint(data);
+    setAnswerPaint(resultClick);
   };
 
   const choiceColor = (colorSquire) => {

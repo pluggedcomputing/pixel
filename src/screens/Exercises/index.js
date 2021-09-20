@@ -2,6 +2,7 @@ import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {View, Image, StatusBar, Text} from 'react-native';
 
 import {useRoute} from '@react-navigation/native';
+import Animation from 'lottie-react-native';
 
 import BoxAlternative from '../../components/BoxAlternative';
 import BoxBackground from '../../components/BoxBackground';
@@ -26,19 +27,25 @@ const Exercises = ({navigation}) => {
   const [nextCard, setNextCard] = useState(false);
   const [listQuestionReleased, setListQuestionReleased] = useState([]);
   const {level, congratulations} = response;
+  const [contentCurrent, setContentCurrent] = useState([]);
+  const levelFinal = 4;
 
   const mountListPermissions = () => {
     const auxList = [];
 
     exercise.questions.forEach((item) => {
-      auxList.push({id: item.id, permission: !item.alternatives});
+      auxList.push({
+        id: item.id,
+        permission: !item.alternatives,
+        answerDrawPaint: [],
+      });
     });
 
     setListQuestionReleased(auxList);
   };
 
-  const converterArrayBinaryAndRunLengthCode = () => {
-    return answerPaint.map((item) => {
+  const converterArrayBinaryAndRunLengthCode = (list) => {
+    return list.map((item) => {
       return translateRunLenghtCode(item);
     });
   };
@@ -55,11 +62,55 @@ const Exercises = ({navigation}) => {
     );
   };
 
+  const translateToCode = (auxAnswerPaint) => {
+    return auxAnswerPaint.map((item) => translateRunLenghtCode(item));
+  };
+
   const updateAnswer = () => {
+    const auxAnswerPaint = exercise.questions[step].isContentReduced
+      ? translateToCode(answerPaint)
+      : answerPaint;
+
     const objectRealeased = findById(exercise.questions[step].id);
     const index = listQuestionReleased.indexOf(objectRealeased);
     objectRealeased.permission = true;
     listQuestionReleased[index] = objectRealeased;
+
+    if (!exercise.questions[step].isCreateAlternatives) {
+      if (auxAnswerPaint.length > 0 && auxAnswerPaint[0].length > 0) {
+        listQuestionReleased[index].answerDrawPaint = auxAnswerPaint;
+      }
+
+      const nextStep = step + 1;
+
+      if (
+        step < maxStep &&
+        nextStep < maxStep &&
+        exercise.questions[nextStep].isCreateAlternatives
+      ) {
+        const objectNextAnswer = findById(exercise.questions[nextStep].id);
+        const indexNextAnswer = listQuestionReleased.indexOf(objectNextAnswer);
+
+        listQuestionReleased[indexNextAnswer].answerDrawPaint = auxAnswerPaint;
+
+        listQuestionReleased[index].answerDrawPaint = auxAnswerPaint;
+      }
+
+      setAnswerPaint([]);
+    }
+  };
+
+  const getAnswerPaint = () => {
+    const objectRealeased = findById(exercise.questions[step].id);
+
+    const hasDrawPaint =
+      objectRealeased.answerDrawPaint.length > 0 &&
+      (objectRealeased.permission ||
+        exercise.questions[step].isCreateAlternatives);
+
+    return hasDrawPaint
+      ? objectRealeased.answerDrawPaint
+      : exercise.questions[step].paintContent;
   };
 
   useEffect(() => {
@@ -77,26 +128,48 @@ const Exercises = ({navigation}) => {
       navigation.navigate('Congratulations', {
         level,
         content: congratulations,
+        isFinish: level === levelFinal,
       });
     } else {
-      if (
-        positionQuestion === step &&
-        answerPaint &&
-        answerPaint[0] &&
-        answerPaint[0].length > 0
-      ) {
-        const copyArray = JSON.parse(JSON.stringify(answerPaint));
-        exercise.questions[
-          positionQuestion
-        ].paintContent = converterArrayBinaryAndRunLengthCode();
-        exercise.questions[
-          positionQuestion
-        ].alternatives = generateAlternatives(copyArray);
+      if (exercise.questions[step].isCreateAlternatives) {
+        const objectRealeased = findById(exercise.questions[step].id);
+        const copyArray = JSON.parse(
+          JSON.stringify(objectRealeased.answerDrawPaint),
+        );
+
+        exercise.questions[positionQuestion].alternatives =
+          generateAlternatives(
+            copyArray,
+            exercise.questions[positionQuestion].isContentReduced,
+            true,
+          );
       }
 
       setQuestion(exercise.questions[step]);
+      if (exercise.questions[step].type === TypeQuestions.PAINTINGTABLE) {
+        if (
+          exercise.questions[step].alternatives &&
+          exercise.questions[step].alternatives.length > 0
+        ) {
+          const generateAlternativesShuffler =
+            exercise.questions[step].isContentReduced &&
+            !exercise.questions[step].hasConverted
+              ? converterArrayBinaryAndRunLengthCode(getAnswerPaint())
+              : getAnswerPaint();
+
+          if (generateAlternativesShuffler) {
+            setContentCurrent(generateAlternativesShuffler);
+          }
+        } else {
+          setContentCurrent(getAnswerPaint());
+        }
+      }
     }
-  }, [step]);
+  }, [step, nextCard]);
+
+  const checkEnablePaint = () => {
+    return question.enable && !isAnswered();
+  };
 
   const choiceComponentBox = () => {
     switch (question.type) {
@@ -104,8 +177,8 @@ const Exercises = ({navigation}) => {
         return (
           <PaintingTable
             setAnswerPaint={setAnswerPaint}
-            content={question.paintContent}
-            enable={question.enable}
+            content={contentCurrent}
+            enable={checkEnablePaint()}
             isContentReduced={question.isContentReduced}
             row={question.row}
             column={question.column}
@@ -114,12 +187,26 @@ const Exercises = ({navigation}) => {
           />
         );
       default:
-        return question.img ? (
-          <Image
-            style={styles.statementImage}
-            source={getImage(question.img)}
-          />
-        ) : null;
+        switch (question.imgFormat) {
+          case 'img':
+            return (
+              <Image
+                style={styles.statementImage}
+                source={getImage(question.img)}
+              />
+            );
+          case 'anim':
+            return (
+              <Animation
+                source={getImage(question.img)}
+                style={styles.animation}
+                autoPlay
+                loop
+              />
+            );
+          default:
+            return null;
+        }
     }
   };
 
@@ -142,6 +229,40 @@ const Exercises = ({navigation}) => {
     }
   };
 
+  const getAlternativesContent = (listAlternatives) => {
+    let value = null;
+
+    if (!listAlternatives) return null;
+
+    if (listAlternatives.length > 1) {
+      value = (
+        <View style={styles.contentContainerStyle}>
+          <MultipleChoice
+            step={step}
+            isAnswer={isAnswered()}
+            setSteps={setSteps}
+            alternatives={question.alternatives}
+            setCorrectAnswer={setAnswerCorrectInQuestion}
+          />
+        </View>
+      );
+    } else {
+      value = (
+        <View style={styles.contentContainerStyle}>
+          <MultipleChoice
+            step={step}
+            isAnswer={isAnswered()}
+            setSteps={setSteps}
+            alternatives={question.alternatives}
+            setCorrectAnswer={setAnswerCorrectInQuestion}
+          />
+        </View>
+      );
+    }
+
+    return value;
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.colorPrimary} />
@@ -155,22 +276,7 @@ const Exercises = ({navigation}) => {
         />
       </View>
       <BoxAlternative
-        alternativesContent={
-          question.alternatives && question.alternatives.length > 0 ? (
-            <>
-              <Text style={styles.textAnswer}>Selecione a opção correta</Text>
-              <View style={styles.contentContainerStyle}>
-                <MultipleChoice
-                  step={step}
-                  isAnswer={isAnswered()}
-                  setSteps={setSteps}
-                  alternatives={question.alternatives}
-                  setCorrectAnswer={setAnswerCorrectInQuestion}
-                />
-              </View>
-            </>
-          ) : null
-        }
+        alternativesContent={getAlternativesContent(question.alternatives)}
         isNotQuestion={
           !question.alternatives ||
           (question.alternatives && question.alternatives.length === 0)

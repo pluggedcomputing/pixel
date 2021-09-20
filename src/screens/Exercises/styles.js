@@ -2,6 +2,8 @@ import {StyleSheet} from 'react-native';
 
 import {metrics, colors, fonts} from '../../styles';
 
+const HEIGHT_PORCENTAGE = 0.3;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -29,6 +31,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     width: Math.round((metrics.screenWidth * 14) / 16),
     height: metrics.screenHeight * 0.2,
+  },
+  animation: {
+    width: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    alignSelf: 'center',
   },
   textBoxContent: {
     textAlign: 'center',

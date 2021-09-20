@@ -2,15 +2,15 @@ import {StyleSheet} from 'react-native';
 
 import {colors, metrics, fonts} from '../../styles';
 
-const HEIGHT_PORCENTAGE = 0.5;
-const WIDTH_PORCENTAGE = 0.9;
+const HEIGHT_PORCENTAGE = 0.4;
+const WIDTH_PORCENTAGE = 0.8;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: metrics.screenWidth,
     height: metrics.screenHeight,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: colors.colorSecondaryLight,
   },
@@ -18,9 +18,16 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: metrics.screenWidth * WIDTH_PORCENTAGE,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    // backgroundColor: '#23d',
+  },
+  title: {
+    resizeMode: 'contain',
+    width: metrics.screenWidth * 0.3,
+    height: metrics.screenHeight * 0.05,
+    // backgroundColor: '#000',
   },
   text: {
-    fontSize: fonts.medium,
+    fontSize: fonts.small,
     textAlign: 'center',
     color: colors.colorTextPrimary,
     marginVertical: metrics.doubleBaseMargin,
@@ -28,6 +35,14 @@ const styles = StyleSheet.create({
   },
   buttons: {
     margin: metrics.smallMargin,
+  },
+  containerHeader: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  containerButtons: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

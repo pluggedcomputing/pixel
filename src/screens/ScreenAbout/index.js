@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import logo from '../../assets/images/logo_grey.png';
+import site from '../../assets/images/site.png';
 import tank from '../../assets/images/tank_white.png';
 import BoxBackground from '../../components/BoxBackground/index';
 import {colors} from '../../styles';
@@ -19,10 +20,9 @@ function ScreenAbout() {
     <View style={styles.viewBoxContent}>
       <Text style={styles.textContent}>
         O aplicativo “Computação Plugada – Pixel se baseia na atividade
-        “Representação de Imagens” do livro de Bell, T.
-        Witten, I. e Fellows, M. (2011), “Computer Science Unplugged – Ensinando
-        Ciência da Computação sem o uso do Computador”. Tradução de Luciano
-        Porto Barreto, 2011.
+        “Representação de Imagens” do livro de Bell, T. Witten, I. e Fellows, M.
+        (2011), “Computer Science Unplugged – Ensinando Ciência da Computação
+        sem o uso do Computador”. Tradução de Luciano Porto Barreto, 2011.
       </Text>
     </View>,
     <View style={styles.viewBoxContent}>
@@ -42,6 +42,20 @@ function ScreenAbout() {
         aprendizagem, apresentando temas complexos de uma forma elementar para o
         conhecimento.
       </Text>
+    </View>,
+    <View style={styles.viewBoxContent}>
+      <Text style={styles.textContent}>
+        O aplicativo Pixel faz parte de uma família com varios outros
+        aplicativos. Conheça mais sobre os demais clicando na imagem abaixo.
+      </Text>
+      <TouchableOpacity
+        onPress={() => {
+          Linking.openURL(
+            'https://sites.google.com/view/computacaoplugada/aplicativos',
+          );
+        }}>
+        <Image source={site} style={styles.imgSite} />
+      </TouchableOpacity>
     </View>,
   ];
   return (
