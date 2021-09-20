@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: metrics.screenWidth * 0.9,
+    minHeight: metrics.screenHeight * 0.4,
     backgroundColor: colors.colorSecondaryLight,
     borderRadius: metrics.baseRadius,
   },

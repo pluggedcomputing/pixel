@@ -48,6 +48,12 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * WIDTH_PORCENTAGE - 50,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
   },
+  imgSite: {
+    resizeMode: 'center',
+    marginTop: metrics.doubleBaseMargin,
+    width: metrics.screenWidth * WIDTH_PORCENTAGE,
+    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+  },
 });
 
 export default styles;

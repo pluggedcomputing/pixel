@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, metrics} from '../../styles';
+import {colors, metrics, fonts} from '../../styles';
 
 const widhtScreen = 0.9;
 
@@ -17,11 +17,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
-    borderWidth: metrics.baseBorder,
+    elevation: metrics.baseElevation,
   },
   text: {
     fontWeight: 'bold',
-    color: colors.colorTextPrimary,
+    color: colors.colorTextSecondary,
+    fontSize: fonts.small,
   },
 });
 

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderColor: colors.colorPrimary,
   },
   squareChoice: {
-    borderWidth: metrics.smallBorder,
+    borderWidth: metrics.baseBorder + 0.5,
     borderColor: colors.colorAccent,
   },
   squareColoring: {backgroundColor: colors.colorTextPrimary},
@@ -40,11 +40,14 @@ const styles = StyleSheet.create({
   containerChoiceColor: {
     marginTop: metrics.smallMargin,
     flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   text: {
     color: colors.colorTextPrimary,
     fontSize: fonts.tiny,
+  },
+  containerFooter: {
+    marginTop: metrics.baseMargin,
+    width: metrics.screenWidth * 0.4,
   },
 });
 
