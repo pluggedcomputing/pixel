@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.pluggedcomputingpixel"
+        applicationId "br.ufpb.dcx.computacaoplugada.pixel"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         multiDexEnabled true
