@@ -2,6 +2,7 @@ import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {View, Image, StatusBar, Text} from 'react-native';
 
 import {useRoute} from '@react-navigation/native';
+import Animation from 'lottie-react-native';
 
 import BoxAlternative from '../../components/BoxAlternative';
 import BoxBackground from '../../components/BoxBackground';
@@ -188,11 +189,19 @@ const Exercises = ({navigation}) => {
       default:
         switch (question.imgFormat) {
           case 'img':
-          case 'gif':
             return (
               <Image
                 style={styles.statementImage}
                 source={getImage(question.img)}
+              />
+            );
+          case 'anim':
+            return (
+              <Animation
+                source={getImage(question.img)}
+                style={styles.animation}
+                autoPlay
+                loop
               />
             );
           default:

@@ -7,7 +7,6 @@ import {
   View,
   Text,
   Modal,
-  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -15,7 +14,7 @@ import {useRoute} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 
 import animation from '../../assets/animations/CheckedDone.json';
-import win from '../../assets/images/level4/win.gif';
+import animationWin from '../../assets/images/level4/win.json';
 import {colors} from '../../styles';
 import styles from './styles';
 
@@ -82,7 +81,12 @@ const Congratulations = (props) => {
             <Text style={styles.modalSubTitle}>
               {`Você completou todos os níveis!\nConheça nossos outros aplicativos.\nAcesse a seção 'Sobre' para ter mais informações.`}
             </Text>
-            <Image style={styles.imgGif} source={win} />
+            <Animation
+              source={animationWin}
+              style={styles.imgWin}
+              autoPlay
+              loop
+            />
             <View style={styles.containerButtons}>
               <TouchableOpacity
                 style={styles.buttonConcluded}
