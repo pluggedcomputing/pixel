@@ -49,6 +49,10 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin,
     width: metrics.screenWidth * 0.4,
   },
+  containerTextModify: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
 });
 
 export default styles;

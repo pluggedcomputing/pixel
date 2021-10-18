@@ -15,6 +15,7 @@ const PaintingTable = (props) => {
     isContentReduced,
     paintingFreely,
     setAnswerPaint,
+    isDemonstration,
   } = props;
   const [colorCurrent, setColorCurrent] = useState(false); // branco = true, preto = false
   const [columnCheck, setColumnChecked] = useState('');
@@ -30,8 +31,9 @@ const PaintingTable = (props) => {
   }, [enable, content]);
 
   const mountMatrixDefault = () => {
+    const numRow = isDemonstration ? 1 : row;
     const columns = [];
-    for (let i = 0; i < row; i += 1) {
+    for (let i = 0; i < numRow; i += 1) {
       const rows = [];
       for (let j = 0; j < column; j += 1) {
         rows.push({key: j, color: true});
@@ -125,6 +127,41 @@ const PaintingTable = (props) => {
     ) : null;
   };
 
+  const mountRow = (indexKey, index, columnOfRow) => {
+    return (
+      <TouchableOpacity
+        key={String(indexKey)}
+        onPress={() => {
+          if (enable) handleOnPress(index, columnOfRow.key);
+        }}>
+        <View
+          style={[
+            styles.square,
+            paint(
+              rowCheck !== '' &&
+                rowCheck === index &&
+                columnCheck !== '' &&
+                columnCheck === columnOfRow.key
+                ? colorCurrent
+                : columnOfRow.color,
+            ),
+          ]}
+        />
+      </TouchableOpacity>
+    );
+  };
+
+  const mountTextModify = () => {
+    const subData = data[0];
+    return (
+      <View style={styles.containerTextModify}>
+        {subData.map((item) => (
+          <Text style={styles.text}>{`${item.color ? '0' : '1'}`}</Text>
+        ))}
+      </View>
+    );
+  };
+
   return (
     <View style={[styles.container]}>
       <View style={styles.subContainer}>
@@ -132,32 +169,15 @@ const PaintingTable = (props) => {
           <View>
             {data.map((rows, index) => (
               <View key={String(index)} style={{flexDirection: 'row'}}>
-                {rows.map((columnOfRow, indexKey) => (
-                  <TouchableOpacity
-                    key={String(indexKey)}
-                    onPress={() => {
-                      if (enable) handleOnPress(index, columnOfRow.key);
-                    }}>
-                    <View
-                      style={[
-                        styles.square,
-                        paint(
-                          rowCheck !== '' &&
-                            rowCheck === index &&
-                            columnCheck !== '' &&
-                            columnCheck === columnOfRow.key
-                            ? colorCurrent
-                            : columnOfRow.color,
-                        ),
-                      ]}
-                    />
-                  </TouchableOpacity>
-                ))}
+                {rows.map((columnOfRow, indexKey) =>
+                  mountRow(indexKey, index, columnOfRow),
+                )}
               </View>
             ))}
+            {isDemonstration ? mountTextModify() : null}
           </View>
         </View>
-        {mountText()}
+        {isDemonstration ? null : mountText()}
       </View>
     </View>
   );
@@ -172,6 +192,7 @@ PaintingTable.propTypes = {
   isContentReduced: PropTypes.bool,
   paintingFreely: PropTypes.bool,
   setAnswerPaint: PropTypes.func,
+  isDemonstration: PropTypes.bool,
 };
 
 PaintingTable.defaultProps = {
@@ -181,6 +202,7 @@ PaintingTable.defaultProps = {
   isContentReduced: true,
   paintingFreely: false,
   setAnswerPaint: () => {},
+  isDemonstration: false,
 };
 
 export default PaintingTable;
