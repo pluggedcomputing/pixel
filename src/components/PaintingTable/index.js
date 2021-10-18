@@ -16,7 +16,7 @@ const PaintingTable = (props) => {
     paintingFreely,
     setAnswerPaint,
   } = props;
-  const [colorCurrent, setColorCurrent] = useState('P');
+  const [colorCurrent, setColorCurrent] = useState(false); // branco = true, preto = false
   const [columnCheck, setColumnChecked] = useState('');
   const [rowCheck, setRowChecked] = useState('');
   const [data, setData] = useState([]);
@@ -34,7 +34,7 @@ const PaintingTable = (props) => {
     for (let i = 0; i < row; i += 1) {
       const rows = [];
       for (let j = 0; j < column; j += 1) {
-        rows.push({key: j, color: 'B'});
+        rows.push({key: j, color: true});
       }
       columns.push(rows);
     }
@@ -47,7 +47,7 @@ const PaintingTable = (props) => {
     const answerDefault = [];
     contentData.forEach((item) => {
       const rows = item.map((dataValue) => {
-        return dataValue.color === 'B' ? 1 : 0;
+        return dataValue.color ? 1 : 0;
       });
       answerDefault.push(rows);
     });
@@ -73,7 +73,7 @@ const PaintingTable = (props) => {
               let cont = 0;
               while (cont < item) {
                 if (columnIndex < column) {
-                  const colorItem = index % 2 === 0 ? 'B' : 'P';
+                  const colorItem = index % 2 === 0;
                   dataDefault[i][columnIndex].color = colorItem;
                   columnIndex += 1;
                 }
@@ -85,7 +85,7 @@ const PaintingTable = (props) => {
       } else {
         content.forEach((item, index) => {
           item.forEach((element, indexElement) => {
-            dataDefault[index][indexElement].color = element === 1 ? 'B' : 'P';
+            dataDefault[index][indexElement].color = element === 1;
           });
         });
       }
@@ -94,9 +94,11 @@ const PaintingTable = (props) => {
   };
 
   const handleOnPress = (rowCurrent, keyCurrent) => {
+    const colorItemCurent = data[rowCurrent][keyCurrent].color;
+    choiceColor(!colorItemCurent);
     setRowChecked(rowCurrent);
     setColumnChecked(keyCurrent);
-    data[rowCurrent][keyCurrent].color = colorCurrent;
+    data[rowCurrent][keyCurrent].color = !colorItemCurent;
     const resultClick = mountMatrixAnswerPaint(data);
     setAnswerPaint(resultClick);
   };
@@ -107,17 +109,8 @@ const PaintingTable = (props) => {
     setColorCurrent(colorSquire);
   };
 
-  const chosenSquare = (color) => {
-    return colorCurrent === color ? styles.squareChoice : null;
-  };
-
   const paint = (color) => {
-    switch (color) {
-      case 'P' || 1:
-        return styles.squareColoring;
-      default:
-        return styles.discolorSquare;
-    }
+    return color ? styles.discolorSquare : styles.squareColoring;
   };
 
   const mountText = () => {
@@ -130,37 +123,6 @@ const PaintingTable = (props) => {
         ))}
       </View>
     ) : null;
-  };
-
-  const mountSqureColor = () => {
-    if (enable) {
-      return (
-        <View style={styles.containerFooter}>
-          <View style={styles.containerChoiceColor}>
-            <TouchableOpacity onPress={() => choiceColor('P')}>
-              <View
-                style={[
-                  styles.square,
-                  chosenSquare('P'),
-                  styles.squareColoring,
-                ]}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => choiceColor('B')}>
-              <View
-                style={[
-                  styles.square,
-                  chosenSquare('B'),
-                  styles.discolorSquare,
-                ]}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-      );
-    }
-
-    return null;
   };
 
   return (
@@ -197,7 +159,6 @@ const PaintingTable = (props) => {
         </View>
         {mountText()}
       </View>
-      {mountSqureColor()}
     </View>
   );
 };
