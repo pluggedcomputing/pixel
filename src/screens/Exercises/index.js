@@ -19,7 +19,6 @@ const Exercises = ({navigation}) => {
   const [answerPaint, setAnswerPaint] = useState([]);
   const response = useRoute().params.data;
   const [exercise] = useState(response);
-  const positionQuestion = exercise.questions.length - 2;
   const [step, setSteps] = useState(0);
   const [question, setQuestion] = useState(exercise.questions[step]);
   const maxStep = exercise.questions.length;
@@ -103,12 +102,15 @@ const Exercises = ({navigation}) => {
   const getAnswerPaint = () => {
     const objectRealeased = findById(exercise.questions[step].id);
 
+    if (objectRealeased === undefined)
+      return exercise.questions[step].paintContent;
+
     const hasDrawPaint =
       objectRealeased.answerDrawPaint.length > 0 &&
       (objectRealeased.permission ||
         exercise.questions[step].isCreateAlternatives);
 
-    return hasDrawPaint
+    return hasDrawPaint && !question.isDemonstration
       ? objectRealeased.answerDrawPaint
       : exercise.questions[step].paintContent;
   };
@@ -132,17 +134,24 @@ const Exercises = ({navigation}) => {
       });
     } else {
       if (exercise.questions[step].isCreateAlternatives) {
-        const objectRealeased = findById(exercise.questions[step].id);
-        const copyArray = JSON.parse(
-          JSON.stringify(objectRealeased.answerDrawPaint),
-        );
+        let copyArray = null;
+        if (exercise.questions[step].idAnswerQuestion) {
+          const objectRealeased = findById(exercise.questions[step].id);
 
-        exercise.questions[positionQuestion].alternatives =
-          generateAlternatives(
-            copyArray,
-            exercise.questions[positionQuestion].isContentReduced,
-            true,
+          copyArray = JSON.parse(
+            JSON.stringify(objectRealeased.answerDrawPaint),
           );
+        } else {
+          copyArray = JSON.parse(
+            JSON.stringify(exercise.questions[step].paintContent),
+          );
+        }
+
+        exercise.questions[step].alternatives = generateAlternatives(
+          copyArray,
+          exercise.questions[step].isContentReduced,
+          true,
+        );
       }
 
       setQuestion(exercise.questions[step]);
@@ -182,6 +191,7 @@ const Exercises = ({navigation}) => {
             isContentReduced={question.isContentReduced}
             row={question.row}
             column={question.column}
+            isDemonstration={question.isDemonstration}
             invisibleRow={question.invisibleRow}
             paintingFreely={question.paintingFreely}
           />
@@ -230,37 +240,18 @@ const Exercises = ({navigation}) => {
   };
 
   const getAlternativesContent = (listAlternatives) => {
-    let value = null;
-
     if (!listAlternatives) return null;
-
-    if (listAlternatives.length > 1) {
-      value = (
-        <View style={styles.contentContainerStyle}>
-          <MultipleChoice
-            step={step}
-            isAnswer={isAnswered()}
-            setSteps={setSteps}
-            alternatives={question.alternatives}
-            setCorrectAnswer={setAnswerCorrectInQuestion}
-          />
-        </View>
-      );
-    } else {
-      value = (
-        <View style={styles.contentContainerStyle}>
-          <MultipleChoice
-            step={step}
-            isAnswer={isAnswered()}
-            setSteps={setSteps}
-            alternatives={question.alternatives}
-            setCorrectAnswer={setAnswerCorrectInQuestion}
-          />
-        </View>
-      );
-    }
-
-    return value;
+    return (
+      <View style={styles.contentContainerStyle}>
+        <MultipleChoice
+          step={step}
+          isAnswer={isAnswered()}
+          setSteps={setSteps}
+          alternatives={question.alternatives}
+          setCorrectAnswer={setAnswerCorrectInQuestion}
+        />
+      </View>
+    );
   };
 
   return (
@@ -270,7 +261,7 @@ const Exercises = ({navigation}) => {
         <BoxBackground
           content={viewContent()}
           setSteps={setSteps}
-          scrollEnabled={isAnswered()}
+          scrollEnabled={isAnswered() || question.isDemonstration}
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
         />
