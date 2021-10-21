@@ -9,56 +9,78 @@
           "id": 1,
           "text": "Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? A seguir, entenderemos melhor.",
           "img": "l1q1",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 2,
           "text": "As telas dos computadores são dividas em uma grade de pequenos quadrados, podendo ser cada um de uma cor específica. Chamamos esses quadrados de elementos de imagem ou pixels",
           "img": "l1q2",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 3,
           "text": "Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.",
           "img": "l1q3",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 4,
           "text": "Uma imagem correspondente à letra C, por exemplo, poderia ser representada com números binários (bits). Se o 1 indica um quadrado branco e o 0 indica um quadrado preto, então poderíamos ter uma grade de 5x6 pixels como a ilustrada abaixo:",
           "img": "l1q4",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
+        },
+        {
+          "id": 12,
+          "type": "paintingtable",
+          "enable": true,
+          "invisibleRow": -1,
+          "text": "Pinte os pixels abaixo de preto ou branco clicando em cada um deles e veja o código dos bits correspondentes.",
+          "row": 1,
+          "column": 5,
+          "isContentReduced": false,
+          "paintingFreely": false,
+          "isDemonstration": true,
+          "paintContent": [[0, 0, 0, 0, 0]],
+          "alternatives": [ ]
+        },
+        {
+          "id": 13,
+          "type": "paintingtable",
+          "enable": false,
+          "invisibleRow": 0,
+          "text": "A sequência de pixels abaixo pode ser representado por qual código?",
+          "row": 1,
+          "column": 5,
+          "isContentReduced": false,
+          "paintingFreely": false,
+          "isDemonstration": false,
+          "paintContent": [ [1, 0, 1, 0, 1]],
+          "alternatives": [],
+          "isCreateAlternatives": true
         },
         {
           "type": "none",
           "id": 5,
           "text": "Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco.",
           "img": "l1q5",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "id": 6,
           "type": "none",
           "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha e identifica os pontos brancos ou não e armazena essa informação em aproximadamente 1000 × 2000 pixels, que são transmitidos para outra máquina de fax utilizando a rede de telefonia.",
           "img": null,
-          "imgFormat": "",
-          "enableScroll": true
+          "imgFormat": ""
         },
         {
           "id": 7,
           "type": "none",
           "text": "Quando a outra máquina de fax recebe a mensagem, ela imprime os pixels em uma página.",
           "img": "l1q7",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "id": 8,
@@ -68,7 +90,6 @@
           "text": "Como você acha que eram codificadas as mensagens enviadas através de uma máquina de fax?",
           "img": null,
           "imgFormat": "",
-          "enableScroll": true,
           "paintContent": [],
           "alternatives": [
             {
@@ -88,8 +109,7 @@
           "id": 9,
           "text": "Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.",
           "img": null,
-          "imgFormat": "",
-          "enableScroll": true
+          "imgFormat": ""
         },
         {
           "id": 10,
@@ -99,7 +119,6 @@
           "text": "Considerando o que foi apresentado, responda: O que as máquinas de fax fazem?",
           "img": null,
           "imgFormat": "",
-          "enableScroll": false,
           "paintContent": [],
           "alternatives": [
             {
@@ -500,6 +519,7 @@
           "paintingFreely": false,
           "isContentReduced": true,
           "hasConverted": true,
+          "idAnswerQuestion": 4,
           "row": 6,
           "column": 5,
           "paintContent": [],

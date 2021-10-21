@@ -132,7 +132,7 @@ const PaintingTable = (props) => {
       <TouchableOpacity
         key={String(indexKey)}
         onPress={() => {
-          if (enable) handleOnPress(index, columnOfRow.key);
+          if (enable || isDemonstration) handleOnPress(index, columnOfRow.key);
         }}>
         <View
           style={[
@@ -152,11 +152,13 @@ const PaintingTable = (props) => {
   };
 
   const mountTextModify = () => {
-    const subData = data[0];
+    const subData = data[0] !== undefined ? data[0] : [];
     return (
       <View style={styles.containerTextModify}>
-        {subData.map((item) => (
-          <Text style={styles.text}>{`${item.color ? '0' : '1'}`}</Text>
+        {subData.map((item, key) => (
+          <Text key={key.toString()} style={styles.text}>
+            {`${item.color ? '1' : '0'}`}
+          </Text>
         ))}
       </View>
     );
