@@ -150,7 +150,7 @@ const PaintingTable = (props) => {
   };
 
   const findKeyRow = (currentKey) => {
-    if (!invisibleRow) return false;
+    if (!invisibleRow || invisibleRow === -1) return false;
     return invisibleRow.find((item) => item === currentKey);
   };
 
@@ -229,12 +229,12 @@ PaintingTable.propTypes = {
   enable: PropTypes.bool,
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
-  invisibleRow: PropTypes.oneOfType([PropTypes.number]),
+  invisibleRow: PropTypes.arrayOf(PropTypes.number),
   isContentReduced: PropTypes.bool,
   paintingFreely: PropTypes.bool,
   setAnswerPaint: PropTypes.func,
   isDemonstration: PropTypes.bool,
-  lackRowPixel: PropTypes.PropTypes.arrayOf(PropTypes.object),
+  lackRowPixel: PropTypes.PropTypes.arrayOf(PropTypes.object), // [{"excerptsColumn":[], "row":}]
 };
 
 PaintingTable.defaultProps = {

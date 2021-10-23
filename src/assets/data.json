@@ -382,6 +382,91 @@
             }
           ]
         },
+         {
+          "id": 8,
+          "type": "paintingtable",
+          "enable": true,
+          "invisibleRow": [4],
+          "text": "Ajuste os pixels da imagem abaixo de acordo com os códigos indicados. Qual a letra que está sendo representada?",
+          "row": 6,
+          "column": 5,
+          "lackRowPixel": [{"excerptsColumn":[0, 1, 3], "row":0}, {"excerptsColumn":[4], "row":1}, {"excerptsColumn":[4], "row":3}, {"excerptsColumn":[1, 3], "row":4}],
+          "isContentReduced": true,
+          "hasConverted": true,
+          "paintContent": [
+            [0, 4, 1],
+            [0, 1, 3, 1],
+            [0, 1, 3, 1],
+            [0, 1, 3, 1],
+            [0, 1, 3, 1],
+            [0, 4, 1]
+          ],
+
+          "alternatives": [
+            {
+              "id": 1,
+              "text": "Q",
+              "correct": false
+            },
+            {
+              "id": 2,
+              "text": "D",
+              "correct": true
+            },
+            {
+              "id": 3,
+              "text": "r",
+              "correct": false
+            },
+            {
+              "id": 4,
+              "text": "g",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "type": "paintingtable",
+          "enable": true,
+          "text": "Qual a letra representada pelos códigos abaixo?",
+          "row": 6,
+          "column": 5,
+          "lackRowPixel": [{"excerptsColumn":[0, 2, 4], "row":0}, {"excerptsColumn":[1], "row":1}, {"excerptsColumn":[1, 4], "row":3}, {"excerptsColumn":[0, 3], "row":4}, {"excerptsColumn":[1, 4], "row":5}],
+          "isContentReduced": true,
+          "hasConverted": true,
+          "paintContent": [
+            [0, 5],
+            [0, 1, 3, 1],
+            [0, 1, 3, 1],
+            [0, 4, 1],
+            [0, 1, 3, 1],
+            [0, 1, 3, 1]
+          ],
+
+          "alternatives": [
+            {
+              "id": 1,
+              "text": "H",
+              "correct": false
+            },
+            {
+              "id": 2,
+              "text": "R",
+              "correct": true
+            },
+            {
+              "id": 3,
+              "text": "Q",
+              "correct": false
+            },
+            {
+              "id": 4,
+              "text": "A",
+              "correct": false
+            }
+          ]
+        },
         {
           "id": 6,
           "type": "paintingtable",
