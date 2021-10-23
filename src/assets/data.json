@@ -252,7 +252,7 @@
           "id": 5,
           "type": "paintingtable",
           "enable": false,
-          "invisibleRow": [4, 1],
+          "invisibleRow": [4],
           "text": "Agora tente descobrir qual é a linha que está faltando para completar o desenho da letra W?",
           "row": 5,
           "column": 5,
@@ -415,12 +415,12 @@
             },
             {
               "id": 3,
-              "text": "r",
+              "text": "R",
               "correct": false
             },
             {
               "id": 4,
-              "text": "g",
+              "text": "G",
               "correct": false
             }
           ]
