@@ -151,7 +151,7 @@ const PaintingTable = (props) => {
 
   const findKeyRow = (currentKey) => {
     if (!invisibleRow || invisibleRow === -1) return false;
-    return invisibleRow.find((item) => item === currentKey);
+    return invisibleRow.find((item) => item === currentKey) !== undefined;
   };
 
   const mountText = () => {
