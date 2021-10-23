@@ -194,6 +194,7 @@ const Exercises = ({navigation}) => {
             isDemonstration={question.isDemonstration}
             invisibleRow={question.invisibleRow}
             paintingFreely={question.paintingFreely}
+            lackRowPixel={question.lackRowPixel}
           />
         );
       default:

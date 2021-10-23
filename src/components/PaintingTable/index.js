@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 
@@ -16,6 +17,7 @@ const PaintingTable = (props) => {
     paintingFreely,
     setAnswerPaint,
     isDemonstration,
+    lackRowPixel,
   } = props;
   const [colorCurrent, setColorCurrent] = useState(false); // branco = true, preto = false
   const [columnCheck, setColumnChecked] = useState('');
@@ -57,6 +59,31 @@ const PaintingTable = (props) => {
     return answerDefault;
   };
 
+  const desablePixles = (
+    contentData,
+    indexRow,
+    indexElementColumn,
+    paintPixel,
+  ) => {
+    if (lackRowPixel) {
+      const object = lackRowPixel.find(
+        (itemObject) => itemObject.row === indexRow,
+      );
+      if (object) {
+        const findIndex = object.excerptsColumn.includes(indexElementColumn);
+        if (findIndex) {
+          contentData[indexRow][indexElementColumn].color = true;
+        } else {
+          contentData[indexRow][indexElementColumn].color = paintPixel;
+        }
+      } else {
+        contentData[indexRow][indexElementColumn].color = paintPixel;
+      }
+    } else {
+      contentData[indexRow][indexElementColumn].color = paintPixel;
+    }
+  };
+
   const mountMatrixColorOrDefault = () => {
     const dataDefault = mountMatrixDefault();
     if (paintingFreely) {
@@ -66,7 +93,7 @@ const PaintingTable = (props) => {
       }
     }
 
-    if (!enable) {
+    if (!enable || lackRowPixel) {
       if (isContentReduced) {
         content.forEach((itemRunLength, i) => {
           let columnIndex = 0;
@@ -76,7 +103,8 @@ const PaintingTable = (props) => {
               while (cont < item) {
                 if (columnIndex < column) {
                   const colorItem = index % 2 === 0;
-                  dataDefault[i][columnIndex].color = colorItem;
+                  // dataDefault[i][columnIndex].color = colorItem;
+                  desablePixles(dataDefault, i, columnIndex, colorItem);
                   columnIndex += 1;
                 }
                 cont += 1;
@@ -85,9 +113,15 @@ const PaintingTable = (props) => {
           }
         });
       } else {
-        content.forEach((item, index) => {
-          item.forEach((element, indexElement) => {
-            dataDefault[index][indexElement].color = element === 1;
+        content.forEach((item, indexRow) => {
+          item.forEach((element, indexElementColumn) => {
+            // dataDefault[indexRow][indexElementColumn].color = element === 1;
+            desablePixles(
+              dataDefault,
+              indexRow,
+              indexElementColumn,
+              element === 1,
+            );
           });
         });
       }
@@ -115,12 +149,17 @@ const PaintingTable = (props) => {
     return color ? styles.discolorSquare : styles.squareColoring;
   };
 
+  const findKeyRow = (currentKey) => {
+    if (!invisibleRow) return false;
+    return invisibleRow.find((item) => item === currentKey);
+  };
+
   const mountText = () => {
     return !paintingFreely ? (
       <View style={styles.containerText}>
         {content.map((item, key) => (
           <Text key={key.toString()} style={styles.text}>
-            {invisibleRow !== -1 && key === invisibleRow ? '' : item.toString()}
+            {findKeyRow(key) ? '' : item.toString()}
           </Text>
         ))}
       </View>
@@ -190,21 +229,23 @@ PaintingTable.propTypes = {
   enable: PropTypes.bool,
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
-  invisibleRow: PropTypes.number,
+  invisibleRow: PropTypes.oneOfType([PropTypes.number]),
   isContentReduced: PropTypes.bool,
   paintingFreely: PropTypes.bool,
   setAnswerPaint: PropTypes.func,
   isDemonstration: PropTypes.bool,
+  lackRowPixel: PropTypes.PropTypes.arrayOf(PropTypes.object),
 };
 
 PaintingTable.defaultProps = {
   content: [],
   enable: true,
-  invisibleRow: -1,
+  invisibleRow: null,
   isContentReduced: true,
   paintingFreely: false,
   setAnswerPaint: () => {},
   isDemonstration: false,
+  lackRowPixel: null,
 };
 
 export default PaintingTable;
