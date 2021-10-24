@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList} from 'react-native';
+import {View, FlatList, ToastAndroid} from 'react-native';
 import {ProgressBar} from 'react-native-paper';
 
 import PropTypes from 'prop-types';
@@ -17,6 +17,7 @@ const BoxBackground = (props) => {
     nextQuestion,
     setNextQuestion,
     scrollEnabled,
+    answerCorrect,
   } = props;
   const [pagination, setPagination] = useState(0);
   const [offset, setOffset] = useState(0);
@@ -38,6 +39,10 @@ const BoxBackground = (props) => {
     }
   }, [nextQuestion]);
 
+  const showToast = () => {
+    ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
+  };
+
   const checkDireciton = (event) => {
     const currentOffset = event.nativeEvent.contentOffset.x;
     setOffset(currentOffset);
@@ -50,6 +55,9 @@ const BoxBackground = (props) => {
       }
     } else if (currentOffset > offset && !scrollEnabled) {
       flatListRef.scrollToIndex({index: pagination});
+      if (!answerCorrect && answerCorrect !== undefined) {
+        showToast();
+      }
     } else if (!scrollEnabled && currentOffset < offset) {
       changePaginationIndex(event, currentOffset > offset);
     }
@@ -120,6 +128,7 @@ BoxBackground.propTypes = {
   nextQuestion: PropTypes.bool,
   setNextQuestion: PropTypes.func,
   scrollEnabled: PropTypes.bool,
+  answerCorrect: PropTypes.bool,
 };
 
 BoxBackground.defaultProps = {
@@ -130,5 +139,6 @@ BoxBackground.defaultProps = {
   nextQuestion: false,
   setNextQuestion: () => {},
   scrollEnabled: false,
+  answerCorrect: false,
 };
 export default BoxBackground;

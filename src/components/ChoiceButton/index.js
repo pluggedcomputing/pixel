@@ -7,12 +7,27 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const ChoiceButton = (props) => {
-  const {correct, onPress, text, step, enable} = props;
+  const {correct, onPress, text, step, enable, enableAlternatives} = props;
   const [backgroundColor, setBackgroundColor] = useState('');
   useEffect(() => {
-    setBackgroundColor(colors.colorPrimary);
+    if (!enable && enableAlternatives === null) {
+      setBackgroundColor(colors.colorPrimary);
+    } else {
+      setBackgroundColor(colors.colorSecondaryDark);
+    }
+
     if (enable && correct) setBackgroundColor(colors.colorSucess);
   }, [step]);
+
+  useEffect(() => {
+    if (!enable && enableAlternatives !== null) {
+      if (enableAlternatives) {
+        setBackgroundColor(colors.colorPrimary);
+      } else {
+        setBackgroundColor(colors.colorSecondaryDark);
+      }
+    }
+  }, [enableAlternatives]);
 
   function onPressButton() {
     if (correct) {
@@ -27,7 +42,7 @@ const ChoiceButton = (props) => {
     <View {...props} style={styles.container}>
       <TouchableOpacity
         style={[styles.button, {backgroundColor}]}
-        disabled={enable}
+        disabled={enable || !enableAlternatives}
         onPress={() => onPressButton()}>
         <Text style={styles.text}>{text}</Text>
       </TouchableOpacity>
@@ -42,12 +57,14 @@ ChoiceButton.propTypes = {
   text: PropTypes.string.isRequired,
   step: PropTypes.number.isRequired,
   enable: PropTypes.bool,
+  enableAlternatives: PropTypes.bool,
 };
 
 ChoiceButton.defaultProps = {
   correct: false,
   light: false,
   enable: false,
+  enableAlternatives: false,
 };
 
 export default ChoiceButton;
