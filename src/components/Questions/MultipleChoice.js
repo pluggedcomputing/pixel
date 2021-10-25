@@ -7,7 +7,14 @@ import ChoiceButton from '../ChoiceButton';
 import styles from './styles';
 
 const MultipleChoice = (props) => {
-  const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
+  const {
+    step,
+    setSteps,
+    alternatives,
+    setCorrectAnswer,
+    isAnswer,
+    enableAlternatives,
+  } = props;
 
   const [alternativesShuffle, setAlternativesShuffle] = useState([]);
 
@@ -40,10 +47,13 @@ const MultipleChoice = (props) => {
           text={item.text.toString()}
           enable={isAnswer}
           correct={item.correct}
+          enableAlternatives={enableAlternatives}
           onPress={() => {
             if (item.correct) {
               setCorrectAnswer(true);
               setSteps(step + 1);
+            } else {
+              setCorrectAnswer(undefined);
             }
           }}
           light
@@ -59,6 +69,7 @@ MultipleChoice.propTypes = {
   setSteps: PropTypes.func.isRequired,
   setCorrectAnswer: PropTypes.func.isRequired,
   isAnswer: PropTypes.bool,
+  enableAlternatives: PropTypes.bool.isRequired,
 };
 
 MultipleChoice.defaultProps = {

@@ -5,6 +5,7 @@ import {ProgressBar} from 'react-native-paper';
 import PropTypes from 'prop-types';
 
 import {colors} from '../../styles';
+import AlertCustom from './AlertCustom';
 import styles from './styles';
 
 const BoxBackground = (props) => {
@@ -17,10 +18,17 @@ const BoxBackground = (props) => {
     nextQuestion,
     setNextQuestion,
     scrollEnabled,
+    answerCorrect,
+    answerAgain,
   } = props;
   const [pagination, setPagination] = useState(0);
   const [offset, setOffset] = useState(0);
   const [isEndPage, setIsEndPage] = useState(false);
+  const [modalAlert, setModalAlert] = useState(false);
+  const [focusInit, setFocusInit] = useState(0);
+  const maxValueProgress = 2;
+  const checkStateAnswer = focusInit === maxValueProgress;
+  const waitingTime = 60;
   let flatListRef = null;
 
   useEffect(() => {
@@ -35,6 +43,9 @@ const BoxBackground = (props) => {
       setPagination(indexNext);
       flatListRef.scrollToIndex({index: indexNext});
       setNextQuestion(false);
+      if (checkStateAnswer) {
+        setFocusInit(0);
+      }
     }
   }, [nextQuestion]);
 
@@ -50,6 +61,15 @@ const BoxBackground = (props) => {
       }
     } else if (currentOffset > offset && !scrollEnabled) {
       flatListRef.scrollToIndex({index: pagination});
+      if (focusInit < maxValueProgress) {
+        setTimeout(() => {
+          setFocusInit(focusInit + 1);
+        }, waitingTime);
+      }
+
+      if (!answerCorrect && answerCorrect !== undefined && !modalAlert) {
+        setModalAlert(true);
+      }
     } else if (!scrollEnabled && currentOffset < offset) {
       changePaginationIndex(event, currentOffset > offset);
     }
@@ -68,6 +88,7 @@ const BoxBackground = (props) => {
       (direction && index > pagination) ||
       (!direction && index < pagination)
     ) {
+      setFocusInit(0);
       setSteps(index);
       setPagination(index);
     }
@@ -82,6 +103,11 @@ const BoxBackground = (props) => {
 
   return (
     <View style={[styles.container, style]}>
+      <AlertCustom
+        visible={modalAlert && checkStateAnswer}
+        setVisibleFunc={setModalAlert}
+        answerAgain={answerAgain}
+      />
       <FlatList
         ref={(ref) => {
           flatListRef = ref;
@@ -120,6 +146,8 @@ BoxBackground.propTypes = {
   nextQuestion: PropTypes.bool,
   setNextQuestion: PropTypes.func,
   scrollEnabled: PropTypes.bool,
+  answerCorrect: PropTypes.bool,
+  answerAgain: PropTypes.bool.isRequired,
 };
 
 BoxBackground.defaultProps = {
@@ -130,5 +158,6 @@ BoxBackground.defaultProps = {
   nextQuestion: false,
   setNextQuestion: () => {},
   scrollEnabled: false,
+  answerCorrect: false,
 };
 export default BoxBackground;

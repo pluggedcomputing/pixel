@@ -18,11 +18,14 @@ const PaintingTable = (props) => {
     setAnswerPaint,
     isDemonstration,
     lackRowPixel,
+    setClickButtonFirst,
+    minPaintPixel,
   } = props;
   const [colorCurrent, setColorCurrent] = useState(false); // branco = true, preto = false
   const [columnCheck, setColumnChecked] = useState('');
   const [rowCheck, setRowChecked] = useState('');
   const [data, setData] = useState([]);
+  const [countPixelEnabled, setCountPixelEnabled] = useState(0);
 
   const updateData = () => {
     setData(mountMatrixColorOrDefault());
@@ -30,6 +33,7 @@ const PaintingTable = (props) => {
 
   useEffect(() => {
     updateData();
+    setClickButtonFirst(undefined);
   }, [enable, content]);
 
   const mountMatrixDefault = () => {
@@ -103,7 +107,6 @@ const PaintingTable = (props) => {
               while (cont < item) {
                 if (columnIndex < column) {
                   const colorItem = index % 2 === 0;
-                  // dataDefault[i][columnIndex].color = colorItem;
                   desablePixles(dataDefault, i, columnIndex, colorItem);
                   columnIndex += 1;
                 }
@@ -115,7 +118,6 @@ const PaintingTable = (props) => {
       } else {
         content.forEach((item, indexRow) => {
           item.forEach((element, indexElementColumn) => {
-            // dataDefault[indexRow][indexElementColumn].color = element === 1;
             desablePixles(
               dataDefault,
               indexRow,
@@ -136,7 +138,16 @@ const PaintingTable = (props) => {
     setColumnChecked(keyCurrent);
     data[rowCurrent][keyCurrent].color = !colorItemCurent;
     const resultClick = mountMatrixAnswerPaint(data);
+    const countPaint = colorItemCurent
+      ? countPixelEnabled + 1
+      : countPixelEnabled - 1;
     setAnswerPaint(resultClick);
+    if (countPaint > minPaintPixel) {
+      setClickButtonFirst(true);
+    } else if (countPaint === minPaintPixel) {
+      setClickButtonFirst(false);
+    }
+    setCountPixelEnabled(countPaint);
   };
 
   const choiceColor = (colorSquire) => {
@@ -151,7 +162,7 @@ const PaintingTable = (props) => {
 
   const findKeyRow = (currentKey) => {
     if (!invisibleRow || invisibleRow === -1) return false;
-    return invisibleRow.find((item) => item === currentKey);
+    return invisibleRow.find((item) => item === currentKey) !== undefined;
   };
 
   const mountText = () => {
@@ -234,7 +245,9 @@ PaintingTable.propTypes = {
   paintingFreely: PropTypes.bool,
   setAnswerPaint: PropTypes.func,
   isDemonstration: PropTypes.bool,
-  lackRowPixel: PropTypes.PropTypes.arrayOf(PropTypes.object), // [{"excerptsColumn":[], "row":}]
+  lackRowPixel: PropTypes.PropTypes.arrayOf(PropTypes.object), // [{"excerptsColumn":[], "row":}],
+  setClickButtonFirst: PropTypes.func,
+  minPaintPixel: PropTypes.number,
 };
 
 PaintingTable.defaultProps = {
@@ -246,6 +259,8 @@ PaintingTable.defaultProps = {
   setAnswerPaint: () => {},
   isDemonstration: false,
   lackRowPixel: null,
+  setClickButtonFirst: () => {},
+  minPaintPixel: 4,
 };
 
 export default PaintingTable;

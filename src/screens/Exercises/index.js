@@ -27,8 +27,9 @@ const Exercises = ({navigation}) => {
   const [listQuestionReleased, setListQuestionReleased] = useState([]);
   const {level, congratulations} = response;
   const [contentCurrent, setContentCurrent] = useState([]);
+  const [wasPaint, setWasPaint] = useState(false);
   const levelFinal = 4;
-
+  const [firstClickButton, setFirstClickButton] = useState(false);
   const mountListPermissions = () => {
     const auxList = [];
 
@@ -186,6 +187,7 @@ const Exercises = ({navigation}) => {
         return (
           <PaintingTable
             setAnswerPaint={setAnswerPaint}
+            setClickButtonFirst={setWasPaint}
             content={contentCurrent}
             enable={checkEnablePaint()}
             isContentReduced={question.isContentReduced}
@@ -234,7 +236,11 @@ const Exercises = ({navigation}) => {
   };
 
   const setAnswerCorrectInQuestion = (isCorrect) => {
+    if (!firstClickButton) {
+      setFirstClickButton(true);
+    }
     if (isCorrect) {
+      setFirstClickButton(false);
       setNextCard(true);
       updateAnswer();
     }
@@ -248,6 +254,7 @@ const Exercises = ({navigation}) => {
           step={step}
           isAnswer={isAnswered()}
           setSteps={setSteps}
+          enableAlternatives={question.minPaintPixel ? wasPaint : true}
           alternatives={question.alternatives}
           setCorrectAnswer={setAnswerCorrectInQuestion}
         />
@@ -265,6 +272,7 @@ const Exercises = ({navigation}) => {
           scrollEnabled={isAnswered() || question.isDemonstration}
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
+          answerAgain={firstClickButton}
         />
       </View>
       <BoxAlternative
