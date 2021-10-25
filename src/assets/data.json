@@ -396,7 +396,7 @@
           "lackRowPixel": [{"excerptsColumn":[0, 1, 3], "row":0}, {"excerptsColumn":[4], "row":1}, {"excerptsColumn":[4], "row":3}, {"excerptsColumn":[1, 3], "row":4}],
           "isContentReduced": true,
           "hasConverted": true,
-          "minPaintPixel": 4,
+          "minPaintPixel": 2,
           "paintContent": [
             [0, 4, 1],
             [0, 1, 3, 1],
@@ -433,7 +433,7 @@
           "id": 9,
           "type": "paintingtable",
           "enable": true,
-          "minPaintPixel": 4,
+          "minPaintPixel": 2,
           "text": "Qual a letra representada pelos códigos abaixo?",
           "row": 6,
           "column": 5,
