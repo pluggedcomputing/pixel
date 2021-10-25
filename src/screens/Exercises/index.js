@@ -29,7 +29,7 @@ const Exercises = ({navigation}) => {
   const [contentCurrent, setContentCurrent] = useState([]);
   const [wasPaint, setWasPaint] = useState(false);
   const levelFinal = 4;
-
+  const [firstClickButton, setFirstClickButton] = useState(false);
   const mountListPermissions = () => {
     const auxList = [];
 
@@ -236,7 +236,11 @@ const Exercises = ({navigation}) => {
   };
 
   const setAnswerCorrectInQuestion = (isCorrect) => {
+    if (!firstClickButton) {
+      setFirstClickButton(true);
+    }
     if (isCorrect) {
+      setFirstClickButton(false);
       setNextCard(true);
       updateAnswer();
     }
@@ -268,6 +272,7 @@ const Exercises = ({navigation}) => {
           scrollEnabled={isAnswered() || question.isDemonstration}
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
+          answerAgain={firstClickButton}
         />
       </View>
       <BoxAlternative

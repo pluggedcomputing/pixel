@@ -52,6 +52,8 @@ const MultipleChoice = (props) => {
             if (item.correct) {
               setCorrectAnswer(true);
               setSteps(step + 1);
+            } else {
+              setCorrectAnswer(undefined);
             }
           }}
           light
