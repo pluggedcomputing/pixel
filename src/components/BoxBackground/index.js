@@ -26,7 +26,7 @@ const BoxBackground = (props) => {
   const [isEndPage, setIsEndPage] = useState(false);
   const [modalAlert, setModalAlert] = useState(false);
   const [focusInit, setFocusInit] = useState(0);
-  const maxValueProgress = 2;
+  const maxValueProgress = 3;
   const checkStateAnswer = focusInit === maxValueProgress;
   const waitingTime = 60;
   let flatListRef = null;

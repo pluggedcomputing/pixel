@@ -134,6 +134,7 @@ const Exercises = ({navigation}) => {
         isFinish: level === levelFinal,
       });
     } else {
+      setWasPaint(undefined);
       if (exercise.questions[step].isCreateAlternatives) {
         let copyArray = null;
         if (exercise.questions[step].idAnswerQuestion) {
