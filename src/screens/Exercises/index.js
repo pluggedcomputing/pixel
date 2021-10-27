@@ -134,7 +134,6 @@ const Exercises = ({navigation}) => {
         isFinish: level === levelFinal,
       });
     } else {
-      setWasPaint(undefined);
       if (exercise.questions[step].isCreateAlternatives) {
         let copyArray = null;
         if (exercise.questions[step].idAnswerQuestion) {
@@ -274,6 +273,9 @@ const Exercises = ({navigation}) => {
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
           answerAgain={firstClickButton}
+          sizeAlternatives={
+            !question.alternatives ? 0 : question.alternatives.length
+          }
         />
       </View>
       <BoxAlternative

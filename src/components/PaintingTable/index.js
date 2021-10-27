@@ -259,8 +259,8 @@ PaintingTable.defaultProps = {
   setAnswerPaint: () => {},
   isDemonstration: false,
   lackRowPixel: null,
-  setClickButtonFirst: () => {},
-  minPaintPixel: 4,
+  setClickButtonFirst: () => undefined,
+  minPaintPixel: 1,
 };
 
 export default PaintingTable;
