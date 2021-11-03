@@ -144,7 +144,7 @@ BoxBackground.propTypes = {
   setNextQuestion: PropTypes.func,
   scrollEnabled: PropTypes.bool,
   answerAgain: PropTypes.bool.isRequired,
-  sizeAlternatives: ProcessingInstruction.bool,
+  sizeAlternatives: PropTypes.number,
 };
 
 BoxBackground.defaultProps = {
@@ -155,6 +155,6 @@ BoxBackground.defaultProps = {
   nextQuestion: false,
   setNextQuestion: () => {},
   scrollEnabled: false,
-  sizeAlternatives: false,
+  sizeAlternatives: 0,
 };
 export default BoxBackground;
