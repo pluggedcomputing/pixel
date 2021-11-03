@@ -1,4 +1,4 @@
-const translateRunLenghtCode = (lineBinaryCodeOrigin) => {
+const translateRunLenghtCode = (lineBinaryCodeOrigin, isColorFul) => {
   const lineBinaryCodeList = [];
   const auxLineBinary = [...lineBinaryCodeOrigin];
 
@@ -15,14 +15,15 @@ const translateRunLenghtCode = (lineBinaryCodeOrigin) => {
   let count = 1;
   let lastColor = lineBinaryCode.shift();
 
-  if (lastColor === 0) {
+  if (lastColor === 0 && !isColorFul) {
     translate.push(0);
   }
 
   while (lineBinaryCode.length !== 0) {
     const currentColor = lineBinaryCode.shift();
     if (currentColor !== lastColor) {
-      translate.push(count);
+      const value = isColorFul ? `${count}-${lastColor}` : count;
+      translate.push(value);
       count = 1;
       lastColor = currentColor;
     } else {
@@ -30,7 +31,8 @@ const translateRunLenghtCode = (lineBinaryCodeOrigin) => {
     }
   }
 
-  translate.push(count);
+  const value = isColorFul ? `${count}-${lastColor}` : count;
+  translate.push(value);
   return translate;
 };
 
