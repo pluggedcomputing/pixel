@@ -54,6 +54,11 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * WIDTH_PORCENTAGE,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
   },
+  subContainerBoxContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: metrics.screenWidth * 0.8,
+  },
 });
 
 export default styles;

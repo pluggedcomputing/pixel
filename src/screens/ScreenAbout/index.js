@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 
 import logo from '../../assets/images/logo_grey.png';
+import order from '../../assets/images/orderApp.png';
+import pixel from '../../assets/images/pixelApp.png';
 import site from '../../assets/images/site.png';
 import tank from '../../assets/images/tank_white.png';
 import BoxBackground from '../../components/BoxBackground/index';
-import {colors} from '../../styles';
+import {colors, metrics} from '../../styles';
 import styles from './styles';
 
 function ScreenAbout() {
@@ -56,6 +58,36 @@ function ScreenAbout() {
         }}>
         <Image source={site} style={styles.imgSite} />
       </TouchableOpacity>
+    </View>,
+    <View style={styles.viewBoxContent}>
+      <Text style={styles.textContent}>
+        Conheça nossos outros Apps. Você pode baixa-lós através das imangens
+        abaixo.
+      </Text>
+      <View style={styles.subContainerBoxContent}>
+        <TouchableOpacity
+          onPress={() => {
+            Linking.openURL(
+              'https://play.google.com/store/apps/details?id=com.pluggedcomputing.mobile',
+            );
+          }}>
+          <Image
+            source={pixel}
+            style={[styles.imgSite, {width: metrics.screenWidth * 0.4}]}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Linking.openURL(
+              'https://play.google.com/store/apps/details?id=br.ufpb.dcx.computacaoplugada.sortingalgorithms',
+            );
+          }}>
+          <Image
+            source={order}
+            style={[styles.imgSite, {width: metrics.screenWidth * 0.4}]}
+          />
+        </TouchableOpacity>
+      </View>
     </View>,
   ];
   return (

@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 import {colors, fonts, metrics} from '../../styles';
 
-const HEIGHT_PORCENTAGE = 0.16;
+const HEIGHT_PORCENTAGE = 0.12;
 
 const styles = StyleSheet.create({
   container: {
@@ -114,6 +114,10 @@ const styles = StyleSheet.create({
     width: metrics.screenHeight * HEIGHT_PORCENTAGE,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
     alignSelf: 'center',
+  },
+  titleWeb: {
+    color: colors.colorPrimary,
+    textDecorationLine: 'underline',
   },
 });
 
