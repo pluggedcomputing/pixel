@@ -27,7 +27,7 @@ const Exercises = ({navigation}) => {
   const [listQuestionReleased, setListQuestionReleased] = useState([]);
   const {level, congratulations} = response;
   const [contentCurrent, setContentCurrent] = useState([]);
-  const [wasPaint, setWasPaint] = useState(false);
+  const [wasPaint, setWasPaint] = useState(true);
   const levelFinal = 4;
   const [firstClickButton, setFirstClickButton] = useState(false);
   const mountListPermissions = () => {
@@ -62,15 +62,14 @@ const Exercises = ({navigation}) => {
     );
   };
 
-  const translateToCode = (auxAnswerPaint) => {
-    return auxAnswerPaint.map((item) => translateRunLenghtCode(item));
+  const translateToCode = (auxAnswerPaint, isColor) => {
+    return auxAnswerPaint.map((item) => translateRunLenghtCode(item, isColor));
   };
 
   const updateAnswer = () => {
     const auxAnswerPaint = exercise.questions[step].isContentReduced
-      ? translateToCode(answerPaint)
+      ? translateToCode(answerPaint, exercise.questions[step].isColorFul)
       : answerPaint;
-
     const objectRealeased = findById(exercise.questions[step].id);
     const index = listQuestionReleased.indexOf(objectRealeased);
     objectRealeased.permission = true;
@@ -102,7 +101,6 @@ const Exercises = ({navigation}) => {
 
   const getAnswerPaint = () => {
     const objectRealeased = findById(exercise.questions[step].id);
-
     if (objectRealeased === undefined)
       return exercise.questions[step].paintContent;
 
@@ -138,7 +136,6 @@ const Exercises = ({navigation}) => {
         let copyArray = null;
         if (exercise.questions[step].idAnswerQuestion) {
           const objectRealeased = findById(exercise.questions[step].id);
-
           copyArray = JSON.parse(
             JSON.stringify(objectRealeased.answerDrawPaint),
           );
@@ -152,6 +149,7 @@ const Exercises = ({navigation}) => {
           copyArray,
           exercise.questions[step].isContentReduced,
           true,
+          exercise.questions[step].isColorFul,
         );
       }
 
@@ -197,6 +195,11 @@ const Exercises = ({navigation}) => {
             invisibleRow={question.invisibleRow}
             paintingFreely={question.paintingFreely}
             lackRowPixel={question.lackRowPixel}
+            isColorFul={
+              exercise.questions[step]
+                ? exercise.questions[step].isColorFul
+                : false
+            }
           />
         );
       default:
@@ -273,6 +276,9 @@ const Exercises = ({navigation}) => {
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
           answerAgain={firstClickButton}
+          sizeAlternatives={
+            !question.alternatives ? 0 : question.alternatives.length
+          }
         />
       </View>
       <BoxAlternative

@@ -18,8 +18,8 @@ const BoxBackground = (props) => {
     nextQuestion,
     setNextQuestion,
     scrollEnabled,
-    answerCorrect,
     answerAgain,
+    sizeAlternatives,
   } = props;
   const [pagination, setPagination] = useState(0);
   const [offset, setOffset] = useState(0);
@@ -34,6 +34,7 @@ const BoxBackground = (props) => {
   useEffect(() => {
     if (flatListRef !== null && updatePage !== null) {
       flatListRef.scrollToIndex({index: 0});
+      setFocusInit(0);
     }
   }, [updatePage]);
 
@@ -43,9 +44,7 @@ const BoxBackground = (props) => {
       setPagination(indexNext);
       flatListRef.scrollToIndex({index: indexNext});
       setNextQuestion(false);
-      if (checkStateAnswer) {
-        setFocusInit(0);
-      }
+      setFocusInit(0);
     }
   }, [nextQuestion]);
 
@@ -61,13 +60,12 @@ const BoxBackground = (props) => {
       }
     } else if (currentOffset > offset && !scrollEnabled) {
       flatListRef.scrollToIndex({index: pagination});
-      if (focusInit < maxValueProgress) {
-        setTimeout(() => {
-          setFocusInit(focusInit + 1);
-        }, waitingTime);
-      }
 
-      if (!answerCorrect && answerCorrect !== undefined && !modalAlert) {
+      setTimeout(() => {
+        setFocusInit(focusInit + 1);
+      }, waitingTime);
+
+      if (!modalAlert) {
         setModalAlert(true);
       }
     } else if (!scrollEnabled && currentOffset < offset) {
@@ -104,7 +102,7 @@ const BoxBackground = (props) => {
   return (
     <View style={[styles.container, style]}>
       <AlertCustom
-        visible={modalAlert && checkStateAnswer}
+        visible={modalAlert && checkStateAnswer && sizeAlternatives > 1}
         setVisibleFunc={setModalAlert}
         answerAgain={answerAgain}
       />
@@ -146,8 +144,8 @@ BoxBackground.propTypes = {
   nextQuestion: PropTypes.bool,
   setNextQuestion: PropTypes.func,
   scrollEnabled: PropTypes.bool,
-  answerCorrect: PropTypes.bool,
   answerAgain: PropTypes.bool.isRequired,
+  sizeAlternatives: PropTypes.number,
 };
 
 BoxBackground.defaultProps = {
@@ -158,6 +156,6 @@ BoxBackground.defaultProps = {
   nextQuestion: false,
   setNextQuestion: () => {},
   scrollEnabled: false,
-  answerCorrect: false,
+  sizeAlternatives: 0,
 };
 export default BoxBackground;

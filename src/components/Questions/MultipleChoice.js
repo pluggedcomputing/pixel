@@ -69,11 +69,12 @@ MultipleChoice.propTypes = {
   setSteps: PropTypes.func.isRequired,
   setCorrectAnswer: PropTypes.func.isRequired,
   isAnswer: PropTypes.bool,
-  enableAlternatives: PropTypes.bool.isRequired,
+  enableAlternatives: PropTypes.bool,
 };
 
 MultipleChoice.defaultProps = {
   isAnswer: false,
+  enableAlternatives: undefined,
 };
 
 export default MultipleChoice;
