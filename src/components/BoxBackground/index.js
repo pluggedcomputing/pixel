@@ -28,6 +28,7 @@ const BoxBackground = (props) => {
   const [focusInit, setFocusInit] = useState(0);
   const maxValueProgress = 2;
   const checkStateAnswer = focusInit === maxValueProgress;
+  const waitingTime = 60;
   let flatListRef = null;
 
   useEffect(() => {
@@ -60,9 +61,9 @@ const BoxBackground = (props) => {
     } else if (currentOffset > offset && !scrollEnabled) {
       flatListRef.scrollToIndex({index: pagination});
 
-      if (focusInit < maxValueProgress) {
+      setTimeout(() => {
         setFocusInit(focusInit + 1);
-      }
+      }, waitingTime);
 
       if (!modalAlert) {
         setModalAlert(true);
