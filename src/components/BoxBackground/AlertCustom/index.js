@@ -12,7 +12,7 @@ const AlertCustom = (props) => {
     if (visible) {
       setTimeout(() => {
         setVisibleFunc(false);
-      }, 1200);
+      }, 1500);
     }
   }, [visible]);
 
