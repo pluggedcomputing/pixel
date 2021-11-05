@@ -19,22 +19,17 @@ const BoxBackground = (props) => {
     setNextQuestion,
     scrollEnabled,
     answerAgain,
-    sizeAlternatives,
   } = props;
   const [pagination, setPagination] = useState(0);
   const [offset, setOffset] = useState(0);
   const [isEndPage, setIsEndPage] = useState(false);
   const [modalAlert, setModalAlert] = useState(false);
-  const [focusInit, setFocusInit] = useState(0);
-  const maxValueProgress = 2;
-  const checkStateAnswer = focusInit === maxValueProgress;
-  const waitingTime = 60;
+
   let flatListRef = null;
 
   useEffect(() => {
     if (flatListRef !== null && updatePage !== null) {
       flatListRef.scrollToIndex({index: 0});
-      setFocusInit(0);
     }
   }, [updatePage]);
 
@@ -44,7 +39,6 @@ const BoxBackground = (props) => {
       setPagination(indexNext);
       flatListRef.scrollToIndex({index: indexNext});
       setNextQuestion(false);
-      setFocusInit(0);
     }
   }, [nextQuestion]);
 
@@ -61,11 +55,7 @@ const BoxBackground = (props) => {
     } else if (currentOffset > offset && !scrollEnabled) {
       flatListRef.scrollToIndex({index: pagination});
 
-      setTimeout(() => {
-        setFocusInit(focusInit + 1);
-      }, waitingTime);
-
-      if (!modalAlert) {
+      if (!modalAlert && getIndexCard(event) > pagination) {
         setModalAlert(true);
       }
     } else if (!scrollEnabled && currentOffset < offset) {
@@ -73,12 +63,16 @@ const BoxBackground = (props) => {
     }
   };
 
-  const changePaginationIndex = (event, direction) => {
+  const getIndexCard = (event) => {
     const {contentOffset} = event.nativeEvent;
 
     const viewSize = event.nativeEvent.layoutMeasurement;
 
-    const index = Math.round(contentOffset.x / viewSize.width);
+    return contentOffset.x / viewSize.width;
+  };
+
+  const changePaginationIndex = (event, direction) => {
+    const index = Math.round(getIndexCard(event));
 
     setIsEndPage(false);
 
@@ -86,7 +80,6 @@ const BoxBackground = (props) => {
       (direction && index > pagination) ||
       (!direction && index < pagination)
     ) {
-      setFocusInit(0);
       setSteps(index);
       setPagination(index);
     }
@@ -102,7 +95,7 @@ const BoxBackground = (props) => {
   return (
     <View style={[styles.container, style]}>
       <AlertCustom
-        visible={modalAlert && checkStateAnswer && sizeAlternatives > 1}
+        visible={modalAlert}
         setVisibleFunc={setModalAlert}
         answerAgain={answerAgain}
       />
@@ -145,7 +138,6 @@ BoxBackground.propTypes = {
   setNextQuestion: PropTypes.func,
   scrollEnabled: PropTypes.bool,
   answerAgain: PropTypes.bool.isRequired,
-  sizeAlternatives: PropTypes.number,
 };
 
 BoxBackground.defaultProps = {
@@ -156,6 +148,5 @@ BoxBackground.defaultProps = {
   nextQuestion: false,
   setNextQuestion: () => {},
   scrollEnabled: false,
-  sizeAlternatives: 0,
 };
 export default BoxBackground;

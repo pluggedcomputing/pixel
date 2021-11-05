@@ -276,9 +276,6 @@ const Exercises = ({navigation}) => {
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
           answerAgain={firstClickButton}
-          sizeAlternatives={
-            !question.alternatives ? 0 : question.alternatives.length
-          }
         />
       </View>
       <BoxAlternative
