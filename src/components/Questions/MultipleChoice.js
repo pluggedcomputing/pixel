@@ -4,6 +4,7 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 
 import ChoiceButton from '../ChoiceButton';
+import AlertCustom from './AlertCustom';
 import styles from './styles';
 
 const MultipleChoice = (props) => {
@@ -17,6 +18,7 @@ const MultipleChoice = (props) => {
   } = props;
 
   const [alternativesShuffle, setAlternativesShuffle] = useState([]);
+  const [modalAlert, setModalAlert] = useState(false);
 
   const shufflerArray = (array) => {
     const shuffleArray = array;
@@ -40,6 +42,7 @@ const MultipleChoice = (props) => {
 
   return (
     <View style={styles.container}>
+      <AlertCustom visible={modalAlert} setVisibleFunc={setModalAlert} />
       {alternativesShuffle.map((item) => (
         <ChoiceButton
           key={item.text}
@@ -54,6 +57,7 @@ const MultipleChoice = (props) => {
               setSteps(step + 1);
             } else {
               setCorrectAnswer(undefined);
+              setModalAlert(true);
             }
           }}
           light

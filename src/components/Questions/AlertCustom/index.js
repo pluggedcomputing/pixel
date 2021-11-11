@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const AlertCustom = (props) => {
-  const {visible, setVisibleFunc, answerAgain} = props;
+  const {visible, setVisibleFunc} = props;
 
   useEffect(() => {
     if (visible) {
       setTimeout(() => {
         setVisibleFunc(false);
-      }, 1200);
+      }, 1500);
     }
   }, [visible]);
 
@@ -27,11 +27,7 @@ const AlertCustom = (props) => {
         }}>
         <View style={styles.container}>
           <View style={styles.boxContainer}>
-            <Text>
-              {answerAgain
-                ? 'Tente outra vez'
-                : 'Tente responder antes de continuar'}
-            </Text>
+            <Text> Tente outra vez</Text>
           </View>
         </View>
       </Modal>
@@ -42,7 +38,6 @@ const AlertCustom = (props) => {
 AlertCustom.propTypes = {
   visible: PropTypes.bool.isRequired,
   setVisibleFunc: PropTypes.func.isRequired,
-  answerAgain: PropTypes.bool.isRequired,
 };
 
 export default AlertCustom;

@@ -9,8 +9,7 @@ import {
 } from 'react-native';
 
 import logo from '../../assets/images/logo_grey.png';
-import order from '../../assets/images/orderApp.png';
-import pixel from '../../assets/images/pixelApp.png';
+import apps from '../../assets/images/logo_name.png';
 import site from '../../assets/images/site.png';
 import tank from '../../assets/images/tank_white.png';
 import BoxBackground from '../../components/BoxBackground/index';
@@ -66,26 +65,30 @@ function ScreenAbout() {
       </Text>
       <View style={styles.subContainerBoxContent}>
         <TouchableOpacity
+          style={styles.btnApps}
           onPress={() => {
             Linking.openURL(
               'https://play.google.com/store/apps/details?id=com.pluggedcomputing.mobile',
             );
           }}>
           <Image
-            source={pixel}
-            style={[styles.imgSite, {width: metrics.screenWidth * 0.4}]}
+            source={apps}
+            style={[styles.imgSite, {width: metrics.screenWidth * 0.2}]}
           />
+          <Text>Binários</Text>
         </TouchableOpacity>
         <TouchableOpacity
+          style={styles.btnApps}
           onPress={() => {
             Linking.openURL(
               'https://play.google.com/store/apps/details?id=br.ufpb.dcx.computacaoplugada.sortingalgorithms',
             );
           }}>
           <Image
-            source={order}
-            style={[styles.imgSite, {width: metrics.screenWidth * 0.4}]}
+            source={apps}
+            style={[styles.imgSite, {width: metrics.screenWidth * 0.2}]}
           />
+          <Text>Ordenação</Text>
         </TouchableOpacity>
       </View>
     </View>,

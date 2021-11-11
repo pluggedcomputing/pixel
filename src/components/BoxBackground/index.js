@@ -5,7 +5,6 @@ import {ProgressBar} from 'react-native-paper';
 import PropTypes from 'prop-types';
 
 import {colors} from '../../styles';
-import AlertCustom from './AlertCustom';
 import styles from './styles';
 
 const BoxBackground = (props) => {
@@ -18,12 +17,10 @@ const BoxBackground = (props) => {
     nextQuestion,
     setNextQuestion,
     scrollEnabled,
-    answerAgain,
   } = props;
   const [pagination, setPagination] = useState(0);
   const [offset, setOffset] = useState(0);
   const [isEndPage, setIsEndPage] = useState(false);
-  const [modalAlert, setModalAlert] = useState(false);
 
   let flatListRef = null;
 
@@ -54,10 +51,6 @@ const BoxBackground = (props) => {
       }
     } else if (currentOffset > offset && !scrollEnabled) {
       flatListRef.scrollToIndex({index: pagination});
-
-      if (!modalAlert && getIndexCard(event) > pagination) {
-        setModalAlert(true);
-      }
     } else if (!scrollEnabled && currentOffset < offset) {
       changePaginationIndex(event, currentOffset > offset);
     }
@@ -94,11 +87,6 @@ const BoxBackground = (props) => {
 
   return (
     <View style={[styles.container, style]}>
-      <AlertCustom
-        visible={modalAlert}
-        setVisibleFunc={setModalAlert}
-        answerAgain={answerAgain}
-      />
       <FlatList
         ref={(ref) => {
           flatListRef = ref;
@@ -137,7 +125,6 @@ BoxBackground.propTypes = {
   nextQuestion: PropTypes.bool,
   setNextQuestion: PropTypes.func,
   scrollEnabled: PropTypes.bool,
-  answerAgain: PropTypes.bool.isRequired,
 };
 
 BoxBackground.defaultProps = {
