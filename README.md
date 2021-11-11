@@ -46,6 +46,12 @@ Esperamos que você siga nosso [Código de Conduta](/.github/CODE_OF_CONDUCT.md)
 - Na pasta raiz do projeto, instale as dependencia: `yarn ou npm install`
 - Execute o projeto no emulador android: `yarn android`
 
+## Rodando Testes
+
+1. Vá para o arquivo de testes `__tests__`.
+2. Executar um teste específico `yarn test nome_do_arquivo` <br/>
+   OU Executar todos os testes `yarn test`.
+
 ## Gerando versões
 
 ### Versão de produção:
