@@ -50,9 +50,21 @@ const styles = StyleSheet.create({
   },
   imgSite: {
     resizeMode: 'center',
-    marginTop: metrics.doubleBaseMargin,
     width: metrics.screenWidth * WIDTH_PORCENTAGE,
-    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    height: metrics.screenHeight * 0.1,
+  },
+  subContainerBoxContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: metrics.baseMargin,
+    width: metrics.screenWidth * 0.6,
+  },
+  btnApps: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: metrics.basePadding,
+    backgroundColor: colors.colorSecondaryLight,
+    elevation: metrics.baseElevation,
   },
 });
 

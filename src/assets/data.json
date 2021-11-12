@@ -9,66 +9,87 @@
           "id": 1,
           "text": "Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? A seguir, entenderemos melhor.",
           "img": "l1q1",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 2,
           "text": "As telas dos computadores são dividas em uma grade de pequenos quadrados, podendo ser cada um de uma cor específica. Chamamos esses quadrados de elementos de imagem ou pixels",
           "img": "l1q2",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 3,
           "text": "Em uma imagem em preto e branco, cada pixel pode ser preto ou branco, então tudo que o computador precisa armazenar é quais pontos são pretos e quais são brancos.",
           "img": "l1q3",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 4,
           "text": "Uma imagem correspondente à letra C, por exemplo, poderia ser representada com números binários (bits). Se o 1 indica um quadrado branco e o 0 indica um quadrado preto, então poderíamos ter uma grade de 5x6 pixels como a ilustrada abaixo:",
           "img": "l1q4",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
+        },
+        {
+          "id": 12,
+          "type": "paintingtable",
+          "enable": true,
+          "invisibleRow": null,
+          "text": "Pinte os pixels abaixo de preto ou branco clicando em cada um deles e veja o código dos bits correspondentes.",
+          "row": 1,
+          "column": 5,
+          "isContentReduced": false,
+          "paintingFreely": false,
+          "isDemonstration": true,
+          "paintContent": [[0, 0, 0, 0, 0]],
+          "alternatives": [ ]
+        },
+        {
+          "id": 13,
+          "type": "paintingtable",
+          "enable": false,
+          "invisibleRow": [0],
+          "text": "A sequência de pixels abaixo pode ser representado por qual código?",
+          "row": 1,
+          "column": 5,
+          "isContentReduced": false,
+          "paintingFreely": false,
+          "isDemonstration": false,
+          "paintContent": [ [1, 0, 1, 0, 1]],
+          "alternatives": [],
+          "isCreateAlternatives": true
         },
         {
           "type": "none",
           "id": 5,
           "text": "Você já viu um aparelho de fac-símile (fax)? Esse aparelho era muito utilizado antigamente para o envio de documentos em preto e branco.",
           "img": "l1q5",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "id": 6,
           "type": "none",
           "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha e identifica os pontos brancos ou não e armazena essa informação em aproximadamente 1000 × 2000 pixels, que são transmitidos para outra máquina de fax utilizando a rede de telefonia.",
           "img": null,
-          "imgFormat": "",
-          "enableScroll": true
+          "imgFormat": ""
         },
         {
           "id": 7,
           "type": "none",
           "text": "Quando a outra máquina de fax recebe a mensagem, ela imprime os pixels em uma página.",
           "img": "l1q7",
-          "imgFormat": "img",
-          "enableScroll": true
+          "imgFormat": "img"
         },
         {
           "id": 8,
           "type": "multiplechoice",
           "enable": false,
-          "invisibleRow": -1,
+          "invisibleRow": null,
           "text": "Como você acha que eram codificadas as mensagens enviadas através de uma máquina de fax?",
           "img": null,
           "imgFormat": "",
-          "enableScroll": true,
           "paintContent": [],
           "alternatives": [
             {
@@ -88,18 +109,16 @@
           "id": 9,
           "text": "Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.",
           "img": null,
-          "imgFormat": "",
-          "enableScroll": true
+          "imgFormat": ""
         },
         {
           "id": 10,
           "type": "multiplechoice",
           "enable": false,
-          "invisibleRow": -1,
+          "invisibleRow": null,
           "text": "Considerando o que foi apresentado, responda: O que as máquinas de fax fazem?",
           "img": null,
           "imgFormat": "",
-          "enableScroll": false,
           "paintContent": [],
           "alternatives": [
             {
@@ -149,18 +168,19 @@
         {
           "id": 3,
           "type": "paintingtable",
-          "invisibleRow": -1,
+          "invisibleRow": null,
           "enable": true,
+          "minPaintPixel": 1,
+          "lackRowPixel": null,
           "paintingFreely": false,
           "text": "Agora vamos praticar? Pinte a imagem representada pelos códigos abaixo. Lembre-se de que o 1 é branco e o 0 é preto.",
-          "row": 6,
+          "row": 5,
           "column": 5,
           "isContentReduced": false,
           "paintContent": [
             [1, 0, 0, 0, 0],
             [1, 0, 1, 1, 0],
             [1, 0, 0, 0, 0],
-            [1, 0, 1, 1, 1],
             [1, 0, 1, 1, 1],
             [1, 0, 1, 1, 1]
           ],
@@ -191,14 +211,15 @@
           "id": 4,
           "type": "paintingtable",
           "enable": true,
-          "invisibleRow": -1,
+          "minPaintPixel": 1,
+          "invisibleRow": null,
+          "lackRowPixel": null,
           "text": "Vamos praticar? Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida",
-          "row": 6,
+          "row": 5,
           "column": 5,
           "isContentReduced": false,
           "paintContent": [
           [1, 0, 0, 0, 1],
-          [0, 1, 1, 1, 1],
           [0, 1, 1, 1, 1],
           [0, 1, 0, 0, 1],
           [0, 1, 1, 0, 1],
@@ -231,7 +252,7 @@
           "id": 5,
           "type": "paintingtable",
           "enable": false,
-          "invisibleRow": 4,
+          "invisibleRow": [4],
           "text": "Agora tente descobrir qual é a linha que está faltando para completar o desenho da letra W?",
           "row": 5,
           "column": 5,
@@ -282,7 +303,7 @@
         {
           "type": "none",
           "id": 2,
-          "text": "Podemos, porém, utilizar uma representação mais reduzida,  chamada de ‘run-length coding’, gastando menos memória e menos tempo de transmissão.",
+          "text": "Podemos, porém, utilizar uma representação mais comprimida, chamada de ‘run-length coding’, gastando menos espaço e menos tempo de transmissão.",
           "img": "l3q2",
           "imgFormat": "img"
         },
@@ -307,13 +328,12 @@
           "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos.",
           "img": null,
           "imgFormat": "",
-          "row": 6,
+          "row": 5,
           "column": 5,
           "isContentReduced": true,
           "hasConverted": true,
           "paintContent": [
             [0,5],
-            [2, 1, 2],
             [2, 1, 2],
             [2, 1, 2],
             [2, 1, 2],
@@ -324,14 +344,15 @@
           "id": 5,
           "type": "paintingtable",
           "enable": true,
-          "invisibleRow": -1,
+          "invisibleRow": null,
           "text": "Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.",
-          "row": 6,
+          "row": 5,
           "column": 5,
+          "minPaintPixel": 1,
           "isContentReduced": true,
           "hasConverted": true,
+          "isColorFul": false,
           "paintContent": [
-            [1, 1, 3],
             [1, 1, 3],
             [1, 1, 3],
             [1, 1, 3],
@@ -361,19 +382,103 @@
             }
           ]
         },
-        {
+         {
           "id": 6,
           "type": "paintingtable",
+          "enable": true,
+          "invisibleRow": null,
+          "text": "Ajuste os pixels da imagem abaixo de acordo com os códigos indicados. Qual a letra que está sendo representada?",
+          "row": 5,
+          "column": 5,
+          "lackRowPixel": [{"excerptsColumn":[0, 1, 3], "row":0}, {"excerptsColumn":[4], "row":1}, {"excerptsColumn":[4], "row":3}, {"excerptsColumn":[0, 4], "row":4}],
+          "isContentReduced": true,
+          "hasConverted": true,
+          "minPaintPixel": 1,
+          "paintContent": [
+            [0, 4, 1],
+            [0, 1, 3, 1],
+            [0, 1, 3, 1],
+            [0, 1, 3, 1],
+            [0, 4, 1]
+          ],
+
+          "alternatives": [
+            {
+              "id": 1,
+              "text": "Q",
+              "correct": false
+            },
+            {
+              "id": 2,
+              "text": "D",
+              "correct": true
+            },
+            {
+              "id": 3,
+              "text": "P",
+              "correct": false
+            },
+            {
+              "id": 4,
+              "text": "G",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "type": "paintingtable",
+          "enable": true,
+          "minPaintPixel": 1,
+          "text": "Qual a letra representada pelos códigos abaixo?",
+          "row": 5,
+          "column": 5,
+          "lackRowPixel": [{"excerptsColumn":[0, 4], "row":0}, {"excerptsColumn":[0, 4], "row":1}, {"excerptsColumn":[3], "row":3}, {"excerptsColumn":[0], "row":4}, {"excerptsColumn":[0], "row":5}],
+          "isContentReduced": true,
+          "hasConverted": true,
+          "paintContent": [
+            [0, 5],
+            [0, 1, 3, 1],
+            [0, 4, 1],
+            [0, 1, 3, 1],
+            [0, 1, 3, 1]
+          ],
+
+          "alternatives": [
+            {
+              "id": 1,
+              "text": "H",
+              "correct": false
+            },
+            {
+              "id": 2,
+              "text": "R",
+              "correct": true
+            },
+            {
+              "id": 3,
+              "text": "Q",
+              "correct": false
+            },
+            {
+              "id": 4,
+              "text": "A",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "type": "paintingtable",
           "enable": false,
-          "invisibleRow": 4,
-          "text": "Como você representaria a penúltima linha da imagem abaixo?",
-          "row": 6,
+          "invisibleRow": [4],
+          "text": "Como você representaria a última linha da imagem abaixo?",
+          "row": 5,
           "column": 5,
           "isContentReduced": true,
           "hasConverted": true,
           "paintContent": [
             [1, 3, 1],
-            [2, 1, 2],
             [2, 1, 2],
             [2, 1, 2],
             [0, 1, 1, 1, 2],
@@ -404,10 +509,11 @@
           ]
         },
         {
-          "id": 7,
+          "id": 9,
           "type": "paintingtable",
           "enable": true,
-          "invisibleRow": -1,
+          "minPaintPixel": 1,
+          "invisibleRow": null,
           "text": "Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.",
           "row": 5,
           "column": 5,
@@ -475,13 +581,14 @@
           "id": 4,
           "type": "paintingtable",
           "enable": true,
-          "invisibleRow": -1,
+          "invisibleRow": null,
           "paintingFreely": true,
           "text": "Que tal desenhar você mesmo e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.",
           "paintContent": [],
-          "row": 6,
+          "row": 5,
           "isContentReduced": true,
           "hasConverted": true,
+          "isColorFul": false,
           "column": 5,
           "alternatives": [
             {
@@ -495,12 +602,13 @@
           "id": 5,
           "type": "paintingtable",
           "enable": false,
-          "invisibleRow": 0,
+          "invisibleRow": [0],
           "text": "Selecione a sequência que represente a primeira linha de sua foto",
           "paintingFreely": false,
           "isContentReduced": true,
           "hasConverted": true,
-          "row": 6,
+          "idAnswerQuestion": 4,
+          "row": 5,
           "column": 5,
           "paintContent": [],
           "alternatives": [],
@@ -510,16 +618,47 @@
           "type": "none",
           "id": 6,
           "enable": false,
-          "text": "Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê- las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.",
+          "text": "Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê-las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.",
           "img": null,
-          "imgFormat": "",
+          "imgFormat": ""
+        },
+        {
+          "id": 7,
+          "type": "paintingtable",
+          "enable": true,
+          "invisibleRow": null,
+          "paintingFreely": true,
+          "text": "Que tal agora desenhar com cores e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.",
+          "paintContent": [],
+          "row": 5,
+          "isContentReduced": true,
+          "isColorFul": true,
+          "hasConverted": true,
+          "column": 5,
           "alternatives": [
             {
               "id": 1,
-              "text": "Finalizar",
+              "text": "Concluir",
               "correct": true
             }
           ]
+        },
+        {
+          "id": 8,
+          "type": "paintingtable",
+          "enable": false,
+          "invisibleRow": [0],
+          "text": "Selecione a sequência que represente a primeira linha de sua foto",
+          "paintingFreely": false,
+          "isContentReduced": true,
+          "isColorFul": true,
+          "hasConverted": true,
+          "idAnswerQuestion": 4,
+          "row": 5,
+          "column": 5,
+          "paintContent": [],
+          "alternatives": [],
+          "isCreateAlternatives": true
         }
       ]
     }

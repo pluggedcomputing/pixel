@@ -75,3 +75,11 @@ const alternativesAreDifferent = (result) => {
   }
   return true;
 };
+
+test('deve traduzir [2, 2, 2, 3, 1] para run lenght code colorful', () => {
+  const lineBinaryCode = [[2, 2, 2, 3, 1]];
+  const result = generateAlternatives(lineBinaryCode, true, false, true);
+  console.log(result);
+  expect(result[0].text).toBe('3-2,1-3,1-1');
+  expect(alternativesAreDifferent(result)).toBeTruthy();
+});

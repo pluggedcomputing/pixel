@@ -4,12 +4,21 @@ import {View} from 'react-native';
 import PropTypes from 'prop-types';
 
 import ChoiceButton from '../ChoiceButton';
+import AlertCustom from './AlertCustom';
 import styles from './styles';
 
 const MultipleChoice = (props) => {
-  const {step, setSteps, alternatives, setCorrectAnswer, isAnswer} = props;
+  const {
+    step,
+    setSteps,
+    alternatives,
+    setCorrectAnswer,
+    isAnswer,
+    enableAlternatives,
+  } = props;
 
   const [alternativesShuffle, setAlternativesShuffle] = useState([]);
+  const [modalAlert, setModalAlert] = useState(false);
 
   const shufflerArray = (array) => {
     const shuffleArray = array;
@@ -33,6 +42,7 @@ const MultipleChoice = (props) => {
 
   return (
     <View style={styles.container}>
+      <AlertCustom visible={modalAlert} setVisibleFunc={setModalAlert} />
       {alternativesShuffle.map((item) => (
         <ChoiceButton
           key={item.text}
@@ -40,10 +50,14 @@ const MultipleChoice = (props) => {
           text={item.text.toString()}
           enable={isAnswer}
           correct={item.correct}
+          enableAlternatives={enableAlternatives}
           onPress={() => {
             if (item.correct) {
               setCorrectAnswer(true);
               setSteps(step + 1);
+            } else {
+              setCorrectAnswer(undefined);
+              setModalAlert(true);
             }
           }}
           light
@@ -59,10 +73,12 @@ MultipleChoice.propTypes = {
   setSteps: PropTypes.func.isRequired,
   setCorrectAnswer: PropTypes.func.isRequired,
   isAnswer: PropTypes.bool,
+  enableAlternatives: PropTypes.bool,
 };
 
 MultipleChoice.defaultProps = {
   isAnswer: false,
+  enableAlternatives: undefined,
 };
 
 export default MultipleChoice;

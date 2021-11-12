@@ -21,6 +21,7 @@ const BoxBackground = (props) => {
   const [pagination, setPagination] = useState(0);
   const [offset, setOffset] = useState(0);
   const [isEndPage, setIsEndPage] = useState(false);
+
   let flatListRef = null;
 
   useEffect(() => {
@@ -55,12 +56,16 @@ const BoxBackground = (props) => {
     }
   };
 
-  const changePaginationIndex = (event, direction) => {
+  const getIndexCard = (event) => {
     const {contentOffset} = event.nativeEvent;
 
     const viewSize = event.nativeEvent.layoutMeasurement;
 
-    const index = Math.round(contentOffset.x / viewSize.width);
+    return contentOffset.x / viewSize.width;
+  };
+
+  const changePaginationIndex = (event, direction) => {
+    const index = Math.round(getIndexCard(event));
 
     setIsEndPage(false);
 

@@ -32,11 +32,14 @@ const styles = StyleSheet.create({
     borderColor: colors.colorPrimary,
   },
   squareChoice: {
-    borderWidth: metrics.baseBorder + 0.5,
-    borderColor: colors.colorAccent,
+    borderWidth: metrics.baseBorder,
+    borderColor: colors.colorSecondaryDark,
   },
   squareColoring: {backgroundColor: colors.colorTextPrimary},
   discolorSquare: {backgroundColor: colors.colorSecondaryLight},
+  squareRed: {backgroundColor: colors.colorError},
+  squareGreen: {backgroundColor: colors.colorSucess},
+  squareBlue: {backgroundColor: colors.colorAccent},
   containerChoiceColor: {
     marginTop: metrics.smallMargin,
     flexDirection: 'row',
@@ -48,6 +51,14 @@ const styles = StyleSheet.create({
   containerFooter: {
     marginTop: metrics.baseMargin,
     width: metrics.screenWidth * 0.4,
+  },
+  containerTextModify: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  containerBoxColor: {
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 });
 

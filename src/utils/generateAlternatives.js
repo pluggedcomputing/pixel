@@ -14,6 +14,7 @@ const generateAlternatives = (
   lineBinaryCode,
   isTranslate,
   isTranslateCorrect,
+  isColorFul,
 ) => {
   if (!lineBinaryCode || lineBinaryCode.length === 0) return [];
   const alternatives = [];
@@ -23,7 +24,7 @@ const generateAlternatives = (
 
   alternatives.push(
     !isTranslateCorrect && isTranslate
-      ? translateRunLenghtCode(lineBinaryCode[0])
+      ? translateRunLenghtCode(lineBinaryCode[0], isColorFul)
       : lineBinaryCode[0],
   );
   alternativesObj.push({
@@ -34,7 +35,7 @@ const generateAlternatives = (
 
   while (alternatives.length !== maxAlternatives) {
     const nextAlternative = isTranslate
-      ? translateRunLenghtCode(randomRowValue(numColumns))
+      ? translateRunLenghtCode(randomRowValue(numColumns), isColorFul)
       : randomRowValue(numColumns);
     if (!alternativesContains(alternatives, nextAlternative)) {
       alternatives.push(nextAlternative);

@@ -19,7 +19,6 @@ const Exercises = ({navigation}) => {
   const [answerPaint, setAnswerPaint] = useState([]);
   const response = useRoute().params.data;
   const [exercise] = useState(response);
-  const positionQuestion = exercise.questions.length - 2;
   const [step, setSteps] = useState(0);
   const [question, setQuestion] = useState(exercise.questions[step]);
   const maxStep = exercise.questions.length;
@@ -28,8 +27,9 @@ const Exercises = ({navigation}) => {
   const [listQuestionReleased, setListQuestionReleased] = useState([]);
   const {level, congratulations} = response;
   const [contentCurrent, setContentCurrent] = useState([]);
+  const [wasPaint, setWasPaint] = useState(true);
   const levelFinal = 4;
-
+  const [firstClickButton, setFirstClickButton] = useState(false);
   const mountListPermissions = () => {
     const auxList = [];
 
@@ -62,15 +62,14 @@ const Exercises = ({navigation}) => {
     );
   };
 
-  const translateToCode = (auxAnswerPaint) => {
-    return auxAnswerPaint.map((item) => translateRunLenghtCode(item));
+  const translateToCode = (auxAnswerPaint, isColor) => {
+    return auxAnswerPaint.map((item) => translateRunLenghtCode(item, isColor));
   };
 
   const updateAnswer = () => {
     const auxAnswerPaint = exercise.questions[step].isContentReduced
-      ? translateToCode(answerPaint)
+      ? translateToCode(answerPaint, exercise.questions[step].isColorFul)
       : answerPaint;
-
     const objectRealeased = findById(exercise.questions[step].id);
     const index = listQuestionReleased.indexOf(objectRealeased);
     objectRealeased.permission = true;
@@ -102,13 +101,15 @@ const Exercises = ({navigation}) => {
 
   const getAnswerPaint = () => {
     const objectRealeased = findById(exercise.questions[step].id);
+    if (objectRealeased === undefined)
+      return exercise.questions[step].paintContent;
 
     const hasDrawPaint =
       objectRealeased.answerDrawPaint.length > 0 &&
       (objectRealeased.permission ||
         exercise.questions[step].isCreateAlternatives);
 
-    return hasDrawPaint
+    return hasDrawPaint && !question.isDemonstration
       ? objectRealeased.answerDrawPaint
       : exercise.questions[step].paintContent;
   };
@@ -132,17 +133,24 @@ const Exercises = ({navigation}) => {
       });
     } else {
       if (exercise.questions[step].isCreateAlternatives) {
-        const objectRealeased = findById(exercise.questions[step].id);
-        const copyArray = JSON.parse(
-          JSON.stringify(objectRealeased.answerDrawPaint),
-        );
-
-        exercise.questions[positionQuestion].alternatives =
-          generateAlternatives(
-            copyArray,
-            exercise.questions[positionQuestion].isContentReduced,
-            true,
+        let copyArray = null;
+        if (exercise.questions[step].idAnswerQuestion) {
+          const objectRealeased = findById(exercise.questions[step].id);
+          copyArray = JSON.parse(
+            JSON.stringify(objectRealeased.answerDrawPaint),
           );
+        } else {
+          copyArray = JSON.parse(
+            JSON.stringify(exercise.questions[step].paintContent),
+          );
+        }
+
+        exercise.questions[step].alternatives = generateAlternatives(
+          copyArray,
+          exercise.questions[step].isContentReduced,
+          true,
+          exercise.questions[step].isColorFul,
+        );
       }
 
       setQuestion(exercise.questions[step]);
@@ -177,13 +185,21 @@ const Exercises = ({navigation}) => {
         return (
           <PaintingTable
             setAnswerPaint={setAnswerPaint}
+            setClickButtonFirst={setWasPaint}
             content={contentCurrent}
             enable={checkEnablePaint()}
             isContentReduced={question.isContentReduced}
             row={question.row}
             column={question.column}
+            isDemonstration={question.isDemonstration}
             invisibleRow={question.invisibleRow}
             paintingFreely={question.paintingFreely}
+            lackRowPixel={question.lackRowPixel}
+            isColorFul={
+              exercise.questions[step]
+                ? exercise.questions[step].isColorFul
+                : false
+            }
           />
         );
       default:
@@ -223,44 +239,30 @@ const Exercises = ({navigation}) => {
   };
 
   const setAnswerCorrectInQuestion = (isCorrect) => {
+    if (!firstClickButton) {
+      setFirstClickButton(true);
+    }
     if (isCorrect) {
+      setFirstClickButton(false);
       setNextCard(true);
       updateAnswer();
     }
   };
 
   const getAlternativesContent = (listAlternatives) => {
-    let value = null;
-
     if (!listAlternatives) return null;
-
-    if (listAlternatives.length > 1) {
-      value = (
-        <View style={styles.contentContainerStyle}>
-          <MultipleChoice
-            step={step}
-            isAnswer={isAnswered()}
-            setSteps={setSteps}
-            alternatives={question.alternatives}
-            setCorrectAnswer={setAnswerCorrectInQuestion}
-          />
-        </View>
-      );
-    } else {
-      value = (
-        <View style={styles.contentContainerStyle}>
-          <MultipleChoice
-            step={step}
-            isAnswer={isAnswered()}
-            setSteps={setSteps}
-            alternatives={question.alternatives}
-            setCorrectAnswer={setAnswerCorrectInQuestion}
-          />
-        </View>
-      );
-    }
-
-    return value;
+    return (
+      <View style={styles.contentContainerStyle}>
+        <MultipleChoice
+          step={step}
+          isAnswer={isAnswered()}
+          setSteps={setSteps}
+          enableAlternatives={question.minPaintPixel ? wasPaint : true}
+          alternatives={question.alternatives}
+          setCorrectAnswer={setAnswerCorrectInQuestion}
+        />
+      </View>
+    );
   };
 
   return (
@@ -270,9 +272,10 @@ const Exercises = ({navigation}) => {
         <BoxBackground
           content={viewContent()}
           setSteps={setSteps}
-          scrollEnabled={isAnswered()}
+          scrollEnabled={isAnswered() || question.isDemonstration}
           nextQuestion={nextCard}
           setNextQuestion={setNextCard}
+          answerAgain={firstClickButton}
         />
       </View>
       <BoxAlternative

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 
@@ -15,11 +16,17 @@ const PaintingTable = (props) => {
     isContentReduced,
     paintingFreely,
     setAnswerPaint,
+    isDemonstration,
+    lackRowPixel,
+    setClickButtonFirst,
+    minPaintPixel,
+    isColorFul,
   } = props;
-  const [colorCurrent, setColorCurrent] = useState('P');
   const [columnCheck, setColumnChecked] = useState('');
   const [rowCheck, setRowChecked] = useState('');
   const [data, setData] = useState([]);
+  const colors = [0, 1, 2, 3, 4]; // "Red": 2, "Green",: 3 "Blue": 4, "Black": 0, "White": 1
+  const [colorFul, setcolorFul] = useState();
 
   const updateData = () => {
     setData(mountMatrixColorOrDefault());
@@ -27,14 +34,68 @@ const PaintingTable = (props) => {
 
   useEffect(() => {
     updateData();
+    setClickButtonFirst(undefined);
   }, [enable, content]);
 
+  const getColorfulCurrent = (currentColor) => {
+    if (isColorFul) {
+      return currentColor < 4 ? currentColor + 1 : 0;
+    }
+    return currentColor < 1 ? currentColor + 1 : 0;
+  };
+
+  const paintColorFul = (valueColor) => {
+    switch (valueColor) {
+      case 1:
+        return styles.discolorSquare;
+      case 2:
+        return styles.squareRed;
+      case 3:
+        return styles.squareGreen;
+      case 4:
+        return styles.squareBlue;
+      default:
+        return styles.squareColoring;
+    }
+  };
+
+  const mountSqureColor = () => {
+    if (isColorFul) {
+      return (
+        <View style={styles.containerFooter}>
+          <View style={styles.containerChoiceColor}>
+            {colors.map((item) => (
+              <View key={item} style={styles.containerBoxColor}>
+                <TouchableOpacity
+                  onPress={() => {
+                    choiceColorFul(item !== colorFul ? item : undefined);
+                  }}>
+                  <View
+                    style={[
+                      styles.square,
+                      paintColorFul(item),
+                      item !== colorFul ? null : styles.squareChoice,
+                    ]}
+                  />
+                </TouchableOpacity>
+                <Text>{item}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+    }
+
+    return null;
+  };
+
   const mountMatrixDefault = () => {
+    const numRow = isDemonstration ? 1 : row;
     const columns = [];
-    for (let i = 0; i < row; i += 1) {
+    for (let i = 0; i < numRow; i += 1) {
       const rows = [];
       for (let j = 0; j < column; j += 1) {
-        rows.push({key: j, color: 'B'});
+        rows.push(colors[1]);
       }
       columns.push(rows);
     }
@@ -47,7 +108,7 @@ const PaintingTable = (props) => {
     const answerDefault = [];
     contentData.forEach((item) => {
       const rows = item.map((dataValue) => {
-        return dataValue.color === 'B' ? 1 : 0;
+        return dataValue;
       });
       answerDefault.push(rows);
     });
@@ -55,26 +116,58 @@ const PaintingTable = (props) => {
     return answerDefault;
   };
 
+  const desablePixles = (
+    contentData,
+    indexRow,
+    indexElementColumn,
+    paintPixel,
+  ) => {
+    if (lackRowPixel) {
+      const colorDefault = colors[1];
+      const object = lackRowPixel.find(
+        (itemObject) => itemObject.row === indexRow,
+      );
+      const findIndex = object
+        ? object.excerptsColumn.includes(indexElementColumn)
+        : false;
+
+      if (findIndex) {
+        contentData[indexRow][indexElementColumn] = colorDefault;
+      } else {
+        contentData[indexRow][indexElementColumn] = paintPixel;
+      }
+    } else {
+      contentData[indexRow][indexElementColumn] = paintPixel;
+    }
+  };
+
   const mountMatrixColorOrDefault = () => {
+    let result;
     const dataDefault = mountMatrixDefault();
     if (paintingFreely) {
-      const result = mountMatrixAnswerPaint(dataDefault);
+      result = mountMatrixAnswerPaint(dataDefault);
       if (result.length > 0) {
         setAnswerPaint(result);
       }
     }
 
-    if (!enable) {
+    if (!enable || lackRowPixel) {
       if (isContentReduced) {
         content.forEach((itemRunLength, i) => {
           let columnIndex = 0;
           if (i < content.length) {
             itemRunLength.forEach((item, index) => {
               let cont = 0;
-              while (cont < item) {
+              let valueColumn = item;
+              let colorItem = index % 2 === 0 ? 1 : 0; // TODO: melhorar essa parte do código, pois foi necessario inverter os valores para pintar corretamente
+              if (isColorFul) {
+                const [color, valueColor] = item.split('-');
+                valueColumn = color;
+                colorItem = parseInt(valueColor, 10);
+              }
+              while (cont < valueColumn) {
                 if (columnIndex < column) {
-                  const colorItem = index % 2 === 0 ? 'B' : 'P';
-                  dataDefault[i][columnIndex].color = colorItem;
+                  desablePixles(dataDefault, i, columnIndex, colorItem);
                   columnIndex += 1;
                 }
                 cont += 1;
@@ -83,9 +176,9 @@ const PaintingTable = (props) => {
           }
         });
       } else {
-        content.forEach((item, index) => {
-          item.forEach((element, indexElement) => {
-            dataDefault[index][indexElement].color = element === 1 ? 'B' : 'P';
+        content.forEach((item, indexRow) => {
+          item.forEach((element, indexElementColumn) => {
+            desablePixles(dataDefault, indexRow, indexElementColumn, element);
           });
         });
       }
@@ -94,30 +187,64 @@ const PaintingTable = (props) => {
   };
 
   const handleOnPress = (rowCurrent, keyCurrent) => {
+    cleanColorChecked();
+    const colorFulCurrent = getColorfulCurrent(data[rowCurrent][keyCurrent]);
+    if (isColorFul) {
+      if (
+        data[rowCurrent][keyCurrent] === colorFul ||
+        colorFul === undefined ||
+        (data[rowCurrent][keyCurrent] !== colorFul &&
+          rowCurrent === rowCheck &&
+          keyCurrent === columnCheck)
+      ) {
+        data[rowCurrent][keyCurrent] = colorFulCurrent;
+      } else {
+        data[rowCurrent][keyCurrent] = colorFul;
+      }
+    } else {
+      data[rowCurrent][keyCurrent] = colorFulCurrent;
+    }
+    const resultClick = mountMatrixAnswerPaint(data);
+
+    setAnswerPaint(resultClick);
+
+    if (countPixelColorFul(data)) {
+      setClickButtonFirst(true);
+    } else {
+      setClickButtonFirst(false);
+    }
+
     setRowChecked(rowCurrent);
     setColumnChecked(keyCurrent);
-    data[rowCurrent][keyCurrent].color = colorCurrent;
-    const resultClick = mountMatrixAnswerPaint(data);
-    setAnswerPaint(resultClick);
   };
 
-  const choiceColor = (colorSquire) => {
+  const cleanColorChecked = () => {
     setRowChecked('');
     setColumnChecked('');
-    setColorCurrent(colorSquire);
   };
 
-  const chosenSquare = (color) => {
-    return colorCurrent === color ? styles.squareChoice : null;
+  const choiceColorFul = (color) => {
+    setcolorFul(color);
   };
 
-  const paint = (color) => {
-    switch (color) {
-      case 'P' || 1:
-        return styles.squareColoring;
-      default:
-        return styles.discolorSquare;
-    }
+  const countPixelColorFul = (list) => {
+    let count = -1;
+    let isChecked = false;
+    do {
+      count += 1;
+      const countPixel = Array.from(list[count]).filter((subItem) => {
+        return subItem !== 1;
+      });
+      if (countPixel.length > minPaintPixel) {
+        isChecked = true;
+      }
+    } while (count < list.length - 1);
+    return isChecked;
+  };
+
+  const findKeyRow = (currentKey) => {
+    if (!invisibleRow || invisibleRow === -1) return false;
+    return invisibleRow.find((item) => item === currentKey) !== undefined;
   };
 
   const mountText = () => {
@@ -125,42 +252,36 @@ const PaintingTable = (props) => {
       <View style={styles.containerText}>
         {content.map((item, key) => (
           <Text key={key.toString()} style={styles.text}>
-            {invisibleRow !== -1 && key === invisibleRow ? '' : item.toString()}
+            {findKeyRow(key) ? '' : item.toString()}
           </Text>
         ))}
       </View>
     ) : null;
   };
 
-  const mountSqureColor = () => {
-    if (enable) {
-      return (
-        <View style={styles.containerFooter}>
-          <View style={styles.containerChoiceColor}>
-            <TouchableOpacity onPress={() => choiceColor('P')}>
-              <View
-                style={[
-                  styles.square,
-                  chosenSquare('P'),
-                  styles.squareColoring,
-                ]}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => choiceColor('B')}>
-              <View
-                style={[
-                  styles.square,
-                  chosenSquare('B'),
-                  styles.discolorSquare,
-                ]}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-      );
-    }
+  const mountRow = (indexKey, index, columnOfRow) => {
+    return (
+      <TouchableOpacity
+        key={String(indexKey)}
+        onPress={() => {
+          if (enable || isDemonstration) handleOnPress(index, indexKey);
+        }}>
+        <View style={[styles.square, paintColorFul(columnOfRow)]} />
+      </TouchableOpacity>
+    );
+  };
 
-    return null;
+  const mountTextModify = () => {
+    const subData = data[0] !== undefined ? data[0] : [];
+    return (
+      <View style={styles.containerTextModify}>
+        {subData.map((item, key) => (
+          <Text key={key.toString()} style={styles.text}>
+            {item}
+          </Text>
+        ))}
+      </View>
+    );
   };
 
   return (
@@ -170,32 +291,15 @@ const PaintingTable = (props) => {
           <View>
             {data.map((rows, index) => (
               <View key={String(index)} style={{flexDirection: 'row'}}>
-                {rows.map((columnOfRow, indexKey) => (
-                  <TouchableOpacity
-                    key={String(indexKey)}
-                    onPress={() => {
-                      if (enable) handleOnPress(index, columnOfRow.key);
-                    }}>
-                    <View
-                      style={[
-                        styles.square,
-                        paint(
-                          rowCheck !== '' &&
-                            rowCheck === index &&
-                            columnCheck !== '' &&
-                            columnCheck === columnOfRow.key
-                            ? colorCurrent
-                            : columnOfRow.color,
-                        ),
-                      ]}
-                    />
-                  </TouchableOpacity>
-                ))}
+                {rows.map((columnOfRow, indexKey) =>
+                  mountRow(indexKey, index, columnOfRow),
+                )}
               </View>
             ))}
+            {isDemonstration ? mountTextModify() : null}
           </View>
         </View>
-        {mountText()}
+        {isDemonstration ? null : mountText()}
       </View>
       {mountSqureColor()}
     </View>
@@ -207,19 +311,29 @@ PaintingTable.propTypes = {
   enable: PropTypes.bool,
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
-  invisibleRow: PropTypes.number,
+  invisibleRow: PropTypes.arrayOf(PropTypes.number),
   isContentReduced: PropTypes.bool,
   paintingFreely: PropTypes.bool,
   setAnswerPaint: PropTypes.func,
+  isDemonstration: PropTypes.bool,
+  lackRowPixel: PropTypes.PropTypes.arrayOf(PropTypes.object), // [{"excerptsColumn":[], "row":}],
+  setClickButtonFirst: PropTypes.func,
+  minPaintPixel: PropTypes.number,
+  isColorFul: PropTypes.bool,
 };
 
 PaintingTable.defaultProps = {
   content: [],
   enable: true,
-  invisibleRow: -1,
+  invisibleRow: null,
   isContentReduced: true,
   paintingFreely: false,
   setAnswerPaint: () => {},
+  isDemonstration: false,
+  lackRowPixel: null,
+  setClickButtonFirst: () => undefined,
+  minPaintPixel: 1,
+  isColorFul: false,
 };
 
 export default PaintingTable;

@@ -4,9 +4,11 @@ import {
   StatusBar,
   ScrollView,
   TouchableOpacity,
+  TouchableNativeFeedback,
   View,
   Text,
   Modal,
+  Linking,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -36,6 +38,17 @@ const Congratulations = (props) => {
         </View>
       );
     });
+  };
+
+  const linkingWeb = (url, nickName) => {
+    return (
+      <TouchableNativeFeedback
+        onPress={() => {
+          Linking.openURL(url);
+        }}>
+        <Text style={styles.titleWeb}>{nickName}</Text>
+      </TouchableNativeFeedback>
+    );
   };
 
   return (
@@ -79,7 +92,16 @@ const Congratulations = (props) => {
           <View style={styles.modalView}>
             <Text style={styles.modalTitle}>Parabéns</Text>
             <Text style={styles.modalSubTitle}>
-              {`Você completou todos os níveis!\nConheça nossos outros aplicativos.\nAcesse a seção 'Sobre' para ter mais informações.`}
+              {`Você completou todos os níveis!\nConheça nossos outros aplicativos acessendo a seção 'Sobre'.\nVocê pode nos ajudar com o seu feedback sejá `}
+              {linkingWeb(
+                'https://docs.google.com/forms/d/1BWbFRUlRG-rOEC_2cA_WhZGqpwppArlj8rozMHowXHo/viewform?edit_requested=true',
+                'aluno ',
+              )}
+              ou
+              {linkingWeb(
+                'https://docs.google.com/forms/d/10OBwQfXVbWkKh67Zi286eBkA5_tAmgIzujecnX9TQS0/viewform?ts=6159e3c3&edit_requested=true',
+                ' profissional',
+              )}
             </Text>
             <Animation
               source={animationWin}
