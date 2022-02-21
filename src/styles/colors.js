@@ -1,4 +1,8 @@
 const colors = {
+  colorPrimaryPixel:'#A6F3D6',
+  colorPrimaryPixelDark: '#07377A',
+  colorTextSecondaryPixel:'#FFFFFF',
+
   colorPrimary: '#3f51b5',
   colorPrimaryLight: '#757de8',
   colorPrimaryDark: '#002984',
