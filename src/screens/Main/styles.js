@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: fonts.small,
     textAlign: 'center',
-    color: colors.colorTextPrimary,
+    color: colors.colorTextPrimaryPixelDark,
     marginVertical: metrics.doubleBaseMargin,
     marginHorizontal: metrics.doubleBaseMargin,
   },
