@@ -11,6 +11,7 @@ const metrics = {
   basePadding: 8,
   smallRadius: 5,
   baseRadius: 10,
+  borderRadius:7,
   tripleBaseRadius: 30,
   smallBorder: 1,
   baseBorder: 2,
