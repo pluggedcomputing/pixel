@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, Image, Text, View} from 'react-native';
 
-import logo from '../../assets/images/pixel_cape.png';
+import homeScreen from '../../assets/images/home_screen_image.png';
 import CustomButton from '../../components/CustomButton/index';
 import styles from './styles';
 
@@ -9,7 +9,7 @@ function Main({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerHeader}>
-        <Image source={logo} style={styles.logo} />
+        <Image source={homeScreen} style={styles.homeScreen} />
         <Text style={styles.text}>
           COLORINDO COM NÚMEROS
         </Text>
