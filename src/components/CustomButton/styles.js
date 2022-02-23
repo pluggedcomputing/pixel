@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: colors.colorPrimaryPixelDark,
+    backgroundColor: colors.colorPrimaryDark,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
     width: metrics.screenWidth * WIGTH_PORCENTAGE,
     elevation: metrics.baseElevation,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     margin: metrics.doubleBaseMargin,
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    color: colors.colorTextSecondaryPixel,
+    color: colors.colorTextSecondary,
   },
   image: {
     resizeMode: 'contain',

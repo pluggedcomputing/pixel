@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     height: metrics.screenHeight,
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: colors.colorSecondaryLight,
+    backgroundColor: colors.colorPrimary,
   },
   logo: {
     resizeMode: 'contain',
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: fonts.small,
     textAlign: 'center',
-    color: colors.colorTextPrimaryPixelDark,
+    color: colors.colorTextPrimaryDark,
     marginVertical: metrics.doubleBaseMargin,
     marginHorizontal: metrics.doubleBaseMargin,
   },

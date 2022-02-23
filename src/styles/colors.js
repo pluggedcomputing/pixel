@@ -1,17 +1,13 @@
 const colors = {
-  colorPrimaryPixel:'#A6F3D6',
-  colorPrimaryPixelDark: '#07377A',
-  colorTextSecondaryPixel:'#FFFFFF',
-
-  colorPrimary: '#3f51b5',
+  colorPrimary: '#A6F3D6',
   colorPrimaryLight: '#757de8',
-  colorPrimaryDark: '#002984',
+  colorPrimaryDark: '#07377A',
   colorSecondary: '#f2f4ff',
   colorSecondaryLight: '#ffffff',
   colorSecondaryDark: '#bfc1cc',
   colorAccent: '#46d3f2',
   colorTextPrimary: '#212121',
-  colorTextSecondary: '#F1F1F1',
+  colorTextSecondary: '#FFFFFF',
   colorSucess: '#00E676',
   colorError: '#EF5350',
 };
