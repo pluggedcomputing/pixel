@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     elevation: metrics.baseElevation,
     paddingRight: metrics.smallPadding,
     paddingLeft: metrics.smallPadding,
-    borderRadius:metrics.borderRadius,
+    borderRadius:metrics.baseRadius,
   },
   textButton: {
     fontSize: fonts.medium,
