@@ -30,14 +30,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: fonts.medium,
     textAlign: 'center',
-    color: colors.colorPrimaryDark,
+    color: colors.colorSecondary,
     marginHorizontal: metrics.doubleBaseMargin,
     fontWeight: 'bold',
   },
   superscriptText: {
     fontSize: fonts.medium,
     textAlign: 'center',
-    color: colors.colorPrimaryDark,
+    color: colors.colorSecondary,
     marginHorizontal: metrics.doubleBaseMargin,
   },
   buttons: {
