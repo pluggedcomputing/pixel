@@ -14,7 +14,7 @@ function Main({navigation}) {
           COLORINDO COM NÚMEROS
         </Text>
         <Text style={styles.text}>
-          REPRESENTAÇÃO DE IMAGENS
+          Representação de Imagens
         </Text>
       </View>
       <View style={styles.containerButtons}>

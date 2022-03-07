@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: metrics.screenWidth * WIDTH_PORCENTAGE,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    marginVertical: metrics.doubleBaseMargin,
     // backgroundColor: '#23d',
   },
   title: {
@@ -27,10 +28,16 @@ const styles = StyleSheet.create({
     // backgroundColor: '#000',
   },
   text: {
-    fontSize: fonts.small,
+    fontSize: fonts.medium,
     textAlign: 'center',
-    color: colors.colorTextPrimaryDark,
-    marginVertical: metrics.doubleBaseMargin,
+    color: colors.colorPrimaryDark,
+    marginHorizontal: metrics.doubleBaseMargin,
+    fontWeight: 'bold',
+  },
+  superscriptText: {
+    fontSize: fonts.medium,
+    textAlign: 'center',
+    color: colors.colorPrimaryDark,
     marginHorizontal: metrics.doubleBaseMargin,
   },
   buttons: {
