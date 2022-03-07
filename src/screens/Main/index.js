@@ -13,7 +13,7 @@ function Main({navigation}) {
         <Text style={styles.text}>
           COLORINDO COM NÚMEROS
         </Text>
-        <Text style={styles.text}>
+        <Text style={styles.superscriptText}>
           Representação de Imagens
         </Text>
       </View>
@@ -22,6 +22,11 @@ function Main({navigation}) {
           text="iniciar"
           style={styles.buttons}
           onPress={() => navigation.navigate('LevelSelection')}
+        />
+        <CustomButton
+          text="sobre"
+          style={styles.buttons}
+          onPress={() => navigation.navigate('ScreenAbout')}
         />
       </View>
     </SafeAreaView>
