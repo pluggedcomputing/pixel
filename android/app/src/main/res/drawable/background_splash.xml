@@ -3,7 +3,7 @@
   <item android:drawable="@color/primary"/>
   <item
     android:width="200dp"
-    android:height="160dp"
+    android:height="200dp"
     android:drawable="@drawable/icon"
     android:gravity="center"
   />

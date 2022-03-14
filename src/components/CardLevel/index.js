@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text, Alert, TouchableWithoutFeedback} from 'react-native';
+import {View, Image, Text, TouchableWithoutFeedback} from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -7,18 +7,8 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const CardLevel = (props) => {
-  const {image, level, onPress, available} = props;
+  const {image, level, available} = props;
 
-  function onPressCardLevel() {
-    if (onPress && available) {
-      return onPress();
-    }
-
-    return Alert.alert(
-      'Que Pena :(',
-      'Esse nível ainda não está liberado, complete os niveis anteriores para debloquea-lo.',
-    );
-  }
 
   return (
     <View
@@ -28,10 +18,13 @@ const CardLevel = (props) => {
           : {borderColor: colors.colorPrimary},
         styles.container,
       ]}>
-      <TouchableWithoutFeedback onPress={onPressCardLevel}>
-        <View style={styles.subContainer}>
-          <Image source={image} style={styles.imageLevel} />
-          <Text style={styles.textLevel}>Nível {level}</Text>
+      <TouchableWithoutFeedback>
+        <View style={styles.container}>
+          <Image source={image} style={styles.imageLeve} />
+          <View style={styles.subcontainer}>
+            <Text style={styles.textLevelBold}>Fase {level}</Text>
+            <Text style={styles.textLevel}>Texto vai aqui</Text>
+          </View>
         </View>
       </TouchableWithoutFeedback>
     </View>
@@ -41,7 +34,6 @@ const CardLevel = (props) => {
 CardLevel.propTypes = {
   image: PropTypes.number.isRequired,
   level: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
   available: PropTypes.bool,
 };
 
