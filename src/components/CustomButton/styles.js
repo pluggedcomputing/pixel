@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 import {fonts, metrics, colors} from '../../styles';
 
-const WIGTH_PORCENTAGE = 0.07;
+const WIGTH_PORCENTAGE = 0.70;
 const HEIGHT_PORCENTAGE = 0.08;
 
 const styles = StyleSheet.create({
@@ -10,11 +10,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: colors.colorPrimary,
+    backgroundColor: colors.colorSecondary,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    width: metrics.screenWidth * WIGTH_PORCENTAGE,
     elevation: metrics.baseElevation,
     paddingRight: metrics.smallPadding,
     paddingLeft: metrics.smallPadding,
+    borderRadius: metrics.baseRadius,
   },
   textButton: {
     fontSize: fonts.medium,

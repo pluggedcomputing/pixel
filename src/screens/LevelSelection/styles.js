@@ -5,26 +5,17 @@ import {metrics, colors} from '../../styles';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
     width: metrics.screenWidth,
     height: metrics.screenHeight,
-    backgroundColor: colors.colorSecondary,
-  },
-  scrollView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    backgroundColor: colors.colorAccent,
   },
   boxContainer: {
-    margin: metrics.doubleBaseMargin,
-    width: metrics.screenWidth * 0.4,
-    height: metrics.screenHeight * 0.9,
-    justifyContent: 'space-around',
+    margin: metrics.baseMargin,
+    width: metrics.screenWidth,
+    height: metrics.screenHeight * 0.17,
+    justifyContent: 'center',
     alignItems: 'center',
-  },
-  imagePixel: {
-    margin: metrics.smallMargin,
-    width: metrics.screenWidth * 0.15,
-    height: metrics.screenHeight * 0.1,
   },
 });
 

@@ -12,12 +12,13 @@ const styles = StyleSheet.create({
     height: metrics.screenHeight,
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: colors.colorSecondaryLight,
+    backgroundColor: colors.colorPrimary,
   },
   logo: {
     resizeMode: 'contain',
     width: metrics.screenWidth * WIDTH_PORCENTAGE,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    marginVertical: metrics.doubleBaseMargin,
     // backgroundColor: '#23d',
   },
   title: {
@@ -27,10 +28,16 @@ const styles = StyleSheet.create({
     // backgroundColor: '#000',
   },
   text: {
-    fontSize: fonts.small,
+    fontSize: fonts.medium,
     textAlign: 'center',
-    color: colors.colorTextPrimary,
-    marginVertical: metrics.doubleBaseMargin,
+    color: colors.colorSecondary,
+    marginHorizontal: metrics.doubleBaseMargin,
+    fontWeight: 'bold',
+  },
+  superscriptText: {
+    fontSize: fonts.medium,
+    textAlign: 'center',
+    color: colors.colorSecondary,
     marginHorizontal: metrics.doubleBaseMargin,
   },
   buttons: {
