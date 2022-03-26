@@ -16,19 +16,27 @@ const styles = StyleSheet.create({
   subcontainer:{
     flexDirection: 'column',
   },
+  performanceConteiner: {
+    width: metrics.screenWidth * 0.22,
+    height: metrics.screenHeight * 0.12,
+    backgroundColor: '#444444',
+  },
   imageLevel: {
     flex: 3,
     margin: metrics.smallMargin,
     width: metrics.screenWidth * 0.4,
     height: metrics.screenHeight * 0.12,
     resizeMode: 'contain',
+    zIndex: 1,
   },
 
-  imageStatusBar: {
+  imageSubtract: {
+    flex: 3,
     margin: metrics.smallMargin,
     width: metrics.screenWidth * 0.4,
     height: metrics.screenHeight * 0.12,
     resizeMode: 'contain',
+    zIndex: 0,
   },
 
   textLevel: {

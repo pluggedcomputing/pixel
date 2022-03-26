@@ -7,8 +7,11 @@ import {colors} from '../../styles';
 import styles from './styles';
 
 const CardLevel = (props) => {
-  const {image, level, available} = props;
+  const {image, level, onPress, available} = props;
 
+  /* function onPressCardLevel() {
+      return onPress();
+  } */
 
   return (
     <View
@@ -18,7 +21,7 @@ const CardLevel = (props) => {
           : {borderColor: colors.colorPrimary},
         styles.container,
       ]}>
-      <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={onPress}>
         <View style={styles.container}>
           <Image source={image} style={styles.imageLeve} />
           <View style={styles.subcontainer}>
@@ -34,6 +37,7 @@ const CardLevel = (props) => {
 CardLevel.propTypes = {
   image: PropTypes.number.isRequired,
   level: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
   available: PropTypes.bool,
 };
 

@@ -1,10 +1,10 @@
 /* eslint-disable import/no-unresolved */
 const imagens = {
   // nivel1
-  l1q1: require('../assets/images/level1/computer.png'),
-  l1q2: require('../assets/images/level1/photoPixel.png'),
-  l1q3: require('../assets/images/level1/hand.png'),
-  l1q4: require('../assets/images/level1/grid.png'),
+  l1q1: require('../assets/images/level1/phase-1-image-1.png'),
+  l1q2: require('../assets/images/level1/phase-1-image-2.png'),
+  l1q3: require('../assets/images/level1/phase-1-image-3.png'),
+  l1q4: require('../assets/images/level1/phase-1-image-4.png'),
   l1q5: require('../assets/images/level1/fax.png'),
   l1q7: require('../assets/images/level1/faxOut.png'),
   // nivel2

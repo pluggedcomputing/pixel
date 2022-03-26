@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: metrics.screenWidth,
-    backgroundColor: colors.colorPrimary,
+    backgroundColor: colors.colorSecondary,
   },
   halfTopView: {
     flex: 1,
@@ -45,6 +45,8 @@ const styles = StyleSheet.create({
   },
   contentText: {
     fontSize: fonts.small,
+    color: colors.colorTextPrimary,
+    fontFamily: 'Poppins-Ligth',
   },
   textAnswer: {
     fontSize: fonts.medium,

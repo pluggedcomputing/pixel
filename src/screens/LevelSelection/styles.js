@@ -9,12 +9,14 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth,
     height: metrics.screenHeight,
     backgroundColor: colors.colorAccent,
+    justifyContent: 'space-evenly',
+    alignItems: 'flex-start',
   },
   boxContainer: {
     margin: metrics.baseMargin,
     width: metrics.screenWidth,
-    height: metrics.screenHeight * 0.17,
-    justifyContent: 'center',
+    height: metrics.screenHeight * 0.18,
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
 });

@@ -19,9 +19,12 @@ const routes = () => {
         initalRouteName="Main"
         screenOptions={{
           headerTitleAlign: 'center',
-          headerTintColor: colors.colorTextSecondary,
+          headerTintColor: colors.colorTextPrimary,
           headerStyle: {
-            backgroundColor: colors.colorPrimary,
+            backgroundColor: colors.colorAccent,
+          },
+          headerTitleStyle:{
+            fontFamily: 'Poppins-Bold',
           },
         }}>
         <Stack.Screen
@@ -33,9 +36,10 @@ const routes = () => {
           name="ScreenAbout"
           component={ScreenAbout}
           options={{
-            title: 'Sobre',
+            title: 'SOBRE',
             headerTitleStyle: {
               fontSize: fonts.medium,
+              fontFamily: 'Poppins-Bold',
             },
           }}
         />
@@ -43,9 +47,10 @@ const routes = () => {
           name="LevelSelection"
           component={LevelSelection}
           options={{
-            title: 'Escolha de níveis',
+            title: 'FASES',
             headerTitleStyle: {
               fontSize: fonts.medium,
+              fontFamily: 'Poppins-Bold',
             },
           }}
         />
