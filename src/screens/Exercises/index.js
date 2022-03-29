@@ -267,8 +267,8 @@ const Exercises = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={colors.colorPrimary} />
-      <View style={styles.halfTopView}>
+      <StatusBar backgroundColor={colors.colorAccent} />
+      <View>
         <BoxBackground
           content={viewContent()}
           setSteps={setSteps}

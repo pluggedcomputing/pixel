@@ -1,8 +1,10 @@
 import React from 'react';
+import { Image, StyleSheet } from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
+import logo from './assets/images/horizontal-logo.png';
 import Congratulations from './screens/Congratulations';
 import Exercises from './screens/Exercises';
 import LevelSelection from './screens/LevelSelection';
@@ -10,7 +12,26 @@ import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
 import {colors, fonts} from './styles';
 
+
+const styles = StyleSheet.create({
+  logo: {
+    resizeMode:'contain',
+    width:140,
+    height:50,
+  }
+});
+
 const Stack = createStackNavigator();
+
+function LogoTitle() {
+  return (
+    <Image
+      style={styles.logo}
+      source={logo}
+    />
+  );
+}
+
 
 const routes = () => {
   return (
@@ -46,13 +67,7 @@ const routes = () => {
         <Stack.Screen
           name="LevelSelection"
           component={LevelSelection}
-          options={{
-            title: 'FASES',
-            headerTitleStyle: {
-              fontSize: fonts.medium,
-              fontFamily: 'Poppins-Bold',
-            },
-          }}
+          options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
         />
         <Stack.Screen name="Exercises" component={Exercises} />
 

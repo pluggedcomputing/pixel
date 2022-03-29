@@ -10,15 +10,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: metrics.screenWidth,
-    backgroundColor: colors.colorSecondary,
-  },
-  halfTopView: {
-    flex: 1,
-    alignItems: 'center',
-    width: metrics.screenWidth,
-    backgroundColor: colors.colorPrimary,
-    marginTop: metrics.baseMargin,
-    marginBottom: metrics.baseMargin,
+    backgroundColor: colors.colorAccent,
   },
   viewBoxContent: {
     flex: 1,
@@ -30,7 +22,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     justifyContent: 'flex-end',
     width: Math.round((metrics.screenWidth * 14) / 16),
-    height: metrics.screenHeight * 0.2,
+    height: metrics.screenHeight * 0.35,
   },
   animation: {
     width: metrics.screenHeight * HEIGHT_PORCENTAGE,
@@ -41,7 +33,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: fonts.small,
     paddingHorizontal: metrics.basePadding,
-    color: colors.colorTextPrimary,
+    color: colors.colorAccent,
   },
   contentText: {
     fontSize: fonts.small,
