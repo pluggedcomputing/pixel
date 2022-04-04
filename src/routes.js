@@ -56,7 +56,12 @@ const routes = () => {
         <Stack.Screen
           name="ScreenAbout"
           component={ScreenAbout}
-          options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          options={{
+            title: 'Sobre',
+            headerTitleStyle: {
+              fontFamily: 'Poppins-Bold',
+            },
+          }}
         />
         <Stack.Screen
           name="LevelSelection"

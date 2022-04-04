@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: metrics.screenWidth,
     height: metrics.screenHeight,
-    backgroundColor: colors.colorBlank,
+    backgroundColor: colors.colorAccent,
     justifyContent: 'space-evenly',
     alignItems: 'flex-start',
   },
