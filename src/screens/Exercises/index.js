@@ -230,8 +230,8 @@ const Exercises = ({navigation}) => {
     const content = exercise.questions.map((item) => {
       return (
         <View style={styles.viewBoxContent}>
-          <Text style={styles.contentText}>{item.text}</Text>
           {choiceComponentBox()}
+          <Text style={styles.contentText}>{item.text}</Text>
         </View>
       );
     });

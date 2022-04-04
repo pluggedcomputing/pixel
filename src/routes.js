@@ -10,7 +10,7 @@ import Exercises from './screens/Exercises';
 import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
-import {colors, fonts} from './styles';
+import {colors} from './styles';
 
 
 const styles = StyleSheet.create({
@@ -56,13 +56,7 @@ const routes = () => {
         <Stack.Screen
           name="ScreenAbout"
           component={ScreenAbout}
-          options={{
-            title: 'SOBRE',
-            headerTitleStyle: {
-              fontSize: fonts.medium,
-              fontFamily: 'Poppins-Bold',
-            },
-          }}
+          options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
         />
         <Stack.Screen
           name="LevelSelection"
