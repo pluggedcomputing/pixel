@@ -154,8 +154,8 @@
           "id": 1,
           "text":
               "Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos.",
-            "img": null,
-            "imgFormat": ""
+            "img": "l2q1",
+            "imgFormat": "img"
         },
         {
           "type": "none",

@@ -8,8 +8,8 @@ const imagens = {
   l1q5: require('../assets/images/level1/fax.png'),
   l1q7: require('../assets/images/level1/faxOut.png'),
   // nivel2
-  l2q1: require('../assets/images/level2/dog.png'),
-  l2q2: require('../assets/images/level2/Cgrade.png'),
+  l2q1: require('../assets/images/level2/phase-2-image-1.png'),
+  l2q2: require('../assets/images/level2/phase-2-image-2.png'),
   // nivel3
   l3q1: require('../assets/images/level3/heart.png'),
   l3q2: require('../assets/images/level3/zip.png'),
