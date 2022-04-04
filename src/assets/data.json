@@ -297,8 +297,8 @@
           "type": "none",
           "id": 1,
           "text": "Você aprendeu que podemos representar uma imagem através de pontos pretos e brancos, representados por 0 e 1 respectivamente.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l3q1",
+          "imgFormat": "img"
         },
         {
           "type": "none",
