@@ -50,12 +50,10 @@ const styles = StyleSheet.create({
   imgCenter: {
     resizeMode: 'center',
     width: metrics.screenWidth * 0.8,
-    height: metrics.screenHeight * 0.15,
   },
   subContainerBoxContent: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: metrics.baseMargin,
     width: metrics.screenWidth * 0.6,
   },
   btnApps: {
