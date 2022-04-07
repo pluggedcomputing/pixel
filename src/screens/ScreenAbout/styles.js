@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     color: colors.colorTextPrimary,
     marginVertical: metrics.tripleBaseMargin,
     fontSize: fonts.small,
-    fontFamily: 'Poppins-Light',
+    fontFamily: 'Poppins-Regular',
   },
   viewBoxContent: {
     flex: 1,
