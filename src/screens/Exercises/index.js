@@ -120,7 +120,7 @@ const Exercises = ({navigation}) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: `Nível ${response.level}`,
+      title: `FASE ${response.level}`,
     });
   }, [navigation]);
 
