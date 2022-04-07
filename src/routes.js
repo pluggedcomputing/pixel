@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import logo from './assets/images/horizontal-logo.png';
 import Congratulations from './screens/Congratulations';
 import Exercises from './screens/Exercises';
+import HelpScreen from './screens/HelpScreen';
 import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
@@ -57,7 +58,17 @@ const routes = () => {
           name="ScreenAbout"
           component={ScreenAbout}
           options={{
-            title: 'Sobre',
+            title: 'SOBRE',
+            headerTitleStyle: {
+              fontFamily: 'Poppins-Bold',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="HelpScreen"
+          component={HelpScreen}
+          options={{
+            title: 'AJUDA',
             headerTitleStyle: {
               fontFamily: 'Poppins-Bold',
             },
