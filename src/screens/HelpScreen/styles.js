@@ -10,14 +10,15 @@ const styles = StyleSheet.create({
         flex: 1,
         width: metrics.screenWidth,
         height: metrics.screenHeight,
-        backgroundColor: colors.colorBackground,
+        backgroundColor: colors.colorAccent,
         alignItems:'center',
     },
     text:{
       fontFamily:'Poppins-Regular',
       width: metrics.screenWidth * WIDTH_PORCENTAGE,
       textAlign:'left',
-      margin:metrics.smallMargin,
+      margin: metrics.baseMargin,
+      color: colors.colorTextPrimary,
     },
 
     image:{
