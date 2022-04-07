@@ -1,14 +1,15 @@
 import React from 'react';
-import {Text, SafeAreaView, ScrollView, Linking} from "react-native";
-// import imageHelp from '../../assets/images/helpScreen/image-help.png';
+import {Text, SafeAreaView, Image, ScrollView, Linking} from "react-native";
 
+import imageHelp from '../../assets/images/helpScreen/image-help.png';
 import styles from './styles';
 
 function HelpScreen (){
   return(
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text>
+        <Image style={styles.image} source={imageHelp} />
+        <Text style={styles.text}>
           <br />
           Para navegar entre as telas com textos ou exercícios, use as setas encontradas na parte central da tela, à esquerda e à direita.<br />
 
