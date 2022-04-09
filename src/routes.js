@@ -68,7 +68,7 @@ const routes = () => {
           component={LevelSelection}
           options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
         />
-        <Stack.Screen name="Exercises" component={Exercises} />
+        <Stack.Screen name="Exercises" component={Exercises} options={{headerLeft: null}} />
 
         <Stack.Screen
           options={{headerShown: false}}
