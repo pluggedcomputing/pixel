@@ -17,12 +17,22 @@ const styles = StyleSheet.create({
     padding: metrics.smallPadding,
     alignItems: 'center',
   },
-  progressBar: {
-    width: metrics.screenWidth * 0.85,
-    borderWidth: 1,
-    borderRadius: metrics.baseRadius,
-    borderColor: colors.colorAccent,
-    marginBottom: metrics.smallMargin,
+  groupContainerLeft: {
+    flexDirection: 'row',
+    transform: [{routate: '90'}],
+  },
+  groupContainer: {
+    flexDirection: 'row',
+  },
+  imageContainer: {
+
+  },
+  slidder: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: colors.colorSecondary,
+    margin: metrics.doubleBaseMargin,
   },
 });
 

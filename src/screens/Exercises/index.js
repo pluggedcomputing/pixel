@@ -284,7 +284,7 @@ const Exercises = ({navigation}) => {
           !question.alternatives ||
           (question.alternatives && question.alternatives.length === 0)
         }
-        textInfor="Arraste o card acima para o lado para continuar."
+        textInfor=""
       />
     </View>
   );
