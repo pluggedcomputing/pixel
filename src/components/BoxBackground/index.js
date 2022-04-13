@@ -110,7 +110,7 @@ const BoxBackground = (props) => {
           renderItem={renderItem}
         />
       </View>
-
+      <Image source={image} />
 
       <View style={styles.slidder}>
         <ProgressBar
