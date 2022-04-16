@@ -344,7 +344,7 @@
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
-          "text": "Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.",
+          "text": "Que letra está sendo representada no código acima? Você pode pintar os quadrados na cor preta ou branca clicando neles.",
           "row": 5,
           "column": 5,
           "minPaintPixel": 1,
@@ -553,7 +553,7 @@
     },
     {
       "level": 4,
-      "congratulations": [ "Você entende a necessidade de comprimir dados", "Você aprendeu como comprimir dados referentes a pixels utilizando run-length coding", "Você concluiu todos os níveis"],
+      "congratulations": [ "Você entende a necessidade de comprimir dados", "Você aprendeu como comprimir dados referentes à pixels utilizando run-length coding", "Você concluiu todos os níveis"],
       "questions": [
         {
           "type": "none",
@@ -589,7 +589,7 @@
           "enable": true,
           "invisibleRow": null,
           "paintingFreely": true,
-          "text": "Que tal desenhar você mesmo e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.",
+          "text": "Que tal desenhar você mesmo e tentar descobrir o código que representa essa imagem? Pinte no quadro acima sua imagem e clique em concluir.",
           "paintContent": [],
           "row": 5,
           "isContentReduced": true,
@@ -609,7 +609,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "Selecione a sequência que represente a primeira linha de sua foto",
+          "text": "Selecione a sequência que representa a primeira linha de sua foto.",
           "paintingFreely": false,
           "isContentReduced": true,
           "hasConverted": true,
@@ -624,7 +624,7 @@
           "type": "none",
           "id": 7,
           "enable": false,
-          "text": "Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê-las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.",
+          "text": "Fotos e imagens são frequentemente comprimidas para um décimo ou até um centésimo do seu tamanho (usando uma técnica diferente). Isto permite que um número maior de imagens seja armazenado nos dispositivos e que possam ser baixadas mais rapidamente da Internet.",
           "img": null,
           "imgFormat": ""
         },
@@ -665,6 +665,20 @@
           "paintContent": [],
           "alternatives": [],
           "isCreateAlternatives": true
+        },
+        {
+          "type": "none",
+          "id": 10,
+          "text": "Fotos e imagens são frequentemente comprimidas para um décimo ou até um centésimo do seu tamanho (usando uma técnica diferente). Isto permite que um número maior de imagens seja armazenado nos dispositivos e que possam ser baixadas mais rapidamente da Internet.",
+          "img": "l4q5",
+          "imgFormat": "img"
+        },
+        {
+          "type": "none",
+          "id": 11,
+          "text": "Um programador pode escolher a técnica mais adequada para compressão das imagens que está transmitindo.",
+          "img": "l4q6",
+          "imgFormat": "img"
         }
       ]
     }

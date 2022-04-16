@@ -25,6 +25,8 @@ const imagens = {
   l4q2: require('../assets/images/level4/phase-4-image-2.png'),
   l4q3: require('../assets/images/level4/phase-4-image-3.png'),
   l4q4: require('../assets/images/level4/phase-4-image-4.png'),
+  l4q5: require('../assets/images/level4/phase-4-image-5.png'),
+  l4q6: require('../assets/images/level4/phase-4-image-6.png'),
 };
 
 const getImage = (type) => {
