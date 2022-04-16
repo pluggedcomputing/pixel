@@ -51,7 +51,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "A sequência de pixels abaixo pode ser representado por qual código?",
+          "text": "A sequência de pixels abaixo pode ser representada por qual código?",
           "row": 1,
           "column": 5,
           "isContentReduced": false,
@@ -72,8 +72,8 @@
           "id": 6,
           "type": "none",
           "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha e identifica os pontos brancos ou não e armazena essa informação em aproximadamente 1000 × 2000 pixels, que são transmitidos para outra máquina de fax utilizando a rede de telefonia.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l1q6",
+          "imgFormat": "img"
         },
         {
           "id": 7,
@@ -88,19 +88,29 @@
           "enable": false,
           "invisibleRow": null,
           "text": "Como você acha que eram codificadas as mensagens enviadas através de uma máquina de fax?",
-          "img": null,
-          "imgFormat": "",
+          "img": "l1q8",
+          "imgFormat": "img",
           "paintContent": [],
           "alternatives": [
             {
               "id": 1,
-              "text": "Representando pontos pretos com 0 e brancos com 1",
+              "text": "Usando pontos pretos como 0 e brancos como 1",
               "correct": false
             },
             {
               "id": 2,
-              "text": "Utilizando uma representação que economize a quantidade de dados enviados",
+              "text": "Com representação que economize a quantidade de dados enviada",
               "correct": true
+            },
+            {
+              "id": 3,
+              "text": "Inserir outra opção",
+              "correct": false
+            },
+            {
+              "id": 4,
+              "text": "Inserir outra opção",
+              "correct": false
             }
           ]
         },
@@ -108,8 +118,8 @@
           "type": "none",
           "id": 9,
           "text": "Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l1q9",
+          "imgFormat": "img"
         },
         {
           "id": 10,
@@ -117,8 +127,8 @@
           "enable": false,
           "invisibleRow": null,
           "text": "Considerando o que foi apresentado, responda: O que as máquinas de fax fazem?",
-          "img": null,
-          "imgFormat": "",
+          "img": "l1q10",
+          "imgFormat": "img",
           "paintContent": [],
           "alternatives": [
             {
