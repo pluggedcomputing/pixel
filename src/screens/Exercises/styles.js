@@ -12,6 +12,13 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth,
     backgroundColor: colors.colorAccent,
   },
+  conteinerPaintTableQuestions: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: metrics.screenWidth,
+    backgroundColor: colors.colorPrimary,
+  },
   viewBoxContent: {
     flex: 1,
     justifyContent: 'space-around',

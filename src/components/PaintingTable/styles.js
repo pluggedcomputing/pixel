@@ -2,16 +2,15 @@ import {StyleSheet} from 'react-native';
 
 import {colors, fonts, metrics} from '../../styles';
 
-const HEIGTH_PERCENTE = 0.03;
-const WIDTH_PERCENTE = 0.06;
+const HEIGTH_PERCENTE = 0.05;
+const WIDTH_PERCENTE = 0.08;
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    elevation: metrics.baseElevation,
     borderRadius: metrics.baseBorder,
-    backgroundColor: colors.colorSecondaryLight,
+    backgroundColor: colors.colorPrimary,
   },
   subContainer: {
     flexDirection: 'row',
@@ -26,17 +25,16 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * WIDTH_PERCENTE,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 1,
-    elevation: metrics.baseElevation,
-    borderWidth: 1,
-    borderColor: colors.colorPrimary,
+    margin: 2,
+    borderWidth: 3,
+    borderColor: colors.colorSecondary,
   },
   squareChoice: {
     borderWidth: metrics.baseBorder,
     borderColor: colors.colorSecondaryDark,
   },
   squareColoring: {backgroundColor: colors.colorTextPrimary},
-  discolorSquare: {backgroundColor: colors.colorSecondaryLight},
+  discolorSquare: {backgroundColor: colors.colorAccent},
   squareRed: {backgroundColor: colors.colorError},
   squareGreen: {backgroundColor: colors.colorSucess},
   squareBlue: {backgroundColor: colors.colorAccent},
@@ -46,7 +44,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.colorTextPrimary,
-    fontSize: fonts.tiny,
+    fontSize: fonts.small,
+    fontFamily: 'Poppins-Medium',
   },
   containerFooter: {
     marginTop: metrics.baseMargin,

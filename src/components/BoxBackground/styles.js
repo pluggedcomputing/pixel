@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: metrics.screenWidth * 0.9,
     minHeight: metrics.screenHeight * 0.4,
-    backgroundColor: colors.colorSecondaryLight,
+    backgroundColor: colors.colorAccent,
     borderRadius: metrics.baseRadius,
   },
   boxContainer: {

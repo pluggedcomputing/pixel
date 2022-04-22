@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
     elevation: metrics.baseElevation,
   },
   text: {
-    fontWeight: 'bold',
     color: colors.colorTextSecondary,
     fontSize: fonts.small,
+    fontFamily: 'Poppins-Regular',
   },
 });
 
