@@ -7,7 +7,7 @@ import styles from './styles';
 function HelpScreen (){
   return(
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           <Image style={styles.image} source={imageHelp} />
           <Text style={styles.text}>
