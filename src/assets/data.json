@@ -14,7 +14,7 @@
         {
           "type": "none",
           "id": 2,
-          "text": "As telas dos computadores são dividas em uma grade de pequenos quadrados, podendo ser cada um de uma cor específica. Chamamos esses quadrados de elementos de imagem ou pixels",
+          "text": "As telas dos computadores são divididas em uma grade de pequenos quadrados, podendo ser cada um de uma cor específica. Chamamos esses quadrados de elementos  de imagem ou pixels.",
           "img": "l1q2",
           "imgFormat": "img"
         },
@@ -154,8 +154,8 @@
           "id": 1,
           "text":
               "Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos.",
-            "img": null,
-            "imgFormat": ""
+            "img": "l2q1",
+            "imgFormat": "img"
         },
         {
           "type": "none",
@@ -297,8 +297,8 @@
           "type": "none",
           "id": 1,
           "text": "Você aprendeu que podemos representar uma imagem através de pontos pretos e brancos, representados por 0 e 1 respectivamente.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l3q1",
+          "imgFormat": "img"
         },
         {
           "type": "none",
@@ -310,38 +310,27 @@
         {
           "type": "none",
           "id": 3,
-          "text": "Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Por exemplo, a primeira linha da imagem abaixo pode ser representada por 1,1,3,1,1 indicando a sequência de 1 pixel branco, 1 preto, 3 brancos, 1 preto e 1 branco",
+          "text": "Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Por exemplo, a primeira linha da imagem acima pode ser representada por 1,1,3,1,1 indicando a sequência de 1 pixel branco, 1 preto, 3 brancos, 1 preto e 1 branco.",
           "img": "l3q3",
           "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 4,
-          "text": "Note que o primeiro código representa a quantidade de pixels brancos e o segundo a quantidade de pixels pretos, e assim sucessivamente. Se a linha começa com pixels pretos, o primeiro código será 0.",
+          "text": "Note que o primeiro código representa a quantidade de pixels brancos e o segundo a quantidade de pixels pretos, e assim sucessivamente. Se a linha começa com pixels pretos, o primeiro código será 0(zero).",
           "img": "l3q4",
           "imgFormat": "img"
         },
         {
-          "type": "paintingtable",
-          "id": 4,
+          "type": "none",
+          "id": 5,
           "enable": false,
-          "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos.",
-          "img": null,
-          "imgFormat": "",
-          "row": 5,
-          "column": 5,
-          "isContentReduced": true,
-          "hasConverted": true,
-          "paintContent": [
-            [0,5],
-            [2, 1, 2],
-            [2, 1, 2],
-            [2, 1, 2],
-            [2, 1, 2]
-          ]
+          "text": "Veja acima como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos.",
+          "img": "l3q5",
+          "imgFormat": "img"
         },
         {
-          "id": 5,
+          "id": 6,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
@@ -383,7 +372,7 @@
           ]
         },
          {
-          "id": 6,
+          "id": 7,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
@@ -426,7 +415,7 @@
           ]
         },
         {
-          "id": 7,
+          "id": 8,
           "type": "paintingtable",
           "enable": true,
           "minPaintPixel": 1,
@@ -468,7 +457,7 @@
           ]
         },
         {
-          "id": 8,
+          "id": 9,
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [4],
@@ -509,7 +498,7 @@
           ]
         },
         {
-          "id": 9,
+          "id": 10,
           "type": "paintingtable",
           "enable": true,
           "minPaintPixel": 1,
@@ -560,25 +549,32 @@
           "type": "none",
           "id": 1,
           "text": "Como vimos antes, uma máquina de fax é capaz de transmitir imagens para uma outra máquina. Imagens impressas por máquinas de fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal).",
-          "img": null,
-          "imgFormat": ""
+          "img": "l4q1",
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 2,
-          "text": "Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão.  O método utilizado nas atividades do Nível 3 para representar quantidades de pixels brancos e pretos é chamado de 'run-length coding'. Esse método permite comprimir imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet.",
-          "img": null,
-          "imgFormat": ""
+          "text": "Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento, os programadores podem usar diversas técnicas de compressão.",
+          "img": "l4q2",
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 3,
-          "text": "Por exemplo, imagens de fax eram geralmente comprimidas para aproximadamente um sétimo do seu tamanho original. Sem a compressão, estas demorariam sete vezes mais para serem transmitidas! Lembre-se de que as velocidades de transmissão não eram tão boas antigamente como as que temos hoje.",
-          "img": null,
-          "imgFormat": ""
+          "text": "O método visto no Nível 3, que permite comprimir imagens, foi o 'run-length coding'. Se elas não fossem comprimidas, levariam muito mais tempo para serem transmitidas e exigiria muito mais espaço para armazenamento, inviabilizando o envio de páginas de fax ou colocar fotos em uma página da Internet.",
+          "img": "l4q3",
+          "imgFormat": "img"
         },
         {
+          "type": "none",
           "id": 4,
+          "text": "Por exemplo, imagens de fax eram geralmente comprimidas para aproximadamente um sétimo do seu tamanho original. Sem a compressão, estas demorariam sete vezes mais para serem transmitidas! Lembre-se de que as velocidades de transmissão não eram tão boas antigamente como as que temos hoje.",
+          "img": "l4q4",
+          "imgFormat": "img"
+        },
+        {
+          "id": 5,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
@@ -599,7 +595,7 @@
           ]
         },
         {
-          "id": 5,
+          "id": 6,
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
@@ -616,14 +612,14 @@
         },
         {
           "type": "none",
-          "id": 6,
+          "id": 7,
           "enable": false,
           "text": "Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê-las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.",
           "img": null,
           "imgFormat": ""
         },
         {
-          "id": 7,
+          "id": 8,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
@@ -644,7 +640,7 @@
           ]
         },
         {
-          "id": 8,
+          "id": 9,
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],

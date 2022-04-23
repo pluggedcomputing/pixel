@@ -24,13 +24,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
 
-  imageStatusBar: {
-    margin: metrics.smallMargin,
-    width: metrics.screenWidth * 0.4,
-    height: metrics.screenHeight * 0.12,
-    resizeMode: 'contain',
-  },
-
   textLevel: {
     flex: 1,
     fontSize: fonts.small,

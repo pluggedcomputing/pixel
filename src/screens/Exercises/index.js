@@ -230,8 +230,8 @@ const Exercises = ({navigation}) => {
     const content = exercise.questions.map((item) => {
       return (
         <View style={styles.viewBoxContent}>
-          <Text style={styles.contentText}>{item.text}</Text>
           {choiceComponentBox()}
+          <Text style={styles.contentText}>{item.text}</Text>
         </View>
       );
     });
@@ -267,8 +267,8 @@ const Exercises = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={colors.colorPrimary} />
-      <View style={styles.halfTopView}>
+      <StatusBar backgroundColor={colors.colorAccent} />
+      <View>
         <BoxBackground
           content={viewContent()}
           setSteps={setSteps}

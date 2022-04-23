@@ -18,9 +18,6 @@ import tarja from '../../assets/images/screenAbout/tarja-pixel-1.png';
 import unplug from '../../assets/images/screenAbout/unplug-pixel-1.png';
 import {metrics} from '../../styles';
 import styles from './styles';
-// import site from '../../assets/images/site.png';
-// import tank from '../../assets/images/tank_white.png';
-// import BoxBackground from '../../components/BoxBackground/index';
 
 
 

@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: colors.colorTextSecondary,
+    fontFamily: 'Poppins-SemiBold',
   },
   image: {
     resizeMode: 'contain',
