@@ -32,13 +32,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: colors.colorSecondary,
     marginHorizontal: metrics.doubleBaseMargin,
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-SemiBold',
   },
   superscriptText: {
-    fontSize: fonts.medium,
+    fontSize: fonts.small,
     textAlign: 'center',
     color: colors.colorSecondary,
     marginHorizontal: metrics.doubleBaseMargin,
+    fontFamily: 'Poppins-Regular',
   },
   buttons: {
     margin: metrics.smallMargin,

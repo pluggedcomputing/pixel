@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     color: colors.colorTextPrimary,
     marginVertical: metrics.tripleBaseMargin,
     fontSize: fonts.small,
+    fontFamily: 'Poppins-Regular',
   },
   viewBoxContent: {
     flex: 1,
@@ -49,12 +50,10 @@ const styles = StyleSheet.create({
   imgCenter: {
     resizeMode: 'center',
     width: metrics.screenWidth * 0.8,
-    height: metrics.screenHeight * 0.15,
   },
   subContainerBoxContent: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: metrics.baseMargin,
     width: metrics.screenWidth * 0.6,
   },
   btnApps: {
