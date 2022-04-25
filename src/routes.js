@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
@@ -28,12 +29,31 @@ const Tab = createBottomTabNavigator();
 
 function Tabs(){
   return(
-    <Tab.Navigator>
-      <Tab.Screen options={{headerShown: false,}} name="Fases" component={LevelSelection} />
-      <Tab.Screen options={{headerShown: false,}} name="Ajuda" component={HelpScreen} />
-      <Tab.Screen options={{headerShown: false,}} name="Sobre" component={ScreenAbout} />
+    <Tab.Navigator
+      initialRouteName="Main"
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Sobre') {
+            iconName = focused ? 'information-circle' : 'information-circle-outline';
+          } else if (route.name === 'Ajuda') {
+            iconName = focused ? 'help-circle' : 'help-circle-outline';
+          }else if(route.name === 'Fases'){
+            iconName = focused ? 'home' : 'home';
+          }
+
+          return <Icon name={iconName} size={size} color={color} />;
+
+        },
+
+    })}>
+      <Tab.Screen options={{headerShown:false}} name='Fases' component={LevelSelection} />
+      <Tab.Screen options={{headerShown:false}} name='Ajuda' component={HelpScreen}  />
+      <Tab.Screen options={{headerShown:false}} name='Sobre' component={ScreenAbout} />
     </Tab.Navigator>
-  )
+  );
+
 }
 
 function LogoTitle() {
@@ -45,6 +65,7 @@ function LogoTitle() {
   );
 }
 
+Icon.loadFont();
 
 const routes = () => {
   return (

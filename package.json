@@ -43,7 +43,7 @@
     "react-native-svg": "^12.1.1",
     "react-native-svg-uri": "^1.2.3",
     "react-native-uuid": "^1.4.9",
-    "react-native-vector-icons": "^7.0.0"
+    "react-native-vector-icons": "^9.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
