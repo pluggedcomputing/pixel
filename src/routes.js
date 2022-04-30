@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -15,15 +15,6 @@ import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
 import {colors} from './styles';
 
-
-const styles = StyleSheet.create({
-  logo: {
-    resizeMode:'contain',
-    width:140,
-    height:50,
-  }
-});
-
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -32,25 +23,33 @@ function Tabs(){
     <Tab.Navigator
       initialRouteName="Main"
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ focused, size }) => {
           let iconName;
-
           if (route.name === 'Sobre') {
             iconName = focused ? 'information-circle' : 'information-circle-outline';
           } else if (route.name === 'Ajuda') {
             iconName = focused ? 'help-circle' : 'help-circle-outline';
           }else if(route.name === 'Fases'){
-            iconName = focused ? 'home' : 'home';
+            iconName = focused ? 'home' : 'home-outline';
           }
 
-          return <Icon name={iconName} size={size} color={color} />;
+          return (<View style={focused ? styles.container : styles.containerStateTwo}><Icon name={iconName} size={size} color={colors.colorSecondary} /></View>);
 
         },
+        tabBarStyle:{
+          padding: 5,
+          height: 64,
+        },
+        tabBarLabelStyle:{
+          color: colors.colorTextPrimary,
+          fontFamily: 'Poppins-Regular',
+        }
+
 
     })}>
-      <Tab.Screen options={{headerShown:false}} name='Fases' component={LevelSelection} />
-      <Tab.Screen options={{headerShown:false}} name='Ajuda' component={HelpScreen}  />
-      <Tab.Screen options={{headerShown:false}} name='Sobre' component={ScreenAbout} />
+      <Tab.Screen options={{ headerTitle: (props) => <LogoTitle {...props} />, headerTitleAlign: 'center'}} name='Fases' component={LevelSelection}  />
+      <Tab.Screen options={{headerTitle: 'AJUDA', headerTitleStyle: {fontFamily: 'Poppins-Bold', color: colors.colorSecondary}, headerTitleAlign: 'center'}} name='Ajuda' component={HelpScreen}  />
+      <Tab.Screen options={{headerTitle: 'SOBRE', headerTitleStyle: {fontFamily: 'Poppins-Bold', color: colors.colorSecondary}, headerTitleAlign: 'center'}} name='Sobre' component={ScreenAbout} />
     </Tab.Navigator>
   );
 
@@ -101,16 +100,13 @@ const routes = () => {
           name="HelpScreen"
           component={HelpScreen}
           options={{
-            title: 'AJUDA',
-            headerTitleStyle: {
-              fontFamily: 'Poppins-Bold',
-            },
+            headerShown:false
           }}
         />
         <Stack.Screen
           name="LevelSelection"
           component={Tabs}
-          options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          options={{headerShown:false}}
         />
         <Stack.Screen name="Exercises" component={Exercises} />
 
@@ -125,3 +121,23 @@ const routes = () => {
 };
 
 export default routes;
+
+const styles = StyleSheet.create({
+  logo: {
+    resizeMode:'contain',
+    width:140,
+    height:50,
+  },
+  container: {
+    flex: 1,
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.colorPrimary
+  },
+  containerStateTwo: {
+    backgroundColor: colors.colorAccent
+  }
+});
