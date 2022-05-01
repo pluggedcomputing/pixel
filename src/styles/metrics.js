@@ -9,7 +9,7 @@ const metrics = {
   tripleBaseMargin: 30,
   smallPadding: 4,
   basePadding: 8,
-  doubleBasePadding:16,
+  biggerPadding:16,
   smallRadius: 5,
   baseRadius: 10,
   tripleBaseRadius: 30,
