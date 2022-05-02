@@ -13,7 +13,7 @@ const ChoiceButton = (props) => {
     if (!enable && enableAlternatives === null) {
       setBackgroundColor(colors.colorBlank);
     } else {
-      setBackgroundColor(colors.colorSecondaryDark);
+      setBackgroundColor(colors.colorDesabled);
     }
 
     if (enable && correct) setBackgroundColor(colors.colorSucess);
@@ -24,7 +24,7 @@ const ChoiceButton = (props) => {
       if (enableAlternatives) {
         setBackgroundColor(colors.colorSecondary);
       } else {
-        setBackgroundColor(colors.colorSecondaryDark);
+        setBackgroundColor(colors.colorDesabled);
       }
     }
   }, [enableAlternatives]);

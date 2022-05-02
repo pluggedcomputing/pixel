@@ -11,14 +11,13 @@ const styles = StyleSheet.create({
     height: 40,
     width: metrics.screenWidth * WIDTH_PORCENTAGE,
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-
   input: {
     flex: 2,
     color: colors.colorTextPrimary,
     fontSize: fonts.input,
-    backgroundColor: colors.colorBackground,
+    backgroundColor: colors.colorAccent,
   },
 
 })

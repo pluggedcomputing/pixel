@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
     width: metrics.screenWidth,
     backgroundColor: colors.colorAccent,
   },
@@ -24,6 +25,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     margin: metrics.baseMargin,
     alignItems: 'center',
+  },
+  buttonImage:{
+    margin: 10,
+    position: 'relative',
+  },
+  buttonImageRotate:{
+    margin: 10,
+    position: 'relative',
+    transform: [{ rotate: '180deg' }],
   },
   statementImage: {
     resizeMode: 'contain',

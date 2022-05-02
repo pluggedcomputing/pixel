@@ -1,9 +1,10 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
-import {View, Image, StatusBar, Text} from 'react-native';
+import {View, Image, StatusBar, Text, TouchableOpacity} from 'react-native';
 
 import {useRoute} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 
+import image from '../../assets/images/levelSelection/Group.png';
 import BoxAlternative from '../../components/BoxAlternative';
 import BoxBackground from '../../components/BoxBackground';
 import PaintingTable from '../../components/PaintingTable';
@@ -268,7 +269,10 @@ const Exercises = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.colorAccent} />
-      <View>
+      <TouchableOpacity>
+        <Image source={image} style={styles.buttonImageRotate} />
+      </TouchableOpacity>
+      <View style={{position: 'absolute'}}>
         <BoxBackground
           content={viewContent()}
           setSteps={setSteps}
@@ -286,6 +290,9 @@ const Exercises = ({navigation}) => {
         }
         textInfor=""
       />
+      <TouchableOpacity onPress={() => navigation.navigate('Exercises', {Exercises: findById()})}>
+        <Image source={image} style={styles.buttonImage} />
+      </TouchableOpacity>
     </View>
   );
 };

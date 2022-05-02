@@ -10,14 +10,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: metrics.basePadding,
     width: metrics.screenWidth * widhtScreen,
-    elevation: metrics.baseElevation,
   },
-
   button: {
     alignItems: 'center',
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
-    elevation: metrics.baseElevation,
   },
   text: {
     color: colors.colorTextSecondary,

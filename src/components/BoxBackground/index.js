@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, Image} from 'react-native';
+import {View, FlatList} from 'react-native';
 import {ProgressBar} from 'react-native-paper';
 
 import PropTypes from 'prop-types';
 
-import image from '../../assets/images/levelSelection/Group.png';
 import {colors} from '../../styles';
 import styles from './styles';
 
@@ -89,7 +88,6 @@ const BoxBackground = (props) => {
   return (
     <View style={[styles.container, style]}>
       <View style={styles.imageContainer}>
-        <Image source={image} />
         <FlatList
           ref={(ref) => {
             flatListRef = ref;
@@ -110,8 +108,6 @@ const BoxBackground = (props) => {
           renderItem={renderItem}
         />
       </View>
-      <Image source={image} />
-
       <View style={styles.slidder}>
         <ProgressBar
           progress={convertIndexInProgress(pagination)}

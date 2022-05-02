@@ -24,9 +24,6 @@ const styles = StyleSheet.create({
   groupContainer: {
     flexDirection: 'row',
   },
-  imageContainer: {
-
-  },
   slidder: {
     width: 10,
     height: 10,
