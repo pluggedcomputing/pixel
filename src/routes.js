@@ -129,7 +129,7 @@ const routes = () => {
         />
 
         <Stack.Screen
-          options={{headerShown: false}}
+          options={{headerShown: true}}
           name="Congratulations"
           component={Congratulations}
         />

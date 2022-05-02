@@ -2,12 +2,11 @@ import {StyleSheet} from 'react-native';
 
 import {colors, fonts, metrics} from '../../styles';
 
-const HEIGHT_PORCENTAGE = 0.12;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: colors.colorPrimary,
     alignItems: 'center',
   },
   content: {
@@ -17,13 +16,18 @@ const styles = StyleSheet.create({
   },
   textTop: {
     textAlign: 'center',
-    color: colors.colorTextSecondary,
-    fontSize: fonts.bigger * 1.6,
+    color: colors.colorTextPrimary,
+    marginTop: 15,
+    marginBottom: -10,
+    fontSize: fonts.medium,
+    fontFamily: 'Poppins-SemiBold',
   },
   textEnd: {
     textAlign: 'center',
-    color: colors.colorTextSecondary,
-    fontSize: fonts.bigger,
+    color: colors.colorTextPrimary,
+    margin: -10,
+    fontSize: fonts.medium * 1.6,
+    fontFamily: 'Poppins-SemiBold',
   },
   textButton: {
     color: colors.colorPrimary,
@@ -39,24 +43,34 @@ const styles = StyleSheet.create({
     marginBottom: metrics.doubleBaseMargin,
   },
   information: {
-    flexDirection: 'row',
-    margin: metrics.baseMargin,
+    flexDirection: 'column',
+    marginLeft: metrics.baseMargin * 6,
+    marginBottom: 10,
     padding: metrics.basePadding,
-    width: metrics.screenWidth * 0.9,
-    backgroundColor: colors.colorTextPrimary,
-    borderColor: colors.colorSecondary,
-    borderRadius: metrics.baseRadius,
+    width: metrics.screenWidth * 0.7,
+    height: metrics.screenHeight *0.12,
+  },
+  informationPosition:{
+    flex: 0,
+    position: 'relative',
+    width: metrics.screenWidth
   },
   textInformation: {
     flex: 1,
     textAlign: 'left',
-    color: colors.colorTextSecondary,
-    fontSize: fonts.medium,
-    marginLeft: metrics.baseMargin,
+    color: colors.colorTextPrimary,
+    fontSize: fonts.small,
+    fontFamily: 'Poppins-Regular',
+    padding: metrics.basePadding,
   },
   animation: {
     width: 160,
     height: 160,
+    alignSelf: 'center',
+  },
+  imageWinner: {
+    width: 260,
+    height: 260,
     alignSelf: 'center',
   },
   centeredView: {
@@ -75,7 +89,7 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     color: colors.colorPrimaryDark,
-    fontWeight: 'bold',
+    fontFamily: 'Poppin-Regular',
     fontSize: fonts.regular,
   },
   modalSubTitle: {
@@ -109,11 +123,6 @@ const styles = StyleSheet.create({
   containerButtons: {
     justifyContent: 'space-between',
     flex: 0.55,
-  },
-  imgWin: {
-    width: metrics.screenHeight * HEIGHT_PORCENTAGE,
-    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
-    alignSelf: 'center',
   },
   titleWeb: {
     color: colors.colorPrimary,
