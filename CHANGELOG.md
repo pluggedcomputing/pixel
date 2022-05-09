@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-8](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-7...v0.1.0-8) (2022-05-09)
+
+
+### Bug Fixes
+
+* **master:** corrigido valor da resposta correta ([ef4a913](https://github.com/pluggedcomputing/pixel/commit/ef4a9134381031cf88968e132989b333c0df3b83))
+
 ## [0.1.0-7](https://github.com/pluggedcomputing/pixel/compare/v0.1.2...v0.1.0-7) (2021-11-12)
 
 ## [0.1.0-7](https://github.com/pluggedcomputing/pixel/compare/v0.1.2...v0.1.0-7) (2021-11-12)
