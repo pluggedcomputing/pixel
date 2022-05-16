@@ -290,7 +290,7 @@ const Exercises = ({navigation}) => {
         }
         textInfor=""
       />
-      <TouchableOpacity onPress={() => navigation.navigate('Exercises', {Exercises: findById()})}>
+      <TouchableOpacity onPress={() => navigation.navigate('Exercises', {Exercises: findById(exercise.questions[step].id)})}>
         <Image source={image} style={styles.buttonImage} />
       </TouchableOpacity>
     </View>
