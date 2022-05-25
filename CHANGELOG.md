@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/pluggedcomputing/pixel/compare/v0.1.2...v2.2.0) (2022-05-25)
+
+
+### Features
+
+* **#185:** adicionado lib codepush e appcenter ([6a476ce](https://github.com/pluggedcomputing/pixel/commit/6a476cea09815fb2054f25b14498999a24bcf142)), closes [#185](https://github.com/pluggedcomputing/pixel/issues/185)
+
+
+### Bug Fixes
+
+* **master:** corrigido valor da resposta correta ([ef4a913](https://github.com/pluggedcomputing/pixel/commit/ef4a9134381031cf88968e132989b333c0df3b83))
+
 ## [0.1.0-8](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-7...v0.1.0-8) (2022-05-09)
 
 
