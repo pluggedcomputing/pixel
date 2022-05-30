@@ -269,29 +269,31 @@ const Exercises = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.colorAccent} />
-      <TouchableOpacity>
-        <Image source={image} style={styles.buttonImageRotate} />
+      <TouchableOpacity style={styles.buttonImageRotate}>
+        <Image source={image} />
       </TouchableOpacity>
-      <View style={{position: 'absolute'}}>
-        <BoxBackground
-          content={viewContent()}
-          setSteps={setSteps}
-          scrollEnabled={isAnswered() || question.isDemonstration}
-          nextQuestion={nextCard}
-          setNextQuestion={setNextCard}
-          answerAgain={firstClickButton}
+      <View style={styles.screen}>
+        <View style={styles.halfTopView}>
+          <BoxBackground
+            content={viewContent()}
+            setSteps={setSteps}
+            scrollEnabled={isAnswered() || question.isDemonstration}
+            nextQuestion={nextCard}
+            setNextQuestion={setNextCard}
+            answerAgain={firstClickButton}
+          />
+        </View>
+        <BoxAlternative
+          alternativesContent={getAlternativesContent(question.alternatives)}
+          isNotQuestion={
+            !question.alternatives ||
+            (question.alternatives && question.alternatives.length === 0)
+          }
+          textInfor=""
         />
       </View>
-      <BoxAlternative
-        alternativesContent={getAlternativesContent(question.alternatives)}
-        isNotQuestion={
-          !question.alternatives ||
-          (question.alternatives && question.alternatives.length === 0)
-        }
-        textInfor=""
-      />
-      <TouchableOpacity onPress={() => navigation.navigate('Exercises', {Exercises: findById(exercise.questions[step].id)})}>
-        <Image source={image} style={styles.buttonImage} />
+      <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('Exercises', {Exercises: findById(exercise.questions[step].id)})}>
+        <Image source={image} />
       </TouchableOpacity>
     </View>
   );
