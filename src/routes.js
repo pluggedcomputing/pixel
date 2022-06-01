@@ -18,7 +18,9 @@ import {colors} from './styles';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+// const response = useRoute().params.data;
 
+// function make taba bar and import icons from library
 function Tabs(){
   return(
     <Tab.Navigator
@@ -129,7 +131,9 @@ const routes = () => {
         />
 
         <Stack.Screen
-          options={{headerShown: true}}
+          options={{
+            headerShown: false,
+          }}
           name="Congratulations"
           component={Congratulations}
         />

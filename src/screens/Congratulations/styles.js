@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 
 import {colors, fonts, metrics} from '../../styles';
 
+const WIDTH_PORCENTAGE = 1;
 
 const styles = StyleSheet.create({
   container: {
@@ -18,9 +19,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: colors.colorTextPrimary,
     marginTop: 15,
-    marginBottom: -10,
-    fontSize: fonts.medium,
-    fontFamily: 'Poppins-SemiBold',
+    marginBottom: 5,
+    fontSize: fonts.regular,
+    fontFamily: 'Poppins-Bold',
   },
   textEnd: {
     textAlign: 'center',
@@ -29,18 +30,27 @@ const styles = StyleSheet.create({
     fontSize: fonts.medium * 1.6,
     fontFamily: 'Poppins-SemiBold',
   },
-  textButton: {
-    color: colors.colorPrimary,
+  button: {
+    color: colors.colorSecondary,
     fontSize: fonts.medium,
   },
-  buttonAlternative: {
-    backgroundColor: colors.colorTextSecondary,
+  buttonsShare:{
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: metrics.screenHeight * 0.07,
-    width: metrics.screenWidth * 0.4,
-    borderRadius: metrics.baseRadius,
-    marginBottom: metrics.doubleBaseMargin,
+    backgroundColor: colors.colorSecondary,
+    color: colors.colorAccent,
+    width: 55,
+    height: 55,
+    borderRadius: 300,
+  },
+  boxButtons:{
+    flexDirection: 'row',
+    display: 'flex',
+    flex: 0.2,
+    alignItems: 'center',
+    justifyContent:'space-around',
+    width: metrics.screenWidth * WIDTH_PORCENTAGE,
   },
   information: {
     flexDirection: 'column',
@@ -59,25 +69,27 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'left',
     color: colors.colorTextPrimary,
-    fontSize: fonts.small,
+    fontSize: fonts.medium,
+    fontFamily: 'Poppins-Regular',
+    padding: metrics.basePadding,
+    position: 'absolute',
+  },
+  textBtn:{
+    flex: 1,
+    textAlign: 'center',
+    color: colors.colorTextPrimary,
     fontFamily: 'Poppins-Regular',
     padding: metrics.basePadding,
   },
-  animation: {
-    width: 160,
-    height: 160,
-    alignSelf: 'center',
+  textAndBtn: {
+    flexDirection: 'column',
+    alignItems: 'center',
+
   },
   imageWinner: {
-    width: 260,
-    height: 260,
+    width: 300,
+    height: 300,
     alignSelf: 'center',
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
   modalView: {
     width: metrics.screenWidth * 0.9,
@@ -92,10 +104,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppin-Regular',
     fontSize: fonts.regular,
   },
-  modalSubTitle: {
-    fontSize: fonts.small,
-    width: metrics.screenWidth * 0.7,
-  },
   buttonConcluded: {
     backgroundColor: colors.colorSucess,
     alignItems: 'center',
@@ -104,29 +112,6 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * 0.4,
     borderRadius: metrics.baseRadius,
     elevation: metrics.baseElevation,
-  },
-  textBtnConcluded: {
-    color: colors.colorTextSecondary,
-    fontSize: fonts.medium,
-  },
-  buttonAbout: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: metrics.screenHeight * 0.05,
-    width: metrics.screenWidth * 0.4,
-    borderRadius: metrics.baseRadius,
-  },
-  textBtnAbout: {
-    color: colors.colorPrimary,
-    fontSize: fonts.small,
-  },
-  containerButtons: {
-    justifyContent: 'space-between',
-    flex: 0.55,
-  },
-  titleWeb: {
-    color: colors.colorPrimary,
-    textDecorationLine: 'underline',
   },
 });
 

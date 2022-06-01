@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-end',
+    position: 'absolute',
+    bottom: 0,
   },
   containerBody: {
     justifyContent: 'center',

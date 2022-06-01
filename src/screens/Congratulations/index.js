@@ -10,9 +10,13 @@ import {
   Linking,
   Image
 } from 'react-native';
+import Share from 'react-native-share';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {useRoute} from '@react-navigation/native';
 
+// import Exercises from '../Exercises';
+import data from '../../assets/data.json';
 import imageWinner from '../../assets/images/congratulations/winner.png';
 import {colors} from '../../styles';
 import styles from './styles';
@@ -22,9 +26,28 @@ const Congratulations = (props) => {
   const [modal, setModal] = useState(false);
   const {navigation} = props;
 
+  // function to share the image of congratulations.
+  const shareCongratulations = async() => {
+    const shareOptions = {
+      message: 'Sei tudo sobre --- e posso provar',
+      // url:
+    }
+    try {
+      const ShareResponse = Share.open(shareOptions);
+      console.log(JSON.stringify(ShareResponse));
+    } catch(error){
+      console.log('Error =>', error);
+    }
+
+  };
+
+
+
   const navigateScreen = (screen) => {
     navigation.navigate(screen);
   };
+
+  Icon.loadFont();
 
   const showInformation = () => {
     return content.map((item, index) => {
@@ -46,6 +69,7 @@ const Congratulations = (props) => {
       </TouchableNativeFeedback>
     );
   };
+  const size = 30;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -61,18 +85,45 @@ const Congratulations = (props) => {
           {showInformation()}
         </View>
       </View>
+      <View style={styles.boxButtons}>
+        <View style={styles.textAndBtn}>
+          {/* share button */}
+          <TouchableOpacity
+            onPress={shareCongratulations}
+            style={styles.buttonsShare}>
+            <Icon name='share-social-outline' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>Compartilhar</Text>
+        </View>
+        <View style={styles.textAndBtn}>
+          {/* phase reset button */}
+          <TouchableOpacity
+            style={styles.buttonsShare}
+            onPress={() =>
+              // Exercises.
+              navigation.navigate('Exercises', {data: data.exercises[0]})}
+            >
+            <Icon name='refresh' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>Refazer</Text>
+        </View>
+        <View style={styles.textAndBtn}>
+          {/* button to return to phase screen */}
+          <TouchableOpacity
+            style={styles.buttonsShare}
+            onPress={() => {
+              if (isFinish) {
+                setModal(isFinish);
+              } else {
+                navigateScreen('LevelSelection');
+              }
+            }}>
+            <Icon name='home-outline' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>Ir para Fases</Text>
+        </View>
+      </View>
 
-      <TouchableOpacity
-        style={styles.buttonAlternative}
-        onPress={() => {
-          if (isFinish) {
-            setModal(isFinish);
-          } else {
-            navigateScreen('LevelSelection');
-          }
-        }}>
-        <Text style={styles.textButton}>Finalizar</Text>
-      </TouchableOpacity>
       <Modal
         animationType="slide"
         transparent
@@ -112,6 +163,10 @@ const Congratulations = (props) => {
               </TouchableOpacity>
             </View>
           </View>
+          <TouchableOpacity
+            onPress={shareCongratulations()}>
+            <Text style={styles.button}>Compartilhar</Text>
+          </TouchableOpacity>
         </View>
       </Modal>
     </SafeAreaView>

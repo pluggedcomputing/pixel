@@ -14,12 +14,12 @@ import styles from './styles';
 
 const LevelSelection = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
       <StatusBar
         barStyle="dark-content"
         backgroundColor={colors.colorSecondaryLight}
       />
-      <ScrollView contentContainerStyle={styles.scrollView}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.boxContainer}>
           <CardLevel
             level="1"
