@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     borderRadius: metrics.baseRadius,
   },
   textButton: {
-    fontSize: fonts.medium,
+    fontSize: fonts.input,
     margin: metrics.doubleBaseMargin,
     fontWeight: 'bold',
     textTransform: 'uppercase',

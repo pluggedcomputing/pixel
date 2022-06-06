@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.colorTextSecondary,
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
     fontFamily: 'Poppins-Regular',
   },
 });

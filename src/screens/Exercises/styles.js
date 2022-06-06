@@ -61,17 +61,17 @@ const styles = StyleSheet.create({
   },
   textBoxContent: {
     textAlign: 'center',
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
     paddingHorizontal: metrics.basePadding,
     color: colors.colorAccent,
   },
   contentText: {
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
     color: colors.colorTextPrimary,
     fontFamily: 'Poppins-Ligth',
   },
   textAnswer: {
-    fontSize: fonts.medium,
+    fontSize: fonts.regular,
     textAlign: 'center',
     marginTop: metrics.baseMargin,
     color: colors.colorPrimaryDark,

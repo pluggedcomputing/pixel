@@ -16,7 +16,7 @@ const CardLevel = props => {
 
   const viewOfContent = [
     'Imagens e Pixels.',
-    'Codificando imagens com 1 e 0.',
+    'Codificando imagens usando 1 e 0.',
     'Representando imagens de forma compactada.',
     'Usando run-length coding.',
   ];
