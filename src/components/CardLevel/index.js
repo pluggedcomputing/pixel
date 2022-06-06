@@ -15,15 +15,10 @@ const CardLevel = props => {
   const handleModal = () => setShowModal(!showModal);
 
   const viewOfContent = [
-    'Introdução ao sistema binário.',
-    'Números Binários.',
-    'Trabalhando com Números Binários.',
-    'Mensagem secreta com Binários.',
-    'Correio Eletrônico e Modens.',
-    'Contar acima de 31.',
-    'Mais Sobre Números Binários.',
-    'De que se trata tudo isso?',
-
+    'Imagens e Pixels.',
+    'Codificando imagens com 1 e 0.',
+    'Representando imagens de forma compactada.',
+    'Usando run-length coding.',
   ];
   function onPressCardLevel() {
     if (onPress && available) {
