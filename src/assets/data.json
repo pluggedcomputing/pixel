@@ -2,7 +2,7 @@
   "exercises": [
     {
       "level": 1,
-      "congratulations": [  "Entende o funcionamento do fax", "Entende que as telas dos computadores são divididas em uma grade de pequenos pontos (pixels)"],
+      "congratulations": [  "Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação."],
       "questions": [
         {
           "type": "none",
@@ -157,7 +157,7 @@
     },
     {
       "level": 2,
-      "congratulations": [ "Você agora entende o funcionamento básico da representação de imagens no computador", "Você sabe codificar uma imagem a ser exibida em uma tela utilizando apenas 0 e 1"],
+      "congratulations": [ "Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação."],
       "questions": [
         {
           "type": "none",
@@ -301,7 +301,7 @@
     },
     {
       "level": 3,
-      "congratulations": ["Você entende como uma imagem pode ser representada com números de forma compactada"],
+      "congratulations": ["Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação."],
       "questions": [
         {
           "type": "none",
@@ -553,7 +553,7 @@
     },
     {
       "level": 4,
-      "congratulations": [ "Você entende a necessidade de comprimir dados", "Você aprendeu como comprimir dados referentes à pixels utilizando run-length coding", "Você concluiu todos os níveis"],
+      "congratulations": [ "Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação."],
       "questions": [
         {
           "type": "none",
