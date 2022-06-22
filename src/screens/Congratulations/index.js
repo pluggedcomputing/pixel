@@ -15,14 +15,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import {useRoute} from '@react-navigation/native';
 
-// import Exercises from '../Exercises';
+
 import data from '../../assets/data.json';
 import imageWinner from '../../assets/images/congratulations/winner.png';
 import {colors} from '../../styles';
+// import Exercises from '../Exercises';
 import styles from './styles';
 
+
+
 const Congratulations = (props) => {
-  const {level, content, isFinish} = useRoute().params;
+  const {level, content} = useRoute().params;// isFinish
   const [modal, setModal] = useState(false);
   const {navigation} = props;
 
@@ -40,8 +43,6 @@ const Congratulations = (props) => {
     }
 
   };
-
-
 
   const navigateScreen = (screen) => {
     navigation.navigate(screen);
@@ -101,7 +102,7 @@ const Congratulations = (props) => {
             style={styles.buttonsShare}
             onPress={() =>
               // Exercises.
-              navigation.navigate('Exercises', {data: data.exercises[0]})}
+              navigation.navigate('Exercises')}
             >
             <Icon name='refresh' size={size} color={colors.colorAccent} />
           </TouchableOpacity>
@@ -111,14 +112,11 @@ const Congratulations = (props) => {
           {/* button to return to phase screen */}
           <TouchableOpacity
             style={styles.buttonsShare}
-            onPress={() => {
-              if (isFinish) {
-                setModal(isFinish);
-              } else {
-                navigateScreen('LevelSelection');
-              }
-            }}>
-            <Icon name='home-outline' size={size} color={colors.colorAccent} />
+            onPress={() =>
+              navigation.navigate('Exercises', {data: data.exercises[level]})}
+
+          >
+            <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
           </TouchableOpacity>
           <Text style={styles.textBtn}>Ir para Fases</Text>
         </View>
