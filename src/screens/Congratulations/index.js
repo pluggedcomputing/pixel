@@ -37,9 +37,12 @@ const Congratulations = (props) => {
     }
     try {
       const ShareResponse = Share.open(shareOptions);
+      // eslint-disable-next-line no-console
       console.log(JSON.stringify(ShareResponse));
     } catch(error){
+      // eslint-disable-next-line no-console
       console.log('Error =>', error);
+      throw error;
     }
 
   };
@@ -118,7 +121,7 @@ const Congratulations = (props) => {
           >
             <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
           </TouchableOpacity>
-          <Text style={styles.textBtn}>Ir para Fases</Text>
+          <Text style={styles.textBtn}>Próxima Fase</Text>
         </View>
       </View>
 

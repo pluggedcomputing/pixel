@@ -35,7 +35,7 @@ function ScreenAbout() {
         </View>
         <View style={styles.container}>
           <Image source={unplug} style={styles.imgCenter} />
-          <Text style={styles.text}> Este livro apresenta ativades práticas, lúdicas e acessíveis sobre diversos
+          <Text style={styles.text}> Este livro apresenta atividades práticas, lúdicas e acessíveis sobre diversos
             temas da ciência da computação. O mesmo engloba técnicas para todos. Sua prática
             é fácil não só em salas de aula mas também fora, podendo ser administrado por professores
             e compreendido pelas crianças.
@@ -44,7 +44,7 @@ function ScreenAbout() {
         <View style={styles.container}>
           <Image source={tarja} style={styles.imgCenter} />
           <Text style={styles.text}> O aplicativo aqui apresentado busca simplificar ainda mais a aplicação das
-            propostas sem a necessidade de produção em materiais adicionais. O aplicativo é
+            propostas sem a necessidade de produção de materiais adicionais. O aplicativo é
             uma grande inovação para as técnicas  de, aprendizagem, apresentando temas complexos
             de uma forma elementar para o conhecimento.
           </Text>
@@ -77,7 +77,7 @@ function ScreenAbout() {
             </TouchableOpacity>
           </View>
           <Text style={styles.text}> O aplicativo Pixel faz parte de uma família com vários outros aplicativos.
-            Conheça mais sobre os demais clicando na imagem abaixo.
+            Conheça mais sobre os demais clicando nas imagens acima.
           </Text>
         </View>
       </SafeAreaView>

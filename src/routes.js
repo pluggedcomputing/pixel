@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 // const response = useRoute().params.data;
 
-// function make taba bar and import icons from library
+// function make tab bar and import icons from library
 function Tabs(){
   return(
     <Tab.Navigator

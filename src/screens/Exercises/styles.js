@@ -48,11 +48,19 @@ const styles = StyleSheet.create({
     position: 'relative',
     transform: [{ rotate: '180deg' }],
   },
+  image: {
+    left: 10,
+  },
+  image2: {
+    right: -10,
+  },
   statementImage: {
     resizeMode: 'contain',
     justifyContent: 'flex-end',
     width: Math.round((metrics.screenWidth * 14) / 16),
     height: metrics.screenHeight * 0.35,
+    marginTop: metrics.baseMargin * 2,
+    marginBottom: metrics.baseMargin * 12,
   },
   animation: {
     width: metrics.screenHeight * HEIGHT_PORCENTAGE,
@@ -66,6 +74,7 @@ const styles = StyleSheet.create({
     color: colors.colorAccent,
   },
   contentText: {
+    flex: 1,
     fontSize: fonts.regular,
     color: colors.colorTextPrimary,
     fontFamily: 'Poppins-Ligth',
@@ -74,7 +83,7 @@ const styles = StyleSheet.create({
     fontSize: fonts.regular,
     textAlign: 'center',
     marginTop: metrics.baseMargin,
-    color: colors.colorPrimaryDark,
+    color: colors.colorSecondary,
     fontWeight: 'bold',
   },
   buttonsContainer: {

@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     borderRadius: metrics.baseBorder,
-    backgroundColor: colors.colorPrimary,
+    backgroundColor: colors.colorAccent,
+    marginTop: metrics.baseMargin * 2,
+    marginBottom: metrics.baseMargin * 4,
   },
   subContainer: {
     flexDirection: 'row',
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
     borderWidth: metrics.baseBorder,
     borderColor: colors.colorSecondaryDark,
   },
-  squareColoring: {backgroundColor: colors.colorTextPrimary},
+  squareColoring: {backgroundColor: colors.colorBlack},
   discolorSquare: {backgroundColor: colors.colorAccent},
   squareRed: {backgroundColor: colors.colorError},
   squareGreen: {backgroundColor: colors.colorSucess},
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.colorTextPrimary,
     fontSize: fonts.small,
+    fontWeight: 'bold',
     fontFamily: 'Poppins-Medium',
   },
   containerFooter: {

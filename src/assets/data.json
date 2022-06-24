@@ -224,7 +224,7 @@
           "minPaintPixel": 1,
           "invisibleRow": null,
           "lackRowPixel": null,
-          "text": "Vamos praticar? Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida",
+          "text": "Vamos praticar? Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida.",
           "row": 5,
           "column": 5,
           "isContentReduced": false,
@@ -327,7 +327,7 @@
         {
           "type": "none",
           "id": 4,
-          "text": "Note que o primeiro código representa a quantidade de pixels brancos e o segundo a quantidade de pixels pretos, e assim sucessivamente. Se a linha começa com pixels pretos, o primeiro código será 0(zero).",
+          "text": "Note que o primeiro código representa a quantidade de pixels brancos e o segundo a quantidade de pixels pretos, e assim sucessivamente. Quando o primeiro código é 0 (zero), o primeiro pixel será preto, pois o 0 (zero) representa a ausência de pixels brancos.",
           "img": "l3q4",
           "imgFormat": "img"
         },
