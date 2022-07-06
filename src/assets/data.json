@@ -28,7 +28,7 @@
         {
           "type": "none",
           "id": 4,
-          "text": "Uma imagem correspondente à letra C, por exemplo, poderia ser representada com números binários (bits). Se o 1 indica um quadrado branco e o 0 indica um quadrado preto, então poderíamos ter uma grade de 5x6 pixels como a ilustrada abaixo:",
+          "text": "Uma imagem correspondente à letra C, por exemplo, poderia ser representada com números binários (bits). Se o 1 indica um quadrado branco e o 0 indica um quadrado preto, então poderíamos ter uma grade de 5 x 6 pixels como a ilustrada acima.",
           "img": "l1q4",
           "imgFormat": "img"
         },
@@ -37,7 +37,7 @@
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
-          "text": "Pinte os pixels abaixo de preto ou branco clicando em cada um deles e veja o código dos bits correspondentes.",
+          "text": "Pinte os pixels acima de preto ou branco clicando em cada um deles e veja o código em bits (sequências de 0s e 1s) correspondentes.",
           "row": 1,
           "column": 5,
           "isContentReduced": false,
@@ -51,7 +51,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "A sequência de pixels abaixo pode ser representada por qual código?",
+          "text": "A sequência de pixels acima pode ser representada por qual código?",
           "row": 1,
           "column": 5,
           "isContentReduced": false,
@@ -104,12 +104,12 @@
             },
             {
               "id": 3,
-              "text": "Inserir outra opção",
+              "text": "Gerando sequências aleatórias de código",
               "correct": false
             },
             {
               "id": 4,
-              "text": "Inserir outra opção",
+              "text": "Transferindo pixels por meio de luz e produtos químicos",
               "correct": false
             }
           ]
