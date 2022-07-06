@@ -572,7 +572,7 @@
         {
           "type": "none",
           "id": 3,
-          "text": "O método visto no Nível 3, que permite comprimir imagens, foi o 'run-length coding'. Se elas não fossem comprimidas, levariam muito mais tempo para serem transmitidas e exigiria muito mais espaço para armazenamento, inviabilizando o envio de páginas de fax ou colocar fotos em uma página da Internet.",
+          "text": "O método visto na Fase 3, que permite comprimir imagens, foi o 'run-length coding'. Se elas não fossem comprimidas, levariam muito mais tempo para serem transmitidas e exigiria muito mais espaço para armazenamento, inviabilizando o envio de páginas de fax ou colocar fotos em uma página da Internet.",
           "img": "l4q3",
           "imgFormat": "img"
         },
@@ -609,7 +609,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "Selecione a sequência que representa a primeira linha de sua foto.",
+          "text": "Selecione a sequência que representa a primeira linha de sua imagem.",
           "paintingFreely": false,
           "isContentReduced": true,
           "hasConverted": true,
