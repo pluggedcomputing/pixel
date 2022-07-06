@@ -104,12 +104,12 @@
             },
             {
               "id": 3,
-              "text": "Gerando sequências aleatórias de código",
+              "text": "Gerando sequências aleatórias",
               "correct": false
             },
             {
               "id": 4,
-              "text": "Transferindo pixels por meio de luz e produtos químicos",
+              "text": "Transferindo cores com luz",
               "correct": false
             }
           ]

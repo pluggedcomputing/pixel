@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   contentText: {
     flex: 1,
-    fontSize: fonts.regular,
+    fontSize: fonts.regular *1.15,
     color: colors.colorTextPrimary,
     fontFamily: 'Poppins-Ligth',
   },
