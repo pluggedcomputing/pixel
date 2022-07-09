@@ -7,7 +7,7 @@
         {
           "type": "none",
           "id": 1,
-          "text": "Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? A seguir, entenderemos melhor.",
+          "text": "Você sabia que os computadores armazenam desenhos, fotografias, e outras imagens usando apenas números? A seguir, entenderemos melhor.",
           "img": "l1q1",
           "imgFormat": "img"
         },
@@ -625,8 +625,15 @@
           "id": 7,
           "enable": false,
           "text": "Fotos e imagens são frequentemente comprimidas para um décimo ou até um centésimo do seu tamanho (usando uma técnica diferente). Isto permite que um número maior de imagens seja armazenado nos dispositivos e que possam ser baixadas mais rapidamente da Internet.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l4q5",
+          "imgFormat": "img"
+        },
+        {
+          "type": "none",
+          "id": 11,
+          "text": "Um programador pode escolher a técnica mais adequada para compressão das imagens que está transmitindo.",
+          "img": "l4q6",
+          "imgFormat": "img"
         },
         {
           "id": 8,
@@ -634,7 +641,7 @@
           "enable": true,
           "invisibleRow": null,
           "paintingFreely": true,
-          "text": "Que tal agora desenhar com cores e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.",
+          "text": "Que tal agora desenhar com cores e tentar descobrir o código que representa essa imagem? Pinte no quadro acima sua imagem e clique em concluir.",
           "paintContent": [],
           "row": 5,
           "isContentReduced": true,
@@ -654,7 +661,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "Selecione a sequência que represente a primeira linha de sua foto",
+          "text": "Selecione a sequência que represente a primeira linha de sua imagem.",
           "paintingFreely": false,
           "isContentReduced": true,
           "isColorFul": true,
@@ -665,20 +672,6 @@
           "paintContent": [],
           "alternatives": [],
           "isCreateAlternatives": true
-        },
-        {
-          "type": "none",
-          "id": 10,
-          "text": "Fotos e imagens são frequentemente comprimidas para um décimo ou até um centésimo do seu tamanho (usando uma técnica diferente). Isto permite que um número maior de imagens seja armazenado nos dispositivos e que possam ser baixadas mais rapidamente da Internet.",
-          "img": "l4q5",
-          "imgFormat": "img"
-        },
-        {
-          "type": "none",
-          "id": 11,
-          "text": "Um programador pode escolher a técnica mais adequada para compressão das imagens que está transmitindo.",
-          "img": "l4q6",
-          "imgFormat": "img"
         }
       ]
     }
