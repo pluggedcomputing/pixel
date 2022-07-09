@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     width: Math.round((metrics.screenWidth * 14) / 16),
     height: metrics.screenHeight * 0.35,
     marginTop: metrics.baseMargin * 2,
-    marginBottom: metrics.baseMargin * 12,
+    marginBottom: metrics.baseMargin * 10,
   },
   animation: {
     width: metrics.screenHeight * HEIGHT_PORCENTAGE,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   contentText: {
     flex: 1,
-    fontSize: fonts.regular *1.15,
+    fontSize: fonts.regular *1.1,
     color: colors.colorTextPrimary,
     fontFamily: 'Poppins-Ligth',
   },

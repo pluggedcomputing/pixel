@@ -8,7 +8,8 @@ import {
   Text,
   Modal,
   Linking,
-  Image
+  Image,
+  Alert
 } from 'react-native';
 import Share from 'react-native-share';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -30,21 +31,19 @@ const Congratulations = (props) => {
   const {navigation} = props;
 
   // function to share the image of congratulations.
-  const shareCongratulations = async() => {
-    const shareOptions = {
-      message: 'Sei tudo sobre --- e posso provar',
-      // url:
+  const shareCongratulations = async() =>{
+    const ShareOptions={
+      message: 'texto vai aqui',
     }
-    try {
-      const ShareResponse = Share.open(shareOptions);
-      // eslint-disable-next-line no-console
-      console.log(JSON.stringify(ShareResponse));
-    } catch(error){
-      // eslint-disable-next-line no-console
-      console.log('Error =>', error);
-      throw error;
+    try{
+      // eslint-disable-next-line no-unused-vars
+      const ShareResponse = await Share.open(ShareOptions);
+    }catch(error){
+      Alert.alert(
+        'oops',
+        'Houve um problema ao compartilhar.'
+        );
     }
-
   };
 
   const navigateScreen = (screen) => {
@@ -165,7 +164,7 @@ const Congratulations = (props) => {
             </View>
           </View>
           <TouchableOpacity
-            onPress={shareCongratulations()}>
+            onPress={shareCongratulations}>
             <Text style={styles.button}>Compartilhar</Text>
           </TouchableOpacity>
         </View>
@@ -175,3 +174,5 @@ const Congratulations = (props) => {
 };
 
 export default Congratulations;
+
+

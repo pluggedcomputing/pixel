@@ -340,7 +340,7 @@
           "imgFormat": "img"
         },
         {
-          "id": 6,
+          "id": 5,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
@@ -382,7 +382,7 @@
           ]
         },
          {
-          "id": 7,
+          "id": 6,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
@@ -425,7 +425,7 @@
           ]
         },
         {
-          "id": 8,
+          "id": 7,
           "type": "paintingtable",
           "enable": true,
           "minPaintPixel": 1,
@@ -467,7 +467,7 @@
           ]
         },
         {
-          "id": 9,
+          "id": 8,
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [4],
@@ -508,7 +508,7 @@
           ]
         },
         {
-          "id": 10,
+          "id": 9,
           "type": "paintingtable",
           "enable": true,
           "minPaintPixel": 1,
@@ -584,7 +584,7 @@
           "imgFormat": "img"
         },
         {
-          "id": 5,
+          "id": 4,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
@@ -605,7 +605,7 @@
           ]
         },
         {
-          "id": 6,
+          "id": 5,
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
@@ -622,7 +622,7 @@
         },
         {
           "type": "none",
-          "id": 7,
+          "id": 6,
           "enable": false,
           "text": "Fotos e imagens são frequentemente comprimidas para um décimo ou até um centésimo do seu tamanho (usando uma técnica diferente). Isto permite que um número maior de imagens seja armazenado nos dispositivos e que possam ser baixadas mais rapidamente da Internet.",
           "img": "l4q5",
@@ -630,13 +630,13 @@
         },
         {
           "type": "none",
-          "id": 11,
+          "id": 7,
           "text": "Um programador pode escolher a técnica mais adequada para compressão das imagens que está transmitindo.",
           "img": "l4q6",
           "imgFormat": "img"
         },
         {
-          "id": 8,
+          "id": 7,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
@@ -657,11 +657,11 @@
           ]
         },
         {
-          "id": 9,
+          "id": 8,
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "Selecione a sequência que represente a primeira linha de sua imagem.",
+          "text": "Selecione a sequência que representa a primeira linha de sua imagem.",
           "paintingFreely": false,
           "isContentReduced": true,
           "isColorFul": true,
