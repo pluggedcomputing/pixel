@@ -79,6 +79,7 @@ function LogoTitle() {
 Icon.loadFont();
 
 const routes = () => {
+  // const {level} = useRoute().params;
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -131,11 +132,11 @@ const routes = () => {
         />
 
         <Stack.Screen
-          options={{
-            headerShown: false,
-          }}
           name="Congratulations"
           component={Congratulations}
+          options={{
+            headerShown:false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

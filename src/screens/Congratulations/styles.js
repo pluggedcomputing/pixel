@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
   textAndBtn: {
     flexDirection: 'column',
     alignItems: 'center',
-
   },
   imageWinner: {
     width: 300,
@@ -104,15 +103,36 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppin-Regular',
     fontSize: fonts.regular,
   },
+  containerBtnConcluded: {
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'center',
+    left: metrics.baseMargin*8,
+  },
   buttonConcluded: {
-    backgroundColor: colors.colorSucess,
+    backgroundColor: colors.colorPrimary,
     alignItems: 'center',
     justifyContent: 'center',
     height: metrics.screenHeight * 0.07,
     width: metrics.screenWidth * 0.4,
     borderRadius: metrics.baseRadius,
-    elevation: metrics.baseElevation,
+    left: metrics.baseMargin*5,
   },
+  textBtnConcluded: {
+    color: colors.colorSecondary,
+    fontSize: fonts.header,
+    fontWeight: 'bold',
+    fontFamily: 'Poppin-Bold',
+    justifyContent: 'center',
+    margin: metrics.baseMargin,
+    marginTop: 4,
+  },
+  iconConcluded: {
+    color: colors.colorSecondary,
+    fontSize: fonts.header*1.2,
+    fontFamily: 'Poppin-Regular',
+    margin: metrics.baseMargin*0.9,
+  }
 });
 
 export default styles;

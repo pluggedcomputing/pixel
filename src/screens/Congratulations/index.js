@@ -81,6 +81,14 @@ const Congratulations = (props) => {
         backgroundColor={colors.colorPrimary}
       />
       <View style={styles.content}>
+        <View style={styles.containerBtnConcluded}>
+          <Text style={styles.textBtnConcluded}>FASE {level}</Text>
+          <TouchableOpacity
+            style={styles.buttonConcluded}
+            onPress={() => navigation.navigate('LevelSelection')}>
+            <Icon style={styles.iconConcluded} name='close' />
+          </TouchableOpacity>
+        </View>
         <Image source={imageWinner} style={styles.imageWinner} />
         <Text style={styles.textTop}>Você concluiu a</Text>
         <Text style={styles.textEnd}>FASE {level}</Text>
@@ -104,7 +112,7 @@ const Congratulations = (props) => {
             style={styles.buttonsShare}
             onPress={() =>
               // Exercises.
-              navigation.navigate('Exercises')}
+              navigateScreen('Exercises')}
             >
             <Icon name='refresh' size={size} color={colors.colorAccent} />
           </TouchableOpacity>
@@ -115,7 +123,7 @@ const Congratulations = (props) => {
           <TouchableOpacity
             style={styles.buttonsShare}
             onPress={() =>
-              navigation.navigate('Exercises', {data: data.exercises[level]})}
+              navigation.navigate('Exercises', {data: data.exercises[level+1]})}
 
           >
             <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
