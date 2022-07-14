@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderRadius: metrics.baseBorder,
     backgroundColor: colors.colorAccent,
     marginTop: metrics.baseMargin * 2,
-    marginBottom: metrics.baseMargin * 4,
+    marginBottom: metrics.baseMargin,
   },
   subContainer: {
     flexDirection: 'row',

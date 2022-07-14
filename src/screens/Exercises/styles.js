@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     width: Math.round((metrics.screenWidth * 14) / 16),
     height: metrics.screenHeight * 0.35,
     marginTop: metrics.baseMargin * 2,
-    marginBottom: metrics.baseMargin * 10,
+    marginBottom: metrics.baseMargin * 2,
   },
   animation: {
     width: metrics.screenHeight * HEIGHT_PORCENTAGE,

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     position: 'absolute',
-    bottom: 0,
+    bottom: -10,
   },
   containerBody: {
     justifyContent: 'center',
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth,
   },
   expandle: {
-    height: metrics.screenHeight * 0.43,
+    height: metrics.screenHeight * 0.40,
     backgroundColor: colors.colorTextSecondary,
   },
   hide: {height: metrics.screenHeight * 0.1},
