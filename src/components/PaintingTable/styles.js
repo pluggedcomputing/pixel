@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   discolorSquare: {backgroundColor: colors.colorAccent},
   squareRed: {backgroundColor: colors.colorError},
   squareGreen: {backgroundColor: colors.colorSucess},
-  squareBlue: {backgroundColor: colors.colorAccent},
+  squareBlue: {backgroundColor: colors.colorBlue},
   containerChoiceColor: {
     marginTop: metrics.smallMargin,
     flexDirection: 'row',

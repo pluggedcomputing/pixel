@@ -20,17 +20,19 @@ import {useRoute} from '@react-navigation/native';
 import data from '../../assets/data.json';
 import imageWinner from '../../assets/images/congratulations/winner.png';
 import {colors} from '../../styles';
-// import Exercises from '../Exercises';
+import Exercises from '../Exercises/index';
 import styles from './styles';
-
-
 
 const Congratulations = (props) => {
   const {level, content} = useRoute().params;// isFinish
   const [modal, setModal] = useState(false);
   const {navigation} = props;
 
-  // function to share the image of congratulations.
+  const restartPhase = async() =>{
+    Alert.alert(toString(Exercises));
+  }
+
+  // const to share the image of congratulations.
   const shareCongratulations = async() =>{
     const ShareOptions={
       message: 'texto vai aqui',
@@ -83,6 +85,7 @@ const Congratulations = (props) => {
       <View style={styles.content}>
         <View style={styles.containerBtnConcluded}>
           <Text style={styles.textBtnConcluded}>FASE {level}</Text>
+          {/* Congratulation screen exit button for Level Selection */}
           <TouchableOpacity
             style={styles.buttonConcluded}
             onPress={() => navigation.navigate('LevelSelection')}>
@@ -110,9 +113,7 @@ const Congratulations = (props) => {
           {/* phase reset button */}
           <TouchableOpacity
             style={styles.buttonsShare}
-            onPress={() =>
-              // Exercises.
-              navigateScreen('Exercises')}
+            onPress={restartPhase}
             >
             <Icon name='refresh' size={size} color={colors.colorAccent} />
           </TouchableOpacity>
@@ -123,7 +124,7 @@ const Congratulations = (props) => {
           <TouchableOpacity
             style={styles.buttonsShare}
             onPress={() =>
-              navigation.navigate('Exercises', {data: data.exercises[level+1]})}
+              navigation.goBack('Exercises', {data: data.exercises[level]})}
 
           >
             <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
