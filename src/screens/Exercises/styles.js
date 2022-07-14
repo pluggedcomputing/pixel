@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     justifyContent: 'flex-end',
     width: Math.round((metrics.screenWidth * 14) / 16),
-    height: metrics.screenHeight * 0.35,
+    height: metrics.screenHeight * 0.32,
     marginTop: metrics.baseMargin * 2,
     marginBottom: metrics.baseMargin * 2,
   },
