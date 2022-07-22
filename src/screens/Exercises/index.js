@@ -1,9 +1,10 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
-import {View, Image, StatusBar, Text} from 'react-native';
+import {View, Image, StatusBar, Text, TouchableOpacity} from 'react-native';
 
 import {useRoute} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 
+import image from '../../assets/images/levelSelection/Group.png';
 import BoxAlternative from '../../components/BoxAlternative';
 import BoxBackground from '../../components/BoxBackground';
 import PaintingTable from '../../components/PaintingTable';
@@ -120,7 +121,7 @@ const Exercises = ({navigation}) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: `Nível ${response.level}`,
+      title: `FASE ${response.level}`,
     });
   }, [navigation]);
 
@@ -268,24 +269,32 @@ const Exercises = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.colorAccent} />
-      <View>
-        <BoxBackground
-          content={viewContent()}
-          setSteps={setSteps}
-          scrollEnabled={isAnswered() || question.isDemonstration}
-          nextQuestion={nextCard}
-          setNextQuestion={setNextCard}
-          answerAgain={firstClickButton}
+      <TouchableOpacity style={styles.buttonImageRotate}>
+        <Image source={image} />
+      </TouchableOpacity>
+      <View style={styles.screen}>
+        <View style={styles.halfTopView}>
+          <BoxBackground
+            content={viewContent()}
+            setSteps={setSteps}
+            scrollEnabled={isAnswered() || question.isDemonstration}
+            nextQuestion={nextCard}
+            setNextQuestion={setNextCard}
+            answerAgain={firstClickButton}
+          />
+        </View>
+        <BoxAlternative
+          alternativesContent={getAlternativesContent(question.alternatives)}
+          isNotQuestion={
+            !question.alternatives ||
+            (question.alternatives && question.alternatives.length === 0)
+          }
+          textInfor=""
         />
       </View>
-      <BoxAlternative
-        alternativesContent={getAlternativesContent(question.alternatives)}
-        isNotQuestion={
-          !question.alternatives ||
-          (question.alternatives && question.alternatives.length === 0)
-        }
-        textInfor="Arraste o card acima para o lado para continuar."
-      />
+      <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('Exercises', {Exercises: findById(exercise.questions[step].id)})}>
+        <Image source={image} />
+      </TouchableOpacity>
     </View>
   );
 };

@@ -7,16 +7,46 @@ const HEIGHT_PORCENTAGE = 0.3;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     width: metrics.screenWidth,
     backgroundColor: colors.colorAccent,
+  },
+  screen: {
+    width: 330,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  halfTopView: {
+    flex: 1,
+    alignItems: 'center',
+    width: metrics.screenWidth * 0.9,
+    backgroundColor: colors.colorAccent,
+    marginTop: metrics.baseMargin,
+    marginBottom: metrics.baseMargin,
+  },
+  conteinerPaintTableQuestions: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: metrics.screenWidth,
+    backgroundColor: colors.colorPrimary,
   },
   viewBoxContent: {
     flex: 1,
     justifyContent: 'space-around',
     margin: metrics.baseMargin,
     alignItems: 'center',
+  },
+  buttonImage:{
+    margin: 10,
+    position: 'relative',
+  },
+  buttonImageRotate:{
+    margin: 10,
+    position: 'relative',
+    transform: [{ rotate: '180deg' }],
   },
   statementImage: {
     resizeMode: 'contain',

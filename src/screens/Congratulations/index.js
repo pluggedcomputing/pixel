@@ -2,21 +2,18 @@ import React, {useState} from 'react';
 import {
   SafeAreaView,
   StatusBar,
-  ScrollView,
   TouchableOpacity,
   TouchableNativeFeedback,
   View,
   Text,
   Modal,
   Linking,
+  Image
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {useRoute} from '@react-navigation/native';
-import Animation from 'lottie-react-native';
 
-import animation from '../../assets/animations/CheckedDone.json';
-import animationWin from '../../assets/images/level4/win.json';
+import imageWinner from '../../assets/images/congratulations/winner.png';
 import {colors} from '../../styles';
 import styles from './styles';
 
@@ -33,7 +30,6 @@ const Congratulations = (props) => {
     return content.map((item, index) => {
       return (
         <View key={[index]} style={styles.information}>
-          <Icon name="check-circle-o" size={30} color={colors.colorSucess} />
           <Text style={styles.textInformation}>{item}</Text>
         </View>
       );
@@ -54,22 +50,18 @@ const Congratulations = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
-        barStyle="light-content"
-        backgroundColor="rgba(0, 0, 0, 0.8)"
+        barStyle="dark-content"
+        backgroundColor={colors.colorPrimary}
       />
       <View style={styles.content}>
-        <Text style={styles.textTop}>Parabéns</Text>
-        <Text style={styles.textEnd}>Você concluiu o nível {level}</Text>
-        <ScrollView>
-          <Animation
-            source={animation}
-            style={styles.animation}
-            autoPlay
-            loop
-          />
+        <Image source={imageWinner} style={styles.imageWinner} />
+        <Text style={styles.textTop}>Você concluiu a</Text>
+        <Text style={styles.textEnd}>FASE {level}</Text>
+        <View style={styles.informationPosition}>
           {showInformation()}
-        </ScrollView>
+        </View>
       </View>
+
       <TouchableOpacity
         style={styles.buttonAlternative}
         onPress={() => {
@@ -103,12 +95,6 @@ const Congratulations = (props) => {
                 ' profissional',
               )}
             </Text>
-            <Animation
-              source={animationWin}
-              style={styles.imgWin}
-              autoPlay
-              loop
-            />
             <View style={styles.containerButtons}>
               <TouchableOpacity
                 style={styles.buttonConcluded}

@@ -11,9 +11,9 @@ const ChoiceButton = (props) => {
   const [backgroundColor, setBackgroundColor] = useState('');
   useEffect(() => {
     if (!enable && enableAlternatives === null) {
-      setBackgroundColor(colors.colorPrimary);
+      setBackgroundColor(colors.colorBlank);
     } else {
-      setBackgroundColor(colors.colorSecondaryDark);
+      setBackgroundColor(colors.colorDesabled);
     }
 
     if (enable && correct) setBackgroundColor(colors.colorSucess);
@@ -22,9 +22,9 @@ const ChoiceButton = (props) => {
   useEffect(() => {
     if (!enable && enableAlternatives !== null) {
       if (enableAlternatives) {
-        setBackgroundColor(colors.colorPrimary);
+        setBackgroundColor(colors.colorSecondary);
       } else {
-        setBackgroundColor(colors.colorSecondaryDark);
+        setBackgroundColor(colors.colorDesabled);
       }
     }
   }, [enableAlternatives]);

@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import logo from './assets/images/horizontal-logo.png';
+import vector from './assets/images/levelSelection/vector.png';
 import Congratulations from './screens/Congratulations';
 import Exercises from './screens/Exercises';
 import HelpScreen from './screens/HelpScreen';
@@ -47,12 +48,21 @@ function Tabs(){
 
 
     })}>
-      <Tab.Screen options={{ headerTitle: (props) => <LogoTitle {...props} />, headerTitleAlign: 'center'}} name='Fases' component={LevelSelection}  />
+      <Tab.Screen options={{ headerTitle: (props) => <LogoTitle {...props} />, headerTitleAlign: 'center', headerRight: (props) => <Vector {...props} />}} name='Fases' component={LevelSelection}  />
       <Tab.Screen options={{headerTitle: 'AJUDA', headerTitleStyle: {fontFamily: 'Poppins-Bold', color: colors.colorSecondary}, headerTitleAlign: 'center'}} name='Ajuda' component={HelpScreen}  />
       <Tab.Screen options={{headerTitle: 'SOBRE', headerTitleStyle: {fontFamily: 'Poppins-Bold', color: colors.colorSecondary}, headerTitleAlign: 'center'}} name='Sobre' component={ScreenAbout} />
     </Tab.Navigator>
   );
 
+}
+
+function Vector() {
+  return (
+    <Image
+      style={styles.vector}
+      source={vector}
+    />
+  );
 }
 
 function LogoTitle() {
@@ -106,12 +116,20 @@ const routes = () => {
         <Stack.Screen
           name="LevelSelection"
           component={Tabs}
-          options={{headerShown:false}}
+          options={{
+            headerShown:false,
+          }}
         />
-        <Stack.Screen name="Exercises" component={Exercises} />
+        <Stack.Screen
+          name="Exercises"
+          component={Exercises}
+          options={{
+            headerShown:true,
+          }}
+        />
 
         <Stack.Screen
-          options={{headerShown: false}}
+          options={{headerShown: true}}
           name="Congratulations"
           component={Congratulations}
         />
@@ -127,6 +145,9 @@ const styles = StyleSheet.create({
     resizeMode:'contain',
     width:140,
     height:50,
+  },
+  vector: {
+    margin: 10,
   },
   container: {
     flex: 1,
