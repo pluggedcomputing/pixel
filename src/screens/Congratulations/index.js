@@ -14,13 +14,13 @@ import {
 import Share from 'react-native-share';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import {useRoute} from '@react-navigation/native';
+import {useRoute, CommonActions} from '@react-navigation/native';
 
 
 import data from '../../assets/data.json';
 import imageWinner from '../../assets/images/congratulations/winner.png';
 import {colors} from '../../styles';
-import Exercises from '../Exercises/index';
+// import Exercises from '../Exercises/index';
 import styles from './styles';
 
 const Congratulations = (props) => {
@@ -28,8 +28,42 @@ const Congratulations = (props) => {
   const [modal, setModal] = useState(false);
   const {navigation} = props;
 
+  // const to reset the phase
   const restartPhase = async() =>{
-    Alert.alert(toString(Exercises));
+    navigation.dispatch(
+      CommonActions.reset({
+        index:1,
+        routes:[{
+          name: 'Exercises',
+          params: {data:(data.exercises[level-1])},
+        },],
+      })
+    );
+  }
+
+  // const which passes to the next phase
+  const nextPhase = async () =>{
+    navigation.dispatch(
+      CommonActions.reset({
+        index:1,
+        routes:[{
+          name: 'Exercises',
+          params: {data:data.exercises[level]},
+        },],
+      })
+    );
+
+  }
+  // const exit from screen Congratulations
+  const exitCongratulations = async()=>{
+    navigation.dispatch(
+      CommonActions.reset({
+        index:1,
+        routes:[{
+          name: 'LevelSelection',
+        },],
+      })
+    );
   }
 
   // const to share the image of congratulations.
@@ -47,6 +81,7 @@ const Congratulations = (props) => {
         );
     }
   };
+
 
   const navigateScreen = (screen) => {
     navigation.navigate(screen);
@@ -88,7 +123,7 @@ const Congratulations = (props) => {
           {/* Congratulation screen exit button for Level Selection */}
           <TouchableOpacity
             style={styles.buttonConcluded}
-            onPress={() => navigation.navigate('LevelSelection')}>
+            onPress={() => exitCongratulations()}>
             <Icon style={styles.iconConcluded} name='close' />
           </TouchableOpacity>
         </View>
@@ -113,18 +148,17 @@ const Congratulations = (props) => {
           {/* phase reset button */}
           <TouchableOpacity
             style={styles.buttonsShare}
-            onPress={restartPhase}
+            onPress={()=>restartPhase()}
             >
             <Icon name='refresh' size={size} color={colors.colorAccent} />
           </TouchableOpacity>
           <Text style={styles.textBtn}>Refazer</Text>
         </View>
         <View style={styles.textAndBtn}>
-          {/* button to return to phase screen */}
+          {/* button for next phase */}
           <TouchableOpacity
             style={styles.buttonsShare}
-            onPress={() =>
-              navigation.goBack('Exercises', {data: data.exercises[level]})}
+            onPress={()=>nextPhase()}
 
           >
             <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />

@@ -7,6 +7,7 @@ const WIDTH_PERCENTE = 0.08;
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     borderRadius: metrics.baseBorder,

@@ -171,7 +171,7 @@
           "type": "none",
           "id": 2,
           "text":
-              "Por exemplo, se quisermos exibir uma imagem correspondente à letra C, precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos. Ao ampliarmos uma imagem mais e mais, podemos ver uma grade de pixels semelhantes a estes:",
+              "Por exemplo, se quisermos exibir uma imagem correspondente à letra C, precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos. Ao ampliarmos uma imagem mais e mais, podemos ver uma grade de pixels semelhantes a estes.",
             "img": "l2q2",
             "imgFormat": "img"
         },
