@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     width: 330,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: colors.colorAccent,
   },
   halfTopView: {
     flex: 1,
