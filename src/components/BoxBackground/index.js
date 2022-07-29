@@ -87,26 +87,28 @@ const BoxBackground = (props) => {
 
   return (
     <View style={[styles.container, style]}>
-      <FlatList
-        ref={(ref) => {
-          flatListRef = ref;
-        }}
-        data={content}
-        keyExtractor={(item, index) => String(index)}
-        showsHorizontalScrollIndicator={false}
-        onEndReachedThreshold={0.1}
-        onEndReached={() => {
-          isLastPage(true);
-          setIsEndPage(true);
-        }}
-        horizontal
-        pagingEnabled
-        onScroll={(event) => {
-          checkDireciton(event);
-        }}
-        renderItem={renderItem}
-      />
-      <View style={styles.progressBar}>
+      <View style={styles.imageContainer}>
+        <FlatList
+          ref={(ref) => {
+            flatListRef = ref;
+          }}
+          data={content}
+          keyExtractor={(item, index) => String(index)}
+          showsHorizontalScrollIndicator={false}
+          onEndReachedThreshold={0.1}
+          onEndReached={() => {
+            isLastPage(true);
+            setIsEndPage(true);
+          }}
+          horizontal
+          pagingEnabled
+          onScroll={(event) => {
+            checkDireciton(event);
+          }}
+          renderItem={renderItem}
+        />
+      </View>
+      <View style={styles.slidder}>
         <ProgressBar
           progress={convertIndexInProgress(pagination)}
           color={colors.colorAccent}

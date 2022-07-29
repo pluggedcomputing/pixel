@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, SafeAreaView, StatusBar} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 
 import data from '../../assets/data.json';
 import level1 from '../../assets/images/levelSelection/fase1.png';
@@ -14,12 +13,12 @@ import styles from './styles';
 
 const LevelSelection = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
       <StatusBar
         barStyle="dark-content"
-        backgroundColor={colors.colorSecondaryLight}
+        backgroundColor={colors.colorAccent}
       />
-      <ScrollView contentContainerStyle={styles.scrollView}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.boxContainer}>
           <CardLevel
             level="1"
@@ -58,7 +57,7 @@ const LevelSelection = ({navigation}) => {
             />
           </View>
         </View>
-      </ScrollView>
+      </SafeAreaView>
     </SafeAreaView>
 
   );

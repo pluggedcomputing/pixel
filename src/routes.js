@@ -55,6 +55,7 @@ function Tabs(){
 
 }
 
+
 function LogoTitle() {
   return (
     <Image
@@ -106,14 +107,23 @@ const routes = () => {
         <Stack.Screen
           name="LevelSelection"
           component={Tabs}
-          options={{headerShown:false}}
+          options={{
+            headerShown:false,
+          }}
         />
-        <Stack.Screen name="Exercises" component={Exercises} />
-
         <Stack.Screen
-          options={{headerShown: false}}
+          name="Exercises"
+          component={Exercises}
+          options={{
+            headerShown:true,
+          }}
+        />
+        <Stack.Screen
           name="Congratulations"
           component={Congratulations}
+          options={{
+            headerShown:false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -127,6 +137,9 @@ const styles = StyleSheet.create({
     resizeMode:'contain',
     width:140,
     height:50,
+  },
+  vector: {
+    margin: 10,
   },
   container: {
     flex: 1,

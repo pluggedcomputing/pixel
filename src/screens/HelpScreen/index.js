@@ -39,7 +39,7 @@ function HelpScreen (){
           </Text>
 
           <Text style={styles.text}>
-            Para mais informações, entre em contato conosco através do e-mail: <Text style={styles.link} onPress={() => {Linking.openURL('mailto:computacaoplugada@dcx.ufpb.br');}}>mailto:computacaoplugada@dcx.ufpb.br</Text>.
+            Para mais informações, entre em contato conosco através do e-mail: <Text style={styles.link} onPress={() => {Linking.openURL('mailto:computacaoplugada@dcx.ufpb.br');}}>computacaoplugada@dcx.ufpb.br</Text>.
           </Text>
 
           <Text style={styles.text}>

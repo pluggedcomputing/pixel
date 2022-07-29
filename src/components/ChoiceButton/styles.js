@@ -10,19 +10,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: metrics.basePadding,
     width: metrics.screenWidth * widhtScreen,
-    elevation: metrics.baseElevation,
   },
-
   button: {
     alignItems: 'center',
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
-    elevation: metrics.baseElevation,
+    maxHeight: 54,
   },
   text: {
-    fontWeight: 'bold',
     color: colors.colorTextSecondary,
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
+    textAlignVertical: 'center',
+    fontFamily: 'Poppins-Regular',
   },
 });
 

@@ -2,12 +2,12 @@ import {StyleSheet} from 'react-native';
 
 import {colors, fonts, metrics} from '../../styles';
 
-const HEIGHT_PORCENTAGE = 0.12;
+const WIDTH_PORCENTAGE = 1;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: colors.colorPrimary,
     alignItems: 'center',
   },
   content: {
@@ -17,53 +17,78 @@ const styles = StyleSheet.create({
   },
   textTop: {
     textAlign: 'center',
-    color: colors.colorTextSecondary,
-    fontSize: fonts.bigger * 1.6,
+    color: colors.colorTextPrimary,
+    marginTop: 15,
+    marginBottom: 5,
+    fontSize: fonts.regular,
+    fontFamily: 'Poppins-Bold',
   },
   textEnd: {
     textAlign: 'center',
-    color: colors.colorTextSecondary,
-    fontSize: fonts.bigger,
+    color: colors.colorTextPrimary,
+    margin: -10,
+    fontSize: fonts.medium * 1.6,
+    fontFamily: 'Poppins-SemiBold',
   },
-  textButton: {
-    color: colors.colorPrimary,
+  button: {
+    color: colors.colorSecondary,
     fontSize: fonts.medium,
   },
-  buttonAlternative: {
-    backgroundColor: colors.colorTextSecondary,
+  buttonsShare:{
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: metrics.screenHeight * 0.07,
-    width: metrics.screenWidth * 0.4,
-    borderRadius: metrics.baseRadius,
-    marginBottom: metrics.doubleBaseMargin,
+    backgroundColor: colors.colorSecondary,
+    color: colors.colorAccent,
+    width: 55,
+    height: 55,
+    borderRadius: 300,
+  },
+  boxButtons:{
+    flexDirection: 'row',
+    display: 'flex',
+    flex: 0.2,
+    alignItems: 'center',
+    justifyContent:'space-around',
+    width: metrics.screenWidth * WIDTH_PORCENTAGE,
   },
   information: {
-    flexDirection: 'row',
-    margin: metrics.baseMargin,
+    flexDirection: 'column',
+    marginLeft: metrics.baseMargin * 6,
+    marginBottom: 10,
     padding: metrics.basePadding,
-    width: metrics.screenWidth * 0.9,
-    backgroundColor: colors.colorTextPrimary,
-    borderColor: colors.colorSecondary,
-    borderRadius: metrics.baseRadius,
+    width: metrics.screenWidth * 0.7,
+    height: metrics.screenHeight *0.12,
+  },
+  informationPosition:{
+    flex: 0,
+    position: 'relative',
+    width: metrics.screenWidth
   },
   textInformation: {
     flex: 1,
     textAlign: 'left',
-    color: colors.colorTextSecondary,
+    color: colors.colorTextPrimary,
     fontSize: fonts.medium,
-    marginLeft: metrics.baseMargin,
+    fontFamily: 'Poppins-Regular',
+    padding: metrics.basePadding,
+    position: 'absolute',
   },
-  animation: {
-    width: 160,
-    height: 160,
-    alignSelf: 'center',
-  },
-  centeredView: {
+  textBtn:{
     flex: 1,
-    justifyContent: 'center',
+    textAlign: 'center',
+    color: colors.colorTextPrimary,
+    fontFamily: 'Poppins-Regular',
+    padding: metrics.basePadding,
+  },
+  textAndBtn: {
+    flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+  },
+  imageWinner: {
+    width: 300,
+    height: 300,
+    alignSelf: 'center',
   },
   modalView: {
     width: metrics.screenWidth * 0.9,
@@ -75,50 +100,39 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     color: colors.colorPrimaryDark,
-    fontWeight: 'bold',
+    fontFamily: 'Poppin-Regular',
     fontSize: fonts.regular,
   },
-  modalSubTitle: {
-    fontSize: fonts.small,
-    width: metrics.screenWidth * 0.7,
+  containerBtnConcluded: {
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'center',
+    left: metrics.baseMargin*8,
   },
   buttonConcluded: {
-    backgroundColor: colors.colorSucess,
+    backgroundColor: colors.colorPrimary,
     alignItems: 'center',
     justifyContent: 'center',
     height: metrics.screenHeight * 0.07,
     width: metrics.screenWidth * 0.4,
     borderRadius: metrics.baseRadius,
-    elevation: metrics.baseElevation,
+    left: metrics.baseMargin*5,
   },
   textBtnConcluded: {
-    color: colors.colorTextSecondary,
-    fontSize: fonts.medium,
-  },
-  buttonAbout: {
-    alignItems: 'center',
+    color: colors.colorSecondary,
+    fontSize: fonts.header,
+    fontWeight: 'bold',
+    fontFamily: 'Poppin-Bold',
     justifyContent: 'center',
-    height: metrics.screenHeight * 0.05,
-    width: metrics.screenWidth * 0.4,
-    borderRadius: metrics.baseRadius,
+    margin: metrics.baseMargin,
+    marginTop: 4,
   },
-  textBtnAbout: {
-    color: colors.colorPrimary,
-    fontSize: fonts.small,
-  },
-  containerButtons: {
-    justifyContent: 'space-between',
-    flex: 0.55,
-  },
-  imgWin: {
-    width: metrics.screenHeight * HEIGHT_PORCENTAGE,
-    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
-    alignSelf: 'center',
-  },
-  titleWeb: {
-    color: colors.colorPrimary,
-    textDecorationLine: 'underline',
-  },
+  iconConcluded: {
+    color: colors.colorSecondary,
+    fontSize: fonts.header*1.2,
+    fontFamily: 'Poppin-Regular',
+    margin: metrics.baseMargin*0.9,
+  }
 });
 
 export default styles;
