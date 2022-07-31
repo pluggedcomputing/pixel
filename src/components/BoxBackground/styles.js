@@ -31,6 +31,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.colorSecondary,
     margin: metrics.doubleBaseMargin,
   },
+  arrowButton:{
+    zIndex:1,
+    borderWidth:1,
+    padding:10,
+    margin:10
+  }
 });
 
 export default styles;

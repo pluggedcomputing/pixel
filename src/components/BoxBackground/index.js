@@ -85,10 +85,10 @@ const BoxBackground = (props) => {
     return (
       <View style={styles.boxContainer}>
         {item}
-        <TouchableOpacity onPress={() => flatListRef.scrollToIndex({index: pagination - 1})}>
+        <TouchableOpacity style={styles.arrowButton} onPress={() => flatListRef.scrollToIndex({index: pagination - 1})}>
           <Text>left</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => flatListRef.scrollToIndex({index: pagination + 1})}>
+        <TouchableOpacity style={styles.arrowButton} onPress={() => flatListRef.scrollToIndex({index: pagination + 1})}>
           <Text>right</Text>
         </TouchableOpacity>
       </View>
