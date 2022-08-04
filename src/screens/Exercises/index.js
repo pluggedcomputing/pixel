@@ -32,8 +32,8 @@ const Exercises = ({navigation}) => {
   const [wasPaint, setWasPaint] = useState(true);
   const levelFinal = 4;
   const [firstClickButton, setFirstClickButton] = useState(false);
-  // const [showAnswerOptions, setShowAnswerOptions] = useState(false);
-  // const [backgroundColor, setBackgroundColor] = useState(colors.colorAccent);
+  const [showAnswerOptions, setShowAnswerOptions] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState(colors.colorAccent);
 
 
 
@@ -131,13 +131,13 @@ const Exercises = ({navigation}) => {
     });
   }, [navigation]);
 
-  // useEffect(() => {
-  //   if(showAnswerOptions){
-  //     setBackgroundColor(colors.colorPrimary)
-  //   }else{
-  //     setBackgroundColor(colors.colorAccent)
-  //   }
-  //   }, [showAnswerOptions])
+  useEffect(() => {
+    if(showAnswerOptions){
+      setBackgroundColor(colors.colorPrimary)
+    }if(backgroundColor){
+      setBackgroundColor(colors.colorAccent)
+    }
+    }, [showAnswerOptions])
 
   useEffect(() => {
     if (finishLevel) {
@@ -280,9 +280,13 @@ const Exercises = ({navigation}) => {
     );
   };
 
+
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={colors.colorAccent} />
+      <StatusBar
+        hidden={false}
+        backgroundColor={colors.colorAccent}
+      />
       <View style={styles.screen}>
         <View style={styles.halfTopView}>
           <BoxBackground
@@ -292,7 +296,7 @@ const Exercises = ({navigation}) => {
             nextQuestion={nextCard}
             setNextQuestion={setNextCard}
             answerAgain={firstClickButton}
-              // isLastPage={value => setShowAnswerOptions(value)}
+            isLastPage={value => setShowAnswerOptions(value)}
             />
         </View>
         <BoxAlternative

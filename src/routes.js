@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View} from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -67,12 +67,13 @@ function LogoTitle() {
 
 Icon.loadFont();
 
-const routes = () => {
+const routes = (navigation) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
         initalRouteName="Main"
         screenOptions={{
+          gestureEnabled: true,
           headerTitleAlign: 'center',
           headerTintColor: colors.colorTextPrimary,
           headerStyle: {
@@ -116,6 +117,7 @@ const routes = () => {
           component={Exercises}
           options={{
             headerShown:true,
+            headerLeft: ()=><TouchableOpacity onPress={() => navigation.navigate("LevelSelection")}><Icon name='ios-arrow-back' /></TouchableOpacity>
           }}
         />
         <Stack.Screen

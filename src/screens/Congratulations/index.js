@@ -20,7 +20,6 @@ import {useRoute, CommonActions} from '@react-navigation/native';
 import data from '../../assets/data.json';
 import imageWinner from '../../assets/images/congratulations/winner.png';
 import {colors} from '../../styles';
-// import Exercises from '../Exercises/index';
 import styles from './styles';
 
 const Congratulations = (props) => {

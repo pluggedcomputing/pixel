@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import ChoiceButton from '../ChoiceButton';
 import AlertCustom from './AlertCustom';
-import AlertCustomCongratulations from './AlertCustomCongratulations';
 import styles from './styles';
 
 const MultipleChoice = (props) => {
@@ -20,7 +19,6 @@ const MultipleChoice = (props) => {
 
   const [alternativesShuffle, setAlternativesShuffle] = useState([]);
   const [modalAlert, setModalAlert] = useState(false);
-  const [modalAlertCongratulations, setModalAlertCongratulations] = useState(false);
 
   const shufflerArray = (array) => {
     const shuffleArray = array;
@@ -45,7 +43,6 @@ const MultipleChoice = (props) => {
   return (
     <View style={styles.container}>
       <AlertCustom visible={modalAlert} setVisibleFunc={setModalAlert} />
-      <AlertCustomCongratulations visible={modalAlertCongratulations} setVisibleFunc={setModalAlertCongratulations} />
       {alternativesShuffle.map((item) => (
         <ChoiceButton
           key={item.text}
@@ -57,7 +54,6 @@ const MultipleChoice = (props) => {
           onPress={() => {
             if (item.correct) {
               setCorrectAnswer(true);
-              setModalAlertCongratulations(true);
               setSteps(step + 1);
             } else {
               setCorrectAnswer(undefined);
@@ -72,7 +68,8 @@ const MultipleChoice = (props) => {
 };
 
 MultipleChoice.propTypes = {
-  alternatives: PropTypes.arrayOf(PropTypes.object()).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  alternatives: PropTypes.arrayOf(PropTypes.object).isRequired,
   step: PropTypes.number.isRequired,
   setSteps: PropTypes.func.isRequired,
   setCorrectAnswer: PropTypes.func.isRequired,
