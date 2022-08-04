@@ -5,8 +5,6 @@ import {View, Image, StatusBar, Text} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 
-
-
 import BoxAlternative from '../../components/BoxAlternative';
 import BoxBackground from '../../components/BoxBackground';
 import PaintingTable from '../../components/PaintingTable';
@@ -38,7 +36,7 @@ const Exercises = ({navigation}) => {
   // const [backgroundColor, setBackgroundColor] = useState(colors.colorAccent);
 
 
- 
+
   const mountListPermissions = () => {
     const auxList = [];
 

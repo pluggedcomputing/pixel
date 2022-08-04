@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, TouchableOpacity, Text} from 'react-native';
+import {View, FlatList, TouchableOpacity, Image} from 'react-native';
 import {ProgressBar} from 'react-native-paper';
 
 import PropTypes from 'prop-types';
 
+import group from '../../assets/images/levelSelection/Group.png';
 import {colors} from '../../styles';
 import styles from './styles';
 
@@ -85,11 +86,11 @@ const BoxBackground = (props) => {
     return (
       <View style={styles.boxContainer}>
         {item}
-        <TouchableOpacity style={styles.arrowButton} onPress={() => flatListRef.scrollToIndex({index: pagination - 1})}>
-          <Text>left</Text>
+        <TouchableOpacity style={styles.buttonImageRotate} onPress={() => flatListRef.scrollToIndex({index: pagination - 1})}>
+          <Image source={group} style={styles.image} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.arrowButton} onPress={() => flatListRef.scrollToIndex({index: pagination + 1})}>
-          <Text>right</Text>
+        <TouchableOpacity style={styles.buttonImage} onPress={() => flatListRef.scrollToIndex({index: pagination + 1})}>
+          <Image source={group} style={styles.image2} />
         </TouchableOpacity>
       </View>
 );
