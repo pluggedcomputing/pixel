@@ -14,21 +14,22 @@ const styles = StyleSheet.create({
     flex: 1,
     width: metrics.screenWidth,
     marginTop: metrics.doubleBaseMargin,
+    alignItems:'center'
   },
   textTop: {
     textAlign: 'center',
     color: colors.colorTextPrimary,
     marginTop: 15,
     marginBottom: 5,
-    fontSize: fonts.regular,
-    fontFamily: 'Poppins-Bold',
+    fontSize: fonts.header,
+    fontFamily: 'Poppins-SemiBold',
   },
   textEnd: {
     textAlign: 'center',
     color: colors.colorTextPrimary,
     margin: -10,
-    fontSize: fonts.medium * 1.6,
-    fontFamily: 'Poppins-SemiBold',
+    fontSize: fonts.header,
+    fontFamily: 'Poppins-Bold',
   },
   button: {
     color: colors.colorSecondary,
@@ -63,13 +64,13 @@ const styles = StyleSheet.create({
   informationPosition:{
     flex: 0,
     position: 'relative',
-    width: metrics.screenWidth
+    width: metrics.screenWidth * 0.80
   },
   textInformation: {
     flex: 1,
     textAlign: 'left',
     color: colors.colorTextPrimary,
-    fontSize: fonts.medium,
+    fontSize: fonts.regular,
     fontFamily: 'Poppins-Regular',
     padding: metrics.basePadding,
     position: 'absolute',
@@ -104,35 +105,29 @@ const styles = StyleSheet.create({
     fontSize: fonts.regular,
   },
   containerBtnConcluded: {
-    flexDirection: 'row',
-    alignContent: 'center',
-    justifyContent: 'center',
-    left: metrics.baseMargin*8,
+    position:'relative',
+    paddingVertical:15,
+    width:metrics.screenWidth,
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:"center",
   },
   buttonConcluded: {
-    backgroundColor: colors.colorPrimary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: metrics.screenHeight * 0.07,
-    width: metrics.screenWidth * 0.4,
-    borderRadius: metrics.baseRadius,
-    left: metrics.baseMargin*5,
+    position:'absolute',
+    right:10
   },
   textBtnConcluded: {
     color: colors.colorSecondary,
-    fontSize: fonts.header,
+    fontSize: fonts.regular,
     fontWeight: 'bold',
     fontFamily: 'Poppin-Bold',
     justifyContent: 'center',
-    margin: metrics.baseMargin,
-    marginTop: 4,
   },
   iconConcluded: {
     color: colors.colorSecondary,
     fontSize: fonts.header*1.2,
     fontFamily: 'Poppin-Regular',
-    margin: metrics.baseMargin*0.9,
-  }
+  },
 });
 
 export default styles;

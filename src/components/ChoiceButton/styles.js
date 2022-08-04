@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
-    maxHeight: 54,
+    maxHeight: 100,
   },
   text: {
     color: colors.colorTextSecondary,

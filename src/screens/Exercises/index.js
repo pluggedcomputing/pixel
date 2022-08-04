@@ -1,12 +1,10 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
-import {View, Image, StatusBar, Text, TouchableOpacity} from 'react-native';
-import { SwiperFlatList } from 'react-native-swiper-flatlist';
+import {View, Image, StatusBar, Text} from 'react-native';
+
 
 import {useRoute} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 
-
-import image from '../../assets/images/levelSelection/Group.png';
 import BoxAlternative from '../../components/BoxAlternative';
 import BoxBackground from '../../components/BoxBackground';
 import PaintingTable from '../../components/PaintingTable';
@@ -34,15 +32,11 @@ const Exercises = ({navigation}) => {
   const [wasPaint, setWasPaint] = useState(true);
   const levelFinal = 4;
   const [firstClickButton, setFirstClickButton] = useState(false);
-  // const [showAnswerOptions, setShowAnswerOptions] = useState(false);
-  // const [backgroundColor, setBackgroundColor] = useState(colors.colorAccent);
-  const scrollRef = React.useRef(null);
-  const goToLastIndex = () => {
-    scrollRef.current.goToLastIndex();
-  };
-  const onChangeIndex = ({ index, prevIndex }) => {
-    console.log({ index, prevIndex });
-  };
+  const [showAnswerOptions, setShowAnswerOptions] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState(colors.colorAccent);
+
+
+
   const mountListPermissions = () => {
     const auxList = [];
 
@@ -137,13 +131,13 @@ const Exercises = ({navigation}) => {
     });
   }, [navigation]);
 
-  // useEffect(() => {
-  //   if(showAnswerOptions){
-  //     setBackgroundColor(colors.colorPrimary)
-  //   }else{
-  //     setBackgroundColor(colors.colorAccent)
-  //   }
-  //   }, [showAnswerOptions])
+  useEffect(() => {
+    if(showAnswerOptions){
+      setBackgroundColor(colors.colorPrimary)
+    }if(backgroundColor){
+      setBackgroundColor(colors.colorAccent)
+    }
+    }, [showAnswerOptions])
 
   useEffect(() => {
     if (finishLevel) {
@@ -286,43 +280,35 @@ const Exercises = ({navigation}) => {
     );
   };
 
+
   return (
-    <SwiperFlatList
-      showPagination
-      ref={scrollRef}
-      onChangeIndex={onChangeIndex}
-    >
-      <View style={styles.container}>
-        <StatusBar backgroundColor={colors.colorAccent} />
-        <TouchableOpacity style={styles.buttonImageRotate}>
-          <Image source={image} style={styles.image} />
-        </TouchableOpacity>
-        <View style={styles.screen}>
-          <View style={styles.halfTopView}>
-            <BoxBackground
-              content={viewContent()}
-              setSteps={setSteps}
-              scrollEnabled={isAnswered() || question.isDemonstration}
-              nextQuestion={nextCard}
-              setNextQuestion={setNextCard}
-              answerAgain={firstClickButton}
-              // isLastPage={value => setShowAnswerOptions(value)}
+    <View style={styles.container}>
+      <StatusBar
+        hidden={false}
+        backgroundColor={colors.colorAccent}
+      />
+      <View style={styles.screen}>
+        <View style={styles.halfTopView}>
+          <BoxBackground
+            content={viewContent()}
+            setSteps={setSteps}
+            scrollEnabled={isAnswered() || question.isDemonstration}
+            nextQuestion={nextCard}
+            setNextQuestion={setNextCard}
+            answerAgain={firstClickButton}
+            isLastPage={value => setShowAnswerOptions(value)}
             />
-          </View>
-          <BoxAlternative
-            alternativesContent={getAlternativesContent(question.alternatives)}
-            isNotQuestion={
+        </View>
+        <BoxAlternative
+          alternativesContent={getAlternativesContent(question.alternatives)}
+          isNotQuestion={
               !question.alternatives ||
               (question.alternatives && question.alternatives.length === 0)
             }
-            textInfor=""
+          textInfor=""
           />
-        </View>
-        <TouchableOpacity style={styles.buttonImage} onPress={goToLastIndex}>
-          <Image source={image} style={styles.image2} />
-        </TouchableOpacity>
       </View>
-    </SwiperFlatList>
+    </View>
   );
 };
 
