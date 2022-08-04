@@ -82,14 +82,26 @@ const BoxBackground = (props) => {
   const convertIndexInProgress = (index) =>
     ((index + 1) * 100) / content.length / 100;
 
+    const RightArrowFunction = async () =>{
+      if(pagination !== content.length -1){
+       flatListRef.scrollToIndex({index: pagination + 1,Animated:false})
+      }
+    }
+    const LeftArrowFunction = async () =>{
+      if(pagination !== 0){
+        flatListRef.scrollToIndex({index: pagination- 1,Animated:false})
+      }
+      
+    }
+
   const renderItem = ({item}) => {
     return (
       <View style={styles.boxContainer}>
         {item}
-        <TouchableOpacity style={styles.buttonImageRotate} onPress={() => flatListRef.scrollToIndex({index: pagination - 1})}>
+        <TouchableOpacity style={styles.buttonImageRotate} onPress={() => LeftArrowFunction()}>
           <Image source={group} style={styles.image} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonImage} onPress={() => flatListRef.scrollToIndex({index: pagination + 1})}>
+        <TouchableOpacity style={styles.buttonImage} onPress={() => RightArrowFunction()}>
           <Image source={group} style={styles.image2} />
         </TouchableOpacity>
       </View>
