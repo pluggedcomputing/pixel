@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View, TouchableOpacity} from 'react-native';
+import { Image, StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -13,7 +13,7 @@ import HelpScreen from './screens/HelpScreen';
 import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
-import {colors} from './styles';
+import {colors, fonts} from './styles';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -55,7 +55,6 @@ function Tabs(){
 
 }
 
-
 function LogoTitle() {
   return (
     <Image
@@ -67,7 +66,7 @@ function LogoTitle() {
 
 Icon.loadFont();
 
-const routes = (navigation) => {
+const routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -117,7 +116,7 @@ const routes = (navigation) => {
           component={Exercises}
           options={{
             headerShown:true,
-            headerLeft: ()=><TouchableOpacity onPress={() => navigation.navigate("LevelSelection")}><Icon name='ios-arrow-back' /></TouchableOpacity>
+            headerLeft: false,
           }}
         />
         <Stack.Screen
@@ -142,6 +141,11 @@ const styles = StyleSheet.create({
   },
   vector: {
     margin: 10,
+  },
+  iconButton: {
+    width: 40,
+    fontSize: fonts.header*1.1,
+    color: colors.colorSecondary,
   },
   container: {
     flex: 1,
