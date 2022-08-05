@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   buttonImage:{
     position: 'absolute',
-    bottom: 240,
+    bottom: 260,
     right: -10,
     justifyContent: 'space-between',
     alignItems:'center',
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   buttonImageRotate:{
     position: 'absolute',
-    bottom: 240,
+    bottom: 260,
     left: -10,
     padding: 20,
     transform: [{ rotate: '180deg' }],
