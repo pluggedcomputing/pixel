@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {View, FlatList, TouchableOpacity, Image} from 'react-native';
-import {ProgressBar} from 'react-native-paper';
 
 import PropTypes from 'prop-types';
 
 import group from '../../assets/images/levelSelection/Group.png';
-import {colors} from '../../styles';
 import styles from './styles';
 
 const BoxBackground = (props) => {
@@ -79,9 +77,6 @@ const BoxBackground = (props) => {
     }
   };
 
-  const convertIndexInProgress = (index) =>
-    ((index + 1) * 100) / content.length / 100;
-
     const RightArrowFunction = async () =>{
       if(pagination !== content.length -1){
        flatListRef.scrollToIndex({index: pagination + 1,Animated:false})
@@ -91,7 +86,7 @@ const BoxBackground = (props) => {
       if(pagination !== 0){
         flatListRef.scrollToIndex({index: pagination- 1,Animated:false})
       }
-      
+
     }
 
   const renderItem = ({item}) => {
@@ -129,12 +124,6 @@ const BoxBackground = (props) => {
             checkDireciton(event);
           }}
           renderItem={renderItem}
-        />
-      </View>
-      <View style={styles.slidder}>
-        <ProgressBar
-          progress={convertIndexInProgress(pagination)}
-          color={colors.colorAccent}
         />
       </View>
     </View>
