@@ -87,8 +87,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imageWinner: {
-    width: 300,
-    height: 300,
+    width:metrics.screenWidth * 0.90,
     alignSelf: 'center',
   },
   modalView: {

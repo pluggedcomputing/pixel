@@ -128,9 +128,6 @@ const Congratulations = (props) => {
         <Image source={imageWinner} style={styles.imageWinner} />
         <Text style={styles.textTop}>Você concluiu a</Text>
         <Text style={styles.textEnd}>FASE {level}</Text>
-        <View style={styles.informationPosition}>
-          <Text style={styles.textInformation}>Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação.</Text>
-        </View>
       </View>
       <View style={styles.boxButtons}>
         <View style={styles.textAndBtn}>
