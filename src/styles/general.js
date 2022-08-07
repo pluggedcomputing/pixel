@@ -1,4 +1,5 @@
 import colors from './colors';
+import fonts from './fonts';
 import metrics from './metrics';
 
 const general = {
@@ -22,6 +23,11 @@ const general = {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.colorPrimary,
+  },
+  customProps: {
+    fontSize: fonts.regular,
+    fontFamily: 'Poppins-Regular',
+    color: colors.textColorPrimary,
   },
 };
 

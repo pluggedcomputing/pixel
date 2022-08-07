@@ -31,6 +31,8 @@ const Exercises = ({navigation}) => {
   const [wasPaint, setWasPaint] = useState(true);
   const levelFinal = 4;
   const [firstClickButton, setFirstClickButton] = useState(false);
+  // const [showAnswerOptions, setShowAnswerOptions] = useState(false);
+  // const [backgroundColor, setBackgroundColor] = useState(colors.colorAccent);
   const mountListPermissions = () => {
     const auxList = [];
 
@@ -124,6 +126,14 @@ const Exercises = ({navigation}) => {
       title: `FASE ${response.level}`,
     });
   }, [navigation]);
+
+  // useEffect(() => {
+  //   if(showAnswerOptions){
+  //     setBackgroundColor(colors.colorPrimary)
+  //   }else{
+  //     setBackgroundColor(colors.colorAccent)
+  //   }
+  //   }, [showAnswerOptions])
 
   useEffect(() => {
     if (finishLevel) {
@@ -270,7 +280,7 @@ const Exercises = ({navigation}) => {
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.colorAccent} />
       <TouchableOpacity style={styles.buttonImageRotate}>
-        <Image source={image} />
+        <Image source={image} style={styles.image} />
       </TouchableOpacity>
       <View style={styles.screen}>
         <View style={styles.halfTopView}>
@@ -281,6 +291,7 @@ const Exercises = ({navigation}) => {
             nextQuestion={nextCard}
             setNextQuestion={setNextCard}
             answerAgain={firstClickButton}
+            // isLastPage={value => setShowAnswerOptions(value)}
           />
         </View>
         <BoxAlternative
@@ -293,7 +304,7 @@ const Exercises = ({navigation}) => {
         />
       </View>
       <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('Exercises', {Exercises: findById(exercise.questions[step].id)})}>
-        <Image source={image} />
+        <Image source={image} style={styles.image2} />
       </TouchableOpacity>
     </View>
   );

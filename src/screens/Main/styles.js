@@ -28,14 +28,14 @@ const styles = StyleSheet.create({
     // backgroundColor: '#000',
   },
   text: {
-    fontSize: fonts.medium,
+    fontSize: fonts.title,
     textAlign: 'center',
     color: colors.colorSecondary,
     marginHorizontal: metrics.doubleBaseMargin,
     fontFamily: 'Poppins-SemiBold',
   },
   superscriptText: {
-    fontSize: fonts.small,
+    fontSize: fonts.input,
     textAlign: 'center',
     color: colors.colorSecondary,
     marginHorizontal: metrics.doubleBaseMargin,

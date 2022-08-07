@@ -8,23 +8,86 @@ import {
   Text,
   Modal,
   Linking,
-  Image
+  Image,
+  Alert
 } from 'react-native';
+import Share from 'react-native-share';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import {useRoute} from '@react-navigation/native';
+import {useRoute, CommonActions} from '@react-navigation/native';
 
+
+import data from '../../assets/data.json';
 import imageWinner from '../../assets/images/congratulations/winner.png';
 import {colors} from '../../styles';
+// import Exercises from '../Exercises/index';
 import styles from './styles';
 
 const Congratulations = (props) => {
-  const {level, content, isFinish} = useRoute().params;
+  const {level, content} = useRoute().params;// isFinish
   const [modal, setModal] = useState(false);
   const {navigation} = props;
+
+  // const to reset the phase
+  const restartPhase = async() =>{
+    navigation.dispatch(
+      CommonActions.reset({
+        index:1,
+        routes:[{
+          name: 'Exercises',
+          params: {data:(data.exercises[level-1])},
+        },],
+      })
+    );
+  }
+
+  // const which passes to the next phase
+  const nextPhase = async () =>{
+    navigation.dispatch(
+      CommonActions.reset({
+        index:1,
+        routes:[{
+          name: 'Exercises',
+          params: {data:data.exercises[level]},
+        },],
+      })
+    );
+
+  }
+  // const exit from screen Congratulations
+  const exitCongratulations = async()=>{
+    navigation.dispatch(
+      CommonActions.reset({
+        index:1,
+        routes:[{
+          name: 'LevelSelection',
+        },],
+      })
+    );
+  }
+
+  // const to share the image of congratulations.
+  const shareCongratulations = async() =>{
+    const ShareOptions={
+      message: 'texto vai aqui',
+    }
+    try{
+      // eslint-disable-next-line no-unused-vars
+      const ShareResponse = await Share.open(ShareOptions);
+    }catch(error){
+      Alert.alert(
+        'oops',
+        'Houve um problema ao compartilhar.'
+        );
+    }
+  };
+
 
   const navigateScreen = (screen) => {
     navigation.navigate(screen);
   };
+
+  Icon.loadFont();
 
   const showInformation = () => {
     return content.map((item, index) => {
@@ -46,6 +109,7 @@ const Congratulations = (props) => {
       </TouchableNativeFeedback>
     );
   };
+  const size = 30;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -54,6 +118,15 @@ const Congratulations = (props) => {
         backgroundColor={colors.colorPrimary}
       />
       <View style={styles.content}>
+        <View style={styles.containerBtnConcluded}>
+          <Text style={styles.textBtnConcluded}>FASE {level}</Text>
+          {/* Congratulation screen exit button for Level Selection */}
+          <TouchableOpacity
+            style={styles.buttonConcluded}
+            onPress={() => exitCongratulations()}>
+            <Icon style={styles.iconConcluded} name='close' />
+          </TouchableOpacity>
+        </View>
         <Image source={imageWinner} style={styles.imageWinner} />
         <Text style={styles.textTop}>Você concluiu a</Text>
         <Text style={styles.textEnd}>FASE {level}</Text>
@@ -61,18 +134,39 @@ const Congratulations = (props) => {
           {showInformation()}
         </View>
       </View>
+      <View style={styles.boxButtons}>
+        <View style={styles.textAndBtn}>
+          {/* share button */}
+          <TouchableOpacity
+            onPress={shareCongratulations}
+            style={styles.buttonsShare}>
+            <Icon name='share-social-outline' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>Compartilhar</Text>
+        </View>
+        <View style={styles.textAndBtn}>
+          {/* phase reset button */}
+          <TouchableOpacity
+            style={styles.buttonsShare}
+            onPress={()=>restartPhase()}
+            >
+            <Icon name='refresh' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>Refazer</Text>
+        </View>
+        <View style={styles.textAndBtn}>
+          {/* button for next phase */}
+          <TouchableOpacity
+            style={styles.buttonsShare}
+            onPress={()=>nextPhase()}
 
-      <TouchableOpacity
-        style={styles.buttonAlternative}
-        onPress={() => {
-          if (isFinish) {
-            setModal(isFinish);
-          } else {
-            navigateScreen('LevelSelection');
-          }
-        }}>
-        <Text style={styles.textButton}>Finalizar</Text>
-      </TouchableOpacity>
+          >
+            <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>Próxima Fase</Text>
+        </View>
+      </View>
+
       <Modal
         animationType="slide"
         transparent
@@ -112,6 +206,10 @@ const Congratulations = (props) => {
               </TouchableOpacity>
             </View>
           </View>
+          <TouchableOpacity
+            onPress={shareCongratulations}>
+            <Text style={styles.button}>Compartilhar</Text>
+          </TouchableOpacity>
         </View>
       </Modal>
     </SafeAreaView>
@@ -119,3 +217,5 @@ const Congratulations = (props) => {
 };
 
 export default Congratulations;
+
+

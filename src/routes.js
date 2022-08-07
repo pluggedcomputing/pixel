@@ -7,7 +7,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import logo from './assets/images/horizontal-logo.png';
-import vector from './assets/images/levelSelection/vector.png';
 import Congratulations from './screens/Congratulations';
 import Exercises from './screens/Exercises';
 import HelpScreen from './screens/HelpScreen';
@@ -48,7 +47,7 @@ function Tabs(){
 
 
     })}>
-      <Tab.Screen options={{ headerTitle: (props) => <LogoTitle {...props} />, headerTitleAlign: 'center', headerRight: (props) => <Vector {...props} />}} name='Fases' component={LevelSelection}  />
+      <Tab.Screen options={{ headerTitle: (props) => <LogoTitle {...props} />, headerTitleAlign: 'center'}} name='Fases' component={LevelSelection}  />
       <Tab.Screen options={{headerTitle: 'AJUDA', headerTitleStyle: {fontFamily: 'Poppins-Bold', color: colors.colorSecondary}, headerTitleAlign: 'center'}} name='Ajuda' component={HelpScreen}  />
       <Tab.Screen options={{headerTitle: 'SOBRE', headerTitleStyle: {fontFamily: 'Poppins-Bold', color: colors.colorSecondary}, headerTitleAlign: 'center'}} name='Sobre' component={ScreenAbout} />
     </Tab.Navigator>
@@ -56,14 +55,6 @@ function Tabs(){
 
 }
 
-function Vector() {
-  return (
-    <Image
-      style={styles.vector}
-      source={vector}
-    />
-  );
-}
 
 function LogoTitle() {
   return (
@@ -127,11 +118,12 @@ const routes = () => {
             headerShown:true,
           }}
         />
-
         <Stack.Screen
-          options={{headerShown: true}}
           name="Congratulations"
           component={Congratulations}
+          options={{
+            headerShown:false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

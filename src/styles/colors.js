@@ -7,6 +7,8 @@ const colors = {
   colorTextSecondary: '#FFFFFF',
   colorSucess: '#00E676',
   colorError: '#EF5350',
+  colorBlack: '#000000',
+  colorBlue: '#46d3f2',
 };
 
 export default colors;

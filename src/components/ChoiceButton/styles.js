@@ -15,10 +15,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
+    maxHeight: 54,
   },
   text: {
     color: colors.colorTextSecondary,
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
+    textAlignVertical: 'center',
     fontFamily: 'Poppins-Regular',
   },
 });

@@ -4,19 +4,18 @@ import {metrics, colors} from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'row',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     width: metrics.screenWidth,
     height: metrics.screenHeight,
     backgroundColor: colors.colorAccent,
-    justifyContent: 'space-evenly',
-    alignItems: 'flex-start',
   },
   boxContainer: {
-    margin: metrics.baseMargin,
+    marginTop: 20,
     width: metrics.screenWidth,
-    height: metrics.screenHeight * 0.18,
-    justifyContent: 'flex-end',
+    height: metrics.screenHeight * 0.14,
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
 });
