@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, metrics} from '../../styles';
+import {metrics} from '../../styles';
 
 const HEIGHT_PORCENTAGE = 0.3;
 const WIDTH_PORCENTAGE = 0.5;
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 0.9,
     alignItems: 'center',
-    backgroundColor: colors.colorAccent,
+    backgroundColor: 'transparent',
   },
   logo: {
     resizeMode: 'contain',

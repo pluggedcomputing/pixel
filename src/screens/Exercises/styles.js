@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   contentText: {
     flex: 1,
-    fontSize: fonts.regular *1.1,
+    fontSize: fonts.input,
     justifyContent: 'center',
     alignItems: 'center',
     top: 10,
