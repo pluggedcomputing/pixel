@@ -15,9 +15,9 @@ const CardLevel = props => {
   const handleModal = () => setShowModal(!showModal);
 
   const viewOfContent = [
-    'Imagens e Pixels',
-    'Codificando imagens com 1 e 0',
-    'Compactando imagens',
+    'Imagens e pixels',
+    'Codificar imagens com 1 e 0',
+    'Imagens compactas',
     'Usando run-length coding',
   ];
   function onPressCardLevel() {
