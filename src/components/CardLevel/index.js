@@ -17,7 +17,7 @@ const CardLevel = props => {
   const viewOfContent = [
     'Imagens e Pixels',
     'Codificando imagens com 1 e 0',
-    'Representando imagens de forma compactada',
+    'Compactando imagens',
     'Usando run-length coding',
   ];
   function onPressCardLevel() {

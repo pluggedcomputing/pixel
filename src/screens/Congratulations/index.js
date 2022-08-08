@@ -126,8 +126,8 @@ const Congratulations = (props) => {
           </TouchableOpacity>
         </View>
         <Image source={imageWinner} style={styles.imageWinner} />
-        <Text style={styles.textTop}>Você concluiu a</Text>
-        <Text style={styles.textEnd}>FASE {level}</Text>
+        <Text style={styles.textTop}>PARABÉNS</Text>
+        <Text style={styles.textEnd}>Você concluiu a FASE {level} do aplicativo Pixel</Text>
       </View>
       <View style={styles.boxButtons}>
         <View style={styles.textAndBtn}>

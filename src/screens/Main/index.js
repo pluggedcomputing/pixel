@@ -10,7 +10,7 @@ function Main({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
-        barStyle="dark-content"
+        barStyle="default"
         backgroundColor={colors.colorPrimary}
       />
       <View style={styles.containerHeader}>
