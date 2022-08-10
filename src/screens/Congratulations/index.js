@@ -81,6 +81,7 @@ const Congratulations = (props) => {
     }
   };
 
+  // Function that modifies the button when reaching phase 4
   // eslint-disable-next-line consistent-return
   function changeButton(phase){
     if(phase === 4){
