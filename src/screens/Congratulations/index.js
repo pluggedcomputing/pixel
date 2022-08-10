@@ -81,6 +81,38 @@ const Congratulations = (props) => {
     }
   };
 
+  // eslint-disable-next-line consistent-return
+  function changeButton(phase){
+    if(phase === 4){
+      return(
+        <View style={styles.textAndBtn}>
+          {/* button for return from menu */}
+          <TouchableOpacity
+            style={styles.buttonsShare}
+            onPress={() => exitCongratulations()}
+
+          >
+            <Icon name='home-outline' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>     Menu     </Text>
+        </View>
+      );
+    }if(phase !== 4){
+      return(
+        <View style={styles.textAndBtn}>
+          {/* button for next phase */}
+          <TouchableOpacity
+            style={styles.buttonsShare}
+            onPress={()=>nextPhase()}
+
+          >
+            <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>Próxima Fase</Text>
+        </View>
+      );
+    }
+  }
 
   const navigateScreen = (screen) => {
     navigation.navigate(screen);
@@ -150,15 +182,7 @@ const Congratulations = (props) => {
           <Text style={styles.textBtn}>Refazer</Text>
         </View>
         <View style={styles.textAndBtn}>
-          {/* button for next phase */}
-          <TouchableOpacity
-            style={styles.buttonsShare}
-            onPress={()=>nextPhase()}
-
-          >
-            <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
-          </TouchableOpacity>
-          <Text style={styles.textBtn}>Próxima Fase</Text>
+          {changeButton(level)}
         </View>
       </View>
 
