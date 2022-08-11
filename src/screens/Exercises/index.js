@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {View, Image, StatusBar, Text} from 'react-native';
 
-
 import {useRoute} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 

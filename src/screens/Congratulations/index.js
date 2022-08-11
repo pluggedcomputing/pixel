@@ -121,16 +121,6 @@ const Congratulations = (props) => {
 
   Icon.loadFont();
 
-  // const showInformation = () => {
-    // return content.map((item, index) => {
-      // return (
-        // <View key={[index]} style={styles.information}>
-          // <Text style={styles.textInformation}>{item}</Text>
-        // </View>
-      // );
-    // });
-  // };
-
   const linkingWeb = (url, nickName) => {
     return (
       <TouchableNativeFeedback

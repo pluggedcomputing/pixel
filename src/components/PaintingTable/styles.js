@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderRadius: metrics.baseBorder,
     backgroundColor: colors.colorAccent,
-    marginTop: metrics.baseMargin * 2,
+    marginTop: metrics.baseMargin,
     marginBottom: metrics.baseMargin,
   },
   subContainer: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * WIDTH_PERCENTE,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 2,
+    margin: 1.5,
     borderWidth: 3,
     borderColor: colors.colorSecondary,
   },

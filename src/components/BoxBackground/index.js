@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, TouchableOpacity, Image} from 'react-native';
+import {View, TouchableOpacity, Image} from 'react-native';
+import { SwiperFlatList } from 'react-native-swiper-flatlist';
+
 
 import PropTypes from 'prop-types';
 
 import group from '../../assets/images/levelSelection/Group.png';
+import colors from '../../styles/colors'
 import styles from './styles';
 
 const BoxBackground = (props) => {
@@ -106,10 +109,14 @@ const BoxBackground = (props) => {
   return (
     <View style={[styles.container, style]}>
       <View style={styles.imageContainer}>
-        <FlatList
+        <SwiperFlatList
           ref={(ref) => {
             flatListRef = ref;
           }}
+          showPagination
+          paginationDefaultColor={colors.colorDesabled}
+          paginationActiveColor={colors.colorSecondary}
+          paginationStyleItem={{marginHorizontal: 6}}
           data={content}
           keyExtractor={(item, index) => String(index)}
           showsHorizontalScrollIndicator={false}

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     position: 'absolute',
     backgroundColor: 'transparent',
-    bottom: -10,
+    bottom: 10,
   },
   containerBody: {
     justifyContent: 'center',
