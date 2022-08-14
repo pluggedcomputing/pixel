@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
-import {View, Image, StatusBar, Text} from 'react-native';
+import {View, Image, StatusBar, Text, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import {useRoute} from '@react-navigation/native';
+import {useRoute, CommonActions} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 
 import BoxAlternative from '../../components/BoxAlternative';
@@ -34,7 +35,18 @@ const Exercises = ({navigation}) => {
   const [showAnswerOptions, setShowAnswerOptions] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState(colors.colorAccent);
 
+  const exitCongratulations = async()=>{
+    navigation.dispatch(
+      CommonActions.reset({
+        index:1,
+        routes:[{
+          name: 'LevelSelection',
+        },],
+      })
+    );
+  }
 
+  const size = 30;
 
   const mountListPermissions = () => {
     const auxList = [];
@@ -281,12 +293,17 @@ const Exercises = ({navigation}) => {
 
 
   return (
-    <View style={styles.container}>
+    <View style={[(question.type === 'paintingtable' || question.type === 'multiplechoice') ? styles.containerQuestions : styles.containerText]}>
       <StatusBar
         hidden={false}
-        backgroundColor={colors.colorAccent}
       />
       <View style={styles.screen}>
+        <View style={styles.headerStyle}>
+          <Text style={styles.headerStyleText}>FASE {level}</Text>
+          <TouchableOpacity onPress={() => exitCongratulations()} style={styles.headerStyleButton}>
+            <Icon name='close' size={size} color={colors.colorTextPrimary} />
+          </TouchableOpacity>
+        </View>
         <View style={styles.halfTopView}>
           <BoxBackground
             content={viewContent()}

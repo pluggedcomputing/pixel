@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, metrics} from '../../styles';
+import {metrics} from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,13 +49,6 @@ const styles = StyleSheet.create({
   image2: {
     right: -5,
   },
-  slidder: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: colors.colorSecondary,
-    margin: metrics.doubleBaseMargin,
-  }
 });
 
 export default styles;

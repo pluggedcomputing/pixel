@@ -4,7 +4,7 @@ import {metrics, colors, fonts} from '../../styles';
 
 
 const styles = StyleSheet.create({
-  container: {
+  containerText: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -12,18 +12,47 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth,
     backgroundColor: colors.colorAccent,
   },
+  containerQuestions: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: metrics.screenWidth,
+    backgroundColor: colors.colorPrimary,
+  },
   screen: {
     width: metrics.screenWidth*1.1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.colorAccent,
+    backgroundColor: 'transparent',
+  },
+  headerStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: metrics.screenWidth,
+    top: 35,
+    backgroundColor: 'transparent',
+  },
+  headerStyleText: {
+    color: colors.colorTextPrimary,
+    fontFamily:'Poppins-Bold',
+    fontSize: 18,
+    left: 15,
+    marginBottom: -5,
+    top: 5,
+  },
+  headerStyleButton:{
+    display: 'flex',
+    backgroundColor: 'transparent',
+    padding: 6,
+    left: 140,
   },
   conteinerPaintTableQuestions: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     width: metrics.screenWidth*1.1,
-    backgroundColor: colors.colorPrimary,
+    backgroundColor: 'transparent',
   },
   viewBoxContent: {
     flex: 1,
@@ -31,7 +60,7 @@ const styles = StyleSheet.create({
     margin: metrics.baseMargin,
     padding: metrics.basePadding,
     alignItems: 'center',
-    backgroundColor: colors.colorAccent,
+    backgroundColor: 'transparent',
   },
   statementImage: {
     resizeMode: 'contain',

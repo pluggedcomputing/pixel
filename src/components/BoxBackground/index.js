@@ -116,7 +116,7 @@ const BoxBackground = (props) => {
           showPagination
           paginationDefaultColor={colors.colorDesabled}
           paginationActiveColor={colors.colorSecondary}
-          paginationStyleItem={{marginHorizontal: 6}}
+          paginationStyleItem={{marginHorizontal: 6, marginVertical: -5}}
           data={content}
           keyExtractor={(item, index) => String(index)}
           showsHorizontalScrollIndicator={false}
