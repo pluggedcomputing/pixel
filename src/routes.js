@@ -115,8 +115,7 @@ const routes = () => {
           name="Exercises"
           component={Exercises}
           options={{
-            headerShown:true,
-            headerLeft: false,
+            headerShown:false,
           }}
         />
         <Stack.Screen

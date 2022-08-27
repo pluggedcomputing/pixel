@@ -27,9 +27,10 @@ const styles = StyleSheet.create({
   textEnd: {
     textAlign: 'center',
     color: colors.colorTextPrimary,
-    margin: -10,
-    fontSize: fonts.header,
-    fontFamily: 'Poppins-Bold',
+    marginLeft: 100,
+    marginRight: 100,
+    fontSize: fonts.regular,
+    fontFamily: 'Poppins-Regular',
   },
   button: {
     color: colors.colorSecondary,
@@ -87,8 +88,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imageWinner: {
-    width:metrics.screenWidth * 0.90,
+    width: metrics.screenWidth * 0.90,
+    height: metrics.screenHeight * 0.50,
     alignSelf: 'center',
+    resizeMode: 'cover',
   },
   modalView: {
     width: metrics.screenWidth * 0.9,

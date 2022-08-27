@@ -11,9 +11,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     borderRadius: metrics.baseBorder,
-    backgroundColor: colors.colorAccent,
-    marginTop: metrics.baseMargin * 2,
-    marginBottom: metrics.baseMargin,
+    backgroundColor: 'transparent',
+    marginTop: metrics.baseMargin * 1.3,
+    marginBottom: metrics.baseMargin * 0.5,
   },
   subContainer: {
     flexDirection: 'row',

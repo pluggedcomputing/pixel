@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: metrics.basePadding,
     backgroundColor: colors.colorAccent,
-    width: metrics.screenWidth/2.4,
+    width: metrics.screenWidth/2.2,
   },
 });
 

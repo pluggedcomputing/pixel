@@ -81,22 +81,45 @@ const Congratulations = (props) => {
     }
   };
 
+  // Function that modifies the button when reaching phase 4
+  // eslint-disable-next-line consistent-return
+  function changeButton(phase){
+    if(phase === 4){
+      return(
+        <View style={styles.textAndBtn}>
+          {/* button for return from menu */}
+          <TouchableOpacity
+            style={styles.buttonsShare}
+            onPress={() => exitCongratulations()}
+
+          >
+            <Icon name='home-outline' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>     Menu     </Text>
+        </View>
+      );
+    }if(phase !== 4){
+      return(
+        <View style={styles.textAndBtn}>
+          {/* button for next phase */}
+          <TouchableOpacity
+            style={styles.buttonsShare}
+            onPress={()=>nextPhase()}
+
+          >
+            <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
+          </TouchableOpacity>
+          <Text style={styles.textBtn}>Próxima Fase</Text>
+        </View>
+      );
+    }
+  }
 
   const navigateScreen = (screen) => {
     navigation.navigate(screen);
   };
 
   Icon.loadFont();
-
-  // const showInformation = () => {
-    // return content.map((item, index) => {
-      // return (
-        // <View key={[index]} style={styles.information}>
-          // <Text style={styles.textInformation}>{item}</Text>
-        // </View>
-      // );
-    // });
-  // };
 
   const linkingWeb = (url, nickName) => {
     return (
@@ -126,8 +149,8 @@ const Congratulations = (props) => {
           </TouchableOpacity>
         </View>
         <Image source={imageWinner} style={styles.imageWinner} />
-        <Text style={styles.textTop}>Você concluiu a</Text>
-        <Text style={styles.textEnd}>FASE {level}</Text>
+        <Text style={styles.textTop}>PARABÉNS</Text>
+        <Text style={styles.textEnd}>Você concluiu a FASE {level} do aplicativo Pixel</Text>
       </View>
       <View style={styles.boxButtons}>
         <View style={styles.textAndBtn}>
@@ -150,15 +173,7 @@ const Congratulations = (props) => {
           <Text style={styles.textBtn}>Refazer</Text>
         </View>
         <View style={styles.textAndBtn}>
-          {/* button for next phase */}
-          <TouchableOpacity
-            style={styles.buttonsShare}
-            onPress={()=>nextPhase()}
-
-          >
-            <Icon name='chevron-forward-outline' size={size} color={colors.colorAccent} />
-          </TouchableOpacity>
-          <Text style={styles.textBtn}>Próxima Fase</Text>
+          {changeButton(level)}
         </View>
       </View>
 

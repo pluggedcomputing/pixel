@@ -30,22 +30,23 @@ function ScreenAbout() {
           <Text style={styles.text}> O aplicativo &ldquo;Computação Plugada - Pixel se baseia na atividade
             &ldquo;Representação de imagens&ldquo; do livro de Bell T.Witten, I. e Follows, M.
             (2011), &ldquo;Computer Science Unplugged - Ensinando Ciência da Computação sem o uso
-            do computador&ldquo; Tradução Luciano Porto Barreto, 2011
+            do computador&ldquo; Tradução Luciano Porto Barreto, 2011.
           </Text>
         </View>
         <View style={styles.container}>
           <Image source={unplug} style={styles.imgCenter} />
-          <Text style={styles.text}> Este livro apresenta atividades práticas, lúdicas e acessíveis sobre diversos
+          <Text style={styles.text}>
+            Este livro apresenta atividades práticas, lúdicas e acessíveis sobre diversos
             temas da ciência da computação. O mesmo engloba técnicas para todos. Sua prática
-            é fácil não só em salas de aula mas também fora, podendo ser administrado por professores
-            e compreendido pelas crianças.
+            é fácil não só em salas de aula mas também fora, podendo ser administrado por professores e compreendido pelas crianças.
           </Text>
         </View>
         <View style={styles.container}>
           <Image source={tarja} style={styles.imgCenter} />
-          <Text style={styles.text}> O aplicativo aqui apresentado busca simplificar ainda mais a aplicação das
+          <Text style={styles.text}>
+            O aplicativo aqui apresentado busca simplificar ainda mais a aplicação das
             propostas sem a necessidade de produção de materiais adicionais. O aplicativo é
-            uma grande inovação para as técnicas  de, aprendizagem, apresentando temas complexos
+            uma grande inovação para as técnicas de aprendizagem, apresentando temas complexos
             de uma forma elementar para o conhecimento.
           </Text>
         </View>

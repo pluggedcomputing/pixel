@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: metrics.basePadding,
+    backgroundColor: 'transparent',
     width: metrics.screenWidth * widhtScreen,
   },
   button: {
