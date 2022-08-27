@@ -13,7 +13,7 @@ import HelpScreen from './screens/HelpScreen';
 import LevelSelection from './screens/LevelSelection';
 import Main from './screens/Main';
 import ScreenAbout from './screens/ScreenAbout';
-import {colors} from './styles';
+import {colors, fonts} from './styles';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -55,7 +55,6 @@ function Tabs(){
 
 }
 
-
 function LogoTitle() {
   return (
     <Image
@@ -73,6 +72,7 @@ const routes = () => {
       <Stack.Navigator
         initalRouteName="Main"
         screenOptions={{
+          gestureEnabled: true,
           headerTitleAlign: 'center',
           headerTintColor: colors.colorTextPrimary,
           headerStyle: {
@@ -116,6 +116,7 @@ const routes = () => {
           component={Exercises}
           options={{
             headerShown:true,
+            headerLeft: false,
           }}
         />
         <Stack.Screen
@@ -140,6 +141,11 @@ const styles = StyleSheet.create({
   },
   vector: {
     margin: 10,
+  },
+  iconButton: {
+    width: 40,
+    fontSize: fonts.header*1.1,
+    color: colors.colorSecondary,
   },
   container: {
     flex: 1,

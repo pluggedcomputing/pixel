@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList} from 'react-native';
-import {ProgressBar} from 'react-native-paper';
+import {View, FlatList, TouchableOpacity, Image} from 'react-native';
 
 import PropTypes from 'prop-types';
 
-import {colors} from '../../styles';
+import group from '../../assets/images/levelSelection/Group.png';
 import styles from './styles';
 
 const BoxBackground = (props) => {
@@ -78,11 +77,30 @@ const BoxBackground = (props) => {
     }
   };
 
-  const convertIndexInProgress = (index) =>
-    ((index + 1) * 100) / content.length / 100;
+    const RightArrowFunction = async () =>{
+      if(pagination !== content.length -1){
+       flatListRef.scrollToIndex({index: pagination + 1,Animated:false})
+      }
+    }
+    const LeftArrowFunction = async () =>{
+      if(pagination !== 0){
+        flatListRef.scrollToIndex({index: pagination- 1,Animated:false})
+      }
+
+    }
 
   const renderItem = ({item}) => {
-    return <View style={styles.boxContainer}>{item}</View>;
+    return (
+      <View style={styles.boxContainer}>
+        {item}
+        <TouchableOpacity style={styles.buttonImageRotate} onPress={() => LeftArrowFunction()}>
+          <Image source={group} style={styles.image} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonImage} onPress={() => RightArrowFunction()}>
+          <Image source={group} style={styles.image2} />
+        </TouchableOpacity>
+      </View>
+);
   };
 
   return (
@@ -106,12 +124,6 @@ const BoxBackground = (props) => {
             checkDireciton(event);
           }}
           renderItem={renderItem}
-        />
-      </View>
-      <View style={styles.slidder}>
-        <ProgressBar
-          progress={convertIndexInProgress(pagination)}
-          color={colors.colorAccent}
         />
       </View>
     </View>

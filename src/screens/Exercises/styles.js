@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 import {metrics, colors, fonts} from '../../styles';
 
-const HEIGHT_PORCENTAGE = 0.3;
 
 const styles = StyleSheet.create({
   container: {
@@ -14,45 +13,25 @@ const styles = StyleSheet.create({
     backgroundColor: colors.colorAccent,
   },
   screen: {
-    width: 330,
+    width: metrics.screenWidth*1.1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  halfTopView: {
-    flex: 1,
-    alignItems: 'center',
-    width: metrics.screenWidth * 0.9,
     backgroundColor: colors.colorAccent,
-    marginTop: metrics.baseMargin,
-    marginBottom: metrics.baseMargin,
   },
   conteinerPaintTableQuestions: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: metrics.screenWidth,
+    width: metrics.screenWidth*1.1,
     backgroundColor: colors.colorPrimary,
   },
   viewBoxContent: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     margin: metrics.baseMargin,
+    padding: metrics.basePadding,
     alignItems: 'center',
-  },
-  buttonImage:{
-    margin: 10,
-    position: 'relative',
-  },
-  buttonImageRotate:{
-    margin: 10,
-    position: 'relative',
-    transform: [{ rotate: '180deg' }],
-  },
-  image: {
-    left: 10,
-  },
-  image2: {
-    right: -10,
+    backgroundColor: colors.colorAccent,
   },
   statementImage: {
     resizeMode: 'contain',
@@ -62,20 +41,14 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin * 2,
     marginBottom: metrics.baseMargin * 2,
   },
-  animation: {
-    width: metrics.screenHeight * HEIGHT_PORCENTAGE,
-    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
-    alignSelf: 'center',
-  },
-  textBoxContent: {
-    textAlign: 'center',
-    fontSize: fonts.regular,
-    paddingHorizontal: metrics.basePadding,
-    color: colors.colorAccent,
-  },
   contentText: {
     flex: 1,
     fontSize: fonts.regular *1.1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 10,
+    marginLeft: metrics.smallMargin,
+    marginRight: metrics.smallMargin,
     color: colors.colorTextPrimary,
     fontFamily: 'Poppins-Ligth',
   },
@@ -86,18 +59,10 @@ const styles = StyleSheet.create({
     color: colors.colorSecondary,
     fontWeight: 'bold',
   },
-  buttonsContainer: {
-    flex: 1,
-    width: metrics.screenWidth,
-    marginBottom: metrics.baseMargin,
-  },
   contentContainerStyle: {
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    margin: metrics.baseMargin,
-  },
-  buttons: {
-    flex: 1,
+    margin: metrics.baseMargin*2,
   },
 });
 

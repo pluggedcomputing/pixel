@@ -37,7 +37,7 @@
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
-          "text": "Pinte os pixels acima de preto ou branco clicando em cada um deles e veja o código em bits (sequências de 0s e 1s) correspondentes.",
+          "text": "Pinte os pixels acima de preto ou branco clicando em cada um deles e veja o código em bits (sequências de 0s e 1s) correspondente.",
           "row": 1,
           "column": 5,
           "isContentReduced": false,
@@ -101,16 +101,6 @@
               "id": 2,
               "text": "Com representação que economize a quantidade de dados enviada",
               "correct": true
-            },
-            {
-              "id": 3,
-              "text": "Gerando sequências aleatórias",
-              "correct": false
-            },
-            {
-              "id": 4,
-              "text": "Transferindo cores com luz",
-              "correct": false
             }
           ]
         },

@@ -8,14 +8,12 @@ const HEIGHT_PORCENTAGE = 0.08;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.colorSecondary,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
     width: metrics.screenWidth * WIGTH_PORCENTAGE,
     elevation: metrics.baseElevation,
-    paddingRight: metrics.smallPadding,
-    paddingLeft: metrics.smallPadding,
     borderRadius: metrics.baseRadius,
   },
   textButton: {

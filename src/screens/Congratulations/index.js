@@ -20,11 +20,10 @@ import {useRoute, CommonActions} from '@react-navigation/native';
 import data from '../../assets/data.json';
 import imageWinner from '../../assets/images/congratulations/winner.png';
 import {colors} from '../../styles';
-// import Exercises from '../Exercises/index';
 import styles from './styles';
 
 const Congratulations = (props) => {
-  const {level, content} = useRoute().params;// isFinish
+  const {level} = useRoute().params;// isFinish
   const [modal, setModal] = useState(false);
   const {navigation} = props;
 
@@ -89,15 +88,15 @@ const Congratulations = (props) => {
 
   Icon.loadFont();
 
-  const showInformation = () => {
-    return content.map((item, index) => {
-      return (
-        <View key={[index]} style={styles.information}>
-          <Text style={styles.textInformation}>{item}</Text>
-        </View>
-      );
-    });
-  };
+  // const showInformation = () => {
+    // return content.map((item, index) => {
+      // return (
+        // <View key={[index]} style={styles.information}>
+          // <Text style={styles.textInformation}>{item}</Text>
+        // </View>
+      // );
+    // });
+  // };
 
   const linkingWeb = (url, nickName) => {
     return (
@@ -120,7 +119,6 @@ const Congratulations = (props) => {
       <View style={styles.content}>
         <View style={styles.containerBtnConcluded}>
           <Text style={styles.textBtnConcluded}>FASE {level}</Text>
-          {/* Congratulation screen exit button for Level Selection */}
           <TouchableOpacity
             style={styles.buttonConcluded}
             onPress={() => exitCongratulations()}>
@@ -130,9 +128,6 @@ const Congratulations = (props) => {
         <Image source={imageWinner} style={styles.imageWinner} />
         <Text style={styles.textTop}>Você concluiu a</Text>
         <Text style={styles.textEnd}>FASE {level}</Text>
-        <View style={styles.informationPosition}>
-          {showInformation()}
-        </View>
       </View>
       <View style={styles.boxButtons}>
         <View style={styles.textAndBtn}>
