@@ -2,6 +2,168 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/pluggedcomputing/pixel/compare/v0.1.2...v2.2.0) (2022-05-25)
+
+
+### Features
+
+* **#185:** adicionado lib codepush e appcenter ([6a476ce](https://github.com/pluggedcomputing/pixel/commit/6a476cea09815fb2054f25b14498999a24bcf142)), closes [#185](https://github.com/pluggedcomputing/pixel/issues/185)
+
+
+### Bug Fixes
+
+* **master:** corrigido valor da resposta correta ([ef4a913](https://github.com/pluggedcomputing/pixel/commit/ef4a9134381031cf88968e132989b333c0df3b83))
+
+## [0.1.0-8](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-7...v0.1.0-8) (2022-05-09)
+
+
+### Bug Fixes
+
+* **master:** corrigido valor da resposta correta ([ef4a913](https://github.com/pluggedcomputing/pixel/commit/ef4a9134381031cf88968e132989b333c0df3b83))
+
+## [0.1.0-7](https://github.com/pluggedcomputing/pixel/compare/v0.1.2...v0.1.0-7) (2021-11-12)
+
+## [0.1.0-7](https://github.com/pluggedcomputing/pixel/compare/v0.1.2...v0.1.0-7) (2021-11-12)
+
+### [0.1.2](https://github.com/pluggedcomputing/pixel/compare/v0.1.1...v0.1.2) (2021-11-12)
+
+### [0.1.1](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-7...v0.1.1) (2021-11-12)
+
+## [0.1.0](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-7...v0.1.0) (2021-11-12)
+
+## [0.1.0-7](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-6...v0.1.0-7) (2021-11-12)
+
+
+### Features
+
+* **#141:** adicionado questao duas novas questoes ([92455d7](https://github.com/pluggedcomputing/pixel/commit/92455d7644438794eeb6da2d1abaed3017982a8a)), closes [#141](https://github.com/pluggedcomputing/pixel/issues/141)
+* **#142:** alterado logica para modificar cores ([a22180c](https://github.com/pluggedcomputing/pixel/commit/a22180ce9d60c8169cdb1a8f07963a7106bb00cc)), closes [#142](https://github.com/pluggedcomputing/pixel/issues/142)
+* **#144:** adicionar bloquio nas alternativas com limite minimo par pintar ([879a5a4](https://github.com/pluggedcomputing/pixel/commit/879a5a488e9e3a4519faefc95d4e7445484cf319)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#144:** alterado valor de pixel para responder ([0164c86](https://github.com/pluggedcomputing/pixel/commit/0164c86d59da15b9f4b7ccf4deee1c7c2652975e)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#144:** colocar alternativas em maiusculas no nivel 3 ([abe2887](https://github.com/pluggedcomputing/pixel/commit/abe28871845ae49abdc303c4f5d5f7ef5a50ab5f)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#144:** corrigir verificacao param mostra codigo de pixel ([7d94b6e](https://github.com/pluggedcomputing/pixel/commit/7d94b6edee3d33e38f1b9a69e5e959744bc16e07)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#144:** criar componente de alerta e bloqueio de card de pergunta ([408b03c](https://github.com/pluggedcomputing/pixel/commit/408b03c6416e972f57b8f275d4d517ea526a9067)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#146:** criado descricao para rodar testes ([e4ea750](https://github.com/pluggedcomputing/pixel/commit/e4ea7500b946e02108d187395a8eaac8df6568ab)), closes [#146](https://github.com/pluggedcomputing/pixel/issues/146)
+* **#164:** adicionado criacao do componente de demonstracao ([6548cf3](https://github.com/pluggedcomputing/pixel/commit/6548cf3ccbe52596348659709f02f6223a6295c0)), closes [#164](https://github.com/pluggedcomputing/pixel/issues/164)
+* **#167:** adicionado funcionalidade para desabilitar pixels ([0b09aaa](https://github.com/pluggedcomputing/pixel/commit/0b09aaaae75dc84f0602f7c8f2174d2ef33ac120)), closes [#167](https://github.com/pluggedcomputing/pixel/issues/167)
+* **#167:** alterado valores dos campos do json ([f44f3db](https://github.com/pluggedcomputing/pixel/commit/f44f3dbc72713261a6cc3cd3b592ea37499991fe)), closes [#167](https://github.com/pluggedcomputing/pixel/issues/167)
+* **#169:** adicionado dois novos exercicios ([1ba326c](https://github.com/pluggedcomputing/pixel/commit/1ba326c81615383996a6df2a966d8929dcdeff1c)), closes [#169](https://github.com/pluggedcomputing/pixel/issues/169)
+* **#172:** adicionado novo exercicio de desenhar colorido ([a712e76](https://github.com/pluggedcomputing/pixel/commit/a712e76759cd02ce19805befffb49165c4e71bbb)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** adicionado opacao para colorir ([121f225](https://github.com/pluggedcomputing/pixel/commit/121f225d8b963897f3caca01bea191fa61ec89b8)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** adicionado opcao para pintar com cores e refatorado codigo de pintar quadrado ([dd20ff7](https://github.com/pluggedcomputing/pixel/commit/dd20ff7d1d27e4a5a08b3c424a94674ba7a579e5)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** adicionado variavel para opcao de colorido ([b156c5c](https://github.com/pluggedcomputing/pixel/commit/b156c5c54617cf8732eb17fc3777b3ac24f77e87)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** adicionar correcao em mensagem de pergunta ([632d188](https://github.com/pluggedcomputing/pixel/commit/632d18812ec80368c8e47be845a15df48bcc323b)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** alterado testes de metodos de converter e gerar run-length-code ([5efdd30](https://github.com/pluggedcomputing/pixel/commit/5efdd3091ce0d7900d06c5607ce8ef5776b4f643)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** alterado tipo de variavel sizeAlternatives ([b363e8b](https://github.com/pluggedcomputing/pixel/commit/b363e8b21717eb49dfb6ed532a08090e6d2c2235)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** corrigido mensagem de informacao ao passa card ([b50703b](https://github.com/pluggedcomputing/pixel/commit/b50703bdd5c50a13702c3af0e888917dee343660)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** criado variavel para definir valor da divisao ([7360882](https://github.com/pluggedcomputing/pixel/commit/7360882c02df5de7140ccf9c831bcb97fe42d769)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#174:** adicionado link para formularios e para baixar apps ([db28b83](https://github.com/pluggedcomputing/pixel/commit/db28b837c9636ddb10db8de077e0b543a77d44b2)), closes [#174](https://github.com/pluggedcomputing/pixel/issues/174)
+* **#develop:** correcoes pontuais ([d39549a](https://github.com/pluggedcomputing/pixel/commit/d39549abdeb7274fdbc800ed3e7a06373a629644))
+* **#master:** incrementado versionCode ([ade7afe](https://github.com/pluggedcomputing/pixel/commit/ade7afe22b30b202c11fe90cc4bfe9f91e08ba72))
+* **172:** corrigir mensagem mostrada ao tentar passa pergunta ([0523935](https://github.com/pluggedcomputing/pixel/commit/05239353af83435cfda50237b6967a74100df8eb))
+
+
+### Bug Fixes
+
+* **#177:** corrigido mensagem que informar para repetir tentativa ([5142723](https://github.com/pluggedcomputing/pixel/commit/5142723e6add95d428f4255ec04d0b4093498821)), closes [#177](https://github.com/pluggedcomputing/pixel/issues/177)
+* **#179:** movido componente e adicionado opcao para mostra apenas ao erra alternativa ([020147f](https://github.com/pluggedcomputing/pixel/commit/020147fd159718f679208d39fd47fa803ff3edde)), closes [#179](https://github.com/pluggedcomputing/pixel/issues/179)
+
+## [0.1.0-8](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-7...v0.1.0-8) (2021-11-12)
+
+## [0.1.0-7](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-6...v0.1.0-7) (2021-11-12)
+
+
+### Features
+
+* **#141:** adicionado questao duas novas questoes ([92455d7](https://github.com/pluggedcomputing/pixel/commit/92455d7644438794eeb6da2d1abaed3017982a8a)), closes [#141](https://github.com/pluggedcomputing/pixel/issues/141)
+* **#142:** alterado logica para modificar cores ([a22180c](https://github.com/pluggedcomputing/pixel/commit/a22180ce9d60c8169cdb1a8f07963a7106bb00cc)), closes [#142](https://github.com/pluggedcomputing/pixel/issues/142)
+* **#144:** adicionar bloquio nas alternativas com limite minimo par pintar ([879a5a4](https://github.com/pluggedcomputing/pixel/commit/879a5a488e9e3a4519faefc95d4e7445484cf319)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#144:** alterado valor de pixel para responder ([0164c86](https://github.com/pluggedcomputing/pixel/commit/0164c86d59da15b9f4b7ccf4deee1c7c2652975e)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#144:** colocar alternativas em maiusculas no nivel 3 ([abe2887](https://github.com/pluggedcomputing/pixel/commit/abe28871845ae49abdc303c4f5d5f7ef5a50ab5f)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#144:** corrigir verificacao param mostra codigo de pixel ([7d94b6e](https://github.com/pluggedcomputing/pixel/commit/7d94b6edee3d33e38f1b9a69e5e959744bc16e07)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#144:** criar componente de alerta e bloqueio de card de pergunta ([408b03c](https://github.com/pluggedcomputing/pixel/commit/408b03c6416e972f57b8f275d4d517ea526a9067)), closes [#144](https://github.com/pluggedcomputing/pixel/issues/144)
+* **#146:** criado descricao para rodar testes ([e4ea750](https://github.com/pluggedcomputing/pixel/commit/e4ea7500b946e02108d187395a8eaac8df6568ab)), closes [#146](https://github.com/pluggedcomputing/pixel/issues/146)
+* **#164:** adicionado criacao do componente de demonstracao ([6548cf3](https://github.com/pluggedcomputing/pixel/commit/6548cf3ccbe52596348659709f02f6223a6295c0)), closes [#164](https://github.com/pluggedcomputing/pixel/issues/164)
+* **#167:** adicionado funcionalidade para desabilitar pixels ([0b09aaa](https://github.com/pluggedcomputing/pixel/commit/0b09aaaae75dc84f0602f7c8f2174d2ef33ac120)), closes [#167](https://github.com/pluggedcomputing/pixel/issues/167)
+* **#167:** alterado valores dos campos do json ([f44f3db](https://github.com/pluggedcomputing/pixel/commit/f44f3dbc72713261a6cc3cd3b592ea37499991fe)), closes [#167](https://github.com/pluggedcomputing/pixel/issues/167)
+* **#169:** adicionado dois novos exercicios ([1ba326c](https://github.com/pluggedcomputing/pixel/commit/1ba326c81615383996a6df2a966d8929dcdeff1c)), closes [#169](https://github.com/pluggedcomputing/pixel/issues/169)
+* **#172:** adicionado novo exercicio de desenhar colorido ([a712e76](https://github.com/pluggedcomputing/pixel/commit/a712e76759cd02ce19805befffb49165c4e71bbb)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** adicionado opacao para colorir ([121f225](https://github.com/pluggedcomputing/pixel/commit/121f225d8b963897f3caca01bea191fa61ec89b8)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** adicionado opcao para pintar com cores e refatorado codigo de pintar quadrado ([dd20ff7](https://github.com/pluggedcomputing/pixel/commit/dd20ff7d1d27e4a5a08b3c424a94674ba7a579e5)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** adicionado variavel para opcao de colorido ([b156c5c](https://github.com/pluggedcomputing/pixel/commit/b156c5c54617cf8732eb17fc3777b3ac24f77e87)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** adicionar correcao em mensagem de pergunta ([632d188](https://github.com/pluggedcomputing/pixel/commit/632d18812ec80368c8e47be845a15df48bcc323b)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** alterado testes de metodos de converter e gerar run-length-code ([5efdd30](https://github.com/pluggedcomputing/pixel/commit/5efdd3091ce0d7900d06c5607ce8ef5776b4f643)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** alterado tipo de variavel sizeAlternatives ([b363e8b](https://github.com/pluggedcomputing/pixel/commit/b363e8b21717eb49dfb6ed532a08090e6d2c2235)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** corrigido mensagem de informacao ao passa card ([b50703b](https://github.com/pluggedcomputing/pixel/commit/b50703bdd5c50a13702c3af0e888917dee343660)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#172:** criado variavel para definir valor da divisao ([7360882](https://github.com/pluggedcomputing/pixel/commit/7360882c02df5de7140ccf9c831bcb97fe42d769)), closes [#172](https://github.com/pluggedcomputing/pixel/issues/172)
+* **#174:** adicionado link para formularios e para baixar apps ([db28b83](https://github.com/pluggedcomputing/pixel/commit/db28b837c9636ddb10db8de077e0b543a77d44b2)), closes [#174](https://github.com/pluggedcomputing/pixel/issues/174)
+* **#develop:** correcoes pontuais ([d39549a](https://github.com/pluggedcomputing/pixel/commit/d39549abdeb7274fdbc800ed3e7a06373a629644))
+* **#master:** incrementado versionCode ([ade7afe](https://github.com/pluggedcomputing/pixel/commit/ade7afe22b30b202c11fe90cc4bfe9f91e08ba72))
+* **172:** corrigir mensagem mostrada ao tentar passa pergunta ([0523935](https://github.com/pluggedcomputing/pixel/commit/05239353af83435cfda50237b6967a74100df8eb))
+
+
+### Bug Fixes
+
+* **#177:** corrigido mensagem que informar para repetir tentativa ([5142723](https://github.com/pluggedcomputing/pixel/commit/5142723e6add95d428f4255ec04d0b4093498821)), closes [#177](https://github.com/pluggedcomputing/pixel/issues/177)
+* **#179:** movido componente e adicionado opcao para mostra apenas ao erra alternativa ([020147f](https://github.com/pluggedcomputing/pixel/commit/020147fd159718f679208d39fd47fa803ff3edde)), closes [#179](https://github.com/pluggedcomputing/pixel/issues/179)
+
+## [0.1.0-6](https://github.com/pluggedcomputing/pixel/compare/v0.1.0...v0.1.0-6) (2021-09-20)
+
+## [0.1.0](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-5...v0.1.0) (2021-09-20)
+
+
+### Features
+
+* **#125:** adicionar dado com as informacoes para cada nivel ([687aed6](https://github.com/pluggedcomputing/pixel/commit/687aed65ac7a9ef6ddab817d62771fb768c0d240)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** alterado logica de bloquei dos cards ([a93b3b2](https://github.com/pluggedcomputing/pixel/commit/a93b3b29670ba67d68ec6bb7fcb4e281710d5c69)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** alterado logica de bloquei dos cards ([2afdbfd](https://github.com/pluggedcomputing/pixel/commit/2afdbfd6f86c98762c27cf56d59ecf8c46f23976)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** alterar nome ([cddd117](https://github.com/pluggedcomputing/pixel/commit/cddd1172c28383a246382feea336a4dd00d4e928)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** criado arquivo dos dados dos exercicios ([493b725](https://github.com/pluggedcomputing/pixel/commit/493b725247561b3d1ab1636f802ff6ea684662dd)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** criado enum para tipos de questoes ([ccd9280](https://github.com/pluggedcomputing/pixel/commit/ccd9280ceb195362cc118692f676028750374e32)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** criado utils para pegar imagens ([b9cd65e](https://github.com/pluggedcomputing/pixel/commit/b9cd65ee4dabb4de2a60f6c3ee83f10dac9f78f5)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** modificado estilo de posicao do texto de informacao ([e27b418](https://github.com/pluggedcomputing/pixel/commit/e27b418e5542801207e02e480fd0c42958628661)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** refatorado componente para controlar todos os niveis ([91fafa3](https://github.com/pluggedcomputing/pixel/commit/91fafa32147d531a9ccf64817f81260279c17650)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#125:** removido telas nao mais utilizadas ([5bb0ad3](https://github.com/pluggedcomputing/pixel/commit/5bb0ad3b042f563515850a8bd77a4b7b0900e992)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#126:** adicionado nova variavel de copy do array passado no parametro ([f52ed6e](https://github.com/pluggedcomputing/pixel/commit/f52ed6e2704bd9767d8780c1665e5293fc7a1cbd)), closes [#126](https://github.com/pluggedcomputing/pixel/issues/126)
+* **#126:** adicionar metodos no json de questionario ([aafad72](https://github.com/pluggedcomputing/pixel/commit/aafad72d4fb901472f19b56a2304e1abf7ecd92a)), closes [#126](https://github.com/pluggedcomputing/pixel/issues/126)
+* **#126:** corrigido respostas no componente painting e modificando metodo de gerar alterantivas ([632e0ca](https://github.com/pluggedcomputing/pixel/commit/632e0ca97ddb315e05a35c6f6addced6668479b1)), closes [#126](https://github.com/pluggedcomputing/pixel/issues/126)
+* **#126:** criar novos metodo de teste ([8c552b6](https://github.com/pluggedcomputing/pixel/commit/8c552b6810cca64be8ef763bbade2dde4b56a4f7)), closes [#126](https://github.com/pluggedcomputing/pixel/issues/126)
+* **#137:** adicionado novas imagem ([f82eb71](https://github.com/pluggedcomputing/pixel/commit/f82eb71934d66ff5f8ff04afc1db29e5346b3d4b)), closes [#137](https://github.com/pluggedcomputing/pixel/issues/137)
+* **#137:** adicionado novas imagens e redefinicao das descricoes ([a24352d](https://github.com/pluggedcomputing/pixel/commit/a24352d1ab2d5ffe1f08a5bacf4690c058d8e7cc)), closes [#137](https://github.com/pluggedcomputing/pixel/issues/137)
+* **#137:** adicionar imagem com nome pixel ([be578aa](https://github.com/pluggedcomputing/pixel/commit/be578aa0ba5214abb168b9e75f8258a3b911d9ad)), closes [#137](https://github.com/pluggedcomputing/pixel/issues/137)
+* **#137:** adicionardo imagem de pixel e criarcao da separacao dos componentes ([bc4fc3f](https://github.com/pluggedcomputing/pixel/commit/bc4fc3f28d76b2e20db54cdeac400a908b039fec)), closes [#137](https://github.com/pluggedcomputing/pixel/issues/137)
+* **#147:** adicionado link para pagina do projeto ([050ee02](https://github.com/pluggedcomputing/pixel/commit/050ee02cc6ca38bfa713a3304a3671a9e33b5b9d)), closes [#147](https://github.com/pluggedcomputing/pixel/issues/147)
+* **#147:** adicionar imagem para linkar ao site ([2188388](https://github.com/pluggedcomputing/pixel/commit/2188388815417883b5740624d901b45e57a8af27)), closes [#147](https://github.com/pluggedcomputing/pixel/issues/147)
+* **#147:** alteracoes de texto pontuais ([bf3c02f](https://github.com/pluggedcomputing/pixel/commit/bf3c02f5b1e4fbb593b73b205c9830328c236084)), closes [#147](https://github.com/pluggedcomputing/pixel/issues/147)
+* **#151:** adicionar campo para informar se seta no ultimo nivel ([4cc47d5](https://github.com/pluggedcomputing/pixel/commit/4cc47d5fd8a0f00196202c91ebfd61249c2089d3)), closes [#151](https://github.com/pluggedcomputing/pixel/issues/151)
+* **#151:** adicionar gif ([b8c3cf7](https://github.com/pluggedcomputing/pixel/commit/b8c3cf78046667fe87339c05d659cb65fb0dced4)), closes [#151](https://github.com/pluggedcomputing/pixel/issues/151)
+* **#151:** alterado cor do background e do clique de acerto e erro ([166da6c](https://github.com/pluggedcomputing/pixel/commit/166da6c2ae698f0dd2139cb978abf239f568999f)), closes [#151](https://github.com/pluggedcomputing/pixel/issues/151)
+* **#151:** criar componente para mostar modal com mensagem final ao responder todas os niveis ([9c508cc](https://github.com/pluggedcomputing/pixel/commit/9c508cccfa8b047d115de40f4d102c3a0a2f564b)), closes [#151](https://github.com/pluggedcomputing/pixel/issues/151)
+* **#159:** alterado animecao para imagem png ([80b1a57](https://github.com/pluggedcomputing/pixel/commit/80b1a57b5ac1aa2b638e31a9914a17e2a195820c)), closes [#159](https://github.com/pluggedcomputing/pixel/issues/159)
+* **#159:** aumentar largura do card ([cb8e8da](https://github.com/pluggedcomputing/pixel/commit/cb8e8da5f27bcd2dad8c582b43ee29f7e2c7f533)), closes [#159](https://github.com/pluggedcomputing/pixel/issues/159)
+* **#159:** removido animacao de documente e alterado primeira animacao do card ([4871b1b](https://github.com/pluggedcomputing/pixel/commit/4871b1b605bca69c79122f68c51d2271d621c7e1)), closes [#159](https://github.com/pluggedcomputing/pixel/issues/159)
+* **#159:** removido gif e adicinado animacao ([2b583da](https://github.com/pluggedcomputing/pixel/commit/2b583dad2f13342e7e864507ca00ecc1909cc622)), closes [#159](https://github.com/pluggedcomputing/pixel/issues/159)
+
+
+### Bug Fixes
+
+* **#103:** alterar tamanha padrao dos texto e criar estilos para alguns componente text ([d841353](https://github.com/pluggedcomputing/pixel/commit/d841353e63bf15deb28af225f2d4a035df8b3625)), closes [#103](https://github.com/pluggedcomputing/pixel/issues/103)
+* **#113:** adicionar lib de dex ([54f733c](https://github.com/pluggedcomputing/pixel/commit/54f733c9ff44dcd39b494a9c554e32e3431eb9dd)), closes [#113](https://github.com/pluggedcomputing/pixel/issues/113)
+* **#113:** adicionar verificacao ao setar ultimo card ([ac6a0e5](https://github.com/pluggedcomputing/pixel/commit/ac6a0e56e9f17e6de4778479d9a75b6d80e0032c)), closes [#113](https://github.com/pluggedcomputing/pixel/issues/113)
+* **#113:** adicionar verificacao para ultima tela ([ab920e1](https://github.com/pluggedcomputing/pixel/commit/ab920e178449c559218cf08e2084cf9ea42eb1f1)), closes [#113](https://github.com/pluggedcomputing/pixel/issues/113)
+* **#113:** corrigir card bloqueado ao voltar ([f6a2f58](https://github.com/pluggedcomputing/pixel/commit/f6a2f5855c2e7099da03a375158945ab9f4ce23f)), closes [#113](https://github.com/pluggedcomputing/pixel/issues/113)
+* **#113:** corrigir card nao passando para a ultima posicao ([d0025ee](https://github.com/pluggedcomputing/pixel/commit/d0025ee772bfa40ff0a6033dc0197286e604fd09)), closes [#113](https://github.com/pluggedcomputing/pixel/issues/113)
+* **#113:** corrigir card nao passando para a ultima posicao ([6358d48](https://github.com/pluggedcomputing/pixel/commit/6358d4813ff271e88504fa742a71aca2a8907d66)), closes [#113](https://github.com/pluggedcomputing/pixel/issues/113)
+* **#113:** remover console log ([6aa7155](https://github.com/pluggedcomputing/pixel/commit/6aa715579f26bc54b511009ef8d14a3f6d36934d)), closes [#113](https://github.com/pluggedcomputing/pixel/issues/113)
+* **#125:** alterado local da imagem ([d9654c4](https://github.com/pluggedcomputing/pixel/commit/d9654c4af65d3ea1ea0be8a4972c4a12988bb74a)), closes [#125](https://github.com/pluggedcomputing/pixel/issues/125)
+* **#130:** alterado informacao de descricao e alterado campo visivel ([43e0ca6](https://github.com/pluggedcomputing/pixel/commit/43e0ca6bffccfe582c16f3de6c5cabc43935cd4b)), closes [#130](https://github.com/pluggedcomputing/pixel/issues/130)
+* **#131:** alteracoes na tela de congratulations ([0696ae3](https://github.com/pluggedcomputing/pixel/commit/0696ae396ff83277f51bf053dc6e129e5f5fb257)), closes [#131](https://github.com/pluggedcomputing/pixel/issues/131)
+* **#135:** adicionado condicao para indentificar matriz convertida e evitar de converter novamente ([a844b77](https://github.com/pluggedcomputing/pixel/commit/a844b77fd7ae39552900f6121fc6afbac67e7302)), closes [#135](https://github.com/pluggedcomputing/pixel/issues/135)
+* **#135:** adicionar novo campo no json ([854593a](https://github.com/pluggedcomputing/pixel/commit/854593a3253c4684353d7df082b299250f816dab)), closes [#135](https://github.com/pluggedcomputing/pixel/issues/135)
+* **135:** adicionado novo parametro no metodo generateAlternatives ([83ec14d](https://github.com/pluggedcomputing/pixel/commit/83ec14d1fae741e6ca6818555ef523b0fe8383bb))
+* **app_crash_version_android:** adicionado extencao de classe do multidex ([9ccfcf7](https://github.com/pluggedcomputing/pixel/commit/9ccfcf77fcd9c759aff65b8441dee106b952a80b))
+* fixed screenOrientation="portrait" ([83ffc40](https://github.com/pluggedcomputing/pixel/commit/83ffc407e33971c56a4942e99280300a0fe1bbfc))
+
 ## [0.1.0-5](https://github.com/pluggedcomputing/pixel/compare/v0.1.0-4...v0.1.0-5) (2021-04-27)
 
 
