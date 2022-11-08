@@ -2,69 +2,96 @@ import {StyleSheet} from 'react-native';
 
 import {metrics, colors, fonts} from '../../styles';
 
-const HEIGHT_PORCENTAGE = 0.3;
 
 const styles = StyleSheet.create({
-  container: {
+  containerText: {
     flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: metrics.screenWidth,
+    backgroundColor: colors.colorAccent,
+  },
+  containerQuestions: {
+    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     width: metrics.screenWidth,
     backgroundColor: colors.colorPrimary,
   },
-  halfTopView: {
-    flex: 1,
+  screen: {
+    width: metrics.screenWidth*1.1,
     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+  },
+  headerStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
     width: metrics.screenWidth,
-    backgroundColor: colors.colorPrimary,
-    marginTop: metrics.baseMargin,
-    marginBottom: metrics.baseMargin,
+    top: 35,
+    backgroundColor: 'transparent',
+  },
+  headerStyleText: {
+    color: colors.colorTextPrimary,
+    fontFamily:'Poppins-Bold',
+    fontSize: 18,
+    left: 15,
+    marginBottom: -5,
+    top: 5,
+  },
+  headerStyleButton:{
+    display: 'flex',
+    backgroundColor: 'transparent',
+    padding: 6,
+    left: 140,
+  },
+  conteinerPaintTableQuestions: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: metrics.screenWidth*1.1,
+    backgroundColor: 'transparent',
   },
   viewBoxContent: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     margin: metrics.baseMargin,
+    padding: metrics.basePadding,
     alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   statementImage: {
     resizeMode: 'contain',
     justifyContent: 'flex-end',
     width: Math.round((metrics.screenWidth * 14) / 16),
-    height: metrics.screenHeight * 0.2,
-  },
-  animation: {
-    width: metrics.screenHeight * HEIGHT_PORCENTAGE,
-    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
-    alignSelf: 'center',
-  },
-  textBoxContent: {
-    textAlign: 'center',
-    fontSize: fonts.small,
-    paddingHorizontal: metrics.basePadding,
-    color: colors.colorTextPrimary,
+    height: metrics.screenHeight * 0.32,
+    marginTop: metrics.baseMargin * 2,
+    marginBottom: metrics.baseMargin * 2,
   },
   contentText: {
-    fontSize: fonts.small,
-  },
-  textAnswer: {
-    fontSize: fonts.medium,
-    textAlign: 'center',
-    marginTop: metrics.baseMargin,
-    color: colors.colorPrimaryDark,
-    fontWeight: 'bold',
-  },
-  buttonsContainer: {
     flex: 1,
-    width: metrics.screenWidth,
-    marginBottom: metrics.baseMargin,
-  },
-  contentContainerStyle: {
+    fontSize: fonts.regular*1.12,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: metrics.baseMargin,
+    top: 10,
+    marginLeft: metrics.smallMargin,
+    marginRight: metrics.smallMargin,
+    color: colors.colorTextPrimary,
+    fontFamily: 'Poppins-Ligth',
   },
-  buttons: {
-    flex: 1,
+  textAnswer: {
+    fontSize: fonts.regular,
+    textAlign: 'center',
+    marginTop: metrics.baseMargin,
+    color: colors.colorSecondary,
+    fontWeight: 'bold',
+  },
+  contentContainerStyle: {
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    margin: metrics.baseMargin*2,
   },
 });
 

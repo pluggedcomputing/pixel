@@ -2,19 +2,19 @@
   "exercises": [
     {
       "level": 1,
-      "congratulations": [  "Entende o funcionamento do fax", "Entende que as telas dos computadores são divididas em uma grade de pequenos pontos (pixels)"],
+      "congratulations": [  "Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação."],
       "questions": [
         {
           "type": "none",
           "id": 1,
-          "text": "Você sabia que os computadores armazenam desenhos, fotografias e outras imagens usando apenas números? A seguir, entenderemos melhor.",
+          "text": "Você sabia que os computadores armazenam desenhos, fotografias, e outras imagens usando apenas números? A seguir, entenderemos melhor.",
           "img": "l1q1",
           "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 2,
-          "text": "As telas dos computadores são dividas em uma grade de pequenos quadrados, podendo ser cada um de uma cor específica. Chamamos esses quadrados de elementos de imagem ou pixels",
+          "text": "As telas dos computadores são divididas em uma grade de pequenos quadrados, podendo ser cada um de uma cor específica. Chamamos esses quadrados de elementos  de imagem ou pixels.",
           "img": "l1q2",
           "imgFormat": "img"
         },
@@ -28,7 +28,7 @@
         {
           "type": "none",
           "id": 4,
-          "text": "Uma imagem correspondente à letra C, por exemplo, poderia ser representada com números binários (bits). Se o 1 indica um quadrado branco e o 0 indica um quadrado preto, então poderíamos ter uma grade de 5x6 pixels como a ilustrada abaixo:",
+          "text": "Uma imagem correspondente à letra C, por exemplo, poderia ser representada com números binários (bits). Se o 1 indica um quadrado branco e o 0 indica um quadrado preto, então poderíamos ter uma grade de 5 x 6 pixels como a ilustrada acima.",
           "img": "l1q4",
           "imgFormat": "img"
         },
@@ -37,7 +37,7 @@
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
-          "text": "Pinte os pixels abaixo de preto ou branco clicando em cada um deles e veja o código dos bits correspondentes.",
+          "text": "Pinte os pixels acima de preto ou branco clicando em cada um deles e veja o código em bits (sequências de 0s e 1s) correspondente.",
           "row": 1,
           "column": 5,
           "isContentReduced": false,
@@ -51,7 +51,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "A sequência de pixels abaixo pode ser representado por qual código?",
+          "text": "A sequência de pixels acima pode ser representada por qual código?",
           "row": 1,
           "column": 5,
           "isContentReduced": false,
@@ -72,8 +72,8 @@
           "id": 6,
           "type": "none",
           "text": "Uma máquina de fax é basicamente um computador simples que efetua uma varredura sobre uma folha e identifica os pontos brancos ou não e armazena essa informação em aproximadamente 1000 × 2000 pixels, que são transmitidos para outra máquina de fax utilizando a rede de telefonia.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l1q6",
+          "imgFormat": "img"
         },
         {
           "id": 7,
@@ -88,18 +88,18 @@
           "enable": false,
           "invisibleRow": null,
           "text": "Como você acha que eram codificadas as mensagens enviadas através de uma máquina de fax?",
-          "img": null,
-          "imgFormat": "",
+          "img": "l1q8",
+          "imgFormat": "img",
           "paintContent": [],
           "alternatives": [
             {
               "id": 1,
-              "text": "Representando pontos pretos com 0 e brancos com 1",
+              "text": "Usando pontos pretos como 0 e brancos como 1",
               "correct": false
             },
             {
               "id": 2,
-              "text": "Utilizando uma representação que economize a quantidade de dados enviados",
+              "text": "Com representação que economize a quantidade de dados enviada",
               "correct": true
             }
           ]
@@ -108,8 +108,8 @@
           "type": "none",
           "id": 9,
           "text": "Para economizar no armazenamento e transmissão de dados, é mais interessante utilizar uma representação dos dados que economize a quantidade de informação transmitida ou armazenada.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l1q9",
+          "imgFormat": "img"
         },
         {
           "id": 10,
@@ -117,8 +117,8 @@
           "enable": false,
           "invisibleRow": null,
           "text": "Considerando o que foi apresentado, responda: O que as máquinas de fax fazem?",
-          "img": null,
-          "imgFormat": "",
+          "img": "l1q10",
+          "imgFormat": "img",
           "paintContent": [],
           "alternatives": [
             {
@@ -147,21 +147,21 @@
     },
     {
       "level": 2,
-      "congratulations": [ "Você agora entende o funcionamento básico da representação de imagens no computador", "Você sabe codificar uma imagem a ser exibida em uma tela utilizando apenas 0 e 1"],
+      "congratulations": [ "Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação."],
       "questions": [
         {
           "type": "none",
           "id": 1,
           "text":
               "Você aprendeu que para armazenar uma imagem em preto e branco o computador apenas precisa armazenar quais pixels são pretos e quais são brancos.",
-            "img": null,
-            "imgFormat": ""
+            "img": "l2q1",
+            "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 2,
           "text":
-              "Por exemplo, se quisermos exibir uma imagem correspondente à letra C, precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos. Ao ampliarmos uma imagem mais e mais, podemos ver uma grade de pixels semelhantes a estes:",
+              "Por exemplo, se quisermos exibir uma imagem correspondente à letra C, precisamos pensar na tela como uma grade com vários quadrados pretos ou brancos. Ao ampliarmos uma imagem mais e mais, podemos ver uma grade de pixels semelhantes a estes.",
             "img": "l2q2",
             "imgFormat": "img"
         },
@@ -173,7 +173,7 @@
           "minPaintPixel": 1,
           "lackRowPixel": null,
           "paintingFreely": false,
-          "text": "Agora vamos praticar? Pinte a imagem representada pelos códigos abaixo. Lembre-se de que o 1 é branco e o 0 é preto.",
+          "text": "Agora vamos praticar? Pinte a imagem representada pelos códigos acima e escolha a letra representada pelo código. Lembre-se de que o 1 é branco e o 0 é preto.",
           "row": 5,
           "column": 5,
           "isContentReduced": false,
@@ -214,7 +214,7 @@
           "minPaintPixel": 1,
           "invisibleRow": null,
           "lackRowPixel": null,
-          "text": "Vamos praticar? Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida",
+          "text": "Vamos praticar? Pinte os quadrados correspondentes aos códigos binários indicados e escolha a letra que será exibida.",
           "row": 5,
           "column": 5,
           "isContentReduced": false,
@@ -253,7 +253,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [4],
-          "text": "Agora tente descobrir qual é a linha que está faltando para completar o desenho da letra W?",
+          "text": "Agora tente descobrir qual o código correspondente à última linha e que está faltando neste desenho da letra W.",
           "row": 5,
           "column": 5,
           "isContentReduced": false,
@@ -291,14 +291,14 @@
     },
     {
       "level": 3,
-      "congratulations": ["Você entende como uma imagem pode ser representada com números de forma compactada"],
+      "congratulations": ["Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação."],
       "questions": [
         {
           "type": "none",
           "id": 1,
           "text": "Você aprendeu que podemos representar uma imagem através de pontos pretos e brancos, representados por 0 e 1 respectivamente.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l3q1",
+          "imgFormat": "img"
         },
         {
           "type": "none",
@@ -310,42 +310,31 @@
         {
           "type": "none",
           "id": 3,
-          "text": "Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Por exemplo, a primeira linha da imagem abaixo pode ser representada por 1,1,3,1,1 indicando a sequência de 1 pixel branco, 1 preto, 3 brancos, 1 preto e 1 branco",
+          "text": "Para armazenar uma imagem no computador economizando espaço, basta armazenar quantos pontos são pretos e quantos pontos são brancos. Por exemplo, a primeira linha da imagem acima pode ser representada por 1,1,3,1,1 indicando a sequência de 1 pixel branco, 1 preto, 3 brancos, 1 preto e 1 branco.",
           "img": "l3q3",
           "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 4,
-          "text": "Note que o primeiro código representa a quantidade de pixels brancos e o segundo a quantidade de pixels pretos, e assim sucessivamente. Se a linha começa com pixels pretos, o primeiro código será 0.",
+          "text": "Note que o primeiro código representa a quantidade de pixels brancos e o segundo a quantidade de pixels pretos, e assim sucessivamente. Quando o primeiro código é 0 (zero), o primeiro pixel será preto, pois o 0 (zero) representa a ausência de pixels brancos.",
           "img": "l3q4",
           "imgFormat": "img"
         },
         {
-          "type": "paintingtable",
-          "id": 4,
+          "type": "none",
+          "id": 5,
           "enable": false,
-          "text": "Veja abaixo como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos.",
-          "img": null,
-          "imgFormat": "",
-          "row": 5,
-          "column": 5,
-          "isContentReduced": true,
-          "hasConverted": true,
-          "paintContent": [
-            [0,5],
-            [2, 1, 2],
-            [2, 1, 2],
-            [2, 1, 2],
-            [2, 1, 2]
-          ]
+          "text": "Veja acima como representar a letra T. A primeira linha consiste de 0 pixels brancos, seguidos de 5 pixels pretos e as linhas seguintes de 2 pixels brancos, 1 preto e 2 brancos.",
+          "img": "l3q5",
+          "imgFormat": "img"
         },
         {
           "id": 5,
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
-          "text": "Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.",
+          "text": "Que letra está sendo representada no código acima considerando a nova codificação aprendida? Você pode pintar os quadrados na cor preta ou branca clicando neles.",
           "row": 5,
           "column": 5,
           "minPaintPixel": 1,
@@ -387,7 +376,7 @@
           "type": "paintingtable",
           "enable": true,
           "invisibleRow": null,
-          "text": "Ajuste os pixels da imagem abaixo de acordo com os códigos indicados. Qual a letra que está sendo representada?",
+          "text": "Ajuste os pixels da imagem acima de acordo com os códigos indicados. Qual a letra que está sendo representada?",
           "row": 5,
           "column": 5,
           "lackRowPixel": [{"excerptsColumn":[0, 1, 3], "row":0}, {"excerptsColumn":[4], "row":1}, {"excerptsColumn":[4], "row":3}, {"excerptsColumn":[0, 4], "row":4}],
@@ -430,7 +419,7 @@
           "type": "paintingtable",
           "enable": true,
           "minPaintPixel": 1,
-          "text": "Qual a letra representada pelos códigos abaixo?",
+          "text": "Pinte os quadrados que faltam considerando o código de cada linha e responda: Qual a letra representada?",
           "row": 5,
           "column": 5,
           "lackRowPixel": [{"excerptsColumn":[0, 4], "row":0}, {"excerptsColumn":[0, 4], "row":1}, {"excerptsColumn":[3], "row":3}, {"excerptsColumn":[0], "row":4}, {"excerptsColumn":[0], "row":5}],
@@ -472,7 +461,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [4],
-          "text": "Como você representaria a última linha da imagem abaixo?",
+          "text": "Como você representaria a última linha da imagem acima?",
           "row": 5,
           "column": 5,
           "isContentReduced": true,
@@ -514,7 +503,7 @@
           "enable": true,
           "minPaintPixel": 1,
           "invisibleRow": null,
-          "text": "Que letra está sendo representada no código abaixo? Você pode pintar os quadrados na cor preta ou branca clicando neles.",
+          "text": "Que letra está sendo representada no código acima? Você pode pintar os quadrados na cor preta ou branca clicando neles.",
           "row": 5,
           "column": 5,
           "isContentReduced": true,
@@ -554,28 +543,35 @@
     },
     {
       "level": 4,
-      "congratulations": [ "Você entende a necessidade de comprimir dados", "Você aprendeu como comprimir dados referentes a pixels utilizando run-length coding", "Você concluiu todos os níveis"],
+      "congratulations": [ "Que bom que você chegou até aqui. Se quiser você pode refazer essa fase e melhorar a sua pontuação."],
       "questions": [
         {
           "type": "none",
           "id": 1,
           "text": "Como vimos antes, uma máquina de fax é capaz de transmitir imagens para uma outra máquina. Imagens impressas por máquinas de fax geralmente têm grandes blocos de pixels brancos (por exemplo, as margens) ou pretos (por exemplo, uma linha horizontal).",
-          "img": null,
-          "imgFormat": ""
+          "img": "l4q1",
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 2,
-          "text": "Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento necessário para guardar essas imagens, os programadores podem usar diversas técnicas de compressão.  O método utilizado nas atividades do Nível 3 para representar quantidades de pixels brancos e pretos é chamado de 'run-length coding'. Esse método permite comprimir imagens. Se as imagens não fossem comprimidas, estas levariam muito mais tempo para serem transmitidas e exigiriam muito mais espaço para armazenamento. Isto tornaria inviável enviar páginas de fax ou colocar fotos em uma página da Internet.",
-          "img": null,
-          "imgFormat": ""
+          "text": "Imagens coloridas também possuem áreas repetidas. A fim de economizar o espaço de armazenamento, os programadores podem usar diversas técnicas de compressão.",
+          "img": "l4q2",
+          "imgFormat": "img"
         },
         {
           "type": "none",
           "id": 3,
+          "text": "O método visto na Fase 3, que permite comprimir imagens, foi o 'run-length coding'. Se elas não fossem comprimidas, levariam muito mais tempo para serem transmitidas e exigiria muito mais espaço para armazenamento, inviabilizando o envio de páginas de fax ou colocar fotos em uma página da Internet.",
+          "img": "l4q3",
+          "imgFormat": "img"
+        },
+        {
+          "type": "none",
+          "id": 4,
           "text": "Por exemplo, imagens de fax eram geralmente comprimidas para aproximadamente um sétimo do seu tamanho original. Sem a compressão, estas demorariam sete vezes mais para serem transmitidas! Lembre-se de que as velocidades de transmissão não eram tão boas antigamente como as que temos hoje.",
-          "img": null,
-          "imgFormat": ""
+          "img": "l4q4",
+          "imgFormat": "img"
         },
         {
           "id": 4,
@@ -583,7 +579,7 @@
           "enable": true,
           "invisibleRow": null,
           "paintingFreely": true,
-          "text": "Que tal desenhar você mesmo e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.",
+          "text": "Que tal desenhar você mesmo e tentar descobrir o código que representa essa imagem? Pinte no quadro acima sua imagem e clique em concluir.",
           "paintContent": [],
           "row": 5,
           "isContentReduced": true,
@@ -603,7 +599,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "Selecione a sequência que represente a primeira linha de sua foto",
+          "text": "Selecione a sequência que representa a primeira linha de sua imagem.",
           "paintingFreely": false,
           "isContentReduced": true,
           "hasConverted": true,
@@ -618,9 +614,16 @@
           "type": "none",
           "id": 6,
           "enable": false,
-          "text": "Fotografias e imagens são freqüentemente comprimidas para um décimo ou até mesmo um centésimo do seu tamanho original (utilizando uma técnica diferente). Isto permite que um número bem maior de imagens seja armazenado em um disco e significa que vê-las na Internet levará bem menos tempo. Um programador pode escolher a técnica mais adequada à compressão das imagens que está transmitindo.",
-          "img": null,
-          "imgFormat": ""
+          "text": "Fotos e imagens são frequentemente comprimidas para um décimo ou até um centésimo do seu tamanho (usando uma técnica diferente). Isto permite que um número maior de imagens sejam armazenadas nos dispositivos e que possam ser baixadas mais rapidamente da Internet.",
+          "img": "l4q5",
+          "imgFormat": "img"
+        },
+        {
+          "type": "none",
+          "id": 7,
+          "text": "Um programador pode escolher a técnica mais adequada para compressão das imagens que está transmitindo.",
+          "img": "l4q6",
+          "imgFormat": "img"
         },
         {
           "id": 7,
@@ -628,7 +631,7 @@
           "enable": true,
           "invisibleRow": null,
           "paintingFreely": true,
-          "text": "Que tal agora desenhar com cores e tentar descobir o código que representa essa imagem? Pinte no quadro abaixo sua imagem e clique em concluir.",
+          "text": "Que tal agora desenhar com cores e tentar descobrir o código que representa essa imagem? Pinte no quadro acima sua imagem e clique em concluir.",
           "paintContent": [],
           "row": 5,
           "isContentReduced": true,
@@ -648,7 +651,7 @@
           "type": "paintingtable",
           "enable": false,
           "invisibleRow": [0],
-          "text": "Selecione a sequência que represente a primeira linha de sua foto",
+          "text": "Selecione a sequência que representa a primeira linha de sua imagem.",
           "paintingFreely": false,
           "isContentReduced": true,
           "isColorFul": true,

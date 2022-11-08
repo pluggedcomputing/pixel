@@ -1,36 +1,37 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, fonts, metrics} from '../../styles';
+import {colors, metrics, fonts} from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
-    height: metrics.screenHeight * 0.25,
-    width: metrics.screenWidth * 0.3,
-    backgroundColor: colors.colorSecondary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: metrics.baseBorder,
-    elevation: metrics.baseElevation,
+    height: metrics.screenHeight * 0.15,
+    width: metrics.screenWidth * 0.80,
+    margin: metrics.baseMargin,
   },
   subContainer: {
     flex: 1,
-    margin: metrics.smallMargin,
-    width: metrics.screenWidth * 0.25,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection:'row',
+    justifyContent:'space-around',
+    alignItems:'center',
     backgroundColor: colors.colorPrimary,
+    borderRadius: metrics.baseRadius,
   },
   imageLevel: {
     flex: 3,
     margin: metrics.smallMargin,
-    width: metrics.screenWidth * 0.2,
+    width: metrics.screenWidth * 0.20,
     resizeMode: 'contain',
   },
-
   textLevel: {
-    flex: 1,
-    fontSize: fonts.small,
-    color: colors.colorTextSecondary,
+    fontSize: fonts.title,
+    fontFamily: 'Poppins-Bold',
+    color: colors.colorTextPrimary,
+    textTransform:'uppercase'
+  },
+  bio:{
+    color: colors.colorTextPrimary,
+    fontSize:fonts.regular,
+    maxWidth:140,
   },
 });
 

@@ -4,27 +4,19 @@ import {metrics, colors} from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     width: metrics.screenWidth,
     height: metrics.screenHeight,
-    backgroundColor: colors.colorSecondary,
-  },
-  scrollView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    backgroundColor: colors.colorAccent,
   },
   boxContainer: {
-    margin: metrics.doubleBaseMargin,
-    width: metrics.screenWidth * 0.4,
-    height: metrics.screenHeight * 0.9,
-    justifyContent: 'space-around',
+    marginTop: 20,
+    width: metrics.screenWidth,
+    height: metrics.screenHeight * 0.14,
+    justifyContent: 'flex-start',
     alignItems: 'center',
-  },
-  imagePixel: {
-    margin: metrics.smallMargin,
-    width: metrics.screenWidth * 0.15,
-    height: metrics.screenHeight * 0.1,
   },
 });
 

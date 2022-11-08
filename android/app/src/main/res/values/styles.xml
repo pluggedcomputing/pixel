@@ -13,6 +13,8 @@
           @color/primary
         </item>
 
+        <item name="android:forceDarkAllowed">false</item>
+
     </style>
 
 </resources>

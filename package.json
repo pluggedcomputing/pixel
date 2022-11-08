@@ -11,7 +11,7 @@
     "build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
     "apk": "cd android && ./gradlew assembleDebug",
     "release": "standard-version",
-    "android:release": "cd android && ./gradlew bundleRelease",
+    "aab": "cd android && ./gradlew bundleRelease",
     "test-release": "react-native run-android --variant=release"
   },
   "husky": {
@@ -29,10 +29,12 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.0",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
     "buffer": "^5.6.0",
-    "lottie-react-native": "^3.5.0",
+    "lottie-ios": "3.4.0",
+    "lottie-react-native": "^5.1.4",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-native": "0.63.2",
@@ -42,10 +44,12 @@
     "react-native-reanimated": "^1.13.0",
     "react-native-safe-area-context": "^3.1.6",
     "react-native-screens": "^2.10.1",
+    "react-native-share": "^7.5.0",
     "react-native-svg": "^12.1.1",
     "react-native-svg-uri": "^1.2.3",
+    "react-native-swiper-flatlist": "^3.0.17",
     "react-native-uuid": "^1.4.9",
-    "react-native-vector-icons": "^7.0.0"
+    "react-native-vector-icons": "^9.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

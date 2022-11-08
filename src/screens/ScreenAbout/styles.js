@@ -3,33 +3,31 @@ import {StyleSheet} from 'react-native';
 import {colors, metrics, fonts} from '../../styles';
 
 const HEIGHT_PORCENTAGE = 0.2;
-const WIDTH_PORCENTAGE = 0.3;
+const WIDTH_PORCENTAGE = 0.6;
 
 const styles = StyleSheet.create({
+  backgroundColor:{
+    backgroundColor: colors.colorAccent,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
     width: metrics.screenWidth,
     justifyContent: 'space-around',
-    backgroundColor: colors.colorPrimary,
-  },
-  credits: {
-    color: colors.colorSecondary,
-    textAlign: 'center',
-    fontSize: fonts.small,
-    padding: 3,
+    borderEndWidth: metrics.tripleBaseMargin,
+    borderLeftWidth: metrics.tripleBaseMargin,
+    borderColor: colors.colorAccent,
+    backgroundColor: colors.colorAccent,
   },
   logo: {
-    resizeMode: 'contain',
     width: metrics.screenWidth * WIDTH_PORCENTAGE,
     height: metrics.screenHeight * HEIGHT_PORCENTAGE,
+    resizeMode: 'contain',
   },
-  textButton: {
-    fontSize: fonts.regular,
-    margin: metrics.baseMargin,
-    alignSelf: 'center',
-    color: colors.colorSecondary,
-    textDecorationLine: 'underline',
+  text: {
+    color: colors.colorTextPrimary,
+    marginVertical: metrics.tripleBaseMargin,
+    fontFamily: 'Poppins-Regular',
   },
   viewBoxContent: {
     flex: 1,
@@ -39,32 +37,31 @@ const styles = StyleSheet.create({
 
   textContent: {
     padding: metrics.basePadding,
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
     textAlign: 'justify',
     color: colors.colorTextPrimary,
-  },
-  tankTetris: {
-    resizeMode: 'contain',
-    width: metrics.screenWidth * WIDTH_PORCENTAGE - 50,
-    height: metrics.screenHeight * HEIGHT_PORCENTAGE,
   },
   imgSite: {
     resizeMode: 'center',
     width: metrics.screenWidth * WIDTH_PORCENTAGE,
     height: metrics.screenHeight * 0.1,
   },
+  imgCenter: {
+    resizeMode: 'center',
+    width: metrics.screenWidth * 0.8,
+  },
   subContainerBoxContent: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: metrics.baseMargin,
+    justifyContent: 'center',
     width: metrics.screenWidth * 0.6,
   },
   btnApps: {
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     padding: metrics.basePadding,
-    backgroundColor: colors.colorSecondaryLight,
-    elevation: metrics.baseElevation,
+    backgroundColor: colors.colorAccent,
+    width: metrics.screenWidth/2.2,
   },
 });
 

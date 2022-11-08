@@ -2,16 +2,18 @@ import {StyleSheet} from 'react-native';
 
 import {colors, fonts, metrics} from '../../styles';
 
-const HEIGTH_PERCENTE = 0.03;
-const WIDTH_PERCENTE = 0.06;
+const HEIGTH_PERCENTE = 0.05;
+const WIDTH_PERCENTE = 0.08;
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    elevation: metrics.baseElevation,
     borderRadius: metrics.baseBorder,
-    backgroundColor: colors.colorSecondaryLight,
+    backgroundColor: 'transparent',
+    marginTop: metrics.baseMargin * 1.3,
+    marginBottom: metrics.baseMargin * 0.5,
   },
   subContainer: {
     flexDirection: 'row',
@@ -26,27 +28,28 @@ const styles = StyleSheet.create({
     width: metrics.screenWidth * WIDTH_PERCENTE,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 1,
-    elevation: metrics.baseElevation,
-    borderWidth: 1,
-    borderColor: colors.colorPrimary,
+    margin: 2,
+    borderWidth: 3,
+    borderColor: colors.colorSecondary,
   },
   squareChoice: {
     borderWidth: metrics.baseBorder,
     borderColor: colors.colorSecondaryDark,
   },
-  squareColoring: {backgroundColor: colors.colorTextPrimary},
-  discolorSquare: {backgroundColor: colors.colorSecondaryLight},
+  squareColoring: {backgroundColor: colors.colorBlack},
+  discolorSquare: {backgroundColor: colors.colorAccent},
   squareRed: {backgroundColor: colors.colorError},
   squareGreen: {backgroundColor: colors.colorSucess},
-  squareBlue: {backgroundColor: colors.colorAccent},
+  squareBlue: {backgroundColor: colors.colorBlue},
   containerChoiceColor: {
     marginTop: metrics.smallMargin,
     flexDirection: 'row',
   },
   text: {
     color: colors.colorTextPrimary,
-    fontSize: fonts.tiny,
+    fontSize: fonts.small,
+    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
   },
   containerFooter: {
     marginTop: metrics.baseMargin,

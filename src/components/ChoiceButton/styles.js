@@ -9,20 +9,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: metrics.basePadding,
+    backgroundColor: 'transparent',
     width: metrics.screenWidth * widhtScreen,
-    elevation: metrics.baseElevation,
   },
-
   button: {
     alignItems: 'center',
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
-    elevation: metrics.baseElevation,
+    maxHeight: 100,
   },
   text: {
-    fontWeight: 'bold',
     color: colors.colorTextSecondary,
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
+    textAlignVertical: 'center',
+    fontFamily: 'Poppins-Regular',
   },
 });
 

@@ -3,14 +3,16 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'pluggedcomputingpixel' do
+target 'pluggedComputingPixel' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  target 'pluggedcomputingpixelTests' do
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
+  target 'pluggedComputingPixelTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -25,10 +27,10 @@ target 'pluggedcomputingpixel' do
   end
 end
 
-target 'pluggedcomputingpixel-tvOS' do
-  # Pods for pluggedcomputingpixel-tvOS
+target 'pluggedComputingPixel-tvOS' do
+  # Pods for pluggedComputingPixel-tvOS
 
-  target 'pluggedcomputingpixel-tvOSTests' do
+  target 'pluggedComputingPixel-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

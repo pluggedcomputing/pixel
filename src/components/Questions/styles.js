@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 0.9,
     alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   logo: {
     resizeMode: 'contain',

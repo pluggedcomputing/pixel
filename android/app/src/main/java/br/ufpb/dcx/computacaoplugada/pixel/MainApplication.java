@@ -4,7 +4,10 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
-import com.microsoft.codepush.react.CodePush;
+import cl.json.RNSharePackage;
+import cl.json.RNSharePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -13,6 +16,8 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import androidx.multidex.MultiDexApplication;
+import com.microsoft.codepush.react.CodePush;
+import com.facebook.react.BuildConfig;
 
 public class MainApplication extends MultiDexApplication implements ReactApplication {
 
@@ -39,7 +44,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
 
         @Override
         protected String getJSBundleFile() {
-            return CodePush.getJSBundleFile();
+          return CodePush.getJSBundleFile();
         }
       };
 
@@ -70,7 +75,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("br.ufpb.dcx.computacaoplugada.pixel.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("com.pluggedcomputingpixel.ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

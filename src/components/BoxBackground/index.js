@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList} from 'react-native';
-import {ProgressBar} from 'react-native-paper';
+import {View, TouchableOpacity, Image} from 'react-native';
+import { SwiperFlatList } from 'react-native-swiper-flatlist';
+
 
 import PropTypes from 'prop-types';
 
-import {colors} from '../../styles';
+import group from '../../assets/images/levelSelection/Group.png';
+import colors from '../../styles/colors'
 import styles from './styles';
 
 const BoxBackground = (props) => {
@@ -78,38 +80,57 @@ const BoxBackground = (props) => {
     }
   };
 
-  const convertIndexInProgress = (index) =>
-    ((index + 1) * 100) / content.length / 100;
+    const RightArrowFunction = async () =>{
+      if(pagination !== content.length -1){
+       flatListRef.scrollToIndex({index: pagination + 1,Animated:false})
+      }
+    }
+    const LeftArrowFunction = async () =>{
+      if(pagination !== 0){
+        flatListRef.scrollToIndex({index: pagination- 1,Animated:false})
+      }
+
+    }
 
   const renderItem = ({item}) => {
-    return <View style={styles.boxContainer}>{item}</View>;
+    return (
+      <View style={styles.boxContainer}>
+        {item}
+        <TouchableOpacity style={styles.buttonImageRotate} onPress={() => LeftArrowFunction()}>
+          <Image source={group} style={styles.image} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonImage} onPress={() => RightArrowFunction()}>
+          <Image source={group} style={styles.image2} />
+        </TouchableOpacity>
+      </View>
+);
   };
 
   return (
     <View style={[styles.container, style]}>
-      <FlatList
-        ref={(ref) => {
-          flatListRef = ref;
-        }}
-        data={content}
-        keyExtractor={(item, index) => String(index)}
-        showsHorizontalScrollIndicator={false}
-        onEndReachedThreshold={0.1}
-        onEndReached={() => {
-          isLastPage(true);
-          setIsEndPage(true);
-        }}
-        horizontal
-        pagingEnabled
-        onScroll={(event) => {
-          checkDireciton(event);
-        }}
-        renderItem={renderItem}
-      />
-      <View style={styles.progressBar}>
-        <ProgressBar
-          progress={convertIndexInProgress(pagination)}
-          color={colors.colorAccent}
+      <View style={styles.imageContainer}>
+        <SwiperFlatList
+          ref={(ref) => {
+            flatListRef = ref;
+          }}
+          showPagination
+          paginationDefaultColor={colors.colorDesabled}
+          paginationActiveColor={colors.colorSecondary}
+          paginationStyleItem={{marginHorizontal: 6, marginVertical: -5}}
+          data={content}
+          keyExtractor={(item, index) => String(index)}
+          showsHorizontalScrollIndicator={false}
+          onEndReachedThreshold={0.1}
+          onEndReached={() => {
+            isLastPage(true);
+            setIsEndPage(true);
+          }}
+          horizontal
+          pagingEnabled
+          onScroll={(event) => {
+            checkDireciton(event);
+          }}
+          renderItem={renderItem}
         />
       </View>
     </View>

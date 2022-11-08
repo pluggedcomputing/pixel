@@ -68,6 +68,7 @@ const MultipleChoice = (props) => {
 };
 
 MultipleChoice.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   alternatives: PropTypes.arrayOf(PropTypes.object).isRequired,
   step: PropTypes.number.isRequired,
   setSteps: PropTypes.func.isRequired,

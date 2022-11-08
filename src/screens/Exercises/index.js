@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
-import {View, Image, StatusBar, Text} from 'react-native';
+import {View, Image, StatusBar, Text, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import {useRoute} from '@react-navigation/native';
+import {useRoute, CommonActions} from '@react-navigation/native';
 import Animation from 'lottie-react-native';
 
 import BoxAlternative from '../../components/BoxAlternative';
@@ -14,6 +15,7 @@ import generateAlternatives from '../../utils/generateAlternatives';
 import getImage from '../../utils/getImage';
 import translateRunLenghtCode from '../../utils/translateRunLenghtCode';
 import styles from './styles';
+
 
 const Exercises = ({navigation}) => {
   const [answerPaint, setAnswerPaint] = useState([]);
@@ -30,6 +32,22 @@ const Exercises = ({navigation}) => {
   const [wasPaint, setWasPaint] = useState(true);
   const levelFinal = 4;
   const [firstClickButton, setFirstClickButton] = useState(false);
+  const [showAnswerOptions, setShowAnswerOptions] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState(colors.colorAccent);
+
+  const exitCongratulations = async()=>{
+    navigation.dispatch(
+      CommonActions.reset({
+        index:1,
+        routes:[{
+          name: 'LevelSelection',
+        },],
+      })
+    );
+  }
+
+  const size = 30;
+
   const mountListPermissions = () => {
     const auxList = [];
 
@@ -120,9 +138,17 @@ const Exercises = ({navigation}) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: `Nível ${response.level}`,
+      title: `FASE ${response.level}`,
     });
   }, [navigation]);
+
+  useEffect(() => {
+    if(showAnswerOptions){
+      setBackgroundColor(colors.colorPrimary)
+    }if(backgroundColor){
+      setBackgroundColor(colors.colorAccent)
+    }
+    }, [showAnswerOptions])
 
   useEffect(() => {
     if (finishLevel) {
@@ -230,8 +256,8 @@ const Exercises = ({navigation}) => {
     const content = exercise.questions.map((item) => {
       return (
         <View style={styles.viewBoxContent}>
-          <Text style={styles.contentText}>{item.text}</Text>
           {choiceComponentBox()}
+          <Text style={styles.contentText}>{item.text}</Text>
         </View>
       );
     });
@@ -265,27 +291,39 @@ const Exercises = ({navigation}) => {
     );
   };
 
+
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={colors.colorPrimary} />
-      <View style={styles.halfTopView}>
-        <BoxBackground
-          content={viewContent()}
-          setSteps={setSteps}
-          scrollEnabled={isAnswered() || question.isDemonstration}
-          nextQuestion={nextCard}
-          setNextQuestion={setNextCard}
-          answerAgain={firstClickButton}
-        />
-      </View>
-      <BoxAlternative
-        alternativesContent={getAlternativesContent(question.alternatives)}
-        isNotQuestion={
-          !question.alternatives ||
-          (question.alternatives && question.alternatives.length === 0)
-        }
-        textInfor="Arraste o card acima para o lado para continuar."
+    <View style={[(question.type === 'paintingtable' || question.type === 'multiplechoice') ? styles.containerQuestions : styles.containerText]}>
+      <StatusBar
+        hidden={false}
       />
+      <View style={styles.screen}>
+        <View style={styles.headerStyle}>
+          <Text style={styles.headerStyleText}>FASE {level}</Text>
+          <TouchableOpacity onPress={() => exitCongratulations()} style={styles.headerStyleButton}>
+            <Icon name='close' size={size} color={colors.colorTextPrimary} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.halfTopView}>
+          <BoxBackground
+            content={viewContent()}
+            setSteps={setSteps}
+            scrollEnabled={isAnswered() || question.isDemonstration}
+            nextQuestion={nextCard}
+            setNextQuestion={setNextCard}
+            answerAgain={firstClickButton}
+            isLastPage={value => setShowAnswerOptions(value)}
+            />
+        </View>
+        <BoxAlternative
+          alternativesContent={getAlternativesContent(question.alternatives)}
+          isNotQuestion={
+              !question.alternatives ||
+              (question.alternatives && question.alternatives.length === 0)
+            }
+          textInfor=""
+          />
+      </View>
     </View>
   );
 };

@@ -1,19 +1,25 @@
 import React from 'react';
-import {SafeAreaView, Image, Text, View} from 'react-native';
+import {SafeAreaView, StatusBar, Image, Text, View} from 'react-native';
 
-import logo from '../../assets/images/logo_name.png';
-import title from '../../assets/images/pixel.png';
+import homeScreen from '../../assets/images/home_screen_image.png';
 import CustomButton from '../../components/CustomButton/index';
+import colors from "../../styles/colors";
 import styles from './styles';
 
 function Main({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        barStyle="default"
+        backgroundColor={colors.colorPrimary}
+      />
       <View style={styles.containerHeader}>
-        <Image source={logo} style={styles.logo} />
-        <Image source={title} style={styles.title} />
+        <Image source={homeScreen} style={styles.homeScreen} />
         <Text style={styles.text}>
-          Colorindo com Números - Representação de Imagens
+          COLORINDO COM NÚMEROS
+        </Text>
+        <Text style={styles.superscriptText}>
+          Representação de Imagens
         </Text>
       </View>
       <View style={styles.containerButtons}>
@@ -21,11 +27,6 @@ function Main({navigation}) {
           text="iniciar"
           style={styles.buttons}
           onPress={() => navigation.navigate('LevelSelection')}
-        />
-        <CustomButton
-          text="sobre"
-          style={styles.buttons}
-          onPress={() => navigation.navigate('ScreenAbout')}
         />
       </View>
     </SafeAreaView>
